@@ -6,7 +6,7 @@ bookdown::gitbook:
         <li><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/paternogbc/livro-r/edit/master/%s
+    edit: https://github.com/paternogbc/livro_r_ecologia/edit/master/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
