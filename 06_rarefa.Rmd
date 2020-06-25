@@ -146,7 +146,7 @@ Neste exemplo,foram registradas 21 espécies de anuros nas coletas de campo (709
 
 <p>&nbsp;</p>
 
-## Para se aprofundar
+## Para se aprofundar leia isso
 
 * Recomendamos aos interessados que olhem a página do [EstimateS software](http://viceroy.eeb.uconn.edu/estimates) e baixem o manual do usuário que contém informações detalhadas sobre os índices de rarefação.Este site foi criado e é mantido pelo Dr. Robert K. Colwell, um dos maiores especialistas do mundo em estimativas da biodiversidade
 
