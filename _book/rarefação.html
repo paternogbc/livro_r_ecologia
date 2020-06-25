@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-06-22" />
+<meta name="date" content="2020-06-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -135,7 +135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
 <li class="chapter" data-level="2" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>2</b> Rarefação</a><ul>
-<li class="chapter" data-level="2.1" data-path="rarefação.html"><a href="rarefação.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>2.1</b> Background da análise</a></li>
 <li class="chapter" data-level="2.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>2.2</b> Exemplo prático 1 - Morcegos</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>2.2.1</b> Explicação</a></li>
 <li class="chapter" data-level="2.2.2" data-path="rarefação.html"><a href="rarefação.html#análise"><i class="fa fa-check"></i><b>2.2.2</b> Análise</a></li>
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="rarefação.html"><a href="rarefação.html#para-se-aprofundar"><i class="fa fa-check"></i><b>2.4</b> Para se aprofundar</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>3</b> Estimadores de Riqueza</a><ul>
-<li class="chapter" data-level="3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#backgorund-da-análise"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
 <li class="chapter" data-level="3.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>3.2</b> Estimadores baseados na abundância das espécies</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>3.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
 <li class="chapter" data-level="3.2.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-2"><i class="fa fa-check"></i><b>3.2.2</b> Análise</a></li>
@@ -193,8 +193,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="rarefação" class="section level1">
 <h1><span class="header-section-number">Capítulo 2</span> Rarefação</h1>
-<div id="backgorund-da-análise" class="section level2">
-<h2><span class="header-section-number">2.1</span> Backgorund da análise</h2>
+<div id="background-da-análise" class="section level2">
+<h2><span class="header-section-number">2.1</span> Background da análise</h2>
 <p>Uma das dificuldades na comparação da riqueza de espécies entre comunidades é decorrente da diferença no esforço amostral (e.g.diferença no número de indivíduos, discrepância na quantidade de unidades amostrais ou área amostrada) que inevitavelmente influenciará no número de espécies observadas (Gotelli &amp; Chao 2013). O método de rarefação nos permite comparar o número de espécies entre comunidades quando o tamanho da amostra ou a abundância de indivíduos não são iguais. A rarefação calcula o número esperado de espécies em cada comunidade tendo como base comparativa um valor em que todas as amostras atinjam um tamanho padrão, ou comparações baseadas na comunidade com menor número de amostragens ou com menos indivíduos. O teste foi formulado considerando seguinte pergunta: Se considerarmos <em>n</em> indivíduos ou amostras (<em>n</em> &lt; N) para cada comunidade, quantas espécies registraríamos nas comunidades considerando o mesmo número de indivíduos ou amostras?</p>
 <p><span class="math display">\[E(S) = \sum 1 - \frac{{(N - N_1)}/{n}}{{N}/{n}}\]</span></p>
 <p>Onde:</p>
@@ -248,17 +248,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Calculo da rarefação</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="rarefação.html#cb1-1"></a><span class="kw">library</span>(iNEXT)</span>
 <span id="cb1-2"><a href="rarefação.html#cb1-2"></a><span class="kw">library</span>(devtools)</span>
-<span id="cb1-3"><a href="rarefação.html#cb1-3"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;paternogbc/ecodados&quot;</span>)</span>
-<span id="cb1-4"><a href="rarefação.html#cb1-4"></a><span class="kw">library</span>(ecodados)</span>
-<span id="cb1-5"><a href="rarefação.html#cb1-5"></a></span>
-<span id="cb1-6"><a href="rarefação.html#cb1-6"></a>dados_rarefacao &lt;-<span class="st"> </span>rarefacao_morcegos</span>
-<span id="cb1-7"><a href="rarefação.html#cb1-7"></a>resultados_morcegos &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_rarefacao, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
-<span id="cb1-8"><a href="rarefação.html#cb1-8"></a><span class="co"># q refere-se a família *Hill-numbers* (Hill 1973) onde 0 = riqueza de espécies, 1 =  diversidade de Shannon, e 2 = diversidade de Simpson.</span></span>
-<span id="cb1-9"><a href="rarefação.html#cb1-9"></a><span class="co"># datatype refere-se ao tipo de dados que você vai analisar (e.g. abudância, incidência).</span></span>
-<span id="cb1-10"><a href="rarefação.html#cb1-10"></a><span class="co"># endpoint refere-se ao valor de referência que você determina para a extrapolação.</span></span>
-<span id="cb1-11"><a href="rarefação.html#cb1-11"></a></span>
-<span id="cb1-12"><a href="rarefação.html#cb1-12"></a><span class="co"># Visualizar os resultados </span></span>
-<span id="cb1-13"><a href="rarefação.html#cb1-13"></a><span class="kw">ggiNEXT</span>(resultados_morcegos, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
+<span id="cb1-3"><a href="rarefação.html#cb1-3"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;paternogbc/ecodados&quot;</span>)</span></code></pre></div>
+<pre><code>##   
+   checking for file ‘/tmp/RtmpNYVQcn/remotes2c5577cd06b7/paternogbc-ecodados-f08278f/DESCRIPTION’ ...
+  
+✓  checking for file ‘/tmp/RtmpNYVQcn/remotes2c5577cd06b7/paternogbc-ecodados-f08278f/DESCRIPTION’ (356ms)
+## 
+  
+─  preparing ‘ecodados’:
+##    checking DESCRIPTION meta-information ...
+  
+✓  checking DESCRIPTION meta-information
+## 
+  
+─  checking for LF line-endings in source and make files and shell scripts
+## 
+  
+─  checking for empty or unneeded directories
+## 
+  
+─  building ‘ecodados_0.1.0.tar.gz’
+## 
+  
+   
+## </code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="rarefação.html#cb3-1"></a><span class="kw">library</span>(ecodados)</span>
+<span id="cb3-2"><a href="rarefação.html#cb3-2"></a></span>
+<span id="cb3-3"><a href="rarefação.html#cb3-3"></a>dados_rarefacao &lt;-<span class="st"> </span>rarefacao_morcegos</span>
+<span id="cb3-4"><a href="rarefação.html#cb3-4"></a>resultados_morcegos &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_rarefacao, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
+<span id="cb3-5"><a href="rarefação.html#cb3-5"></a><span class="co"># q refere-se a família *Hill-numbers* (Hill 1973) onde 0 = riqueza de espécies, 1 =  diversidade de Shannon, e 2 = diversidade de Simpson.</span></span>
+<span id="cb3-6"><a href="rarefação.html#cb3-6"></a><span class="co"># datatype refere-se ao tipo de dados que você vai analisar (e.g. abudância, incidência).</span></span>
+<span id="cb3-7"><a href="rarefação.html#cb3-7"></a><span class="co"># endpoint refere-se ao valor de referência que você determina para a extrapolação.</span></span>
+<span id="cb3-8"><a href="rarefação.html#cb3-8"></a></span>
+<span id="cb3-9"><a href="rarefação.html#cb3-9"></a><span class="co"># Visualizar os resultados </span></span>
+<span id="cb3-10"><a href="rarefação.html#cb3-10"></a><span class="kw">ggiNEXT</span>(resultados_morcegos, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
 <div id="interpretação-dos-resultados" class="section level3">
@@ -298,13 +321,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="análise-1" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Análise</h3>
 <p>Calculo da rarefação para os dados de répteis</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="rarefação.html#cb2-1"></a><span class="kw">library</span>(iNEXT)</span>
-<span id="cb2-2"><a href="rarefação.html#cb2-2"></a></span>
-<span id="cb2-3"><a href="rarefação.html#cb2-3"></a>rarefacao_repteis &lt;-<span class="st"> </span>rarefacao_repteis</span>
-<span id="cb2-4"><a href="rarefação.html#cb2-4"></a>resultados_repteis &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_repteis, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">200</span>)</span>
-<span id="cb2-5"><a href="rarefação.html#cb2-5"></a></span>
-<span id="cb2-6"><a href="rarefação.html#cb2-6"></a><span class="co"># Visualizar os resultados </span></span>
-<span id="cb2-7"><a href="rarefação.html#cb2-7"></a><span class="kw">ggiNEXT</span>(resultados_repteis, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="rarefação.html#cb4-1"></a><span class="kw">library</span>(iNEXT)</span>
+<span id="cb4-2"><a href="rarefação.html#cb4-2"></a></span>
+<span id="cb4-3"><a href="rarefação.html#cb4-3"></a>rarefacao_repteis &lt;-<span class="st"> </span>rarefacao_repteis</span>
+<span id="cb4-4"><a href="rarefação.html#cb4-4"></a>resultados_repteis &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_repteis, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">200</span>)</span>
+<span id="cb4-5"><a href="rarefação.html#cb4-5"></a></span>
+<span id="cb4-6"><a href="rarefação.html#cb4-6"></a><span class="co"># Visualizar os resultados </span></span>
+<span id="cb4-7"><a href="rarefação.html#cb4-7"></a><span class="kw">ggiNEXT</span>(resultados_repteis, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="interpretação-dos-resultados-1" class="section level3">
@@ -314,13 +337,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  
 </p>
 <p>Calculo da rarefação para os dados dos anuros</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="rarefação.html#cb3-1"></a><span class="kw">library</span>(iNEXT)</span>
-<span id="cb3-2"><a href="rarefação.html#cb3-2"></a></span>
-<span id="cb3-3"><a href="rarefação.html#cb3-3"></a>rarefacao_anuros &lt;-<span class="st"> </span>rarefacao_anuros</span>
-<span id="cb3-4"><a href="rarefação.html#cb3-4"></a>resultados_anuros &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_anuros, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
-<span id="cb3-5"><a href="rarefação.html#cb3-5"></a></span>
-<span id="cb3-6"><a href="rarefação.html#cb3-6"></a><span class="co"># Visualizar os resultados </span></span>
-<span id="cb3-7"><a href="rarefação.html#cb3-7"></a><span class="kw">ggiNEXT</span>(resultados_anuros, <span class="dt">type =</span> <span class="dv">1</span>, <span class="dt">grey =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="rarefação.html#cb5-1"></a><span class="kw">library</span>(iNEXT)</span>
+<span id="cb5-2"><a href="rarefação.html#cb5-2"></a></span>
+<span id="cb5-3"><a href="rarefação.html#cb5-3"></a>rarefacao_anuros &lt;-<span class="st"> </span>rarefacao_anuros</span>
+<span id="cb5-4"><a href="rarefação.html#cb5-4"></a>resultados_anuros &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_anuros, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
+<span id="cb5-5"><a href="rarefação.html#cb5-5"></a></span>
+<span id="cb5-6"><a href="rarefação.html#cb5-6"></a><span class="co"># Visualizar os resultados </span></span>
+<span id="cb5-7"><a href="rarefação.html#cb5-7"></a><span class="kw">ggiNEXT</span>(resultados_anuros, <span class="dt">type =</span> <span class="dv">1</span>, <span class="dt">grey =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p><strong>Interpretação dos resultados</strong></p>
 <p>Neste exemplo,foram registradas 21 espécies de anuros nas coletas de campo (709 indivíduos) e 12 espécies nas coleções científicas (37 indivíduos). Com base na rarefação, concluímos que não há diferença entre a riqueza de espécies de anuros obtida em coletas de campo e coleções científicas.</p>
