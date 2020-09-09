@@ -37,7 +37,7 @@ Neste exemplo usaremos os dados de 17 espécies de anuros amostradas em 14 dias 
 
 **Pergunta:** 
 
-> Quantas espécies a mais poderiam ser amostradas caso aumentasse o esforço amostral?
+> Quantas espécies a mais poderiam ser amostradas caso aumentassemos o esforço amostral?
 
 **Predições**
 
@@ -47,7 +47,7 @@ Neste exemplo usaremos os dados de 17 espécies de anuros amostradas em 14 dias 
 **Variáveis**
 
 * Variáveis preditoras
-  * matriz ou vetor com as abundâncias das espécies de anuros registradas em uma habitat reprodutivo
+  * matriz ou vetor com as abundâncias das espécies de anuros registradas em um habitat reprodutivo
   
 
 **Checklist**
@@ -127,7 +127,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 
 **Pergunta:** 
 
-> Quantas espécies a mais poderiam ser amostradas caso aumentasse o esforço amostral?
+> Quantas espécies a mais poderiam ser amostradas caso aumentassemos o esforço amostral?
 
 **Predições**
 
@@ -137,7 +137,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 **Variáveis**
 
 * Variáveis preditoras
-  * matriz ou vetor com as abundâncias das espécies de anuros registradas em uma habitat reprodutivo
+  * matriz ou vetor com as abundâncias das espécies de anuros registradas em um habitat reprodutivo
   
 
 **Checklist**
@@ -194,7 +194,7 @@ Com base no número de espécies raras (abundância menor que 10 indivíduos - *
 ## Estimadores baseados na incidência das espécies
 ### CHAO 2 - (Chao 1987): 
 De acordo com Anne Chao, o estimador Chao 1 pode ser modificado para uso com dados de presença/ausência levando em conta a distribuição das espécies entre amostras. Neste caso é
-necessário somente conhecer o número de espécies encontradas em somente uma amostra e o
+necessário conhecer o número de espécies encontradas em somente uma amostra e o
 número de espécies encontradas exatamente em duas amostras. Essa variação ficou denominada como
 Chao 2: 
 
@@ -221,7 +221,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 
 **Pergunta:** 
 
-> Quantas espécies a mais poderiam ser amostradas caso aumentasse o esforço amostral?
+> Quantas espécies a mais poderiam ser amostradas caso aumentassemos o esforço amostral?
 
 **Predições**
 
@@ -231,7 +231,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 **Variáveis**
 
 * Variáveis preditoras
-  * matriz ou vetor com a incidência das espécies de anuros registradas em uma habitat reprodutivo
+  * matriz ou vetor com a incidência das espécies de anuros registradas em um habitat reprodutivo
   
 
 **Checklist**
@@ -311,7 +311,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 
 **Pergunta:** 
 
-> Quantas espécies a mais poderiam ser amostradas caso aumentasse o esforço amostral?
+> Quantas espécies a mais poderiam ser amostradas caso aumentassemos o esforço amostral?
 
 **Predições**
 
@@ -321,7 +321,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 **Variáveis**
 
 * Variáveis preditoras
-  * matriz ou vetor com as abundâncias das espécies de anuros registradas em uma habitat reprodutivo
+  * matriz ou vetor com as abundâncias das espécies de anuros registradas em um habitat reprodutivo
   
 
 **Checklist**
@@ -400,7 +400,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 
 **Pergunta:** 
 
-> Quantas espécies a mais poderiam ser amostradas caso aumentasse o esforço amostral?
+> Quantas espécies a mais poderiam ser amostradas caso aumentassemos o esforço amostral?
 
 **Predições**
 
@@ -410,7 +410,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 **Variáveis**
 
 * Variáveis preditoras
-  * matriz ou vetor com as abundâncias das espécies de anuros registradas em uma habitat reprodutivo
+  * matriz ou vetor com as abundâncias das espécies de anuros registradas em um habitat reprodutivo
   
 
 **Checklist**
@@ -487,7 +487,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 
 **Pergunta:** 
 
-> Quantas espécies a mais poderiam ser amostradas caso aumentasse o esforço amostral?
+> Quantas espécies a mais poderiam ser amostradas caso aumentassemos o esforço amostral?
 
 **Predições**
 
@@ -497,7 +497,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 **Variáveis**
 
 * Variáveis preditoras
-  * matriz ou vetor com as abundâncias das espécies de anuros registradas em uma habitat reprodutivo
+  * matriz ou vetor com as abundâncias das espécies de anuros registradas em um habitat reprodutivo
   
 
 **Checklist**
@@ -552,7 +552,7 @@ ggplot(res_boot, aes(y = Riqueza, x = Amostras)) +
 Com base na frequencia de ocorrência das espécies, o estimador bootstrap calculou a possibilidade de encontrarmos mais duas espécies caso o esforço amostral fosse maior e não mostrou tendência de estabilização da curva em uma assíntota.   
 
 ### Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao & Jost 2012, Colwell et al. 2012): 
-Este método utiliza teoria de amostragem (e.g. modelos multinomial, Poisson e Bernoulli) para conectar rarefação (interpolação) e predição (extrapolação) com base no tamanho da amostra. Contudo, é importante enfatizar que a extrapolação torna-se altamente incerta quando extendida para o dobro do tamanho da amostragem. Este método utiliza uma abordagem com bootstrap para calcular o intervalo de confiança de 95%. 
+Este método utiliza teoria de amostragem (e.g. modelos multinomial, Poisson e Bernoulli) para conectar rarefação (interpolação) e predição (extrapolação) com base no tamanho da amostra. Contudo, é importante enfatizar que a extrapolação torna-se altamente incerta quando extendida para o dobro do tamanho da amostragem. Este método utiliza uma abordagem com bootstrap para calcular o intervalo de confiança de 95%. Uma das vantagens desta abordagem é que ela permite além da riqueza de espécies, interpolar e extrapolar os índices de diversidade de Shannon entropy (i.e. quantifica a incerteza da identidade da espécie baseado na amostragem aleatória de um indivíduo da comunidade) e Gini-Simpson (i.e. quantifica a probabilidade que dois indivíduos escolhidos aleatoriamente sejam de diferentes espécies). Contudo, estes índices de diversidades são transformados e apresentados em unidades de riqueza de espécies (*Números de Hill*, Hill 1973). Hill percebeu que poderíamos calcular a riqueza de espécies máxima usando os índices de Shannon entropy e Gini-Simpson quando consideramos que todas as espécies na comunidade possuem abundâncias idênticas (máxima equitabilidade). Então, eles propos a transformação dos indíces de diversidade determinando qual seria o número de espécies equivalente da nossa comunidade (observado) se todas as espécies fossem igualmente abundantes (teórico). Desta maneira, os indíces podem ser comparavéis pois estão representados pela mesma unidade - riqueza de espécies. Os números de Hill são representados pelo parâmetro *q* que controla a sensibilidide do índice em relação a abudância relativa das espécies (Gotelli & Chao 2013). Quando q = 0 ele não considera a abundância das espécies e é igual a riqueza de espécies. Quando q = 1 ele é o exponencial da diversidade de Shannon, que dá uma peso maior para as espécies raras. Quando q = 2  ele é a diversidade de Simpson, que dá um peso maior para as espécies mais comuns na comunidade. 
 
 #### Exemplo prático 
 ##### Explicação dos dados
@@ -561,7 +561,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 
 **Pergunta:** 
 
-> Quantas espécies a mais poderiam ser amostradas caso aumentasse o esforço amostral?
+> Quantas espécies a mais poderiam ser amostradas caso aumentassemos o esforço amostral?
 
 **Predições**
 
@@ -571,7 +571,7 @@ Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de cole
 **Variáveis**
 
 * Variáveis preditoras
-  * matriz ou vetor com as abundâncias das espécies de anuros registradas em uma habitat reprodutivo
+  * matriz ou vetor com as abundâncias das espécies de anuros registradas em um habitat reprodutivo
   
 
 **Checklist**
