@@ -67,6 +67,7 @@ library(ecodados)
 dados_rarefacao <- rarefacao_morcegos
 resultados_morcegos <- iNEXT(dados_rarefacao, q = 0, datatype = "abundance", endpoint = 800)
 # q refere-se a família *Hill-numbers* (Hill 1973) onde 0 = riqueza de espécies, 1 =  diversidade de Shannon, e 2 = diversidade de Simpson.
+# Veja mais detalhes sobre os números de Hill no Capítulo 7 onde tratamos de extrapolações.
 # datatype refere-se ao tipo de dados que você vai analisar (e.g. abudância, incidência).
 # endpoint refere-se ao valor de referência que você determina para a extrapolação.
 
