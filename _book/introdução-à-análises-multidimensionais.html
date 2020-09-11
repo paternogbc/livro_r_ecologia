@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Introdução à Análises Multidimensionais | Introdução ao R com aplicações em biodiversidade e conservação</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Introdução à Análises Multidimensionais | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Introdução à Análises Multidimensionais | Introdução ao R com aplicações em biodiversidade e conservação" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="" />
+
+
+<meta name="date" content="2020-09-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="k-means-e-agrupamentos-não-hierarquicos.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
+<li class="chapter" data-level="2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>2</b> Introdução à Análises Multidimensionais</a><ul>
+<li class="chapter" data-level="2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>2.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>2.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#análise"><i class="fa fa-check"></i><b>2.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>2.3</b> Exemplo 2:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html"><i class="fa fa-check"></i><b>3</b> K-means e agrupamentos não-hierarquicos</a><ul>
+<li class="chapter" data-level="3.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-1"><i class="fa fa-check"></i><b>3.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>3.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="3.2.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-1"><i class="fa fa-check"></i><b>3.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>3.3</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-2"><i class="fa fa-check"></i><b>3.4</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>3.4.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="3.4.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-2"><i class="fa fa-check"></i><b>3.4.2</b> Análise</a></li>
+<li class="chapter" data-level="3.4.3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#para-se-aprofundar"><i class="fa fa-check"></i><b>3.4.3</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>4</b> Rarefação</a><ul>
+<li class="chapter" data-level="4.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>4.1</b> Background da análise</a></li>
+<li class="chapter" data-level="4.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>4.2</b> Exemplo prático 1 - Morcegos</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>4.2.1</b> Explicação</a></li>
+<li class="chapter" data-level="4.2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#análise"><i class="fa fa-check"></i><b>4.2.2</b> Análise</a></li>
+<li class="chapter" data-level="4.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>4.2.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>4.3</b> Exemplo prático 2 - Rarefação</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>4.3.1</b> Explicação</a></li>
+<li class="chapter" data-level="4.3.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-1"><i class="fa fa-check"></i><b>4.3.2</b> Análise</a></li>
+<li class="chapter" data-level="4.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>4.3.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#para-se-aprofundar"><i class="fa fa-check"></i><b>4.4</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>5</b> Estimadores de Riqueza</a><ul>
+<li class="chapter" data-level="5.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>5.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="5.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>5.2</b> Estimadores baseados na abundância das espécies</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>5.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
+<li class="chapter" data-level="5.2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#análise"><i class="fa fa-check"></i><b>5.2.2</b> Análise</a></li>
+<li class="chapter" data-level="5.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>5.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
+<li class="chapter" data-level="5.2.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-1"><i class="fa fa-check"></i><b>5.2.4</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>5.3</b> Estimadores baseados na incidência das espécies</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>5.3.1</b> CHAO 2 - (Chao 1987):</a></li>
+<li class="chapter" data-level="5.3.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-2"><i class="fa fa-check"></i><b>5.3.2</b> Análise</a></li>
+<li class="chapter" data-level="5.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>5.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
+<li class="chapter" data-level="5.3.4" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-3"><i class="fa fa-check"></i><b>5.3.4</b> Análise</a></li>
+<li class="chapter" data-level="5.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>5.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
+<li class="chapter" data-level="5.3.6" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-4"><i class="fa fa-check"></i><b>5.3.6</b> Análise</a></li>
+<li class="chapter" data-level="5.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>5.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
+<li class="chapter" data-level="5.3.8" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-5"><i class="fa fa-check"></i><b>5.3.8</b> Análise</a></li>
+<li class="chapter" data-level="5.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>5.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
+<li class="chapter" data-level="5.3.10" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-6"><i class="fa fa-check"></i><b>5.3.10</b> Análise</a></li>
+<li class="chapter" data-level="5.3.11" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#para-se-aprofundar"><i class="fa fa-check"></i><b>5.3.11</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introdução-à-análises-multidimensionais" class="section level1">
+<h1><span class="header-section-number">Capítulo 2</span> Introdução à Análises Multidimensionais</h1>
+<p>Neste módulo iremos aprender como implementar no R as análises multivariadas mais comumente utilizadas em ecologia de comunidades. Para isso precisaremos dos pacotes <code>vegan</code>,<code>labdsv</code> e <code>ade4</code>. Procuraremos explicar brevemente a lógica por trás de cada teste, a sua aplicação em problemas comumente encontrados em estudos ecológicos, mas não destrinchar detalhadamente como cada método funciona e o seu componente matemático.</p>
+<p>Em geral, análises multivariadas têm três principais utilidades: reduzir a dimensionalidade dos dados e encontrar a principal direção de variação dos dados, testar relações entre matrizes, ou ainda encontrar diferenças entre grupos. Apesar dessas análises também serem utilizadas como análises exploratórias e para descrever padrões em estudos ecológicos, a necessidade de se ter hipóteses, ou ao menos expectativas a priori, não pode ser ignorada. Se quiser saber mais sobre aspectos teóricos e filosóficos das análises, sugerimos consultar James &amp; McCulloch (1990). Antes de entrar de cabeça nas análises multivariadas também, sugerimos fortemente o estudo de métodos de amostragem e como fazer boas perguntas. Não vamos nos extender muito nesses tópicos porque eles foram abordados nas aulas disponíveis no <a href="https://www.youtube.com/playlist?list=PLy2rjqiD2VP5G6pqMo_QlWo7I3yu-uFTk">YouTube</a>.</p>
+<p>Análises multivariadas podem ser divididas, grosseiramente, em dois tipos: agrupamento e ordenação. Análises de agrupamento em geral tentam agrupar objetos (observações) em grupos de maneira que objetos do mesmo grupo sejam mais semelhantes entre si do que objetos de outros grupos. Mais formalmente, o agrupamento de objetos (ou descritores) é uma operação pela qual um conjunto de objetos (ou descritores) é particionado em dois ou mais subconjuntos, usando regras pré-estabelecidas de aglomeração ou divisão (Legendre &amp; Legendre, 2012). Por outro lado, a análise de ordenação é uma operação pela qual os objetos (ou descritores) são posicionados num espaço que contém menos dimensões que o conjunto de dados original; a posição dos objetos ou descritores em relação aos outros também podem ser usadas para agrupá-los.</p>
+<p>Vamos começar com análises de agrupamento. Aqui vamos exemplificar dois métodos: uma técnica de agrupamento hierarquica (dendrograma) e outra não-hierarquica (k-means.</p>
+<div id="backgorund-da-análise" class="section level2">
+<h2><span class="header-section-number">2.1</span> Backgorund da análise</h2>
+<p>O objetivo da análise de agrupamento é agrupar objetos admitindo que haja um grau de similaridade entre eles. Esta análise pode ser utilizada ainda para classificar uma população em grupos homogêneos de acordo com uma característica de interesse. A grosso modo, uma análise de agrupamento tenta resumir uma grande quantidade de dados e apresentála de maneira fácil de visualizar e entender (em geral, na forma de um dendrograma). No entanto, os resultados da análise podem não refletir necessariamente toda a informação originalmente contida na matriz de dados. Para avaliar o quão bem uma análise de agrupamento representa os dados originais existe uma métrica — o coeficiente de correlação cofenético — o qual discutiremos em detalhes mais adiante.</p>
+<p>Antes de considerar algum método de agrupamento, pense porque você esperaria que houvesse uma descontinuidade nos dados; ou ainda, considere se existe algum ganho prático em dividir uma nuvem de objetos contínuos em grupos. O padrão apresentado pelo dendograma depende do protocolo utilizado (método de agrupamento e índice de dissimilaridade); os grupos formados dependem do nível de corte escolhido. O leitor interessado é remetido à duas referências: Legendre &amp; Legendre (2012) e Borcard et al. (2018).</p>
+</div>
+<div id="exemplo-1" class="section level2">
+<h2><span class="header-section-number">2.2</span> Exemplo 1:</h2>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>Existem grupos de espécies de anfíbios anuros com padrões de ocorrência similar ao longo de poças?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<ul>
+<li>1: Iremos encontrar ao menos dois grupos de espécies: aquelas que ocorrem em poças dentro de floresta vs. aquelas que ocorrem em poças de áreas abertas.</li>
+</ul>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>A nossa matriz de dados contém a abundância das espécies nas linhas e locais (poças) nas colunas.</li>
+</ol></li>
+</ul></li>
+</ul>
+<div id="explicação-da-análise" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Explicação da análise</h3>
+<p>A matriz deve conter os objetos a serem agrupados (e.g., espécies) nas linhas e as variáveis (e.g., locais de coleta ou medidas morfológicas) nas colunas.
+A escolha do método de agrupamento é crítico para a escolha de um coeficiente de associação. É importante compreender as propriedades dos métodos de agrupamento para interpretar corretamente a estrutura ecológica que eles evidenciam (Legendre &amp; Legendre, 2012). De acordo com a classificação de Sneath &amp; Sokal (1973) existem cinco tipos de métodos: 1) seqüenciais ou simultâneos; 2) aglomerativo ou divisivo ;3) monotéticos ou politéticos; 4) hierárquico ou não hierárquicos e 5) probabilístico.</p>
+<p>Métodos hierárquicos podem ser divididos naqueles que consideram o centróide ou amédia aritmética entre os grupos. O principal método hierárquico que utiliza a média aritmética é o UPGMA (Agrupamento pelas médias aritméticas não ponderadas), e o principal método que utiliza centróides é a Distância mínima de Ward.</p>
+<p>O UPGMA funciona da seguinte forma: a maior similaridade (ou menor distância) identifica os próximos agrupamentos a serem formados. Após esse evento, o método calcula a média aritmética das similaridades ou distâncias entre um objeto e cada um dos membros do grupo ou, no caso de um grupo previamente formado, entre todos os membros dos dois grupos. Todos os objetos recebem pesos iguais no cálculo.</p>
+<p>O método de Ward é baseado no critério de quadrados mínimos (OLS), o mesmo utilizado para ajustar um modelo linear. O objetivo é definir os grupos de maneira que a soma de quadrados (i.e. similar ao erro quadrado da ANOVA) dentro dos grupos seja minimizada (Borcard et al. 2018).</p>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verifique se não há espaço nos nomes das colunas e linhas</li>
+<li>Se os dados forem de abundância, recomenda-se realizar a transformação de Hellinger (Legendre &amp; Gallagher, 2001).</li>
+<li>Se a matriz original contiver muitos valores discrepantes (e.g., uma espécie muito mais ou muito menos abundante que outras) é necessário transformar os dados usando <code>log1p</code>.</li>
+<li>Se as variáveis forem medidas tomadas em diferentes escalas (metros, graus celcius etc), é necessário padronizar cada variável para ter a média 0 e desvio padrão 1. Isso pode ser feito utulizando a função <code>decostand</code> do pacote <code>vegan</code>.</li>
+</ul>
+</div>
+<div id="análise" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Análise</h3>
+<p>Para começar, vamos primeiro importar os dados e depois calcular a matriz de distância que seja adequada para o tipo de dado que temos (abundância de espécies - dados de contagem)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introdução-à-análises-multidimensionais.html#cb1-1"></a><span class="kw">library</span>(ecodados) <span class="co"># Carrega o arquivo multivar_bocaina</span></span>
+<span id="cb1-2"><a href="introdução-à-análises-multidimensionais.html#cb1-2"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb1-3"><a href="introdução-à-análises-multidimensionais.html#cb1-3"></a></span>
+<span id="cb1-4"><a href="introdução-à-análises-multidimensionais.html#cb1-4"></a></span>
+<span id="cb1-5"><a href="introdução-à-análises-multidimensionais.html#cb1-5"></a><span class="co">#sp_compos &lt;- read.table(&quot;bocaina.txt&quot;, h=TRUE)</span></span>
+<span id="cb1-6"><a href="introdução-à-análises-multidimensionais.html#cb1-6"></a>sp_compos  &lt;-<span class="st"> </span>multivar_bocaina</span>
+<span id="cb1-7"><a href="introdução-à-análises-multidimensionais.html#cb1-7"></a><span class="kw">head</span>(sp_compos)</span></code></pre></div>
+<pre><code>##         BP4  PP4 PP3  AP1 AP2 PP1 PP2 BP9  PT1 PT2 PT3 BP2 PT5
+## Aper      0    3   0    0   2   0   0   0    0   0   0 181   0
+## Bahe    859   14  14    0  87 312 624 641    0   0   0  14   0
+## Rict   1772 1517 207  573 796   0   0   0    0   0   0   0   0
+## Cleuco    0    0   0    0   0   0   0   0    0  29 369   0  84
+## Dmic      0    0   6   60   4   0   0   0 2758 319  25   0 329
+## Dmin      0   84 344 1045  90   0   0   0    8   0   0   0   0</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introdução-à-análises-multidimensionais.html#cb3-1"></a>bocaina &lt;-<span class="st"> </span><span class="kw">t</span>(sp_compos)<span class="co">#transpondo a matriz para obter a classificação por linhas</span></span>
+<span id="cb3-2"><a href="introdução-à-análises-multidimensionais.html#cb3-2"></a>distBocaina &lt;-<span class="st"> </span><span class="kw">vegdist</span>(bocaina, <span class="dt">method=</span><span class="st">&quot;horn&quot;</span>)<span class="co">#produz uma matriz de similaridade com o coeficiente de Morisita-Horn</span></span>
+<span id="cb3-3"><a href="introdução-à-análises-multidimensionais.html#cb3-3"></a>dendro &lt;-<span class="st"> </span><span class="kw">hclust</span>(distBocaina, <span class="dt">method=</span><span class="st">&quot;average&quot;</span>)<span class="co">#produz um agrupamento com a função hclust e o método UPGMA</span></span></code></pre></div>
+<p>Visualizar os resultados</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introdução-à-análises-multidimensionais.html#cb4-1"></a><span class="kw">plot</span>(dendro)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="interpretação-dos-resultados" class="section level4">
+<h4><span class="header-section-number">2.2.2.1</span> Interpretação dos resultados</h4>
+<p>Antes de começarmos a interpretar os resultados precisamos verificar que o agrupamento reduziu a dimensionalidade da matiz de forma eficiente, de maneira a não distorcer a informação. Fazemos isso calculando o <strong>Coeficiente de correlação cofenética (CCC)</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introdução-à-análises-multidimensionais.html#cb5-1"></a>cofresult &lt;-<span class="st"> </span><span class="kw">cophenetic</span>(dendro)</span>
+<span id="cb5-2"><a href="introdução-à-análises-multidimensionais.html#cb5-2"></a><span class="kw">cor</span>(cofresult, distBocaina)</span></code></pre></div>
+<pre><code>## [1] 0.8819701</code></pre>
+<p>Um CCC &gt; .7 indica uma boa representação. Portanto, o nosso resultado de 0.8819701 é bastante alto, garantindo que o dendrograma é adequado.</p>
+<p>No entanto, para interpretar os resultados precisamos antes definir um nível de corte, que vai nos dizer quantos grupos existem. Há vários métodos para definir grupos, desde os heurísticos aos que utilizam bootstrap. Se quisermos interpretar este dendrograma, podemos por exemplo estabelecer um nível de corte de 50% de distância (ou seja, grupos cujos objetos tenham ao menos 50% de similaridade entre si).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introdução-à-análises-multidimensionais.html#cb7-1"></a><span class="kw">plot</span>(dendro)</span>
+<span id="cb7-2"><a href="introdução-à-análises-multidimensionais.html#cb7-2"></a>k =<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb7-3"><a href="introdução-à-análises-multidimensionais.html#cb7-3"></a>n =<span class="st"> </span><span class="kw">nrow</span>(bocaina)</span>
+<span id="cb7-4"><a href="introdução-à-análises-multidimensionais.html#cb7-4"></a>MidPoint =<span class="st"> </span>(dendro<span class="op">$</span>height[n<span class="op">-</span>k] <span class="op">+</span><span class="st"> </span>dendro<span class="op">$</span>height[n<span class="op">-</span>k<span class="op">+</span><span class="dv">1</span>]) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb7-5"><a href="introdução-à-análises-multidimensionais.html#cb7-5"></a><span class="kw">abline</span>(<span class="dt">h =</span> MidPoint, <span class="dt">lty=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Nesse caso teremos a formação de cinco grupos, representados pelos nós que estão abaixo da linha de corte.</p>
+</div>
+</div>
+</div>
+<div id="exemplo-2" class="section level2">
+<h2><span class="header-section-number">2.3</span> Exemplo 2:</h2>
+<p>A seguir, vamos utilizar o pacote <code>pvclust</code> que calcula automaticamente o nível de corte de similaridade baseado no Bootstrap de cada nó. Uma desvantagem deste método é que ele somente aceita índices de similaridade da função <code>dist</code> que possui apenas a distância Euclidiana, Manhattan e Canberra. Uma maneira de contornarmos essa limitação é utilizar transformações dos dados disponíveis na função <code>disttransform</code> no pacote <code>BiodiversityR</code> ou o <code>decostand</code> do pacote <code>vegan</code>. Também é possível utilizar a transformação de Box-Cox para dados multivariados, disponível no material suplementar de Legendre &amp; Borcard (2018) <a href="http://www.ecography.org/appendix/ecog-03498">aqui</a></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introdução-à-análises-multidimensionais.html#cb8-1"></a><span class="kw">library</span>(pvclust)</span>
+<span id="cb8-2"><a href="introdução-à-análises-multidimensionais.html#cb8-2"></a><span class="kw">library</span>(BiodiversityR)</span></code></pre></div>
+<p>Aqui vamos utilizar a distância de Chord para calcular a matriz de distância. Se transformarmos uma matriz usando a transformação Chord e depois calcularmos a distância Euclidiana, isso equivale à calcular diretamente a distância de Chord:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introdução-à-análises-multidimensionais.html#cb9-1"></a>bocaina_transf &lt;-<span class="st"> </span><span class="kw">disttransform</span>(bocaina, <span class="st">&quot;chord&quot;</span>)</span>
+<span id="cb9-2"><a href="introdução-à-análises-multidimensionais.html#cb9-2"></a>analise &lt;-<span class="st"> </span><span class="kw">pvclust</span>(bocaina_transf, <span class="dt">method.hclust=</span><span class="st">&quot;average&quot;</span>, <span class="dt">method.dist=</span><span class="st">&quot;euclidean&quot;</span>) </span></code></pre></div>
+<pre><code>## Bootstrap (r = 0.46)... Done.
+## Bootstrap (r = 0.54)... Done.
+## Bootstrap (r = 0.69)... Done.
+## Bootstrap (r = 0.77)... Done.
+## Bootstrap (r = 0.85)... Done.
+## Bootstrap (r = 1.0)... Done.
+## Bootstrap (r = 1.08)... Done.
+## Bootstrap (r = 1.15)... Done.
+## Bootstrap (r = 1.23)... Done.
+## Bootstrap (r = 1.38)... Done.</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introdução-à-análises-multidimensionais.html#cb11-1"></a><span class="kw">plot</span>(analise, <span class="dt">hang=</span><span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb11-2"><a href="introdução-à-análises-multidimensionais.html#cb11-2"></a><span class="kw">pvrect</span>(analise)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>É possível notar que existe um único grupo com BS &gt; 95%. Agora vamos tentar usar a distância de Hellinger:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introdução-à-análises-multidimensionais.html#cb12-1"></a>bocaina_transf2 &lt;-<span class="st"> </span><span class="kw">disttransform</span>(bocaina, <span class="st">&quot;hellinger&quot;</span>)</span>
+<span id="cb12-2"><a href="introdução-à-análises-multidimensionais.html#cb12-2"></a>analise2 &lt;-<span class="st"> </span><span class="kw">pvclust</span>(bocaina_transf2, <span class="dt">method.hclust=</span><span class="st">&quot;average&quot;</span>, <span class="dt">method.dist=</span><span class="st">&quot;euclidean&quot;</span>) </span></code></pre></div>
+<pre><code>## Bootstrap (r = 0.46)... Done.
+## Bootstrap (r = 0.54)... Done.
+## Bootstrap (r = 0.69)... Done.
+## Bootstrap (r = 0.77)... Done.
+## Bootstrap (r = 0.85)... Done.
+## Bootstrap (r = 1.0)... Done.
+## Bootstrap (r = 1.08)... Done.
+## Bootstrap (r = 1.15)... Done.
+## Bootstrap (r = 1.23)... Done.
+## Bootstrap (r = 1.38)... Done.</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introdução-à-análises-multidimensionais.html#cb14-1"></a><span class="kw">plot</span>(analise2, <span class="dt">hang=</span><span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb14-2"><a href="introdução-à-análises-multidimensionais.html#cb14-2"></a><span class="kw">pvrect</span>(analise2)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Notem que se mudarmos o coeficiente de associação, o resultado também muda. Agora temos 1 grupo a mais, composto por <em>Dendropsophus minutus</em> e <em>Scinax duartei</em> que não apareciam antes. Isso se deve ao fato de que a distância de Hellinger dá menos peso para espécies raras do que a Chord.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="k-means-e-agrupamentos-não-hierarquicos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/paternogbc/livro_r_ecologia/edit/master/05-multivariadas.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["livro_r_ecologia.pdf", "livro_r_ecologia.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
