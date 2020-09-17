@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Regressão Múltipla | Introdução ao R com aplicações em biodiversidade e conservação</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Regressão Múltipla | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Regressão Múltipla | Introdução ao R com aplicações em biodiversidade e conservação" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="" />
+
+
+<meta name="date" content="2020-09-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regressão-simples.html"/>
+<link rel="next" href="análises-de-variância-anova.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
+<li class="chapter" data-level="2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html"><i class="fa fa-check"></i><b>2</b> Teste T (de Student) para duas amostras independentes</a><ul>
+<li class="chapter" data-level="2.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>2.1.1</b> Análise</a></li>
+<li class="chapter" data-level="2.1.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>2.1.2</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html"><i class="fa fa-check"></i><b>3</b> Teste T para amostras pareadas</a><ul>
+<li class="chapter" data-level="3.1" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#análise-2"><i class="fa fa-check"></i><b>3.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html"><i class="fa fa-check"></i><b>4</b> Correlação de Pearson</a><ul>
+<li class="chapter" data-level="4.1" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>4.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#análise-3"><i class="fa fa-check"></i><b>4.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regressão-simples.html"><a href="regressão-simples.html"><i class="fa fa-check"></i><b>5</b> Regressão Simples</a><ul>
+<li class="chapter" data-level="5.1" data-path="regressão-simples.html"><a href="regressão-simples.html#backgorund-da-análise-3"><i class="fa fa-check"></i><b>5.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="regressão-simples.html"><a href="regressão-simples.html#análise-4"><i class="fa fa-check"></i><b>5.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html"><i class="fa fa-check"></i><b>6</b> Regressão Múltipla</a><ul>
+<li class="chapter" data-level="6.1" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html#backgorund-da-análise-4"><i class="fa fa-check"></i><b>6.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html#análise-5"><i class="fa fa-check"></i><b>6.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html"><i class="fa fa-check"></i><b>7</b> Análises de Variância (ANOVA)</a><ul>
+<li class="chapter" data-level="7.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#backgorund-da-análise-5"><i class="fa fa-check"></i><b>7.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="7.2" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#anova-de-um-fator"><i class="fa fa-check"></i><b>7.2</b> ANOVA de um fator</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-6"><i class="fa fa-check"></i><b>7.2.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#anova-de-dois-fatores-ou-anova-fatorial"><i class="fa fa-check"></i><b>7.3</b> ANOVA de dois fatores ou Anova fatorial</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-7"><i class="fa fa-check"></i><b>7.3.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#anova-em-blocos-aleatorizados"><i class="fa fa-check"></i><b>7.4</b> ANOVA em blocos aleatorizados</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-8"><i class="fa fa-check"></i><b>7.4.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-de-covariância-ancova"><i class="fa fa-check"></i><b>7.5</b> Análise de covariância (ANCOVA)</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-9"><i class="fa fa-check"></i><b>7.5.1</b> Análise</a></li>
+<li class="chapter" data-level="7.5.2" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>7.5.2</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>8</b> Introdução à Análises Multidimensionais</a><ul>
+<li class="chapter" data-level="8.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#backgorund-da-análise"><i class="fa fa-check"></i><b>8.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="8.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>8.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>8.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="8.2.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>8.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>8.3</b> Exemplo 2:</a></li>
+<li class="chapter" data-level="8.4" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>8.4</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="8.5" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1-1"><i class="fa fa-check"></i><b>8.5</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>8.5.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="8.5.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>8.5.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>8.6</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="8.7" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1-2"><i class="fa fa-check"></i><b>8.7</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>8.7.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="8.7.2" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#análise-2"><i class="fa fa-check"></i><b>8.7.2</b> Análise</a></li>
+<li class="chapter" data-level="8.7.3" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>8.7.3</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>9</b> Rarefação</a><ul>
+<li class="chapter" data-level="9.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>9.1</b> Background da análise</a></li>
+<li class="chapter" data-level="9.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>9.2</b> Exemplo prático 1 - Morcegos</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>9.2.1</b> Explicação</a></li>
+<li class="chapter" data-level="9.2.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>9.2.2</b> Análise</a></li>
+<li class="chapter" data-level="9.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>9.2.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>9.3</b> Exemplo prático 2 - Rarefação</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>9.3.1</b> Explicação</a></li>
+<li class="chapter" data-level="9.3.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>9.3.2</b> Análise</a></li>
+<li class="chapter" data-level="9.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>9.3.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>9.4</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>10</b> Estimadores de Riqueza</a><ul>
+<li class="chapter" data-level="10.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#backgorund-da-análise"><i class="fa fa-check"></i><b>10.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="10.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>10.2</b> Estimadores baseados na abundância das espécies</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>10.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
+<li class="chapter" data-level="10.2.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>10.2.2</b> Análise</a></li>
+<li class="chapter" data-level="10.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>10.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
+<li class="chapter" data-level="10.2.4" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>10.2.4</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>10.3</b> Estimadores baseados na incidência das espécies</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>10.3.1</b> CHAO 2 - (Chao 1987):</a></li>
+<li class="chapter" data-level="10.3.2" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#análise-2"><i class="fa fa-check"></i><b>10.3.2</b> Análise</a></li>
+<li class="chapter" data-level="10.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>10.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
+<li class="chapter" data-level="10.3.4" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#análise-3"><i class="fa fa-check"></i><b>10.3.4</b> Análise</a></li>
+<li class="chapter" data-level="10.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>10.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
+<li class="chapter" data-level="10.3.6" data-path="regressão-simples.html"><a href="regressão-simples.html#análise-4"><i class="fa fa-check"></i><b>10.3.6</b> Análise</a></li>
+<li class="chapter" data-level="10.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>10.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
+<li class="chapter" data-level="10.3.8" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html#análise-5"><i class="fa fa-check"></i><b>10.3.8</b> Análise</a></li>
+<li class="chapter" data-level="10.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>10.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
+<li class="chapter" data-level="10.3.10" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-6"><i class="fa fa-check"></i><b>10.3.10</b> Análise</a></li>
+<li class="chapter" data-level="10.3.11" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>10.3.11</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regressão-múltipla" class="section level1">
+<h1><span class="header-section-number">Capítulo 6</span> Regressão Múltipla</h1>
+<div id="backgorund-da-análise-4" class="section level2">
+<h2><span class="header-section-number">6.1</span> Backgorund da análise</h2>
+<p>A regressão múltipla é uma extensão da regressão simples. Ela é usada quando queremos determinar o valor da variável resposta (Y) com base nos valores de duas ou mais variáveis preditoras (X<sub>1</sub>, X<sub>2</sub>, X<sub><em>n</em></sub>).</p>
+<blockquote>
+<p><span class="math display">\[ Y = \beta_0 + \beta_{1}X_1 + \beta_{n}X_n + \epsilon_i \]</span></p>
+</blockquote>
+<p>Onde:</p>
+<ul>
+<li><p><span class="math inline">\(\beta_0\)</span> = intercepto que representa o valor da função quando X = 0;</p></li>
+<li><p><span class="math inline">\(\beta_{n}\)</span> = inclinação (<em>slope</em>) que mede a mudança na variável Y para cada mudança de unidade das variáveis X<sub>n</sub>;</p></li>
+<li><p><span class="math inline">\(\epsilon_{1}\)</span> = erro aleatório referente a variável Y que não pode ser explicado pelas variáveis preditoras.</p></li>
+</ul>
+<blockquote>
+<h4 id="premissas-da-regressão-múltipla"><span class="header-section-number">6.1</span> Premissas da Regressão Múltipla:</h4>
+<ul>
+<li>As amostras devem ser independentes;</li>
+<li>As unidades amostrais são selecionadas aleatoriamente;</li>
+<li>Distribuição normal (gaussiana) dos resíduos;</li>
+<li>Homogeneidade da variância.</li>
+</ul>
+</blockquote>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---regressão-múltipla" class="section level4">
+<h4><span class="header-section-number">6.1.0.1</span> Exemplo prático 1 - Regressão múltipla</h4>
+<div id="explicação-dos-dados-5" class="section level5">
+<h5><span class="header-section-number">6.1.0.1.1</span> Explicação dos dados</h5>
+<p>Utilizaremos o mesmo exemplo da regressão simples. Contudo, além do gradiente de temperatura média anual (°C) incluiremos o gradiente de precipitação anual (mm) como outra variável preditora do tamanho médio do comprimento rostro-cloacal (CRC em mm) de populações de <em>Dendropsophus minutus</em> (Anura:Hylidae) amostradas em 109 localidades no Brasil (Boaratti &amp; da Silva 2015).</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>O tamanho do CRC das populações de <em>D. minutus</em> é influênciado pela temperatura e precipitação das localidades onde os indivíduos ocorrem?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>O CRC das populações serão menores em localidades com clima quente e chuvoso do que em localidades com clima frio e seco.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as populações (unidade amostral) nas linhas e CRC médio (mm) e temperatura e precipitação como colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditores nas colunas</li>
+</ul>
+</div>
+</div>
+<div id="análise-5" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Análise</h3>
+<p>Cálculo da regressão múltipla</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="regressão-múltipla.html#cb45-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb45-2"><a href="regressão-múltipla.html#cb45-2"></a><span class="co">#********************</span></span>
+<span id="cb45-3"><a href="regressão-múltipla.html#cb45-3"></a>dados_regressao_mul &lt;-<span class="st"> </span>ecodados<span class="op">::</span>regressoes</span>
+<span id="cb45-4"><a href="regressão-múltipla.html#cb45-4"></a><span class="kw">head</span>(dados_regressao_mul) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>##      Municipio      CRC Temperatura Precipitacao
+## 1     Acorizal 22.98816    24.13000       1228.2
+## 2  Alpinopolis 22.91788    20.09417       1487.6
+## 3 Alto_Paraiso 21.97629    21.86167       1812.4
+## 4    Americana 23.32453    20.28333       1266.2
+## 5      Apiacas 22.83651    25.47333       2154.0
+## 6  Arianopolis 20.86989    20.12167       1269.2</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="regressão-múltipla.html#cb47-1"></a><span class="co"># ANALISE DA REGRESSÃO</span></span>
+<span id="cb47-2"><a href="regressão-múltipla.html#cb47-2"></a><span class="co">#************************</span></span>
+<span id="cb47-3"><a href="regressão-múltipla.html#cb47-3"></a>modelo_regressao_mul &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span>Temperatura <span class="op">+</span><span class="st"> </span>Precipitacao, <span class="dt">data =</span> dados_regressao_mul)</span>
+<span id="cb47-4"><a href="regressão-múltipla.html#cb47-4"></a></span>
+<span id="cb47-5"><a href="regressão-múltipla.html#cb47-5"></a><span class="co"># MULTICOLINEARIDADE</span></span>
+<span id="cb47-6"><a href="regressão-múltipla.html#cb47-6"></a><span class="co">#********************</span></span>
+<span id="cb47-7"><a href="regressão-múltipla.html#cb47-7"></a><span class="co"># Multicolinearidade ocorre quando as variáveis preditoras são correlacionadas. Essa correlação é um problema porque as variáveis preditores deveriam ser independentes. O Fator de Inflação da Variância (VIF) é um teste que identifica a correlação entre as variáveis e mostra a força dessa correlação. Alguns autores consideram valores de VIF acima de 10 como fortemente correlacionadas, outros mais conservadores consideram o valor de 3.</span></span>
+<span id="cb47-8"><a href="regressão-múltipla.html#cb47-8"></a><span class="kw">library</span>(car)</span>
+<span id="cb47-9"><a href="regressão-múltipla.html#cb47-9"></a><span class="kw">vif</span>(modelo_regressao_mul)</span></code></pre></div>
+<pre><code>##  Temperatura Precipitacao 
+##     1.041265     1.041265</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="regressão-múltipla.html#cb49-1"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb49-2"><a href="regressão-múltipla.html#cb49-2"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb49-3"><a href="regressão-múltipla.html#cb49-3"></a><span class="co"># Os gráficos *Residuals vs Fitted*, *Scale-Location*, e *Residual vs Leverage* estão relacionados com a homogeneidade da variância. Nestes gráficos, esperamos ver os pontos dispersos no espaço sem padrões em forma de *U* ou funil. </span></span>
+<span id="cb49-4"><a href="regressão-múltipla.html#cb49-4"></a><span class="co"># O gráfico *Normal Q-Q* está relacionado com a distribuição normal dos resíduos. Neste gráfico, esperamos ver os pontos próximos a reta sem padrões em forma de *U* ou *S*. </span></span>
+<span id="cb49-5"><a href="regressão-múltipla.html#cb49-5"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb49-6"><a href="regressão-múltipla.html#cb49-6"></a><span class="kw">plot</span>(modelo_regressao_mul)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="regressão-múltipla.html#cb50-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="regressão-múltipla.html#cb52-1"></a><span class="co"># VERIFICANDO OS RESULTADOS DA REGRESSÃO</span></span>
+<span id="cb52-2"><a href="regressão-múltipla.html#cb52-2"></a><span class="co">#****************************************</span></span>
+<span id="cb52-3"><a href="regressão-múltipla.html#cb52-3"></a><span class="kw">anova</span>(modelo_regressao_mul)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: CRC
+##               Df  Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Temperatura    1  80.931  80.931 39.0028 8.94e-09 ***
+## Precipitacao   1   2.549   2.549  1.2283   0.2702    
+## Residuals    106 219.951   2.075                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="regressão-múltipla.html#cb54-1"></a><span class="co"># ou</span></span>
+<span id="cb54-2"><a href="regressão-múltipla.html#cb54-2"></a><span class="kw">summary</span>(modelo_regressao_mul)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = CRC ~ Temperatura + Precipitacao, data = dados_regressao_mul)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.4351 -0.8026  0.0140  0.9420  3.4300 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  16.7162571  1.0108674  16.537  &lt; 2e-16 ***
+## Temperatura   0.2787445  0.0439601   6.341 5.71e-09 ***
+## Precipitacao -0.0004270  0.0003852  -1.108     0.27    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.44 on 106 degrees of freedom
+## Multiple R-squared:  0.2751,	Adjusted R-squared:  0.2614 
+## F-statistic: 20.12 on 2 and 106 DF,  p-value: 3.927e-08</code></pre>
+<p>Percebam que a temperatura tem uma relação significativa com o tamanho do CRC das populações (P &lt; 0.001), enquanto que a precipitação não apresenta relação com o CRC (P = 0.27). Neste caso, é interessante saber se um modelo mais simples (e.g. contendo apenas temperatura) explicaria a distribuição tão bem ou melhor do que este modelo mais complexo considerando dois parâmetros (temperatura e precipitação).</p>
+<p>Para isso, podemos utilizar a <em>LIKELIHOOD RATIO TEST (LRT)</em> para comparar modelos. A LRT compara dois modelos aninhados, testando se os parâmetros do modelo mais complexo diferem significativamente do modelo mais simples.Em outras palavras, ele testa se há necessidade de se incluir um parâmetro extra no modelo para explicar os dados.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="regressão-múltipla.html#cb56-1"></a><span class="co">## CRIANDO OS MODELOS ANINHADOS</span></span>
+<span id="cb56-2"><a href="regressão-múltipla.html#cb56-2"></a><span class="co">#********************************</span></span>
+<span id="cb56-3"><a href="regressão-múltipla.html#cb56-3"></a>modelo_regressao_mul &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span>Temperatura <span class="op">+</span><span class="st"> </span>Precipitacao, <span class="dt">data =</span> dados_regressao_mul)</span>
+<span id="cb56-4"><a href="regressão-múltipla.html#cb56-4"></a>modelo_regressao &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span>Temperatura, <span class="dt">data =</span> dados_regressao_mul)</span>
+<span id="cb56-5"><a href="regressão-múltipla.html#cb56-5"></a></span>
+<span id="cb56-6"><a href="regressão-múltipla.html#cb56-6"></a><span class="co"># LIKELIHHOD RATIO </span><span class="al">TEST</span><span class="co"> (LRT)</span></span>
+<span id="cb56-7"><a href="regressão-múltipla.html#cb56-7"></a><span class="co">#*******************************</span></span>
+<span id="cb56-8"><a href="regressão-múltipla.html#cb56-8"></a><span class="co"># A hipótese nula é que o modelo mais simples é melhor</span></span>
+<span id="cb56-9"><a href="regressão-múltipla.html#cb56-9"></a><span class="co"># Valores de p &lt; 0.05 rejeita a hipótese nula e o modelo mais complexo é o melhor</span></span>
+<span id="cb56-10"><a href="regressão-múltipla.html#cb56-10"></a><span class="co"># Valores de p &gt; 0.05 não rejeita a hipótese nula e o modelo mais simples é o melhor</span></span>
+<span id="cb56-11"><a href="regressão-múltipla.html#cb56-11"></a><span class="kw">library</span>(lmtest)</span>
+<span id="cb56-12"><a href="regressão-múltipla.html#cb56-12"></a><span class="kw">lrtest</span>(modelo_regressao_mul, modelo_regressao)</span></code></pre></div>
+<pre><code>## Likelihood ratio test
+## 
+## Model 1: CRC ~ Temperatura + Precipitacao
+## Model 2: CRC ~ Temperatura
+##   #Df  LogLik Df  Chisq Pr(&gt;Chisq)
+## 1   4 -192.93                     
+## 2   3 -193.55 -1 1.2558     0.2624</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="regressão-múltipla.html#cb58-1"></a><span class="co"># COMPARANDO COM O MODELO SOMENTE COM O INTERCEPTO</span></span>
+<span id="cb58-2"><a href="regressão-múltipla.html#cb58-2"></a><span class="co">#************************************************</span></span>
+<span id="cb58-3"><a href="regressão-múltipla.html#cb58-3"></a><span class="co"># criando um modelo sem parâmetros, só o intercepto</span></span>
+<span id="cb58-4"><a href="regressão-múltipla.html#cb58-4"></a>modelo_intercepto &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> dados_regressao_mul)</span>
+<span id="cb58-5"><a href="regressão-múltipla.html#cb58-5"></a><span class="kw">lrtest</span>(modelo_regressao, modelo_intercepto)</span></code></pre></div>
+<pre><code>## Likelihood ratio test
+## 
+## Model 1: CRC ~ Temperatura
+## Model 2: CRC ~ 1
+##   #Df  LogLik Df  Chisq Pr(&gt;Chisq)    
+## 1   3 -193.55                         
+## 2   2 -210.46 -1 33.815  6.061e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, a precipitação não está associada com a variação no tamanho do CRC das populações de <em>D. minutus</em>. Por outro lado, temperatura explicou 26% da variação do tamanho do CRC das populações.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regressão-simples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="análises-de-variância-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/paternogbc/livro_r_ecologia/edit/master/03_estatistica_basica.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["livro_r_ecologia.pdf", "livro_r_ecologia.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

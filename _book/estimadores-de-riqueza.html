@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 5 Estimadores de Riqueza | Introdução ao R com aplicações em biodiversidade e conservação</title>
+  <title>Capítulo 6 Estimadores de Riqueza | Introdução ao R com aplicações em biodiversidade e conservação</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 5 Estimadores de Riqueza | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta property="og:title" content="Capítulo 6 Estimadores de Riqueza | Introdução ao R com aplicações em biodiversidade e conservação" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 5 Estimadores de Riqueza | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta name="twitter:title" content="Capítulo 6 Estimadores de Riqueza | Introdução ao R com aplicações em biodiversidade e conservação" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-09-11" />
+<meta name="date" content="2020-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -135,61 +135,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
-<li class="chapter" data-level="2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>2</b> Introdução à Análises Multidimensionais</a><ul>
-<li class="chapter" data-level="2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1</b> Backgorund da análise</a></li>
-<li class="chapter" data-level="2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>2.2</b> Exemplo 1:</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>2.2.1</b> Explicação da análise</a></li>
-<li class="chapter" data-level="2.2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#análise"><i class="fa fa-check"></i><b>2.2.2</b> Análise</a></li>
+<li class="chapter" data-level="2" data-path="estatística-básica.html"><a href="estatística-básica.html"><i class="fa fa-check"></i><b>2</b> Estatística básica</a><ul>
+<li class="chapter" data-level="2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-de-student-para-duas-amostras-independentes"><i class="fa fa-check"></i><b>2.1</b> Teste T (de Student) para duas amostras independentes</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.1.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>2.1.2</b> Análise</a></li>
+<li class="chapter" data-level="2.1.3" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>2.1.3</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>2.3</b> Exemplo 2:</a></li>
+<li class="chapter" data-level="2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-para-amostras-pareadas"><i class="fa fa-check"></i><b>2.2</b> Teste T para amostras pareadas</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>2.2.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>2.2.2</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html"><i class="fa fa-check"></i><b>3</b> K-means e agrupamentos não-hierarquicos</a><ul>
-<li class="chapter" data-level="3.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
-<li class="chapter" data-level="3.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-1"><i class="fa fa-check"></i><b>3.2</b> Exemplo 1:</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>3.2.1</b> Explicação da análise</a></li>
-<li class="chapter" data-level="3.2.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-1"><i class="fa fa-check"></i><b>3.2.2</b> Análise</a></li>
+<li class="chapter" data-level="2.3" data-path="estatística-básica.html"><a href="estatística-básica.html#correlação-de-pearson"><i class="fa fa-check"></i><b>2.3</b> Correlação de Pearson</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>2.3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>2.3.2</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>3.3</b> Backgorund da análise</a></li>
-<li class="chapter" data-level="3.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-2"><i class="fa fa-check"></i><b>3.4</b> Exemplo 1:</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>3.4.1</b> Explicação da análise</a></li>
-<li class="chapter" data-level="3.4.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-2"><i class="fa fa-check"></i><b>3.4.2</b> Análise</a></li>
-<li class="chapter" data-level="3.4.3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#para-se-aprofundar"><i class="fa fa-check"></i><b>3.4.3</b> Para se aprofundar</a></li>
+<li class="chapter" data-level="2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-simples"><i class="fa fa-check"></i><b>2.4</b> Regressão Simples</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-3"><i class="fa fa-check"></i><b>2.4.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.4.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>2.4.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-múltipla"><i class="fa fa-check"></i><b>2.5</b> Regressão Múltipla</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-4"><i class="fa fa-check"></i><b>2.5.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.5.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>2.5.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análises-de-variância-anova"><i class="fa fa-check"></i><b>2.6</b> Análises de Variância (ANOVA)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-5"><i class="fa fa-check"></i><b>2.6.1</b> Backgorund da análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-um-fator"><i class="fa fa-check"></i><b>2.7</b> ANOVA de um fator</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>2.7.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-dois-fatores-ou-anova-fatorial"><i class="fa fa-check"></i><b>2.8</b> ANOVA de dois fatores ou Anova fatorial</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-7"><i class="fa fa-check"></i><b>2.8.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-em-blocos-aleatorizados"><i class="fa fa-check"></i><b>2.9</b> ANOVA em blocos aleatorizados</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-8"><i class="fa fa-check"></i><b>2.9.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-de-covariância-ancova"><i class="fa fa-check"></i><b>2.10</b> Análise de covariância (ANCOVA)</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-9"><i class="fa fa-check"></i><b>2.10.1</b> Análise</a></li>
+<li class="chapter" data-level="2.10.2" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>2.10.2</b> Para se aprofundar</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>4</b> Rarefação</a><ul>
-<li class="chapter" data-level="4.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>4.1</b> Background da análise</a></li>
-<li class="chapter" data-level="4.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>4.2</b> Exemplo prático 1 - Morcegos</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>4.2.1</b> Explicação</a></li>
-<li class="chapter" data-level="4.2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#análise"><i class="fa fa-check"></i><b>4.2.2</b> Análise</a></li>
-<li class="chapter" data-level="4.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>4.2.3</b> Interpretação dos resultados</a></li>
+<li class="chapter" data-level="3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>3</b> Introdução à Análises Multidimensionais</a><ul>
+<li class="chapter" data-level="3.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>3.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>3.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="3.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>3.2.2</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>4.3</b> Exemplo prático 2 - Rarefação</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>4.3.1</b> Explicação</a></li>
-<li class="chapter" data-level="4.3.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-1"><i class="fa fa-check"></i><b>4.3.2</b> Análise</a></li>
-<li class="chapter" data-level="4.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>4.3.3</b> Interpretação dos resultados</a></li>
+<li class="chapter" data-level="3.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>3.3</b> Exemplo 2:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#para-se-aprofundar"><i class="fa fa-check"></i><b>4.4</b> Para se aprofundar</a></li>
+<li class="chapter" data-level="4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html"><i class="fa fa-check"></i><b>4</b> K-means e agrupamentos não-hierarquicos</a><ul>
+<li class="chapter" data-level="4.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>4.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="4.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-1"><i class="fa fa-check"></i><b>4.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>4.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>4.2.2</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>5</b> Estimadores de Riqueza</a><ul>
-<li class="chapter" data-level="5.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>5.1</b> Backgorund da análise</a></li>
-<li class="chapter" data-level="5.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>5.2</b> Estimadores baseados na abundância das espécies</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>5.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
-<li class="chapter" data-level="5.2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#análise"><i class="fa fa-check"></i><b>5.2.2</b> Análise</a></li>
-<li class="chapter" data-level="5.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>5.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
-<li class="chapter" data-level="5.2.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-1"><i class="fa fa-check"></i><b>5.2.4</b> Análise</a></li>
+<li class="chapter" data-level="4.3" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>4.3</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="4.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-2"><i class="fa fa-check"></i><b>4.4</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>4.4.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="4.4.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>4.4.2</b> Análise</a></li>
+<li class="chapter" data-level="4.4.3" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>4.4.3</b> Para se aprofundar</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>5.3</b> Estimadores baseados na incidência das espécies</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>5.3.1</b> CHAO 2 - (Chao 1987):</a></li>
-<li class="chapter" data-level="5.3.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-2"><i class="fa fa-check"></i><b>5.3.2</b> Análise</a></li>
-<li class="chapter" data-level="5.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>5.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
-<li class="chapter" data-level="5.3.4" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-3"><i class="fa fa-check"></i><b>5.3.4</b> Análise</a></li>
-<li class="chapter" data-level="5.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>5.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
-<li class="chapter" data-level="5.3.6" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-4"><i class="fa fa-check"></i><b>5.3.6</b> Análise</a></li>
-<li class="chapter" data-level="5.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>5.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
-<li class="chapter" data-level="5.3.8" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-5"><i class="fa fa-check"></i><b>5.3.8</b> Análise</a></li>
-<li class="chapter" data-level="5.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>5.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
-<li class="chapter" data-level="5.3.10" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-6"><i class="fa fa-check"></i><b>5.3.10</b> Análise</a></li>
-<li class="chapter" data-level="5.3.11" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#para-se-aprofundar"><i class="fa fa-check"></i><b>5.3.11</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>5</b> Rarefação</a><ul>
+<li class="chapter" data-level="5.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>5.1</b> Background da análise</a></li>
+<li class="chapter" data-level="5.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>5.2</b> Exemplo prático 1 - Morcegos</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>5.2.1</b> Explicação</a></li>
+<li class="chapter" data-level="5.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>5.2.2</b> Análise</a></li>
+<li class="chapter" data-level="5.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>5.2.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>5.3</b> Exemplo prático 2 - Rarefação</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>5.3.1</b> Explicação</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>5.3.2</b> Análise</a></li>
+<li class="chapter" data-level="5.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>5.3.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>5.4</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>6</b> Estimadores de Riqueza</a><ul>
+<li class="chapter" data-level="6.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise"><i class="fa fa-check"></i><b>6.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="6.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>6.2</b> Estimadores baseados na abundância das espécies</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>6.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
+<li class="chapter" data-level="6.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>6.2.2</b> Análise</a></li>
+<li class="chapter" data-level="6.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>6.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
+<li class="chapter" data-level="6.2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>6.2.4</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>6.3</b> Estimadores baseados na incidência das espécies</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>6.3.1</b> CHAO 2 - (Chao 1987):</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>6.3.2</b> Análise</a></li>
+<li class="chapter" data-level="6.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>6.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
+<li class="chapter" data-level="6.3.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>6.3.4</b> Análise</a></li>
+<li class="chapter" data-level="6.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>6.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
+<li class="chapter" data-level="6.3.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>6.3.6</b> Análise</a></li>
+<li class="chapter" data-level="6.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>6.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
+<li class="chapter" data-level="6.3.8" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>6.3.8</b> Análise</a></li>
+<li class="chapter" data-level="6.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>6.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
+<li class="chapter" data-level="6.3.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>6.3.10</b> Análise</a></li>
+<li class="chapter" data-level="6.3.11" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>6.3.11</b> Para se aprofundar</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -214,12 +253,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="estimadores-de-riqueza" class="section level1">
-<h1><span class="header-section-number">Capítulo 5</span> Estimadores de Riqueza</h1>
+<h1><span class="header-section-number">Capítulo 6</span> Estimadores de Riqueza</h1>
 <div id="backgorund-da-análise" class="section level2">
-<h2><span class="header-section-number">5.1</span> Backgorund da análise</h2>
+<h2><span class="header-section-number">6.1</span> Backgorund da análise</h2>
 <p>Uma vez que determinar o número total de espécies numa área é praticamente impossível, principalmente em regiões com alta riqueza de espécies, os estimadores são úteis para extrapolar a riqueza observada e tentar estimar a riqueza total através de uma amostra incompleta de uma comunidade biológica (Walther &amp; Moore 2005). Neste capítulo serão considerados os estimadores não paramétricos que usam informações da frequencia de espécies raras na comunidade (Gotelli &amp; Chao 2013). Isto porque tanto os testes paramétricos que tentam determinar os parâmetros de uma curva usando o formato da curva de acumulação de espécies (e.g. equação logística, Michaelis-Menten) quanto os testes que usam a frequencia do número de indivíduos para enquadrá-las em uma das distribuições de abundância das espécies (e.g. distribuições log-séries, log-normal) não funcionam muito bem com dados empíricos (Gotelli &amp; Chao 2013). Para mais detalhes sobre os testes paramétricos veja Magurran (2004) e Colwell (2019).</p>
 <blockquote>
-<h4 id="quatro-características-para-um-bom-estimador-de-riqueza-chazdon-et-al.-1998-horter-et-al.-2006"><span class="header-section-number">5.1</span> Quatro características para um bom estimador de riqueza (Chazdon et al. 1998; Horter et al. 2006):</h4>
+<h4 id="quatro-características-para-um-bom-estimador-de-riqueza-chazdon-et-al.-1998-horter-et-al.-2006"><span class="header-section-number">6.1</span> Quatro características para um bom estimador de riqueza (Chazdon et al. 1998; Horter et al. 2006):</h4>
 <ul>
 <li>Independência do tamanho da amostra (quantidade de esforço amostral realizado);</li>
 <li>Insensibilidade a diferentes padrões de distribuições (diferentes equitabilidades);</li>
@@ -229,9 +268,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 </div>
 <div id="estimadores-baseados-na-abundância-das-espécies" class="section level2">
-<h2><span class="header-section-number">5.2</span> Estimadores baseados na abundância das espécies</h2>
+<h2><span class="header-section-number">6.2</span> Estimadores baseados na abundância das espécies</h2>
 <div id="chao-1---chao-1984-1987" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> CHAO 1 - (Chao 1984, 1987):</h3>
+<h3><span class="header-section-number">6.2.1</span> CHAO 1 - (Chao 1984, 1987):</h3>
 <p>Estimador simples do número absoluto de espécies em uma comunidade. É baseado no número de espécies raras dentro de uma amostra.</p>
 <blockquote>
 <p><span class="math display">\[Chao_{1} = S_{obs} + \left(\frac{n-1}{n}\right)\frac{F_1(F_1-1)}{2(F_2+1)}\]</span></p>
@@ -248,9 +287,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  
 </p>
 <div id="exemplo-prático---chao-1" class="section level4">
-<h4><span class="header-section-number">5.2.1.1</span> Exemplo prático - Chao 1</h4>
+<h4><span class="header-section-number">6.2.1.1</span> Exemplo prático - Chao 1</h4>
 <div id="explicação-dos-dados" class="section level5">
-<h5><span class="header-section-number">5.2.1.1.1</span> Explicação dos dados</h5>
+<h5><span class="header-section-number">6.2.1.1.1</span> Explicação dos dados</h5>
 <p>Neste exemplo usaremos os dados de 17 espécies de anuros amostradas em 14 dias de coletas de campo em um habitat reprodutivo localizado na região noroeste do estado de São Paulo, Brasil.</p>
 <p><strong>Pergunta:</strong></p>
 <blockquote>
@@ -279,65 +318,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="análise" class="section level3">
-<h3><span class="header-section-number">5.2.2</span> Análise</h3>
+<h3><span class="header-section-number">6.2.2</span> Análise</h3>
 <p>Calculo do estimador de riqueza - Chao 1</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="estimadores-de-riqueza.html#cb41-1"></a><span class="kw">library</span>(ecodados)</span>
-<span id="cb41-2"><a href="estimadores-de-riqueza.html#cb41-2"></a><span class="kw">library</span>(vegan)</span>
-<span id="cb41-3"><a href="estimadores-de-riqueza.html#cb41-3"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
-<span id="cb41-4"><a href="estimadores-de-riqueza.html#cb41-4"></a>est_chao1 &lt;-<span class="st"> </span><span class="kw">estaccumR</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
-<span id="cb41-5"><a href="estimadores-de-riqueza.html#cb41-5"></a><span class="kw">summary</span>(est_chao1, <span class="dt">display =</span> <span class="st">&quot;chao&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="estimadores-de-riqueza.html#cb152-1"></a><span class="kw">library</span>(ecodados)</span>
+<span id="cb152-2"><a href="estimadores-de-riqueza.html#cb152-2"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb152-3"><a href="estimadores-de-riqueza.html#cb152-3"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
+<span id="cb152-4"><a href="estimadores-de-riqueza.html#cb152-4"></a>est_chao1 &lt;-<span class="st"> </span><span class="kw">estaccumR</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
+<span id="cb152-5"><a href="estimadores-de-riqueza.html#cb152-5"></a><span class="kw">summary</span>(est_chao1, <span class="dt">display =</span> <span class="st">&quot;chao&quot;</span>)</span></code></pre></div>
 <pre><code>## $chao
-##         N      Chao    2.5%  97.5%  Std.Dev
-## Dia_5   1  6.536667  3.0000 11.700 2.381134
-## Dia_11  2  9.539000  6.0000 15.000 2.626646
-## Dia_7   3 10.862500  7.4750 16.525 2.274985
-## Dia_12  4 11.896667  8.0000 17.700 2.346168
-## Dia_3   5 12.490000  9.0000 17.525 2.134844
-## Dia_2   6 13.111667 10.0000 20.100 2.424483
-## Dia_6   7 13.865000 10.4750 20.100 2.288371
-## Dia_13  8 15.170000 12.0000 22.000 2.674439
-## Dia_4   9 16.170000 12.0000 22.000 2.938958
-## Dia_10 10 17.045000 13.0000 22.000 2.854285
-## Dia_14 11 17.685000 13.0000 22.000 2.658752
-## Dia_9  12 18.500000 14.2375 22.000 2.397389
-## Dia_1  13 18.980000 15.5000 22.000 1.942247
-## Dia_8  14 20.000000 20.0000 20.000 0.000000
+##         N      Chao    2.5%   97.5%  Std.Dev
+## Dia_13  1  6.177500  3.0000 11.0000 2.267272
+## Dia_5   2  9.955476  6.0000 17.2625 2.997168
+## Dia_12  3 11.417000  8.0000 17.0000 2.436986
+## Dia_1   4 12.559500  9.0000 19.0000 2.671993
+## Dia_3   5 13.288333  9.4750 20.0000 2.749743
+## Dia_11  6 14.123333 10.4750 20.0000 2.529137
+## Dia_10  7 14.890000 11.0000 22.0000 2.972868
+## Dia_2   8 15.625000 11.4750 22.0000 2.898718
+## Dia_6   9 16.688333 12.2375 22.0000 3.137662
+## Dia_8  10 17.285000 13.0000 22.0000 2.864142
+## Dia_9  11 17.795000 14.0000 22.0000 2.394327
+## Dia_4  12 18.495000 15.5000 22.0000 2.045561
+## Dia_14 13 19.290000 15.5000 21.0500 1.496089
+## Dia_7  14 20.000000 20.0000 20.0000 0.000000
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;summary.poolaccum&quot;</code></pre>
 <p>Visualizar os resultados com intervalo de confiança de 95%.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="estimadores-de-riqueza.html#cb43-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb43-2"><a href="estimadores-de-riqueza.html#cb43-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
-<span id="cb43-3"><a href="estimadores-de-riqueza.html#cb43-3"></a>resultados &lt;-<span class="st"> </span><span class="kw">summary</span>(est_chao1, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;chao&quot;</span>))</span>
-<span id="cb43-4"><a href="estimadores-de-riqueza.html#cb43-4"></a>res_chao &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados<span class="op">$</span>chao[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
-<span id="cb43-5"><a href="estimadores-de-riqueza.html#cb43-5"></a>res_chao &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_chao)</span>
-<span id="cb43-6"><a href="estimadores-de-riqueza.html#cb43-6"></a><span class="kw">colnames</span>(res_chao) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;Chao&quot;</span>, <span class="st">&quot;C_inferior&quot;</span>, <span class="st">&quot;C_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
-<span id="cb43-7"><a href="estimadores-de-riqueza.html#cb43-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
-<span id="cb43-8"><a href="estimadores-de-riqueza.html#cb43-8"></a></span>
-<span id="cb43-9"><a href="estimadores-de-riqueza.html#cb43-9"></a><span class="co"># comando para o gráfico</span></span>
-<span id="cb43-10"><a href="estimadores-de-riqueza.html#cb43-10"></a><span class="kw">ggplot</span>(res_chao, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
-<span id="cb43-11"><a href="estimadores-de-riqueza.html#cb43-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Chao, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb43-12"><a href="estimadores-de-riqueza.html#cb43-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb43-13"><a href="estimadores-de-riqueza.html#cb43-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Chao, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb43-14"><a href="estimadores-de-riqueza.html#cb43-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb43-15"><a href="estimadores-de-riqueza.html#cb43-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> C_inferior, <span class="dt">ymax =</span> C_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
-<span id="cb43-16"><a href="estimadores-de-riqueza.html#cb43-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb43-17"><a href="estimadores-de-riqueza.html#cb43-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb43-18"><a href="estimadores-de-riqueza.html#cb43-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Chao 1&quot;</span>) <span class="op">+</span></span>
-<span id="cb43-19"><a href="estimadores-de-riqueza.html#cb43-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
-<span id="cb43-20"><a href="estimadores-de-riqueza.html#cb43-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
-<span id="cb43-21"><a href="estimadores-de-riqueza.html#cb43-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">7.5</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb43-22"><a href="estimadores-de-riqueza.html#cb43-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">5.9</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb43-23"><a href="estimadores-de-riqueza.html#cb43-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">7.5</span>, <span class="dt">x =</span> <span class="dv">12</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Chao 1&quot;</span>) <span class="op">+</span></span>
-<span id="cb43-24"><a href="estimadores-de-riqueza.html#cb43-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">5.9</span>, <span class="dt">x =</span> <span class="fl">11.3</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="estimadores-de-riqueza.html#cb154-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb154-2"><a href="estimadores-de-riqueza.html#cb154-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
+<span id="cb154-3"><a href="estimadores-de-riqueza.html#cb154-3"></a>resultados &lt;-<span class="st"> </span><span class="kw">summary</span>(est_chao1, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;chao&quot;</span>))</span>
+<span id="cb154-4"><a href="estimadores-de-riqueza.html#cb154-4"></a>res_chao &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados<span class="op">$</span>chao[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
+<span id="cb154-5"><a href="estimadores-de-riqueza.html#cb154-5"></a>res_chao &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_chao)</span>
+<span id="cb154-6"><a href="estimadores-de-riqueza.html#cb154-6"></a><span class="kw">colnames</span>(res_chao) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;Chao&quot;</span>, <span class="st">&quot;C_inferior&quot;</span>, <span class="st">&quot;C_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
+<span id="cb154-7"><a href="estimadores-de-riqueza.html#cb154-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
+<span id="cb154-8"><a href="estimadores-de-riqueza.html#cb154-8"></a></span>
+<span id="cb154-9"><a href="estimadores-de-riqueza.html#cb154-9"></a><span class="co"># comando para o gráfico</span></span>
+<span id="cb154-10"><a href="estimadores-de-riqueza.html#cb154-10"></a><span class="kw">ggplot</span>(res_chao, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
+<span id="cb154-11"><a href="estimadores-de-riqueza.html#cb154-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Chao, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb154-12"><a href="estimadores-de-riqueza.html#cb154-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb154-13"><a href="estimadores-de-riqueza.html#cb154-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Chao, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb154-14"><a href="estimadores-de-riqueza.html#cb154-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb154-15"><a href="estimadores-de-riqueza.html#cb154-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> C_inferior, <span class="dt">ymax =</span> C_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
+<span id="cb154-16"><a href="estimadores-de-riqueza.html#cb154-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb154-17"><a href="estimadores-de-riqueza.html#cb154-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb154-18"><a href="estimadores-de-riqueza.html#cb154-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Chao 1&quot;</span>) <span class="op">+</span></span>
+<span id="cb154-19"><a href="estimadores-de-riqueza.html#cb154-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
+<span id="cb154-20"><a href="estimadores-de-riqueza.html#cb154-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb154-21"><a href="estimadores-de-riqueza.html#cb154-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">7.5</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb154-22"><a href="estimadores-de-riqueza.html#cb154-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">5.9</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb154-23"><a href="estimadores-de-riqueza.html#cb154-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">7.5</span>, <span class="dt">x =</span> <span class="dv">12</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Chao 1&quot;</span>) <span class="op">+</span></span>
+<span id="cb154-24"><a href="estimadores-de-riqueza.html#cb154-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">5.9</span>, <span class="dt">x =</span> <span class="fl">11.3</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <div id="interpretação-dos-resultados" class="section level4">
-<h4><span class="header-section-number">5.2.2.1</span> Interpretação dos resultados</h4>
+<h4><span class="header-section-number">6.2.2.1</span> Interpretação dos resultados</h4>
 <p>Com base no número de espécies raras (<em>singletons</em> e <em>doubletons</em>), o estimador Chao 1 indica a possibilidade de encontrarmos mais três espécies caso o esforço amostral fosse maior e não mostra tendência de estabilização da curva em uma assíntota.</p>
 </div>
 </div>
 <div id="ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000" class="section level3">
-<h3><span class="header-section-number">5.2.3</span> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</h3>
+<h3><span class="header-section-number">6.2.3</span> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</h3>
 <p>Este método trabalha com a abundância das espécies raras (i.e. abundância baixa). Entretanto, diferente do estimador anterior, esse método permite ao pesquisador determinar os limites para os quais uma espécie seja considerada rara. Em geral, são consideradas raras espécies com abundância entre 1 e 10 indivíduos. A riqueza estimada pode variar conforme se aumente ou diminua o limiar de abundância, e infelizmente não existem critérios biológicos definidos para a escolha do melhor intervalo.</p>
 <blockquote>
 <p><span class="math display">\[ACE = S_{abund} + \frac{S_{rare}}{C_{ace}} + \frac{F_1}{C_{ace}}Y_{ace}^2\]</span></p>
@@ -357,9 +396,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  
 </p>
 <div id="exemplo-prático---ace" class="section level4">
-<h4><span class="header-section-number">5.2.3.1</span> Exemplo prático - ACE</h4>
+<h4><span class="header-section-number">6.2.3.1</span> Exemplo prático - ACE</h4>
 <div id="explicação-dos-dados-1" class="section level5">
-<h5><span class="header-section-number">5.2.3.1.1</span> Explicação dos dados</h5>
+<h5><span class="header-section-number">6.2.3.1.1</span> Explicação dos dados</h5>
 <p>Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de coletas de campo em um habitat reprodutivo localizado na região noroeste do estado de São Paulo, Brasil.</p>
 <p><strong>Pergunta:</strong></p>
 <blockquote>
@@ -388,67 +427,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="análise-1" class="section level3">
-<h3><span class="header-section-number">5.2.4</span> Análise</h3>
+<h3><span class="header-section-number">6.2.4</span> Análise</h3>
 <p>Calculo do estimador de riqueza - ACE</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="estimadores-de-riqueza.html#cb44-1"></a><span class="kw">library</span>(vegan)</span>
-<span id="cb44-2"><a href="estimadores-de-riqueza.html#cb44-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
-<span id="cb44-3"><a href="estimadores-de-riqueza.html#cb44-3"></a>est_ace &lt;-<span class="st"> </span><span class="kw">estaccumR</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
-<span id="cb44-4"><a href="estimadores-de-riqueza.html#cb44-4"></a><span class="kw">summary</span>(est_ace, <span class="dt">display =</span> <span class="st">&quot;ace&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="estimadores-de-riqueza.html#cb155-1"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb155-2"><a href="estimadores-de-riqueza.html#cb155-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
+<span id="cb155-3"><a href="estimadores-de-riqueza.html#cb155-3"></a>est_ace &lt;-<span class="st"> </span><span class="kw">estaccumR</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
+<span id="cb155-4"><a href="estimadores-de-riqueza.html#cb155-4"></a><span class="kw">summary</span>(est_ace, <span class="dt">display =</span> <span class="st">&quot;ace&quot;</span>)</span></code></pre></div>
 <pre><code>## $ace
-##         N       ACE      2.5%    97.5%  Std.Dev
-## Dia_13  1  7.275629  3.545190 13.71429 2.751336
-## Dia_12  2 10.054538  6.000000 16.67297 2.817916
-## Dia_3   3 11.650317  7.675156 17.57961 2.758838
-## Dia_1   4 12.550432  8.781898 18.09524 2.614171
-## Dia_7   5 13.355974  9.000000 18.57575 2.597478
-## Dia_9   6 14.382648 10.000000 20.38686 2.871141
-## Dia_2   7 15.372007 10.000000 21.08070 2.973356
-## Dia_4   8 16.216130 11.000000 22.61582 3.108951
-## Dia_8   9 17.557902 12.197607 24.60822 3.315082
-## Dia_11 10 19.181485 13.465577 25.72368 4.074365
-## Dia_14 11 20.930313 13.720826 25.72368 3.993186
-## Dia_10 12 22.559988 15.192940 25.72368 3.511785
-## Dia_6  13 24.102856 17.676471 25.72368 2.234964
-## Dia_5  14 24.703704 24.703704 24.70370 0.000000
+##         N       ACE     2.5%    97.5%  Std.Dev
+## Dia_7   1  7.059151  3.54519 13.71429 2.488110
+## Dia_5   2 10.323652  6.00000 17.59478 3.050351
+## Dia_1   3 11.680842  7.47500 17.65276 2.650006
+## Dia_14  4 12.447781  9.00000 18.63549 2.531190
+## Dia_12  5 13.285755  9.00000 19.20660 2.586740
+## Dia_4   6 14.323852 10.00000 20.93043 2.850635
+## Dia_3   7 15.196188 10.00000 22.34773 3.172237
+## Dia_11  8 16.282984 11.47500 23.34693 3.309242
+## Dia_13  9 17.640070 12.38749 24.44538 3.764481
+## Dia_9  10 19.268051 13.45811 25.72368 3.948261
+## Dia_6  11 20.758249 13.71198 25.72368 4.015041
+## Dia_2  12 22.420885 14.10104 25.72368 3.579874
+## Dia_10 13 23.751534 17.67647 25.72368 2.476472
+## Dia_8  14 24.703704 24.70370 24.70370 0.000000
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;summary.poolaccum&quot;</code></pre>
 <p>Visualizar os resultados com intervalo de confiança de 95%</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="estimadores-de-riqueza.html#cb46-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb46-2"><a href="estimadores-de-riqueza.html#cb46-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
-<span id="cb46-3"><a href="estimadores-de-riqueza.html#cb46-3"></a>resultados_ace &lt;-<span class="st"> </span><span class="kw">summary</span>(est_ace, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;ace&quot;</span>))</span>
-<span id="cb46-4"><a href="estimadores-de-riqueza.html#cb46-4"></a>res_ace &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_ace<span class="op">$</span>ace[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_ace<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
-<span id="cb46-5"><a href="estimadores-de-riqueza.html#cb46-5"></a>res_ace &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_ace)</span>
-<span id="cb46-6"><a href="estimadores-de-riqueza.html#cb46-6"></a><span class="kw">colnames</span>(res_ace) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;ACE&quot;</span>, <span class="st">&quot;ACE_inferior&quot;</span>, <span class="st">&quot;ACE_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
-<span id="cb46-7"><a href="estimadores-de-riqueza.html#cb46-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
-<span id="cb46-8"><a href="estimadores-de-riqueza.html#cb46-8"></a></span>
-<span id="cb46-9"><a href="estimadores-de-riqueza.html#cb46-9"></a><span class="co"># comando para o gráfico</span></span>
-<span id="cb46-10"><a href="estimadores-de-riqueza.html#cb46-10"></a><span class="kw">ggplot</span>(res_ace, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
-<span id="cb46-11"><a href="estimadores-de-riqueza.html#cb46-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ACE, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb46-12"><a href="estimadores-de-riqueza.html#cb46-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb46-13"><a href="estimadores-de-riqueza.html#cb46-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> ACE, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb46-14"><a href="estimadores-de-riqueza.html#cb46-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb46-15"><a href="estimadores-de-riqueza.html#cb46-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> ACE_inferior, <span class="dt">ymax =</span> ACE_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
-<span id="cb46-16"><a href="estimadores-de-riqueza.html#cb46-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb46-17"><a href="estimadores-de-riqueza.html#cb46-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb46-18"><a href="estimadores-de-riqueza.html#cb46-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - ACE&quot;</span>) <span class="op">+</span></span>
-<span id="cb46-19"><a href="estimadores-de-riqueza.html#cb46-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
-<span id="cb46-20"><a href="estimadores-de-riqueza.html#cb46-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
-<span id="cb46-21"><a href="estimadores-de-riqueza.html#cb46-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">7.5</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb46-22"><a href="estimadores-de-riqueza.html#cb46-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">5.9</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb46-23"><a href="estimadores-de-riqueza.html#cb46-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">7.5</span>, <span class="dt">x =</span> <span class="fl">11.7</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - ACE&quot;</span>) <span class="op">+</span></span>
-<span id="cb46-24"><a href="estimadores-de-riqueza.html#cb46-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">5.9</span>, <span class="dt">x =</span> <span class="fl">11.3</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="estimadores-de-riqueza.html#cb157-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb157-2"><a href="estimadores-de-riqueza.html#cb157-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
+<span id="cb157-3"><a href="estimadores-de-riqueza.html#cb157-3"></a>resultados_ace &lt;-<span class="st"> </span><span class="kw">summary</span>(est_ace, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;ace&quot;</span>))</span>
+<span id="cb157-4"><a href="estimadores-de-riqueza.html#cb157-4"></a>res_ace &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_ace<span class="op">$</span>ace[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_ace<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
+<span id="cb157-5"><a href="estimadores-de-riqueza.html#cb157-5"></a>res_ace &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_ace)</span>
+<span id="cb157-6"><a href="estimadores-de-riqueza.html#cb157-6"></a><span class="kw">colnames</span>(res_ace) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;ACE&quot;</span>, <span class="st">&quot;ACE_inferior&quot;</span>, <span class="st">&quot;ACE_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
+<span id="cb157-7"><a href="estimadores-de-riqueza.html#cb157-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
+<span id="cb157-8"><a href="estimadores-de-riqueza.html#cb157-8"></a></span>
+<span id="cb157-9"><a href="estimadores-de-riqueza.html#cb157-9"></a><span class="co"># comando para o gráfico</span></span>
+<span id="cb157-10"><a href="estimadores-de-riqueza.html#cb157-10"></a><span class="kw">ggplot</span>(res_ace, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
+<span id="cb157-11"><a href="estimadores-de-riqueza.html#cb157-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ACE, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb157-12"><a href="estimadores-de-riqueza.html#cb157-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb157-13"><a href="estimadores-de-riqueza.html#cb157-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> ACE, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb157-14"><a href="estimadores-de-riqueza.html#cb157-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb157-15"><a href="estimadores-de-riqueza.html#cb157-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> ACE_inferior, <span class="dt">ymax =</span> ACE_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
+<span id="cb157-16"><a href="estimadores-de-riqueza.html#cb157-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb157-17"><a href="estimadores-de-riqueza.html#cb157-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb157-18"><a href="estimadores-de-riqueza.html#cb157-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - ACE&quot;</span>) <span class="op">+</span></span>
+<span id="cb157-19"><a href="estimadores-de-riqueza.html#cb157-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
+<span id="cb157-20"><a href="estimadores-de-riqueza.html#cb157-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb157-21"><a href="estimadores-de-riqueza.html#cb157-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">7.5</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb157-22"><a href="estimadores-de-riqueza.html#cb157-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">5.9</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb157-23"><a href="estimadores-de-riqueza.html#cb157-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">7.5</span>, <span class="dt">x =</span> <span class="fl">11.7</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - ACE&quot;</span>) <span class="op">+</span></span>
+<span id="cb157-24"><a href="estimadores-de-riqueza.html#cb157-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">5.9</span>, <span class="dt">x =</span> <span class="fl">11.3</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <div id="interpretação-dos-resultados-1" class="section level4">
-<h4><span class="header-section-number">5.2.4.1</span> Interpretação dos resultados</h4>
+<h4><span class="header-section-number">6.2.4.1</span> Interpretação dos resultados</h4>
 <p>Com base no número de espécies raras (abundância menor que 10 indivíduos - <em>default</em>), o estimador ACE indica a possibilidade de encontrarmos mais sete espécies caso o esforço amostral fosse maior e não mostrou tendência de estabilição da curva em uma assíntota.</p>
 </div>
 </div>
 </div>
 <div id="estimadores-baseados-na-incidência-das-espécies" class="section level2">
-<h2><span class="header-section-number">5.3</span> Estimadores baseados na incidência das espécies</h2>
+<h2><span class="header-section-number">6.3</span> Estimadores baseados na incidência das espécies</h2>
 <div id="chao-2---chao-1987" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> CHAO 2 - (Chao 1987):</h3>
+<h3><span class="header-section-number">6.3.1</span> CHAO 2 - (Chao 1987):</h3>
 <p>De acordo com Anne Chao, o estimador Chao 1 pode ser modificado para uso com dados de presença/ausência levando em conta a distribuição das espécies entre amostras. Neste caso é
 necessário conhecer o número de espécies encontradas em somente uma amostra e o
 número de espécies encontradas exatamente em duas amostras. Essa variação ficou denominada como
@@ -468,9 +507,9 @@ Chao 2:</p>
  
 </p>
 <div id="exemplo-prático---chao-2" class="section level4">
-<h4><span class="header-section-number">5.3.1.1</span> Exemplo prático - Chao 2</h4>
+<h4><span class="header-section-number">6.3.1.1</span> Exemplo prático - Chao 2</h4>
 <div id="explicação-dos-dados-2" class="section level5">
-<h5><span class="header-section-number">5.3.1.1.1</span> Explicação dos dados</h5>
+<h5><span class="header-section-number">6.3.1.1.1</span> Explicação dos dados</h5>
 <p>Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de coletas de campo em um habitat reprodutivo localizado na região noroeste do estado de São Paulo, Brasil.</p>
 <p><strong>Pergunta:</strong></p>
 <blockquote>
@@ -498,62 +537,62 @@ Chao 2:</p>
 </div>
 </div>
 <div id="análise-2" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> Análise</h3>
+<h3><span class="header-section-number">6.3.2</span> Análise</h3>
 <p>Calculo do estimador de riqueza - Chao 2</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="estimadores-de-riqueza.html#cb47-1"></a><span class="kw">library</span>(vegan)</span>
-<span id="cb47-2"><a href="estimadores-de-riqueza.html#cb47-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
-<span id="cb47-3"><a href="estimadores-de-riqueza.html#cb47-3"></a>est_chao2 &lt;-<span class="st"> </span><span class="kw">poolaccum</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
-<span id="cb47-4"><a href="estimadores-de-riqueza.html#cb47-4"></a><span class="kw">summary</span>(est_chao2, <span class="dt">display =</span> <span class="st">&quot;chao&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="estimadores-de-riqueza.html#cb158-1"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb158-2"><a href="estimadores-de-riqueza.html#cb158-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
+<span id="cb158-3"><a href="estimadores-de-riqueza.html#cb158-3"></a>est_chao2 &lt;-<span class="st"> </span><span class="kw">poolaccum</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
+<span id="cb158-4"><a href="estimadores-de-riqueza.html#cb158-4"></a><span class="kw">summary</span>(est_chao2, <span class="dt">display =</span> <span class="st">&quot;chao&quot;</span>)</span></code></pre></div>
 <pre><code>## $chao
 ##        N     Chao      2.5%    97.5%  Std.Dev
-##  [1,]  3 13.54794  9.266667 21.00000 3.133326
-##  [2,]  4 15.35737  9.075000 25.63125 4.555731
-##  [3,]  5 17.16733 10.232000 29.13500 5.816714
-##  [4,]  6 18.94111 10.373264 35.94167 7.154390
-##  [5,]  7 20.88500 12.639286 39.57500 7.241896
-##  [6,]  8 22.04245 13.058333 38.43750 6.732962
-##  [7,]  9 23.47926 13.830556 38.77778 6.919071
-##  [8,] 10 25.56650 13.900000 40.70375 7.121043
-##  [9,] 11 27.41682 16.372727 40.94318 6.828789
-## [10,] 12 28.82625 18.666667 39.45833 5.879808
-## [11,] 13 31.31462 22.384615 39.61538 5.129360
+##  [1,]  3 13.99129  7.475000 23.52500 4.288334
+##  [2,]  4 15.19147  9.434375 27.82187 4.941318
+##  [3,]  5 16.41862 10.288333 28.61000 5.070095
+##  [4,]  6 17.66118 10.806250 30.00000 5.666200
+##  [5,]  7 19.27036 11.316071 37.00000 6.252069
+##  [6,]  8 21.12948 12.721875 37.96250 6.488331
+##  [7,]  9 22.44630 13.888889 38.77778 6.700505
+##  [8,] 10 24.94050 14.434375 37.07875 6.195946
+##  [9,] 11 27.37636 17.017045 39.27273 6.285557
+## [10,] 12 29.56333 18.666667 39.45833 5.908978
+## [11,] 13 31.32154 22.384615 36.76538 4.506464
 ## [12,] 14 33.71429 33.714286 33.71429 0.000000
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;summary.poolaccum&quot;</code></pre>
 <p>Visualizar os resultados com intervalo de confiança de 95%</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="estimadores-de-riqueza.html#cb49-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb49-2"><a href="estimadores-de-riqueza.html#cb49-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
-<span id="cb49-3"><a href="estimadores-de-riqueza.html#cb49-3"></a>resultados_chao2 &lt;-<span class="st"> </span><span class="kw">summary</span>(est_chao2, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;chao&quot;</span>))</span>
-<span id="cb49-4"><a href="estimadores-de-riqueza.html#cb49-4"></a>res_chao2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_chao2<span class="op">$</span>chao[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_chao2<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
-<span id="cb49-5"><a href="estimadores-de-riqueza.html#cb49-5"></a>res_chao2 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_chao2)</span>
-<span id="cb49-6"><a href="estimadores-de-riqueza.html#cb49-6"></a><span class="kw">colnames</span>(res_chao2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;Chao2&quot;</span>, <span class="st">&quot;C_inferior&quot;</span>, <span class="st">&quot;C_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
-<span id="cb49-7"><a href="estimadores-de-riqueza.html#cb49-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
-<span id="cb49-8"><a href="estimadores-de-riqueza.html#cb49-8"></a></span>
-<span id="cb49-9"><a href="estimadores-de-riqueza.html#cb49-9"></a><span class="co"># comando para o gráfico</span></span>
-<span id="cb49-10"><a href="estimadores-de-riqueza.html#cb49-10"></a><span class="kw">ggplot</span>(res_chao2, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
-<span id="cb49-11"><a href="estimadores-de-riqueza.html#cb49-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Chao2, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb49-12"><a href="estimadores-de-riqueza.html#cb49-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb49-13"><a href="estimadores-de-riqueza.html#cb49-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Chao2, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb49-14"><a href="estimadores-de-riqueza.html#cb49-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb49-15"><a href="estimadores-de-riqueza.html#cb49-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> C_inferior, <span class="dt">ymax =</span> C_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
-<span id="cb49-16"><a href="estimadores-de-riqueza.html#cb49-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb49-17"><a href="estimadores-de-riqueza.html#cb49-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb49-18"><a href="estimadores-de-riqueza.html#cb49-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Chao 2&quot;</span>) <span class="op">+</span></span>
-<span id="cb49-19"><a href="estimadores-de-riqueza.html#cb49-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
-<span id="cb49-20"><a href="estimadores-de-riqueza.html#cb49-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
-<span id="cb49-21"><a href="estimadores-de-riqueza.html#cb49-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">9.8</span>, <span class="dt">x =</span> <span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb49-22"><a href="estimadores-de-riqueza.html#cb49-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">7.7</span>, <span class="dt">x =</span> <span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb49-23"><a href="estimadores-de-riqueza.html#cb49-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">9.8</span>, <span class="dt">x =</span> <span class="fl">12.95</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Chao 2&quot;</span>) <span class="op">+</span></span>
-<span id="cb49-24"><a href="estimadores-de-riqueza.html#cb49-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">7.7</span>, <span class="dt">x =</span> <span class="fl">12.3</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="estimadores-de-riqueza.html#cb160-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb160-2"><a href="estimadores-de-riqueza.html#cb160-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
+<span id="cb160-3"><a href="estimadores-de-riqueza.html#cb160-3"></a>resultados_chao2 &lt;-<span class="st"> </span><span class="kw">summary</span>(est_chao2, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;chao&quot;</span>))</span>
+<span id="cb160-4"><a href="estimadores-de-riqueza.html#cb160-4"></a>res_chao2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_chao2<span class="op">$</span>chao[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_chao2<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
+<span id="cb160-5"><a href="estimadores-de-riqueza.html#cb160-5"></a>res_chao2 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_chao2)</span>
+<span id="cb160-6"><a href="estimadores-de-riqueza.html#cb160-6"></a><span class="kw">colnames</span>(res_chao2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;Chao2&quot;</span>, <span class="st">&quot;C_inferior&quot;</span>, <span class="st">&quot;C_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
+<span id="cb160-7"><a href="estimadores-de-riqueza.html#cb160-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
+<span id="cb160-8"><a href="estimadores-de-riqueza.html#cb160-8"></a></span>
+<span id="cb160-9"><a href="estimadores-de-riqueza.html#cb160-9"></a><span class="co"># comando para o gráfico</span></span>
+<span id="cb160-10"><a href="estimadores-de-riqueza.html#cb160-10"></a><span class="kw">ggplot</span>(res_chao2, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
+<span id="cb160-11"><a href="estimadores-de-riqueza.html#cb160-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Chao2, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb160-12"><a href="estimadores-de-riqueza.html#cb160-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb160-13"><a href="estimadores-de-riqueza.html#cb160-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Chao2, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb160-14"><a href="estimadores-de-riqueza.html#cb160-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb160-15"><a href="estimadores-de-riqueza.html#cb160-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> C_inferior, <span class="dt">ymax =</span> C_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
+<span id="cb160-16"><a href="estimadores-de-riqueza.html#cb160-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb160-17"><a href="estimadores-de-riqueza.html#cb160-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb160-18"><a href="estimadores-de-riqueza.html#cb160-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Chao 2&quot;</span>) <span class="op">+</span></span>
+<span id="cb160-19"><a href="estimadores-de-riqueza.html#cb160-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
+<span id="cb160-20"><a href="estimadores-de-riqueza.html#cb160-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb160-21"><a href="estimadores-de-riqueza.html#cb160-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">9.8</span>, <span class="dt">x =</span> <span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb160-22"><a href="estimadores-de-riqueza.html#cb160-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">7.7</span>, <span class="dt">x =</span> <span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb160-23"><a href="estimadores-de-riqueza.html#cb160-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">9.8</span>, <span class="dt">x =</span> <span class="fl">12.95</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Chao 2&quot;</span>) <span class="op">+</span></span>
+<span id="cb160-24"><a href="estimadores-de-riqueza.html#cb160-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">7.7</span>, <span class="dt">x =</span> <span class="fl">12.3</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 <div id="interpretação-dos-resultados-2" class="section level4">
-<h4><span class="header-section-number">5.3.2.1</span> Interpretação dos resultados</h4>
+<h4><span class="header-section-number">6.3.2.1</span> Interpretação dos resultados</h4>
 <p>Com base no número de espécies raras (<em>uniques</em> e <em>duplicates</em>), Chao 2 estimou a possibilidade de encontrarmos mais dezesseis espécies caso o esforço amostral fosse maior e não mostrou tendência de estabilização da curva em uma assíntota.</p>
 </div>
 </div>
 <div id="jackknife-1-burnham-overton-1978-1979" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</h3>
+<h3><span class="header-section-number">6.3.3</span> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</h3>
 <p>Este estimador baseia-se no número de espécies que ocorrem em somente uma amostra (Q1).</p>
 <blockquote>
 <p><span class="math display">\[S_{jack1} = S_{obs} + Q1\left(\frac{m - 1}{m}\right)\]</span></p>
@@ -569,9 +608,9 @@ Chao 2:</p>
  
 </p>
 <div id="exemplo-prático---jackknife-1" class="section level4">
-<h4><span class="header-section-number">5.3.3.1</span> Exemplo prático - Jackknife 1</h4>
+<h4><span class="header-section-number">6.3.3.1</span> Exemplo prático - Jackknife 1</h4>
 <div id="explicação-dos-dados-3" class="section level5">
-<h5><span class="header-section-number">5.3.3.1.1</span> Explicação dos dados</h5>
+<h5><span class="header-section-number">6.3.3.1.1</span> Explicação dos dados</h5>
 <p>Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de coletas de campo em um habitat reprodutivo localizado na região noroeste do estado de São Paulo, Brasil.</p>
 <p><strong>Pergunta:</strong></p>
 <blockquote>
@@ -599,62 +638,62 @@ Chao 2:</p>
 </div>
 </div>
 <div id="análise-3" class="section level3">
-<h3><span class="header-section-number">5.3.4</span> Análise</h3>
+<h3><span class="header-section-number">6.3.4</span> Análise</h3>
 <p>Calculo do estimador de riqueza - Jackknife 1</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="estimadores-de-riqueza.html#cb50-1"></a><span class="kw">library</span>(vegan)</span>
-<span id="cb50-2"><a href="estimadores-de-riqueza.html#cb50-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
-<span id="cb50-3"><a href="estimadores-de-riqueza.html#cb50-3"></a>est_jack1 &lt;-<span class="st"> </span><span class="kw">poolaccum</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
-<span id="cb50-4"><a href="estimadores-de-riqueza.html#cb50-4"></a><span class="kw">summary</span>(est_jack1, <span class="dt">display =</span> <span class="st">&quot;jack1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="estimadores-de-riqueza.html#cb161-1"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb161-2"><a href="estimadores-de-riqueza.html#cb161-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
+<span id="cb161-3"><a href="estimadores-de-riqueza.html#cb161-3"></a>est_jack1 &lt;-<span class="st"> </span><span class="kw">poolaccum</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
+<span id="cb161-4"><a href="estimadores-de-riqueza.html#cb161-4"></a><span class="kw">summary</span>(est_jack1, <span class="dt">display =</span> <span class="st">&quot;jack1&quot;</span>)</span></code></pre></div>
 <pre><code>## $jack1
 ##        N Jackknife 1      2.5%    97.5%  Std.Dev
-##  [1,]  3    13.68667  8.491667 20.20833 3.254219
-##  [2,]  4    14.63250  9.750000 20.77500 2.906900
-##  [3,]  5    15.87400 11.180000 22.02000 2.863868
-##  [4,]  6    16.72500 11.308333 21.83333 2.663126
-##  [5,]  7    17.52286 13.121429 22.00000 2.563176
-##  [6,]  8    18.42875 13.750000 23.12500 2.630151
-##  [7,]  9    19.18667 14.719444 23.22222 2.437081
-##  [8,] 10    20.01700 15.700000 23.30000 2.209532
-##  [9,] 11    20.75000 16.727273 23.36364 2.024410
-## [10,] 12    21.30750 17.185417 23.41667 1.847804
-## [11,] 13    22.07077 18.692308 23.46154 1.297284
+##  [1,]  3    14.15000  8.666667 19.66667 2.965335
+##  [2,]  4    15.11250  9.750000 21.00000 3.048715
+##  [3,]  5    16.24800  9.760000 22.40000 2.993747
+##  [4,]  6    16.70500 10.308333 21.83333 2.863119
+##  [5,]  7    17.41714 12.189286 22.07500 2.731334
+##  [6,]  8    18.28750 12.809375 23.12500 2.775678
+##  [7,]  9    19.09556 13.252778 23.22222 2.607127
+##  [8,] 10    19.73600 14.800000 23.30000 2.501415
+##  [9,] 11    20.49818 16.202273 23.36364 2.136211
+## [10,] 12    21.14750 18.141667 23.41667 1.842450
+## [11,] 13    22.10077 18.692308 23.46154 1.237196
 ## [12,] 14    22.57143 22.571429 22.57143 0.000000
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;summary.poolaccum&quot;</code></pre>
 <p>Visualizar os resultados com 95% intervalo de confiança</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="estimadores-de-riqueza.html#cb52-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb52-2"><a href="estimadores-de-riqueza.html#cb52-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
-<span id="cb52-3"><a href="estimadores-de-riqueza.html#cb52-3"></a>resultados_jack1 &lt;-<span class="st"> </span><span class="kw">summary</span>(est_jack1, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;jack1&quot;</span>))</span>
-<span id="cb52-4"><a href="estimadores-de-riqueza.html#cb52-4"></a>res_jack1 &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_jack1<span class="op">$</span>jack1[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_jack1<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
-<span id="cb52-5"><a href="estimadores-de-riqueza.html#cb52-5"></a>res_jack1 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_jack1)</span>
-<span id="cb52-6"><a href="estimadores-de-riqueza.html#cb52-6"></a><span class="kw">colnames</span>(res_jack1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;JACK1&quot;</span>, <span class="st">&quot;JACK1_inferior&quot;</span>, <span class="st">&quot;JACK1_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
-<span id="cb52-7"><a href="estimadores-de-riqueza.html#cb52-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
-<span id="cb52-8"><a href="estimadores-de-riqueza.html#cb52-8"></a></span>
-<span id="cb52-9"><a href="estimadores-de-riqueza.html#cb52-9"></a><span class="co"># comando para o gráfico</span></span>
-<span id="cb52-10"><a href="estimadores-de-riqueza.html#cb52-10"></a><span class="kw">ggplot</span>(res_jack1, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
-<span id="cb52-11"><a href="estimadores-de-riqueza.html#cb52-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> JACK1, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb52-12"><a href="estimadores-de-riqueza.html#cb52-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb52-13"><a href="estimadores-de-riqueza.html#cb52-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> JACK1, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb52-14"><a href="estimadores-de-riqueza.html#cb52-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb52-15"><a href="estimadores-de-riqueza.html#cb52-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> JACK1_inferior, <span class="dt">ymax =</span> JACK1_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
-<span id="cb52-16"><a href="estimadores-de-riqueza.html#cb52-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb52-17"><a href="estimadores-de-riqueza.html#cb52-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb52-18"><a href="estimadores-de-riqueza.html#cb52-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Jackknife 1&quot;</span>) <span class="op">+</span></span>
-<span id="cb52-19"><a href="estimadores-de-riqueza.html#cb52-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
-<span id="cb52-20"><a href="estimadores-de-riqueza.html#cb52-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
-<span id="cb52-21"><a href="estimadores-de-riqueza.html#cb52-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">9.9</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb52-22"><a href="estimadores-de-riqueza.html#cb52-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">8.6</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb52-23"><a href="estimadores-de-riqueza.html#cb52-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">9.9</span>, <span class="dt">x =</span> <span class="fl">12.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Jackknife 1&quot;</span>) <span class="op">+</span></span>
-<span id="cb52-24"><a href="estimadores-de-riqueza.html#cb52-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">8.6</span>, <span class="dt">x =</span> <span class="fl">11.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="estimadores-de-riqueza.html#cb163-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb163-2"><a href="estimadores-de-riqueza.html#cb163-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
+<span id="cb163-3"><a href="estimadores-de-riqueza.html#cb163-3"></a>resultados_jack1 &lt;-<span class="st"> </span><span class="kw">summary</span>(est_jack1, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;jack1&quot;</span>))</span>
+<span id="cb163-4"><a href="estimadores-de-riqueza.html#cb163-4"></a>res_jack1 &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_jack1<span class="op">$</span>jack1[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_jack1<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
+<span id="cb163-5"><a href="estimadores-de-riqueza.html#cb163-5"></a>res_jack1 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_jack1)</span>
+<span id="cb163-6"><a href="estimadores-de-riqueza.html#cb163-6"></a><span class="kw">colnames</span>(res_jack1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;JACK1&quot;</span>, <span class="st">&quot;JACK1_inferior&quot;</span>, <span class="st">&quot;JACK1_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
+<span id="cb163-7"><a href="estimadores-de-riqueza.html#cb163-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
+<span id="cb163-8"><a href="estimadores-de-riqueza.html#cb163-8"></a></span>
+<span id="cb163-9"><a href="estimadores-de-riqueza.html#cb163-9"></a><span class="co"># comando para o gráfico</span></span>
+<span id="cb163-10"><a href="estimadores-de-riqueza.html#cb163-10"></a><span class="kw">ggplot</span>(res_jack1, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
+<span id="cb163-11"><a href="estimadores-de-riqueza.html#cb163-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> JACK1, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb163-12"><a href="estimadores-de-riqueza.html#cb163-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb163-13"><a href="estimadores-de-riqueza.html#cb163-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> JACK1, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb163-14"><a href="estimadores-de-riqueza.html#cb163-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb163-15"><a href="estimadores-de-riqueza.html#cb163-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> JACK1_inferior, <span class="dt">ymax =</span> JACK1_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
+<span id="cb163-16"><a href="estimadores-de-riqueza.html#cb163-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb163-17"><a href="estimadores-de-riqueza.html#cb163-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb163-18"><a href="estimadores-de-riqueza.html#cb163-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Jackknife 1&quot;</span>) <span class="op">+</span></span>
+<span id="cb163-19"><a href="estimadores-de-riqueza.html#cb163-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
+<span id="cb163-20"><a href="estimadores-de-riqueza.html#cb163-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb163-21"><a href="estimadores-de-riqueza.html#cb163-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">9.9</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb163-22"><a href="estimadores-de-riqueza.html#cb163-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">8.6</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb163-23"><a href="estimadores-de-riqueza.html#cb163-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">9.9</span>, <span class="dt">x =</span> <span class="fl">12.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Jackknife 1&quot;</span>) <span class="op">+</span></span>
+<span id="cb163-24"><a href="estimadores-de-riqueza.html#cb163-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">8.6</span>, <span class="dt">x =</span> <span class="fl">11.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 <div id="interpretação-dos-resultados-3" class="section level4">
-<h4><span class="header-section-number">5.3.4.1</span> Interpretação dos resultados</h4>
+<h4><span class="header-section-number">6.3.4.1</span> Interpretação dos resultados</h4>
 <p>Com base no número de espécies raras, o estimador Jackknife 1 calculou a possibilidade de encontrarmos mais seis espécies caso o esforço amostral fosse maior e não mostrou tendência de estabilização da curva em uma assíntota.</p>
 </div>
 </div>
 <div id="jackknife-2-burnham-overton-1978-1979-palmer-1991" class="section level3">
-<h3><span class="header-section-number">5.3.5</span> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</h3>
+<h3><span class="header-section-number">6.3.5</span> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</h3>
 <p>Este método basea-se no número de espécies que ocorrem em apenas uma amostra e no número de espécies que ocorrem em exatamente duas amostras.</p>
 <blockquote>
 <p><span class="math display">\[S_{jack2} = S_{obs} + \left[\frac{Q_1(2m - 3)}{m}-\frac{Q_2(m - 2)^2}{m(m-1)}\right]\]</span></p>
@@ -670,9 +709,9 @@ Chao 2:</p>
  
 </p>
 <div id="exemplo-prático---jackknife-2" class="section level4">
-<h4><span class="header-section-number">5.3.5.1</span> Exemplo prático - Jackknife 2</h4>
+<h4><span class="header-section-number">6.3.5.1</span> Exemplo prático - Jackknife 2</h4>
 <div id="explicação-dos-dados-4" class="section level5">
-<h5><span class="header-section-number">5.3.5.1.1</span> Explicação dos dados</h5>
+<h5><span class="header-section-number">6.3.5.1.1</span> Explicação dos dados</h5>
 <p>Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de coletas de campo em um habitat reprodutivo localizado na região noroeste do estado de São Paulo, Brasil.</p>
 <p><strong>Pergunta:</strong></p>
 <blockquote>
@@ -700,62 +739,62 @@ Chao 2:</p>
 </div>
 </div>
 <div id="análise-4" class="section level3">
-<h3><span class="header-section-number">5.3.6</span> Análise</h3>
+<h3><span class="header-section-number">6.3.6</span> Análise</h3>
 <p>Calculo do estimador de riqueza - Jackknife 2</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="estimadores-de-riqueza.html#cb53-1"></a><span class="kw">library</span>(vegan)</span>
-<span id="cb53-2"><a href="estimadores-de-riqueza.html#cb53-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
-<span id="cb53-3"><a href="estimadores-de-riqueza.html#cb53-3"></a>est_jack2 &lt;-<span class="st"> </span><span class="kw">poolaccum</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
-<span id="cb53-4"><a href="estimadores-de-riqueza.html#cb53-4"></a><span class="kw">summary</span>(est_jack2, <span class="dt">display =</span> <span class="st">&quot;jack2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="estimadores-de-riqueza.html#cb164-1"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb164-2"><a href="estimadores-de-riqueza.html#cb164-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
+<span id="cb164-3"><a href="estimadores-de-riqueza.html#cb164-3"></a>est_jack2 &lt;-<span class="st"> </span><span class="kw">poolaccum</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
+<span id="cb164-4"><a href="estimadores-de-riqueza.html#cb164-4"></a><span class="kw">summary</span>(est_jack2, <span class="dt">display =</span> <span class="st">&quot;jack2&quot;</span>)</span></code></pre></div>
 <pre><code>## $jack2
 ##        N Jackknife 2      2.5%    97.5%  Std.Dev
-##  [1,]  3    14.38000  6.966667 21.16667 3.381145
-##  [2,]  4    15.59083  8.725000 22.25833 3.418382
-##  [3,]  5    16.96450  9.997500 24.40250 3.905877
-##  [4,]  6    18.28933 10.865000 26.74583 3.937996
-##  [5,]  7    19.78810 12.739881 26.80952 3.874963
-##  [6,]  8    20.71446 12.941518 27.56250 4.177246
-##  [7,]  9    21.56889 14.311458 29.21840 4.260633
-##  [8,] 10    22.63711 14.826111 30.60000 4.109163
-##  [9,] 11    23.83409 15.718182 29.64795 3.701051
-## [10,] 12    24.74705 18.492424 28.49242 3.027521
-## [11,] 13    25.88558 21.301282 28.60897 2.153069
+##  [1,]  3    14.69500  9.116667 21.42083 3.253165
+##  [2,]  4    15.77833  8.250000 23.21458 4.106215
+##  [3,]  5    16.52800 10.045000 23.90000 4.122605
+##  [4,]  6    17.61633  9.398333 24.47250 4.243906
+##  [5,]  7    18.98095 12.027381 27.00000 3.771901
+##  [6,]  8    20.55839 13.776786 27.37500 3.974332
+##  [7,]  9    21.85083 14.636806 27.66667 3.693946
+##  [8,] 10    22.69078 16.158611 30.60000 3.623270
+##  [9,] 11    23.60709 18.058864 29.64795 3.079864
+## [10,] 12    24.68674 18.492424 29.80890 2.911257
+## [11,] 13    25.82692 21.301282 28.60897 2.174412
 ## [12,] 14    26.92308 26.923077 26.92308 0.000000
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;summary.poolaccum&quot;</code></pre>
 <p>Visualizar os resultados com intervalo de confiança de 95%</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="estimadores-de-riqueza.html#cb55-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb55-2"><a href="estimadores-de-riqueza.html#cb55-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
-<span id="cb55-3"><a href="estimadores-de-riqueza.html#cb55-3"></a>resultados_jack2 &lt;-<span class="st"> </span><span class="kw">summary</span>(est_jack2, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;jack2&quot;</span>))</span>
-<span id="cb55-4"><a href="estimadores-de-riqueza.html#cb55-4"></a>res_jack2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_jack2<span class="op">$</span>jack2[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_jack2<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
-<span id="cb55-5"><a href="estimadores-de-riqueza.html#cb55-5"></a>res_jack2 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_jack2)</span>
-<span id="cb55-6"><a href="estimadores-de-riqueza.html#cb55-6"></a><span class="kw">colnames</span>(res_jack2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;JACK2&quot;</span>, <span class="st">&quot;JACK2_inferior&quot;</span>, <span class="st">&quot;JACK2_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
-<span id="cb55-7"><a href="estimadores-de-riqueza.html#cb55-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
-<span id="cb55-8"><a href="estimadores-de-riqueza.html#cb55-8"></a></span>
-<span id="cb55-9"><a href="estimadores-de-riqueza.html#cb55-9"></a><span class="co"># comando para o gráfico</span></span>
-<span id="cb55-10"><a href="estimadores-de-riqueza.html#cb55-10"></a><span class="kw">ggplot</span>(res_jack2, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
-<span id="cb55-11"><a href="estimadores-de-riqueza.html#cb55-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> JACK2, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb55-12"><a href="estimadores-de-riqueza.html#cb55-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb55-13"><a href="estimadores-de-riqueza.html#cb55-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> JACK2, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb55-14"><a href="estimadores-de-riqueza.html#cb55-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb55-15"><a href="estimadores-de-riqueza.html#cb55-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> JACK2_inferior, <span class="dt">ymax =</span> JACK2_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
-<span id="cb55-16"><a href="estimadores-de-riqueza.html#cb55-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb55-17"><a href="estimadores-de-riqueza.html#cb55-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb55-18"><a href="estimadores-de-riqueza.html#cb55-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Jackknife 2&quot;</span>) <span class="op">+</span></span>
-<span id="cb55-19"><a href="estimadores-de-riqueza.html#cb55-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
-<span id="cb55-20"><a href="estimadores-de-riqueza.html#cb55-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
-<span id="cb55-21"><a href="estimadores-de-riqueza.html#cb55-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">9.9</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb55-22"><a href="estimadores-de-riqueza.html#cb55-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">8.2</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb55-23"><a href="estimadores-de-riqueza.html#cb55-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">9.9</span>, <span class="dt">x =</span> <span class="fl">12.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Jackknife 2&quot;</span>) <span class="op">+</span></span>
-<span id="cb55-24"><a href="estimadores-de-riqueza.html#cb55-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">8.2</span>, <span class="dt">x =</span> <span class="fl">11.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="estimadores-de-riqueza.html#cb166-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb166-2"><a href="estimadores-de-riqueza.html#cb166-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
+<span id="cb166-3"><a href="estimadores-de-riqueza.html#cb166-3"></a>resultados_jack2 &lt;-<span class="st"> </span><span class="kw">summary</span>(est_jack2, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;jack2&quot;</span>))</span>
+<span id="cb166-4"><a href="estimadores-de-riqueza.html#cb166-4"></a>res_jack2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_jack2<span class="op">$</span>jack2[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_jack2<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
+<span id="cb166-5"><a href="estimadores-de-riqueza.html#cb166-5"></a>res_jack2 &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_jack2)</span>
+<span id="cb166-6"><a href="estimadores-de-riqueza.html#cb166-6"></a><span class="kw">colnames</span>(res_jack2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;JACK2&quot;</span>, <span class="st">&quot;JACK2_inferior&quot;</span>, <span class="st">&quot;JACK2_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
+<span id="cb166-7"><a href="estimadores-de-riqueza.html#cb166-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
+<span id="cb166-8"><a href="estimadores-de-riqueza.html#cb166-8"></a></span>
+<span id="cb166-9"><a href="estimadores-de-riqueza.html#cb166-9"></a><span class="co"># comando para o gráfico</span></span>
+<span id="cb166-10"><a href="estimadores-de-riqueza.html#cb166-10"></a><span class="kw">ggplot</span>(res_jack2, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
+<span id="cb166-11"><a href="estimadores-de-riqueza.html#cb166-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> JACK2, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb166-12"><a href="estimadores-de-riqueza.html#cb166-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb166-13"><a href="estimadores-de-riqueza.html#cb166-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> JACK2, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb166-14"><a href="estimadores-de-riqueza.html#cb166-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb166-15"><a href="estimadores-de-riqueza.html#cb166-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> JACK2_inferior, <span class="dt">ymax =</span> JACK2_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
+<span id="cb166-16"><a href="estimadores-de-riqueza.html#cb166-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb166-17"><a href="estimadores-de-riqueza.html#cb166-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb166-18"><a href="estimadores-de-riqueza.html#cb166-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Jackknife 2&quot;</span>) <span class="op">+</span></span>
+<span id="cb166-19"><a href="estimadores-de-riqueza.html#cb166-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
+<span id="cb166-20"><a href="estimadores-de-riqueza.html#cb166-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb166-21"><a href="estimadores-de-riqueza.html#cb166-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">9.9</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb166-22"><a href="estimadores-de-riqueza.html#cb166-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">8.2</span>, <span class="dt">x =</span> <span class="dv">9</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb166-23"><a href="estimadores-de-riqueza.html#cb166-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">9.9</span>, <span class="dt">x =</span> <span class="fl">12.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Jackknife 2&quot;</span>) <span class="op">+</span></span>
+<span id="cb166-24"><a href="estimadores-de-riqueza.html#cb166-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">8.2</span>, <span class="dt">x =</span> <span class="fl">11.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
 <div id="interpretação-dos-resultados-4" class="section level4">
-<h4><span class="header-section-number">5.3.6.1</span> Interpretação dos resultados</h4>
+<h4><span class="header-section-number">6.3.6.1</span> Interpretação dos resultados</h4>
 <p>Com base no número de espécies raras, o estimador Jackknife 2 calculou a possibilidade de encontrarmos mais dez espécies caso o esforço amostral fosse maior e não mostrou tendência estabilização da curva em uma assíntota.</p>
 </div>
 </div>
 <div id="bootstrap-smith-van-belle-1984" class="section level3">
-<h3><span class="header-section-number">5.3.7</span> BOOTSTRAP (Smith &amp; van Belle 1984):</h3>
+<h3><span class="header-section-number">6.3.7</span> BOOTSTRAP (Smith &amp; van Belle 1984):</h3>
 <p>Este método difere dos demais por utilizar dados de todas as espécies coletadas para estimar a riqueza total, não se restringindo às espécies raras. Ele requer somente dados de incidência. A estimativa pelo bootstrap é calculada somando-se a riqueza observada à soma do inverso da proporção de amostras em que cada espécie ocorre.</p>
 <blockquote>
 <p><span class="math display">\[S_{boot} = S_{obs} + \sum_{k=1}^{S_{obs}}(1-P_k)^m\]</span></p>
@@ -770,9 +809,9 @@ Chao 2:</p>
  
 </p>
 <div id="exemplo-prático---bootstrap" class="section level4">
-<h4><span class="header-section-number">5.3.7.1</span> Exemplo prático - Bootstrap</h4>
+<h4><span class="header-section-number">6.3.7.1</span> Exemplo prático - Bootstrap</h4>
 <div id="explicação-dos-dados-5" class="section level5">
-<h5><span class="header-section-number">5.3.7.1.1</span> Explicação dos dados</h5>
+<h5><span class="header-section-number">6.3.7.1.1</span> Explicação dos dados</h5>
 <p>Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de coletas de campo em um habitat reprodutivo localizado na região noroeste do estado de São Paulo, Brasil.</p>
 <p><strong>Pergunta:</strong></p>
 <blockquote>
@@ -800,67 +839,67 @@ Chao 2:</p>
 </div>
 </div>
 <div id="análise-5" class="section level3">
-<h3><span class="header-section-number">5.3.8</span> Análise</h3>
+<h3><span class="header-section-number">6.3.8</span> Análise</h3>
 <p>Calculo do estimador de riqueza - Bootstrap</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="estimadores-de-riqueza.html#cb56-1"></a><span class="kw">library</span>(vegan)</span>
-<span id="cb56-2"><a href="estimadores-de-riqueza.html#cb56-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
-<span id="cb56-3"><a href="estimadores-de-riqueza.html#cb56-3"></a>est_boot &lt;-<span class="st"> </span><span class="kw">poolaccum</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
-<span id="cb56-4"><a href="estimadores-de-riqueza.html#cb56-4"></a><span class="kw">summary</span>(est_boot, <span class="dt">display =</span> <span class="st">&quot;boot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="estimadores-de-riqueza.html#cb167-1"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb167-2"><a href="estimadores-de-riqueza.html#cb167-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
+<span id="cb167-3"><a href="estimadores-de-riqueza.html#cb167-3"></a>est_boot &lt;-<span class="st"> </span><span class="kw">poolaccum</span>(dados_coleta, <span class="dt">permutations =</span> <span class="dv">100</span>)</span>
+<span id="cb167-4"><a href="estimadores-de-riqueza.html#cb167-4"></a><span class="kw">summary</span>(est_boot, <span class="dt">display =</span> <span class="st">&quot;boot&quot;</span>)</span></code></pre></div>
 <pre><code>## $boot
 ##        N Bootstrap      2.5%    97.5%  Std.Dev
-##  [1,]  3  12.07667  7.863889 16.48148 2.383348
-##  [2,]  4  13.01504  9.636719 16.80410 2.100275
-##  [3,]  5  13.92354 10.230736 17.95426 2.130706
-##  [4,]  6  14.54182 11.214745 18.31980 2.026155
-##  [5,]  7  15.19749 11.859688 18.88050 1.873926
-##  [6,]  8  15.58819 12.765226 19.29937 1.810293
-##  [7,]  9  16.16248 13.108214 19.61497 1.788253
-##  [8,] 10  16.80419 13.918326 19.32206 1.690274
-##  [9,] 11  17.58802 13.901678 19.57727 1.470012
-## [10,] 12  18.16177 16.020117 19.58494 1.266398
-## [11,] 13  18.55010 16.570376 19.47661 1.095733
+##  [1,]  3  12.52667  8.407407 16.48148 2.288279
+##  [2,]  4  13.64625  9.887695 18.50156 2.313973
+##  [3,]  5  14.11303 10.708376 18.52114 2.212843
+##  [4,]  6  14.76422 11.125095 18.62229 2.049359
+##  [5,]  7  15.39103 11.020989 18.98355 2.043599
+##  [6,]  8  15.94220 12.889368 19.45854 1.888203
+##  [7,]  9  16.56670 13.000422 19.69730 1.739192
+##  [8,] 10  16.97795 14.033719 19.56536 1.541607
+##  [9,] 11  17.62187 14.561104 19.58004 1.481409
+## [10,] 12  18.17844 15.233580 19.58239 1.301147
+## [11,] 13  18.65828 16.570376 19.59107 1.030458
 ## [12,] 14  19.27832 19.278321 19.27832 0.000000
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;summary.poolaccum&quot;</code></pre>
 <p>Visualizar os resultados com intervalo de confiança de 95%</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="estimadores-de-riqueza.html#cb58-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb58-2"><a href="estimadores-de-riqueza.html#cb58-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
-<span id="cb58-3"><a href="estimadores-de-riqueza.html#cb58-3"></a>resultados_boot &lt;-<span class="st"> </span><span class="kw">summary</span>(est_boot, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;boot&quot;</span>))</span>
-<span id="cb58-4"><a href="estimadores-de-riqueza.html#cb58-4"></a>res_boot &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_boot<span class="op">$</span>boot[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_boot<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
-<span id="cb58-5"><a href="estimadores-de-riqueza.html#cb58-5"></a>res_boot &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_boot)</span>
-<span id="cb58-6"><a href="estimadores-de-riqueza.html#cb58-6"></a><span class="kw">colnames</span>(res_boot) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;BOOT&quot;</span>, <span class="st">&quot;BOOT_inferior&quot;</span>, <span class="st">&quot;BOOT_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
-<span id="cb58-7"><a href="estimadores-de-riqueza.html#cb58-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
-<span id="cb58-8"><a href="estimadores-de-riqueza.html#cb58-8"></a></span>
-<span id="cb58-9"><a href="estimadores-de-riqueza.html#cb58-9"></a><span class="co"># comando para o gráfico</span></span>
-<span id="cb58-10"><a href="estimadores-de-riqueza.html#cb58-10"></a><span class="kw">ggplot</span>(res_boot, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
-<span id="cb58-11"><a href="estimadores-de-riqueza.html#cb58-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> BOOT, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb58-12"><a href="estimadores-de-riqueza.html#cb58-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb58-13"><a href="estimadores-de-riqueza.html#cb58-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> BOOT, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb58-14"><a href="estimadores-de-riqueza.html#cb58-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb58-15"><a href="estimadores-de-riqueza.html#cb58-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> BOOT_inferior, <span class="dt">ymax =</span> BOOT_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
-<span id="cb58-16"><a href="estimadores-de-riqueza.html#cb58-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
-<span id="cb58-17"><a href="estimadores-de-riqueza.html#cb58-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
-<span id="cb58-18"><a href="estimadores-de-riqueza.html#cb58-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Bootstrap&quot;</span>) <span class="op">+</span></span>
-<span id="cb58-19"><a href="estimadores-de-riqueza.html#cb58-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
-<span id="cb58-20"><a href="estimadores-de-riqueza.html#cb58-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
-<span id="cb58-21"><a href="estimadores-de-riqueza.html#cb58-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">10.4</span>, <span class="dt">x =</span> <span class="fl">9.5</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb58-22"><a href="estimadores-de-riqueza.html#cb58-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">9.3</span>, <span class="dt">x =</span> <span class="fl">9.5</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb58-23"><a href="estimadores-de-riqueza.html#cb58-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">10.4</span>, <span class="dt">x =</span> <span class="fl">12.3</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Bootstrap&quot;</span>) <span class="op">+</span></span>
-<span id="cb58-24"><a href="estimadores-de-riqueza.html#cb58-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">9.3</span>, <span class="dt">x =</span> <span class="fl">11.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="estimadores-de-riqueza.html#cb169-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb169-2"><a href="estimadores-de-riqueza.html#cb169-2"></a><span class="co"># preparando os dados para fazer o gráfico</span></span>
+<span id="cb169-3"><a href="estimadores-de-riqueza.html#cb169-3"></a>resultados_boot &lt;-<span class="st"> </span><span class="kw">summary</span>(est_boot, <span class="dt">display =</span> <span class="kw">c</span>(<span class="st">&quot;S&quot;</span>, <span class="st">&quot;boot&quot;</span>))</span>
+<span id="cb169-4"><a href="estimadores-de-riqueza.html#cb169-4"></a>res_boot &lt;-<span class="st"> </span><span class="kw">cbind</span>(resultados_boot<span class="op">$</span>boot[,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], resultados_boot<span class="op">$</span>S[,<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>])</span>
+<span id="cb169-5"><a href="estimadores-de-riqueza.html#cb169-5"></a>res_boot &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(res_boot)</span>
+<span id="cb169-6"><a href="estimadores-de-riqueza.html#cb169-6"></a><span class="kw">colnames</span>(res_boot) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostras&quot;</span>, <span class="st">&quot;BOOT&quot;</span>, <span class="st">&quot;BOOT_inferior&quot;</span>, <span class="st">&quot;BOOT_superior&quot;</span>, <span class="st">&quot;Riqueza&quot;</span>,</span>
+<span id="cb169-7"><a href="estimadores-de-riqueza.html#cb169-7"></a>                        <span class="st">&quot;R_inferior&quot;</span>, <span class="st">&quot;R_superior&quot;</span>)</span>
+<span id="cb169-8"><a href="estimadores-de-riqueza.html#cb169-8"></a></span>
+<span id="cb169-9"><a href="estimadores-de-riqueza.html#cb169-9"></a><span class="co"># comando para o gráfico</span></span>
+<span id="cb169-10"><a href="estimadores-de-riqueza.html#cb169-10"></a><span class="kw">ggplot</span>(res_boot, <span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras)) <span class="op">+</span></span>
+<span id="cb169-11"><a href="estimadores-de-riqueza.html#cb169-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> BOOT, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb169-12"><a href="estimadores-de-riqueza.html#cb169-12"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb169-13"><a href="estimadores-de-riqueza.html#cb169-13"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> BOOT, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-14"><a href="estimadores-de-riqueza.html#cb169-14"></a><span class="st">  </span><span class="kw">geom_line</span> (<span class="kw">aes</span>(<span class="dt">y =</span> Riqueza, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-15"><a href="estimadores-de-riqueza.html#cb169-15"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> BOOT_inferior, <span class="dt">ymax =</span> BOOT_superior, <span class="dt">x =</span> Amostras <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>),</span>
+<span id="cb169-16"><a href="estimadores-de-riqueza.html#cb169-16"></a> <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-17"><a href="estimadores-de-riqueza.html#cb169-17"></a><span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> R_inferior, <span class="dt">ymax =</span> R_superior, <span class="dt">x =</span> Amostras), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-18"><a href="estimadores-de-riqueza.html#cb169-18"></a><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;Estimador de riqueza - Bootstrap&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-19"><a href="estimadores-de-riqueza.html#cb169-19"></a><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;Número de amostras&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-20"><a href="estimadores-de-riqueza.html#cb169-20"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">15</span>), <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb169-21"><a href="estimadores-de-riqueza.html#cb169-21"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">10.4</span>, <span class="dt">x =</span> <span class="fl">9.5</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb169-22"><a href="estimadores-de-riqueza.html#cb169-22"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">y=</span> <span class="fl">9.3</span>, <span class="dt">x =</span> <span class="fl">9.5</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb169-23"><a href="estimadores-de-riqueza.html#cb169-23"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">10.4</span>, <span class="dt">x =</span> <span class="fl">12.3</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza estimada - Bootstrap&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-24"><a href="estimadores-de-riqueza.html#cb169-24"></a><span class="st">  </span><span class="kw">geom_label</span>( <span class="dt">y =</span> <span class="fl">9.3</span>, <span class="dt">x =</span> <span class="fl">11.5</span>, <span class="dt">label =</span> <span class="st">&quot;Riqueza observada&quot;</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 <div id="interpretação-dos-resultados-5" class="section level4">
-<h4><span class="header-section-number">5.3.8.1</span> Interpretação dos resultados</h4>
+<h4><span class="header-section-number">6.3.8.1</span> Interpretação dos resultados</h4>
 <p>Com base na frequencia de ocorrência das espécies, o estimador bootstrap calculou a possibilidade de encontrarmos mais duas espécies caso o esforço amostral fosse maior e não mostrou tendência de estabilização da curva em uma assíntota.</p>
 </div>
 </div>
 <div id="interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012" class="section level3">
-<h3><span class="header-section-number">5.3.9</span> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</h3>
+<h3><span class="header-section-number">6.3.9</span> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</h3>
 <p>Este método utiliza teoria de amostragem (e.g. modelos multinomial, Poisson e Bernoulli) para conectar rarefação (interpolação) e predição (extrapolação) com base no tamanho da amostra. Contudo, é importante enfatizar que a extrapolação torna-se altamente incerta quando extendida para o dobro do tamanho da amostragem. Este método utiliza uma abordagem com bootstrap para calcular o intervalo de confiança de 95%. Uma das vantagens desta abordagem é que ela permite além da riqueza de espécies, interpolar e extrapolar os índices de diversidade de Shannon entropy (i.e. quantifica a incerteza da identidade da espécie baseado na amostragem aleatória de um indivíduo da comunidade) e Gini-Simpson (i.e. quantifica a probabilidade que dois indivíduos escolhidos aleatoriamente sejam de diferentes espécies). Contudo, estes índices de diversidades são transformados e apresentados em unidades de riqueza de espécies (<em>Números de Hill</em>, Hill 1973). Hill percebeu que poderíamos calcular a riqueza de espécies máxima usando os índices de Shannon entropy e Gini-Simpson quando consideramos que todas as espécies na comunidade possuem abundâncias idênticas (máxima equitabilidade). Então, eles propos a transformação dos indíces de diversidade determinando qual seria o número de espécies equivalente da nossa comunidade (observado) se todas as espécies fossem igualmente abundantes (teórico). Desta maneira, os indíces podem ser comparavéis pois estão representados pela mesma unidade - riqueza de espécies. Os números de Hill são representados pelo parâmetro <em>q</em> que controla a sensibilidide do índice em relação a abudância relativa das espécies (Gotelli &amp; Chao 2013). Quando q = 0 ele não considera a abundância das espécies e é igual a riqueza de espécies. Quando q = 1 ele é o exponencial da diversidade de Shannon, que dá uma peso maior para as espécies raras. Quando q = 2 ele é a diversidade de Simpson, que dá um peso maior para as espécies mais comuns na comunidade.</p>
 <div id="exemplo-prático" class="section level4">
-<h4><span class="header-section-number">5.3.9.1</span> Exemplo prático</h4>
+<h4><span class="header-section-number">6.3.9.1</span> Exemplo prático</h4>
 <div id="explicação-dos-dados-6" class="section level5">
-<h5><span class="header-section-number">5.3.9.1.1</span> Explicação dos dados</h5>
+<h5><span class="header-section-number">6.3.9.1.1</span> Explicação dos dados</h5>
 <p>Usaremos os mesmos dados de 17 espécies de anuros amostradas em 14 dias de coletas de campo em um habitat reprodutivo localizado na região noroeste do estado de São Paulo, Brasil.</p>
 <p><strong>Pergunta:</strong></p>
 <blockquote>
@@ -888,39 +927,39 @@ Chao 2:</p>
 </div>
 </div>
 <div id="análise-6" class="section level3">
-<h3><span class="header-section-number">5.3.10</span> Análise</h3>
+<h3><span class="header-section-number">6.3.10</span> Análise</h3>
 <p>Calculo da extrapolação da riqueza com base no número de indivíduos</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="estimadores-de-riqueza.html#cb59-1"></a><span class="kw">library</span>(iNEXT)</span>
-<span id="cb59-2"><a href="estimadores-de-riqueza.html#cb59-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
-<span id="cb59-3"><a href="estimadores-de-riqueza.html#cb59-3"></a></span>
-<span id="cb59-4"><a href="estimadores-de-riqueza.html#cb59-4"></a><span class="co"># preparando os dados para análises considerando a abundância</span></span>
-<span id="cb59-5"><a href="estimadores-de-riqueza.html#cb59-5"></a>dados_inext_abu &lt;-<span class="st"> </span><span class="kw">colSums</span>(dados_coleta) </span>
-<span id="cb59-6"><a href="estimadores-de-riqueza.html#cb59-6"></a></span>
-<span id="cb59-7"><a href="estimadores-de-riqueza.html#cb59-7"></a>resultados_abundancia &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_inext_abu, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, </span>
-<span id="cb59-8"><a href="estimadores-de-riqueza.html#cb59-8"></a>			<span class="dt">endpoint =</span> <span class="dv">600</span>)</span>
-<span id="cb59-9"><a href="estimadores-de-riqueza.html#cb59-9"></a></span>
-<span id="cb59-10"><a href="estimadores-de-riqueza.html#cb59-10"></a><span class="co"># Visualizar os dados no gráfico</span></span>
-<span id="cb59-11"><a href="estimadores-de-riqueza.html#cb59-11"></a><span class="kw">ggiNEXT</span>(resultados_abundancia, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="estimadores-de-riqueza.html#cb170-1"></a><span class="kw">library</span>(iNEXT)</span>
+<span id="cb170-2"><a href="estimadores-de-riqueza.html#cb170-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
+<span id="cb170-3"><a href="estimadores-de-riqueza.html#cb170-3"></a></span>
+<span id="cb170-4"><a href="estimadores-de-riqueza.html#cb170-4"></a><span class="co"># preparando os dados para análises considerando a abundância</span></span>
+<span id="cb170-5"><a href="estimadores-de-riqueza.html#cb170-5"></a>dados_inext_abu &lt;-<span class="st"> </span><span class="kw">colSums</span>(dados_coleta) </span>
+<span id="cb170-6"><a href="estimadores-de-riqueza.html#cb170-6"></a></span>
+<span id="cb170-7"><a href="estimadores-de-riqueza.html#cb170-7"></a>resultados_abundancia &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_inext_abu, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, </span>
+<span id="cb170-8"><a href="estimadores-de-riqueza.html#cb170-8"></a>			<span class="dt">endpoint =</span> <span class="dv">600</span>)</span>
+<span id="cb170-9"><a href="estimadores-de-riqueza.html#cb170-9"></a></span>
+<span id="cb170-10"><a href="estimadores-de-riqueza.html#cb170-10"></a><span class="co"># Visualizar os dados no gráfico</span></span>
+<span id="cb170-11"><a href="estimadores-de-riqueza.html#cb170-11"></a><span class="kw">ggiNEXT</span>(resultados_abundancia, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <div id="interpretação-dos-resultados-6" class="section level4">
-<h4><span class="header-section-number">5.3.10.1</span> Interpretação dos resultados</h4>
+<h4><span class="header-section-number">6.3.10.1</span> Interpretação dos resultados</h4>
 <p>Veja que o ponto no final da linha contínua representa as 17 espécies de anuros (eixo Y) observadas entre os 304 individuos (eixo X). A extrapolação máxima (600 indivíduos no nosso exemplo), estima um aumento de até oito espécies (intervalo de confiança) caso amostrássemos mais 300 indivíduos.</p>
 <p>Calculo da extrapolação da riqueza com base no número de amostras</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="estimadores-de-riqueza.html#cb60-1"></a><span class="kw">library</span>(iNEXT)</span>
-<span id="cb60-2"><a href="estimadores-de-riqueza.html#cb60-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
-<span id="cb60-3"><a href="estimadores-de-riqueza.html#cb60-3"></a></span>
-<span id="cb60-4"><a href="estimadores-de-riqueza.html#cb60-4"></a><span class="co"># preparando os dados para análises considerando a incidência</span></span>
-<span id="cb60-5"><a href="estimadores-de-riqueza.html#cb60-5"></a>dados_inext &lt;-<span class="st"> </span><span class="kw">as.incfreq</span>(<span class="kw">t</span>(dados_coleta)) <span class="co"># preciso transpor o dataframe</span></span>
-<span id="cb60-6"><a href="estimadores-de-riqueza.html#cb60-6"></a></span>
-<span id="cb60-7"><a href="estimadores-de-riqueza.html#cb60-7"></a>resultados_incidencia &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_inext, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;incidence_freq&quot;</span>, </span>
-<span id="cb60-8"><a href="estimadores-de-riqueza.html#cb60-8"></a>			<span class="dt">endpoint =</span> <span class="dv">30</span>)</span>
-<span id="cb60-9"><a href="estimadores-de-riqueza.html#cb60-9"></a></span>
-<span id="cb60-10"><a href="estimadores-de-riqueza.html#cb60-10"></a><span class="co"># Visualizar os dados no gráfico</span></span>
-<span id="cb60-11"><a href="estimadores-de-riqueza.html#cb60-11"></a><span class="kw">ggiNEXT</span>(resultados_incidencia, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="estimadores-de-riqueza.html#cb171-1"></a><span class="kw">library</span>(iNEXT)</span>
+<span id="cb171-2"><a href="estimadores-de-riqueza.html#cb171-2"></a>dados_coleta &lt;-<span class="st"> </span>poca_anuros</span>
+<span id="cb171-3"><a href="estimadores-de-riqueza.html#cb171-3"></a></span>
+<span id="cb171-4"><a href="estimadores-de-riqueza.html#cb171-4"></a><span class="co"># preparando os dados para análises considerando a incidência</span></span>
+<span id="cb171-5"><a href="estimadores-de-riqueza.html#cb171-5"></a>dados_inext &lt;-<span class="st"> </span><span class="kw">as.incfreq</span>(<span class="kw">t</span>(dados_coleta)) <span class="co"># preciso transpor o dataframe</span></span>
+<span id="cb171-6"><a href="estimadores-de-riqueza.html#cb171-6"></a></span>
+<span id="cb171-7"><a href="estimadores-de-riqueza.html#cb171-7"></a>resultados_incidencia &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_inext, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;incidence_freq&quot;</span>, </span>
+<span id="cb171-8"><a href="estimadores-de-riqueza.html#cb171-8"></a>			<span class="dt">endpoint =</span> <span class="dv">30</span>)</span>
+<span id="cb171-9"><a href="estimadores-de-riqueza.html#cb171-9"></a></span>
+<span id="cb171-10"><a href="estimadores-de-riqueza.html#cb171-10"></a><span class="co"># Visualizar os dados no gráfico</span></span>
+<span id="cb171-11"><a href="estimadores-de-riqueza.html#cb171-11"></a><span class="kw">ggiNEXT</span>(resultados_incidencia, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 </div>
 <div id="interpretação-dos-resultados-7" class="section level4">
-<h4><span class="header-section-number">5.3.10.2</span> Interpretação dos resultados</h4>
+<h4><span class="header-section-number">6.3.10.2</span> Interpretação dos resultados</h4>
 <p>Veja que o ponto no final da linha contínua representa as 17 espécies de anuros (eixo Y) observadas nos 14 dias de coleta (eixo X - amostras). A extrapolação máxima (30 dias de coleta no nosso exemplo), estima um aumento de até 13 espécies (intervalo de confiança) caso amostrássemos mais 16 dias.</p>
 <p>
  
@@ -928,7 +967,7 @@ Chao 2:</p>
 </div>
 </div>
 <div id="para-se-aprofundar" class="section level3">
-<h3><span class="header-section-number">5.3.11</span> Para se aprofundar</h3>
+<h3><span class="header-section-number">6.3.11</span> Para se aprofundar</h3>
 <ul>
 <li><p>Recomendamos aos interessados que olhem a página do <a href="http://viceroy.eeb.uconn.edu/estimates">EstimateS software</a> e baixem o manual do usuário que contém informações detalhadas sobre os índices de rarefação e estimadores de riqueza.Este site foi criado e é mantido pelo Dr. Robert K. Colwell, um dos maiores especialistas do mundo em estimativas da biodiversidade</p></li>
 <li><p>Recomendamos também o livro Magurran &amp; McGill (2010) - Biological Diversity Frontiers in Measurement and Assessment.</p></li>

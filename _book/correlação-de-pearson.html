@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 Correlação de Pearson | Introdução ao R com aplicações em biodiversidade e conservação</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 Correlação de Pearson | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 Correlação de Pearson | Introdução ao R com aplicações em biodiversidade e conservação" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="" />
+
+
+<meta name="date" content="2020-09-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="teste-t-para-amostras-pareadas.html"/>
+<link rel="next" href="regressão-simples.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
+<li class="chapter" data-level="2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html"><i class="fa fa-check"></i><b>2</b> Teste T (de Student) para duas amostras independentes</a><ul>
+<li class="chapter" data-level="2.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>2.1.1</b> Análise</a></li>
+<li class="chapter" data-level="2.1.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>2.1.2</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html"><i class="fa fa-check"></i><b>3</b> Teste T para amostras pareadas</a><ul>
+<li class="chapter" data-level="3.1" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#análise-2"><i class="fa fa-check"></i><b>3.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html"><i class="fa fa-check"></i><b>4</b> Correlação de Pearson</a><ul>
+<li class="chapter" data-level="4.1" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>4.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#análise-3"><i class="fa fa-check"></i><b>4.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regressão-simples.html"><a href="regressão-simples.html"><i class="fa fa-check"></i><b>5</b> Regressão Simples</a><ul>
+<li class="chapter" data-level="5.1" data-path="regressão-simples.html"><a href="regressão-simples.html#backgorund-da-análise-3"><i class="fa fa-check"></i><b>5.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="regressão-simples.html"><a href="regressão-simples.html#análise-4"><i class="fa fa-check"></i><b>5.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html"><i class="fa fa-check"></i><b>6</b> Regressão Múltipla</a><ul>
+<li class="chapter" data-level="6.1" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html#backgorund-da-análise-4"><i class="fa fa-check"></i><b>6.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html#análise-5"><i class="fa fa-check"></i><b>6.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html"><i class="fa fa-check"></i><b>7</b> Análises de Variância (ANOVA)</a><ul>
+<li class="chapter" data-level="7.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#backgorund-da-análise-5"><i class="fa fa-check"></i><b>7.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="7.2" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#anova-de-um-fator"><i class="fa fa-check"></i><b>7.2</b> ANOVA de um fator</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-6"><i class="fa fa-check"></i><b>7.2.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#anova-de-dois-fatores-ou-anova-fatorial"><i class="fa fa-check"></i><b>7.3</b> ANOVA de dois fatores ou Anova fatorial</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-7"><i class="fa fa-check"></i><b>7.3.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#anova-em-blocos-aleatorizados"><i class="fa fa-check"></i><b>7.4</b> ANOVA em blocos aleatorizados</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-8"><i class="fa fa-check"></i><b>7.4.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-de-covariância-ancova"><i class="fa fa-check"></i><b>7.5</b> Análise de covariância (ANCOVA)</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-9"><i class="fa fa-check"></i><b>7.5.1</b> Análise</a></li>
+<li class="chapter" data-level="7.5.2" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>7.5.2</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>8</b> Introdução à Análises Multidimensionais</a><ul>
+<li class="chapter" data-level="8.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#backgorund-da-análise"><i class="fa fa-check"></i><b>8.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="8.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>8.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>8.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="8.2.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>8.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>8.3</b> Exemplo 2:</a></li>
+<li class="chapter" data-level="8.4" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>8.4</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="8.5" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1-1"><i class="fa fa-check"></i><b>8.5</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>8.5.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="8.5.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>8.5.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>8.6</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="8.7" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1-2"><i class="fa fa-check"></i><b>8.7</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>8.7.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="8.7.2" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#análise-2"><i class="fa fa-check"></i><b>8.7.2</b> Análise</a></li>
+<li class="chapter" data-level="8.7.3" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>8.7.3</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>9</b> Rarefação</a><ul>
+<li class="chapter" data-level="9.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>9.1</b> Background da análise</a></li>
+<li class="chapter" data-level="9.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>9.2</b> Exemplo prático 1 - Morcegos</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>9.2.1</b> Explicação</a></li>
+<li class="chapter" data-level="9.2.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>9.2.2</b> Análise</a></li>
+<li class="chapter" data-level="9.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>9.2.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>9.3</b> Exemplo prático 2 - Rarefação</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>9.3.1</b> Explicação</a></li>
+<li class="chapter" data-level="9.3.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>9.3.2</b> Análise</a></li>
+<li class="chapter" data-level="9.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>9.3.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>9.4</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>10</b> Estimadores de Riqueza</a><ul>
+<li class="chapter" data-level="10.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#backgorund-da-análise"><i class="fa fa-check"></i><b>10.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="10.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>10.2</b> Estimadores baseados na abundância das espécies</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>10.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
+<li class="chapter" data-level="10.2.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>10.2.2</b> Análise</a></li>
+<li class="chapter" data-level="10.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>10.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
+<li class="chapter" data-level="10.2.4" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>10.2.4</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>10.3</b> Estimadores baseados na incidência das espécies</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>10.3.1</b> CHAO 2 - (Chao 1987):</a></li>
+<li class="chapter" data-level="10.3.2" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#análise-2"><i class="fa fa-check"></i><b>10.3.2</b> Análise</a></li>
+<li class="chapter" data-level="10.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>10.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
+<li class="chapter" data-level="10.3.4" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#análise-3"><i class="fa fa-check"></i><b>10.3.4</b> Análise</a></li>
+<li class="chapter" data-level="10.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>10.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
+<li class="chapter" data-level="10.3.6" data-path="regressão-simples.html"><a href="regressão-simples.html#análise-4"><i class="fa fa-check"></i><b>10.3.6</b> Análise</a></li>
+<li class="chapter" data-level="10.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>10.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
+<li class="chapter" data-level="10.3.8" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html#análise-5"><i class="fa fa-check"></i><b>10.3.8</b> Análise</a></li>
+<li class="chapter" data-level="10.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>10.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
+<li class="chapter" data-level="10.3.10" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-6"><i class="fa fa-check"></i><b>10.3.10</b> Análise</a></li>
+<li class="chapter" data-level="10.3.11" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>10.3.11</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="correlação-de-pearson" class="section level1">
+<h1><span class="header-section-number">Capítulo 4</span> Correlação de Pearson</h1>
+<div id="backgorund-da-análise-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> Backgorund da análise</h2>
+<p>É um teste que mede a força relativa da relação linear entre duas variáveis contínuas (X e Y). Importante ressaltar que a análise de correlação não assume que a variável X influêncie a variável Y ou que exista uma relação de causa e efeito entre elas (Zar 2016). A análise é definida em termos da variância de X, a variância de Y, e a covariância de X e Y (i.e. como elas variam juntas).</p>
+<blockquote>
+<p><span class="math display">\[ r = \frac{\sum{XY} - \frac{\sum{X} \sum{Y}}{n}}{\sqrt{\left(\sum{X^2} - \frac{\sum{X}^2}{n}\right)\left(\sum{Y^2} - \frac{\sum{Y}^2}{n}\right)}} \]</span></p>
+</blockquote>
+<p>Onde:</p>
+<ul>
+<li>r = coeficiente de correlação que indica a força da relação entre as duas variáveis. Seu range de valores está entre -1 <span class="math inline">\(\leq\)</span> r <span class="math inline">\(\geq\)</span> 1. A correlação positiva indica que o aumento no valor de uma das variáveis é acompanhado pelo aumento no valor da outra variável. A correlação negativa indica que um aumento no valor de uma das variáveis é acompanhado pela diminuição no valor da outra variável. Se <em>r</em> é igual a zero, não existe correlação entre as variáveis.</li>
+</ul>
+<blockquote>
+<h4 id="premissas-da-correlação-de-person"><span class="header-section-number">4.1</span> Premissas da Correlação de Person:</h4>
+<ul>
+<li>As amostras devem ser independentes e pareadas (i.e. as duas variáveis devem ser medidas na mesma unidade amostral);</li>
+<li>As unidades amostrais são selecionadas aleatoriamente;</li>
+<li>A relação entre as variáveis tem que ser linear.</li>
+</ul>
+</blockquote>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---correlação-de-pearson" class="section level4">
+<h4><span class="header-section-number">4.1.0.1</span> Exemplo prático 1 - Correlação de Pearson</h4>
+<div id="explicação-dos-dados-3" class="section level5">
+<h5><span class="header-section-number">4.1.0.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo avaliaremos a correlação entre a altura do tronco e o tamanho da raiz medidos em 35 indivíduos de uma espécie vegetal arbustiva.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>Existe correlação entre a altura do tronco e o tamanho da raiz dos arbustos?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>A altura do tronco é positivamente correlacionado com o tamanho da raiz.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com os indivíduos (unidade amostral) nas linhas e altura do tronco e tamanho da raiz (duas variáveis tem que ser contínuas) como colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditores nas colunas</li>
+</ul>
+</div>
+</div>
+<div id="análise-3" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Análise</h3>
+<p>Calculo do Teste de Correlação de Pearson</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="correlação-de-pearson.html#cb30-1"></a><span class="co">## IMPORTANDO OS DADOS</span></span>
+<span id="cb30-2"><a href="correlação-de-pearson.html#cb30-2"></a><span class="co">#************************</span></span>
+<span id="cb30-3"><a href="correlação-de-pearson.html#cb30-3"></a>correlacao_arbustos &lt;-<span class="st"> </span>ecodados<span class="op">::</span>correlacao</span>
+<span id="cb30-4"><a href="correlação-de-pearson.html#cb30-4"></a><span class="kw">head</span>(correlacao_arbustos) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>##   Tamanho_raiz Tamanho_tronco
+## 1    10.177049       19.54383
+## 2     6.622634       17.13558
+## 3     7.773629       19.50681
+## 4    11.055257       21.57085
+## 5     4.487274       13.22763
+## 6    11.190216       21.62902</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="correlação-de-pearson.html#cb32-1"></a><span class="co"># Teste de Correlação de Pearson</span></span>
+<span id="cb32-2"><a href="correlação-de-pearson.html#cb32-2"></a><span class="co">#********************************</span></span>
+<span id="cb32-3"><a href="correlação-de-pearson.html#cb32-3"></a><span class="co"># Para outros testes de correlação como Kendall ou Spearman é só alterar na linha de comando a opção *method* e inserir o teste desejado.</span></span>
+<span id="cb32-4"><a href="correlação-de-pearson.html#cb32-4"></a><span class="kw">cor.test</span>(correlacao_arbustos<span class="op">$</span>Tamanho_raiz, correlacao_arbustos<span class="op">$</span>Tamanho_tronco, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## 	Pearson&#39;s product-moment correlation
+## 
+## data:  correlacao_arbustos$Tamanho_raiz and correlacao_arbustos$Tamanho_tronco
+## t = 11.49, df = 33, p-value = 4.474e-13
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.7995083 0.9457816
+## sample estimates:
+##       cor 
+## 0.8944449</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="correlação-de-pearson.html#cb34-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb34-2"><a href="correlação-de-pearson.html#cb34-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> correlacao_arbustos, <span class="kw">aes</span>(<span class="dt">x=</span> Tamanho_raiz, <span class="dt">y=</span> Tamanho_tronco)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb34-3"><a href="correlação-de-pearson.html#cb34-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Tamanho da raiz&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Altura do tronco&quot;</span>, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb34-4"><a href="correlação-de-pearson.html#cb34-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span></span>
+<span id="cb34-5"><a href="correlação-de-pearson.html#cb34-5"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="dv">14</span>, <span class="dt">y =</span> <span class="dv">14</span>, <span class="dt">label =</span> <span class="st">&quot;r = 0.89, P &lt; 0.001&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">7</span>) <span class="op">+</span></span>
+<span id="cb34-6"><a href="correlação-de-pearson.html#cb34-6"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb34-7"><a href="correlação-de-pearson.html#cb34-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>)) <span class="op">+</span></span>
+<span id="cb34-8"><a href="correlação-de-pearson.html#cb34-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>)) <span class="op">+</span></span>
+<span id="cb34-9"><a href="correlação-de-pearson.html#cb34-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb34-10"><a href="correlação-de-pearson.html#cb34-10"></a>        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb34-11"><a href="correlação-de-pearson.html#cb34-11"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, rejeitamos a hipótese nula que as variáveis não são correlacionadas (r = 0.89, P &lt; 0,001). Os resultados mostram que o aumento na altura dos arbutos é acompanhado pelo aumento no tamanho da raiz.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="teste-t-para-amostras-pareadas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regressão-simples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/paternogbc/livro_r_ecologia/edit/master/03_estatistica_basica.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["livro_r_ecologia.pdf", "livro_r_ecologia.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

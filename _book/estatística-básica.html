@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Estatística básica | Introdução ao R com aplicações em biodiversidade e conservação</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Estatística básica | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Estatística básica | Introdução ao R com aplicações em biodiversidade e conservação" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="" />
+
+
+<meta name="date" content="2020-09-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="introdução-à-análises-multidimensionais.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
+<li class="chapter" data-level="2" data-path="estatística-básica.html"><a href="estatística-básica.html"><i class="fa fa-check"></i><b>2</b> Estatística básica</a><ul>
+<li class="chapter" data-level="2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-de-student-para-duas-amostras-independentes"><i class="fa fa-check"></i><b>2.1</b> Teste T (de Student) para duas amostras independentes</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.1.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>2.1.2</b> Análise</a></li>
+<li class="chapter" data-level="2.1.3" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>2.1.3</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-para-amostras-pareadas"><i class="fa fa-check"></i><b>2.2</b> Teste T para amostras pareadas</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>2.2.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>2.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="estatística-básica.html"><a href="estatística-básica.html#correlação-de-pearson"><i class="fa fa-check"></i><b>2.3</b> Correlação de Pearson</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>2.3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>2.3.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-simples"><i class="fa fa-check"></i><b>2.4</b> Regressão Simples</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-3"><i class="fa fa-check"></i><b>2.4.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.4.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>2.4.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-múltipla"><i class="fa fa-check"></i><b>2.5</b> Regressão Múltipla</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-4"><i class="fa fa-check"></i><b>2.5.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.5.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>2.5.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análises-de-variância-anova"><i class="fa fa-check"></i><b>2.6</b> Análises de Variância (ANOVA)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-5"><i class="fa fa-check"></i><b>2.6.1</b> Backgorund da análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-um-fator"><i class="fa fa-check"></i><b>2.7</b> ANOVA de um fator</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>2.7.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-dois-fatores-ou-anova-fatorial"><i class="fa fa-check"></i><b>2.8</b> ANOVA de dois fatores ou Anova fatorial</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-7"><i class="fa fa-check"></i><b>2.8.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-em-blocos-aleatorizados"><i class="fa fa-check"></i><b>2.9</b> ANOVA em blocos aleatorizados</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-8"><i class="fa fa-check"></i><b>2.9.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-de-covariância-ancova"><i class="fa fa-check"></i><b>2.10</b> Análise de covariância (ANCOVA)</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-9"><i class="fa fa-check"></i><b>2.10.1</b> Análise</a></li>
+<li class="chapter" data-level="2.10.2" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>2.10.2</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>3</b> Introdução à Análises Multidimensionais</a><ul>
+<li class="chapter" data-level="3.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>3.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>3.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="3.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>3.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>3.3</b> Exemplo 2:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html"><i class="fa fa-check"></i><b>4</b> K-means e agrupamentos não-hierarquicos</a><ul>
+<li class="chapter" data-level="4.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>4.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="4.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-1"><i class="fa fa-check"></i><b>4.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>4.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>4.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>4.3</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="4.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-2"><i class="fa fa-check"></i><b>4.4</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>4.4.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="4.4.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>4.4.2</b> Análise</a></li>
+<li class="chapter" data-level="4.4.3" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>4.4.3</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>5</b> Rarefação</a><ul>
+<li class="chapter" data-level="5.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>5.1</b> Background da análise</a></li>
+<li class="chapter" data-level="5.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>5.2</b> Exemplo prático 1 - Morcegos</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>5.2.1</b> Explicação</a></li>
+<li class="chapter" data-level="5.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>5.2.2</b> Análise</a></li>
+<li class="chapter" data-level="5.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>5.2.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>5.3</b> Exemplo prático 2 - Rarefação</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>5.3.1</b> Explicação</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>5.3.2</b> Análise</a></li>
+<li class="chapter" data-level="5.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>5.3.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>5.4</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>6</b> Estimadores de Riqueza</a><ul>
+<li class="chapter" data-level="6.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise"><i class="fa fa-check"></i><b>6.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="6.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>6.2</b> Estimadores baseados na abundância das espécies</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>6.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
+<li class="chapter" data-level="6.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>6.2.2</b> Análise</a></li>
+<li class="chapter" data-level="6.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>6.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
+<li class="chapter" data-level="6.2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>6.2.4</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>6.3</b> Estimadores baseados na incidência das espécies</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>6.3.1</b> CHAO 2 - (Chao 1987):</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>6.3.2</b> Análise</a></li>
+<li class="chapter" data-level="6.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>6.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
+<li class="chapter" data-level="6.3.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>6.3.4</b> Análise</a></li>
+<li class="chapter" data-level="6.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>6.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
+<li class="chapter" data-level="6.3.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>6.3.6</b> Análise</a></li>
+<li class="chapter" data-level="6.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>6.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
+<li class="chapter" data-level="6.3.8" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>6.3.8</b> Análise</a></li>
+<li class="chapter" data-level="6.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>6.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
+<li class="chapter" data-level="6.3.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>6.3.10</b> Análise</a></li>
+<li class="chapter" data-level="6.3.11" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>6.3.11</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estatística-básica" class="section level1">
+<h1><span class="header-section-number">Capítulo 2</span> Estatística básica</h1>
+<div id="teste-t-de-student-para-duas-amostras-independentes" class="section level2">
+<h2><span class="header-section-number">2.1</span> Teste T (de Student) para duas amostras independentes</h2>
+<div id="backgorund-da-análise" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Backgorund da análise</h3>
+<p>Uma das perguntas mais comum em estatística é saber se há diferença entre as médias de dois grupos ou tratamentos. Para responder esta pergunta, William Sealy Gosset, químico da cervejaria Guinness, em 1908 desenvolveu o Teste T que é uma estátistica que segue uma distribuição t de Student para rejeitar ou não uma hipótese nula de médias iguais entre os grupos.</p>
+<blockquote>
+<p><span class="math display">\[ t = \frac{(\bar{X}_1 - \bar{X}_2)}{\sqrt{\frac{2S^2_p}{n}}}\]</span></p>
+</blockquote>
+<p>Onde:</p>
+<ul>
+<li><p><span class="math inline">\(\bar{X}\)</span><sub>1</sub> - <span class="math inline">\(\bar{X}\)</span><sub>2</sub> = diferença entre as médias das duas amostras,</p></li>
+<li><p>S<sup>2</sup><sub>p</sub> = desvio padrão das amostras,</p></li>
+<li><p><em>n</em> = tamanho das amostras.</p></li>
+</ul>
+<blockquote>
+<h4 id="premissas-do-teste-t"><span class="header-section-number">2.1.1</span> Premissas do Teste t :</h4>
+<ul>
+<li>As amostras devem ser independentes;</li>
+<li>As unidades amostrais são selecionadas aleatoriamente;</li>
+<li>Distribuição normal (gaussiana) dos resíduos. <strong>Observação:</strong> Zar (2010, p. 136) indica que o Test T é robusto mesmo com moderada violação da normalidade, principalmente se o tamanho amostral for alto.</li>
+<li>Homogeneidade da variância. <strong>Observação.</strong> Caso as variâncias não sejam homogêneas, isso deve ser informado na linha de comando, pois o denominador da fórmula acima será corrigido.</li>
+</ul>
+</blockquote>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---teste-t-para-duas-amostras-com-variâncias-iguais" class="section level4">
+<h4><span class="header-section-number">2.1.1.1</span> Exemplo prático 1 - Teste T para duas amostras com variâncias iguais</h4>
+<div id="explicação-dos-dados" class="section level5">
+<h5><span class="header-section-number">2.1.1.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo avaliaremos o comprimento rostro-cloacal (CRC em milímetros) de machos de <em>Physalaemus natteri</em> (Anura:Leptodactylidae) amostrados em diferentes estações do ano com armadilhas de interceptação e queda na região noroeste do estado de São Paulo (da Silva &amp; Rossa-Feres 2010).</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>O CRC dos machos de <em>P. nattereri</em> é maior na estação chuvosa do que na estação seca?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>O CRC dos machos será maior na estação chuvosa porque há uma vantangem seletiva para os indivíduos maiores durante a atividade reprodutiva.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com os indivíduos (unidade amostral) nas linhas e CRC (mm - variável resposta contínua) e estação (variável preditora categórica) como colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditores nas colunas</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="análise" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Análise</h3>
+<p>Calculo do Teste T para duas amostras independentes com variâncias iguais</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="estatística-básica.html#cb1-1"></a><span class="co">## IMPORTANDO OS DADOS</span></span>
+<span id="cb1-2"><a href="estatística-básica.html#cb1-2"></a><span class="co">#************************</span></span>
+<span id="cb1-3"><a href="estatística-básica.html#cb1-3"></a>CRC_PN_macho &lt;-<span class="st"> </span>ecodados<span class="op">::</span>teste_t_var_igual</span>
+<span id="cb1-4"><a href="estatística-básica.html#cb1-4"></a><span class="co"># verificar se o dataframe foi lido corretamente e se não há erros</span></span>
+<span id="cb1-5"><a href="estatística-básica.html#cb1-5"></a><span class="co"># Esses comandos são úteis para planilhas grandes</span></span>
+<span id="cb1-6"><a href="estatística-básica.html#cb1-6"></a><span class="kw">head</span>(CRC_PN_macho) <span class="co"># mostra as seis primeiras linhas da planilha</span></span></code></pre></div>
+<pre><code>##    CRC Estacao
+## 1 3.82 Chuvosa
+## 2 3.57 Chuvosa
+## 3 3.67 Chuvosa
+## 4 3.72 Chuvosa
+## 5 3.75 Chuvosa
+## 6 3.83 Chuvosa</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="estatística-básica.html#cb3-1"></a><span class="kw">tail</span>(CRC_PN_macho) <span class="co"># mostra as seis últimas linhas da planilha</span></span></code></pre></div>
+<pre><code>##     CRC Estacao
+## 46 3.16    Seca
+## 47 3.48    Seca
+## 48 3.48    Seca
+## 49 3.49    Seca
+## 50 3.51    Seca
+## 51 3.30    Seca</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="estatística-básica.html#cb5-1"></a><span class="co"># TESTE NORMALIDADE</span></span>
+<span id="cb5-2"><a href="estatística-básica.html#cb5-2"></a><span class="co">#************************</span></span>
+<span id="cb5-3"><a href="estatística-básica.html#cb5-3"></a><span class="co">## Verificando normalidade usando QQ-plot</span></span>
+<span id="cb5-4"><a href="estatística-básica.html#cb5-4"></a><span class="co">## Os pontos não podem fugir da reta criando formas como U</span></span>
+<span id="cb5-5"><a href="estatística-básica.html#cb5-5"></a>residuos &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span>Estacao, <span class="dt">data =</span> CRC_PN_macho)</span>
+<span id="cb5-6"><a href="estatística-básica.html#cb5-6"></a><span class="kw">library</span>(<span class="st">&quot;car&quot;</span>)</span>
+<span id="cb5-7"><a href="estatística-básica.html#cb5-7"></a><span class="kw">qqPlot</span>(residuos)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre><code>## [1] 22 26</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="estatística-básica.html#cb7-1"></a><span class="co">## Outra possibilidade é usar o teste de Shapiro-Wilk para verificar normalidade</span></span>
+<span id="cb7-2"><a href="estatística-básica.html#cb7-2"></a><span class="co">## Hipótese nula que a distribuição é normal </span></span>
+<span id="cb7-3"><a href="estatística-básica.html#cb7-3"></a><span class="co">## valor de p &lt; 0.05 significa que os dados não apresentam distribuição normal</span></span>
+<span id="cb7-4"><a href="estatística-básica.html#cb7-4"></a><span class="co">## valor de p &gt; 0.05 significa que os dados apresentam distribuição normal</span></span>
+<span id="cb7-5"><a href="estatística-básica.html#cb7-5"></a><span class="kw">shapiro.test</span> (CRC_PN_macho<span class="op">$</span>CRC) </span></code></pre></div>
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  CRC_PN_macho$CRC
+## W = 0.95559, p-value = 0.05417</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="estatística-básica.html#cb9-1"></a><span class="co"># TESTE DE HOMOGENEIDADE DA VARIÂNCIA</span></span>
+<span id="cb9-2"><a href="estatística-básica.html#cb9-2"></a><span class="co">#***************************************</span></span>
+<span id="cb9-3"><a href="estatística-básica.html#cb9-3"></a><span class="co">## Hipótese nula que a variância é homogênea</span></span>
+<span id="cb9-4"><a href="estatística-básica.html#cb9-4"></a><span class="co">## valor de p &lt; 0.05 significa que os dados não apresentam homogeneidade</span></span>
+<span id="cb9-5"><a href="estatística-básica.html#cb9-5"></a><span class="co">## valor de p &gt; 0.05 significa que os dados apresentam homogeneidade</span></span>
+<span id="cb9-6"><a href="estatística-básica.html#cb9-6"></a><span class="kw">library</span>(car)</span>
+<span id="cb9-7"><a href="estatística-básica.html#cb9-7"></a><span class="kw">leveneTest</span>(CRC <span class="op">~</span><span class="st"> </span>Estacao, <span class="dt">data =</span> CRC_PN_macho)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  1  1.1677 0.2852
+##       49</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="estatística-básica.html#cb11-1"></a><span class="co"># TESTE T AMOSTRAS INDEPENDENTES E VARIÂNCIAS IGUAIS</span></span>
+<span id="cb11-2"><a href="estatística-básica.html#cb11-2"></a><span class="co">#******************************************************888</span></span>
+<span id="cb11-3"><a href="estatística-básica.html#cb11-3"></a><span class="kw">t.test</span>(CRC <span class="op">~</span><span class="st"> </span>Estacao, <span class="dt">data =</span> CRC_PN_macho, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+## 	Two Sample t-test
+## 
+## data:  CRC by Estacao
+## t = 4.1524, df = 49, p-value = 0.000131
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.2242132 0.6447619
+## sample estimates:
+## mean in group Chuvosa    mean in group Seca 
+##              3.695357              3.260870</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="estatística-básica.html#cb13-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb13-2"><a href="estatística-básica.html#cb13-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> CRC_PN_macho, <span class="kw">aes</span>(<span class="dt">x=</span> Estacao, <span class="dt">y=</span> CRC, <span class="dt">color =</span> Estacao)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb13-3"><a href="estatística-básica.html#cb13-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Estações&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;CRC (mm) - P. nattereri&quot;</span>, <span class="dt">size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
+<span id="cb13-4"><a href="estatística-básica.html#cb13-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill=</span><span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>), <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></span>
+<span id="cb13-5"><a href="estatística-básica.html#cb13-5"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">position=</span><span class="kw">position_jitter</span>(<span class="fl">0.2</span>), <span class="dt">cex =</span> <span class="dv">7</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb13-6"><a href="estatística-básica.html#cb13-6"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>)) <span class="op">+</span></span>
+<span id="cb13-7"><a href="estatística-básica.html#cb13-7"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="fl">2.2</span>, <span class="dt">y =</span> <span class="fl">4.6</span>, <span class="dt">label =</span> <span class="st">&quot;t = 4.15, P &lt; 0.001&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb13-8"><a href="estatística-básica.html#cb13-8"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb13-9"><a href="estatística-básica.html#cb13-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb13-10"><a href="estatística-básica.html#cb13-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb13-11"><a href="estatística-básica.html#cb13-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></span>
+<span id="cb13-12"><a href="estatística-básica.html#cb13-12"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, rejeitamos a hipótese nula que as médias do CRC dos machos entre as estações seca e chuvosa são iguais (t = 4,15, P &lt; 0,001). Os resultados mostram que os machos de <em>P. nattereri</em> coletados na estação chuvosa foram em média 0,43mm maiores do que os coletados na estação seca.</p>
+<p>
+ 
+</p>
+<div id="exemplo-prático-2---teste-t-para-duas-amostras-independentes-com-variâncias-diferentes" class="section level4">
+<h4><span class="header-section-number">2.1.2.1</span> Exemplo prático 2 - Teste T para duas amostras independentes com variâncias diferentes</h4>
+<div id="explicação-dos-dados-1" class="section level5">
+<h5><span class="header-section-number">2.1.2.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos o comprimento rostro-cloacal (CRC - milímetros) de fêmeas de <em>Leptodactylus podicipinus</em> amostradas em diferentes estações do ano com armadilhas de interceptação e queda na região noroeste do estado de São Paulo (da Silva &amp; Rossa-Feres 2010). <strong>Observação:</strong> Os dados foram alterados em relação a publicação original para se enquadrarem no exemplo de amostras com variâncias diferentes.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>O CRC das fêmeas de <em>L. podicipinus</em> é maior na estação chuvosa do que na estação seca?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>O CRC das fêmeas será maior na estação chuvosa porque há uma vantangem seletiva para os indivíduos maiores durante a atividade reprodutiva.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com os indivíduos (unidade amostral) nas linhas e CRC (mm - variável resposta contínua) e estação (variável preditora categórica) como colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditores nas colunas</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="análise-1" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Análise</h3>
+<p>Calculo do Teste T para duas amostras com variâncias diferentes</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="estatística-básica.html#cb14-1"></a><span class="co">## IMPORTANDO OS DADOS</span></span>
+<span id="cb14-2"><a href="estatística-básica.html#cb14-2"></a><span class="co">#*************************</span></span>
+<span id="cb14-3"><a href="estatística-básica.html#cb14-3"></a>CRC_LP_femea &lt;-<span class="st"> </span>ecodados<span class="op">::</span>teste_t_var_diferente</span>
+<span id="cb14-4"><a href="estatística-básica.html#cb14-4"></a><span class="kw">head</span>(CRC_LP_femea) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>##    CRC Estacao
+## 1 2.72 Chuvosa
+## 2 2.10 Chuvosa
+## 3 3.42 Chuvosa
+## 4 1.50 Chuvosa
+## 5 3.90 Chuvosa
+## 6 4.00 Chuvosa</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="estatística-básica.html#cb16-1"></a><span class="co"># TESTE NORMALIDADE</span></span>
+<span id="cb16-2"><a href="estatística-básica.html#cb16-2"></a><span class="co">#************************</span></span>
+<span id="cb16-3"><a href="estatística-básica.html#cb16-3"></a><span class="co">## Verificando normalidade usando QQ-plot</span></span>
+<span id="cb16-4"><a href="estatística-básica.html#cb16-4"></a><span class="co">## Os pontos não podem fugir da reta criando formas como U</span></span>
+<span id="cb16-5"><a href="estatística-básica.html#cb16-5"></a>residuos_LP &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span>Estacao, <span class="dt">data =</span> CRC_LP_femea)</span>
+<span id="cb16-6"><a href="estatística-básica.html#cb16-6"></a><span class="kw">library</span>(<span class="st">&quot;car&quot;</span>)</span>
+<span id="cb16-7"><a href="estatística-básica.html#cb16-7"></a><span class="kw">qqPlot</span>(residuos_LP)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre><code>## [1] 4 6</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="estatística-básica.html#cb18-1"></a><span class="co">## Outra possibilidade é usar o teste de Shapiro-Wilk para verificar normalidade</span></span>
+<span id="cb18-2"><a href="estatística-básica.html#cb18-2"></a><span class="co">## Hipótese nula que a distribuição é normal </span></span>
+<span id="cb18-3"><a href="estatística-básica.html#cb18-3"></a><span class="co">## valor de p &lt; 0.05 significa que os dados não apresentam distribuição normal</span></span>
+<span id="cb18-4"><a href="estatística-básica.html#cb18-4"></a><span class="co">## valor de p &gt; 0.05 significa que os dados apresentam distribuição normal</span></span>
+<span id="cb18-5"><a href="estatística-básica.html#cb18-5"></a><span class="kw">shapiro.test</span> (CRC_LP_femea<span class="op">$</span>CRC) </span></code></pre></div>
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  CRC_LP_femea$CRC
+## W = 0.88195, p-value = 0.09284</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="estatística-básica.html#cb20-1"></a><span class="co"># TESTE DE HOMOGENEIDADE DA VARIÂNCIA</span></span>
+<span id="cb20-2"><a href="estatística-básica.html#cb20-2"></a><span class="co">#***************************************</span></span>
+<span id="cb20-3"><a href="estatística-básica.html#cb20-3"></a><span class="co">## Hipótese nula que a variância é homogênea</span></span>
+<span id="cb20-4"><a href="estatística-básica.html#cb20-4"></a><span class="co">## valor de p &lt; 0.05 significa que os dados não apresentam homogeneidade</span></span>
+<span id="cb20-5"><a href="estatística-básica.html#cb20-5"></a><span class="co">## valor de p &gt; 0.05 significa que os dados apresentam homogeneidade</span></span>
+<span id="cb20-6"><a href="estatística-básica.html#cb20-6"></a><span class="kw">library</span>(car)</span>
+<span id="cb20-7"><a href="estatística-básica.html#cb20-7"></a><span class="kw">leveneTest</span>(CRC <span class="op">~</span><span class="st"> </span>Estacao, <span class="dt">data =</span> CRC_LP_femea)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value  Pr(&gt;F)  
+## group  1  9.8527 0.01053 *
+##       10                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="estatística-básica.html#cb22-1"></a><span class="co"># TESTE T COM AMOSTRAS INDEPENDENTES E VARIÂNCIS DIFERENTES</span></span>
+<span id="cb22-2"><a href="estatística-básica.html#cb22-2"></a><span class="co">#***********************************************************</span></span>
+<span id="cb22-3"><a href="estatística-básica.html#cb22-3"></a><span class="co">## Com base no teste de Levene, avise na linha de comando que as variâncias </span></span>
+<span id="cb22-4"><a href="estatística-básica.html#cb22-4"></a><span class="co">## não são iguais (var.equal = FALSE).</span></span>
+<span id="cb22-5"><a href="estatística-básica.html#cb22-5"></a><span class="kw">t.test</span>(CRC <span class="op">~</span><span class="st"> </span>Estacao, <span class="dt">data =</span> CRC_LP_femea, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+## 	Welch Two Sample t-test
+## 
+## data:  CRC by Estacao
+## t = -1.7633, df = 6.4998, p-value = 0.1245
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -1.5489301  0.2375016
+## sample estimates:
+## mean in group Chuvosa    mean in group Seca 
+##              2.834286              3.490000</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="estatística-básica.html#cb24-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb24-2"><a href="estatística-básica.html#cb24-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> CRC_LP_femea, <span class="kw">aes</span>(<span class="dt">x=</span> Estacao, <span class="dt">y=</span> CRC, <span class="dt">color =</span> Estacao)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb24-3"><a href="estatística-básica.html#cb24-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Estações&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;CRC (mm) - L. podicipinus&quot;</span>, <span class="dt">size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
+<span id="cb24-4"><a href="estatística-básica.html#cb24-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill=</span><span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>), <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></span>
+<span id="cb24-5"><a href="estatística-básica.html#cb24-5"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">position=</span><span class="kw">position_jitter</span>(<span class="fl">0.2</span>), <span class="dt">cex =</span> <span class="dv">7</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb24-6"><a href="estatística-básica.html#cb24-6"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>)) <span class="op">+</span></span>
+<span id="cb24-7"><a href="estatística-básica.html#cb24-7"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="fl">2.2</span>, <span class="dt">y =</span> <span class="fl">1.7</span>, <span class="dt">label =</span> <span class="st">&quot;t = 1.76, P = 0.12&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb24-8"><a href="estatística-básica.html#cb24-8"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb24-9"><a href="estatística-básica.html#cb24-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb24-10"><a href="estatística-básica.html#cb24-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb24-11"><a href="estatística-básica.html#cb24-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></span>
+<span id="cb24-12"><a href="estatística-básica.html#cb24-12"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, não rejeitamos a hipótese nula e consideramos que as médias do CRC das fêmeas entre as estações seca e chuvosa são iguais (t = 1,76, P = 0,12). Os resultados mostram que as fêmeas de <em>L. podicipinus</em> coletadas na estação chuvosa não são maiores do que as fêmeas coletadas na estação seca.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="teste-t-para-amostras-pareadas" class="section level2">
+<h2><span class="header-section-number">2.2</span> Teste T para amostras pareadas</h2>
+<div id="backgorund-da-análise-1" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Backgorund da análise</h3>
+<p>O Teste T Pareado é uma estatística que usa dados medidos duas vezes na mesma unidade amostral, resultando em pares de observações para cada amostra (amostras pareadas). Ele determina se a diferença da média entre duas observações é zero.</p>
+<blockquote>
+<p><span class="math display">\[ t = \frac{\bar{d}}{S_{\bar{d}}}\]</span></p>
+</blockquote>
+<p>Onde:</p>
+<ul>
+<li><p><span class="math inline">\(\bar{d}\)</span> = média da diferença das medidas pareadas. Observe que o teste não usa as medidas originais, e sim, a diferença para cada par,</p></li>
+<li><p>S<sub><span class="math inline">\(\bar{d}\)</span></sub> = erro padrão da diferença das medidas pareadas.</p></li>
+</ul>
+<blockquote>
+<h4 id="premissas-do-teste-t-para-amostras-pareadas"><span class="header-section-number">2.2.1</span> Premissas do Teste t para amostras pareadas:</h4>
+<ul>
+<li>As unidades amostrais são selecionadas aleatoriamente;</li>
+<li>Distribuição normal (gaussiana) dos valores da diferença para cada par;</li>
+</ul>
+</blockquote>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---teste-t-para-amostras-pareadas" class="section level4">
+<h4><span class="header-section-number">2.2.1.1</span> Exemplo prático 1 - Teste T para amostras pareadas</h4>
+<div id="explicação-dos-dados-2" class="section level5">
+<h5><span class="header-section-number">2.2.1.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo avaliaremos a diferença na riqueza de espécies de artrópodes registradas em 27 localidades. Todas as localidades foram amostradas duas vezes. A primeira amostragem foi realizada com na localidade antes da pertubação e a segunda amostragem foi realizada após a localidade ter sofrido uma queimada.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>A riqueza de espécies de artrópodes é prejudicada pelas queimadas?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>A riqueza de espécies de artrópodes será maior antes da queimada devido a extinção local das espécies.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as localidades nas linhas e riqueza de espécies (variável preditora contínua) e estado (Pre-queimada ou Pós-queimada - variável categórica) da localidade nas colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditores nas colunas</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="análise-2" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Análise</h3>
+<p>Calculo do Teste T com amostras pareadas</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="estatística-básica.html#cb25-1"></a><span class="co">## IMPORTANDO OS DADOS</span></span>
+<span id="cb25-2"><a href="estatística-básica.html#cb25-2"></a><span class="co">#*************************</span></span>
+<span id="cb25-3"><a href="estatística-básica.html#cb25-3"></a>Pareado &lt;-<span class="st"> </span>ecodados<span class="op">::</span>teste_t_pareado</span>
+<span id="cb25-4"><a href="estatística-básica.html#cb25-4"></a><span class="kw">head</span>(Pareado) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>##   Areas Riqueza       Estado
+## 1     1      92 Pre-Queimada
+## 2     2      74 Pre-Queimada
+## 3     3      96 Pre-Queimada
+## 4     4      89 Pre-Queimada
+## 5     5      76 Pre-Queimada
+## 6     6      80 Pre-Queimada</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="estatística-básica.html#cb27-1"></a><span class="co"># TESTE T PAREADO</span></span>
+<span id="cb27-2"><a href="estatística-básica.html#cb27-2"></a><span class="co">#*****************</span></span>
+<span id="cb27-3"><a href="estatística-básica.html#cb27-3"></a><span class="co"># O uso do [] é para selecionar dentro do vetor/coluna *Riqueza* os 27 primeiros números [1:27] que representam as localidades antes da queimada e os últimos 27 números [28:54] que representam as mesmas localidades pós-queimada</span></span>
+<span id="cb27-4"><a href="estatística-básica.html#cb27-4"></a><span class="kw">t.test</span>(Pareado<span class="op">$</span>Riqueza[<span class="dv">1</span><span class="op">:</span><span class="dv">27</span>], Pareado<span class="op">$</span>Riqueza[<span class="dv">28</span><span class="op">:</span><span class="dv">54</span>], <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+## 	Paired t-test
+## 
+## data:  Pareado$Riqueza[1:27] and Pareado$Riqueza[28:54]
+## t = 7.5788, df = 26, p-value = 4.803e-08
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  32.47117 56.63994
+## sample estimates:
+## mean of the differences 
+##                44.55556</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="estatística-básica.html#cb29-1"></a><span class="kw">library</span>(<span class="st">&quot;ggpubr&quot;</span>)</span>
+<span id="cb29-2"><a href="estatística-básica.html#cb29-2"></a><span class="kw">ggpaired</span>(Pareado, <span class="dt">x =</span> <span class="st">&quot;Estado&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Riqueza&quot;</span>,</span>
+<span id="cb29-3"><a href="estatística-básica.html#cb29-3"></a>         <span class="dt">color =</span> <span class="st">&quot;Estado&quot;</span>, <span class="dt">line.color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">line.size =</span> <span class="fl">0.8</span>, <span class="dt">palette =</span> <span class="st">&quot;jco&quot;</span>, <span class="dt">width =</span> <span class="fl">0.8</span>,</span>
+<span id="cb29-4"><a href="estatística-básica.html#cb29-4"></a>         <span class="dt">point.size =</span> <span class="dv">3</span>, <span class="dt">xlab =</span> <span class="st">&quot;Estado das localidades&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Riqueza de Espécies&quot;</span>) <span class="op">+</span></span>
+<span id="cb29-5"><a href="estatística-básica.html#cb29-5"></a><span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">150</span>)) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, rejeitamos a hipótese nula que a riqueza de espécies de artrópodes é igual antes e depois da queimada (t = 7,57, P &lt; 0,001). Os resultados mostram que as localidades após as queimadas apresentam em média 44,5 espécies de artrópodes a menos do que antes das queimadas.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="correlação-de-pearson" class="section level2">
+<h2><span class="header-section-number">2.3</span> Correlação de Pearson</h2>
+<div id="backgorund-da-análise-2" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Backgorund da análise</h3>
+<p>É um teste que mede a força relativa da relação linear entre duas variáveis contínuas (X e Y). Importante ressaltar que a análise de correlação não assume que a variável X influêncie a variável Y ou que exista uma relação de causa e efeito entre elas (Zar 2016). A análise é definida em termos da variância de X, a variância de Y, e a covariância de X e Y (i.e. como elas variam juntas).</p>
+<blockquote>
+<p><span class="math display">\[ r = \frac{\sum{XY} - \frac{\sum{X} \sum{Y}}{n}}{\sqrt{\left(\sum{X^2} - \frac{\sum{X}^2}{n}\right)\left(\sum{Y^2} - \frac{\sum{Y}^2}{n}\right)}} \]</span></p>
+</blockquote>
+<p>Onde:</p>
+<ul>
+<li>r = coeficiente de correlação que indica a força da relação entre as duas variáveis. Seu range de valores está entre -1 <span class="math inline">\(\leq\)</span> r <span class="math inline">\(\geq\)</span> 1. A correlação positiva indica que o aumento no valor de uma das variáveis é acompanhado pelo aumento no valor da outra variável. A correlação negativa indica que um aumento no valor de uma das variáveis é acompanhado pela diminuição no valor da outra variável. Se <em>r</em> é igual a zero, não existe correlação entre as variáveis.</li>
+</ul>
+<blockquote>
+<h4 id="premissas-da-correlação-de-person"><span class="header-section-number">2.3.1</span> Premissas da Correlação de Person:</h4>
+<ul>
+<li>As amostras devem ser independentes e pareadas (i.e. as duas variáveis devem ser medidas na mesma unidade amostral);</li>
+<li>As unidades amostrais são selecionadas aleatoriamente;</li>
+<li>A relação entre as variáveis tem que ser linear.</li>
+</ul>
+</blockquote>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---correlação-de-pearson" class="section level4">
+<h4><span class="header-section-number">2.3.1.1</span> Exemplo prático 1 - Correlação de Pearson</h4>
+<div id="explicação-dos-dados-3" class="section level5">
+<h5><span class="header-section-number">2.3.1.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo avaliaremos a correlação entre a altura do tronco e o tamanho da raiz medidos em 35 indivíduos de uma espécie vegetal arbustiva.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>Existe correlação entre a altura do tronco e o tamanho da raiz dos arbustos?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>A altura do tronco é positivamente correlacionado com o tamanho da raiz.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com os indivíduos (unidade amostral) nas linhas e altura do tronco e tamanho da raiz (duas variáveis tem que ser contínuas) como colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditores nas colunas</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="análise-3" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Análise</h3>
+<p>Calculo do Teste de Correlação de Pearson</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="estatística-básica.html#cb30-1"></a><span class="co">## IMPORTANDO OS DADOS</span></span>
+<span id="cb30-2"><a href="estatística-básica.html#cb30-2"></a><span class="co">#************************</span></span>
+<span id="cb30-3"><a href="estatística-básica.html#cb30-3"></a>correlacao_arbustos &lt;-<span class="st"> </span>ecodados<span class="op">::</span>correlacao</span>
+<span id="cb30-4"><a href="estatística-básica.html#cb30-4"></a><span class="kw">head</span>(correlacao_arbustos) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>##   Tamanho_raiz Tamanho_tronco
+## 1    10.177049       19.54383
+## 2     6.622634       17.13558
+## 3     7.773629       19.50681
+## 4    11.055257       21.57085
+## 5     4.487274       13.22763
+## 6    11.190216       21.62902</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="estatística-básica.html#cb32-1"></a><span class="co"># Teste de Correlação de Pearson</span></span>
+<span id="cb32-2"><a href="estatística-básica.html#cb32-2"></a><span class="co">#********************************</span></span>
+<span id="cb32-3"><a href="estatística-básica.html#cb32-3"></a><span class="co"># Para outros testes de correlação como Kendall ou Spearman é só alterar na linha de comando a opção *method* e inserir o teste desejado.</span></span>
+<span id="cb32-4"><a href="estatística-básica.html#cb32-4"></a><span class="kw">cor.test</span>(correlacao_arbustos<span class="op">$</span>Tamanho_raiz, correlacao_arbustos<span class="op">$</span>Tamanho_tronco, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## 	Pearson&#39;s product-moment correlation
+## 
+## data:  correlacao_arbustos$Tamanho_raiz and correlacao_arbustos$Tamanho_tronco
+## t = 11.49, df = 33, p-value = 4.474e-13
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.7995083 0.9457816
+## sample estimates:
+##       cor 
+## 0.8944449</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="estatística-básica.html#cb34-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb34-2"><a href="estatística-básica.html#cb34-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> correlacao_arbustos, <span class="kw">aes</span>(<span class="dt">x=</span> Tamanho_raiz, <span class="dt">y=</span> Tamanho_tronco)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb34-3"><a href="estatística-básica.html#cb34-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Tamanho da raiz&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Altura do tronco&quot;</span>, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb34-4"><a href="estatística-básica.html#cb34-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span></span>
+<span id="cb34-5"><a href="estatística-básica.html#cb34-5"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="dv">14</span>, <span class="dt">y =</span> <span class="dv">14</span>, <span class="dt">label =</span> <span class="st">&quot;r = 0.89, P &lt; 0.001&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">7</span>) <span class="op">+</span></span>
+<span id="cb34-6"><a href="estatística-básica.html#cb34-6"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb34-7"><a href="estatística-básica.html#cb34-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>)) <span class="op">+</span></span>
+<span id="cb34-8"><a href="estatística-básica.html#cb34-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>)) <span class="op">+</span></span>
+<span id="cb34-9"><a href="estatística-básica.html#cb34-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb34-10"><a href="estatística-básica.html#cb34-10"></a>        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb34-11"><a href="estatística-básica.html#cb34-11"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, rejeitamos a hipótese nula que as variáveis não são correlacionadas (r = 0.89, P &lt; 0,001). Os resultados mostram que o aumento na altura dos arbutos é acompanhado pelo aumento no tamanho da raiz.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="regressão-simples" class="section level2">
+<h2><span class="header-section-number">2.4</span> Regressão Simples</h2>
+<div id="backgorund-da-análise-3" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Backgorund da análise</h3>
+<p>A regressão simples é usada para analisar a relação entre uma variável preditora (plotada no eixo-X) e uma variável resposta (plotada no eixo-Y). As duas variáveis devem ser contínuas. Diferente das correlações, a regressão assume uma relação de causa e efeito entre as variáveis. O valor da variável preditora (X) causa, direta ou indiretamente, o valor da variável resposta (Y). Assim, Y é uma função linear de X:</p>
+<blockquote>
+<p><span class="math display">\[ Y = \beta_0 + \beta_{1}X_i + \epsilon_i \]</span></p>
+</blockquote>
+<p>Onde:</p>
+<ul>
+<li><p><span class="math inline">\(\beta_0\)</span> = intercepto que representa o valor da função quando X = 0,</p></li>
+<li><p><span class="math inline">\(\beta_{1}\)</span> = inclinação (<em>slope</em>) que mede a mudança na variável Y para cada mudança de unidade da variável X.</p></li>
+<li><p><span class="math inline">\(\epsilon_{1}\)</span> = erro aleatório referente a variável Y que não pode ser explicado pela variável X.</p></li>
+</ul>
+<blockquote>
+<h4 id="premissas-da-regressão-simples"><span class="header-section-number">2.4.1</span> Premissas da Regressão Simples:</h4>
+<ul>
+<li>As amostras devem ser independentes;</li>
+<li>As unidades amostrais são selecionadas aleatoriamente;</li>
+<li>Distribuição normal (gaussiana) dos resíduos;</li>
+<li>Homogeneidade da variância.</li>
+</ul>
+</blockquote>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---regressão-simples" class="section level4">
+<h4><span class="header-section-number">2.4.1.1</span> Exemplo prático 1 - Regressão simples</h4>
+<div id="explicação-dos-dados-4" class="section level5">
+<h5><span class="header-section-number">2.4.1.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos a relação entre o gradiente de temperatura média anual (°C) e o tamanho médio do comprimento rostro-cloacal (CRC em mm) de populações de <em>Dendropsophus minutus</em> (Anura:Hylidae) amostradas em 109 localidades no Brasil (Boaratti &amp; da Silva 2015).</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>Há relação entre o tamanho do CRC das populações e a temperatura das localidades onde os indivíduos ocorrem?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>O CRC das populações serão menores em localidades mais quentes do que em localidades mais frias de acordo com a Hipótese do balanço de calor.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as populações (unidade amostral) nas linhas e CRC médio (mm) e temperatura média anual como colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditores nas colunas</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="análise-4" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Análise</h3>
+<p>Calculo da regressão simples</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="estatística-básica.html#cb35-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb35-2"><a href="estatística-básica.html#cb35-2"></a><span class="co">#********************</span></span>
+<span id="cb35-3"><a href="estatística-básica.html#cb35-3"></a>dados_regressao &lt;-<span class="st"> </span>ecodados<span class="op">::</span>regressoes</span>
+<span id="cb35-4"><a href="estatística-básica.html#cb35-4"></a><span class="kw">head</span>(dados_regressao) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>##      Municipio      CRC Temperatura Precipitacao
+## 1     Acorizal 22.98816    24.13000       1228.2
+## 2  Alpinopolis 22.91788    20.09417       1487.6
+## 3 Alto_Paraiso 21.97629    21.86167       1812.4
+## 4    Americana 23.32453    20.28333       1266.2
+## 5      Apiacas 22.83651    25.47333       2154.0
+## 6  Arianopolis 20.86989    20.12167       1269.2</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="estatística-básica.html#cb37-1"></a><span class="co"># ANALISE DA REGRESSÃO</span></span>
+<span id="cb37-2"><a href="estatística-básica.html#cb37-2"></a><span class="co">#************************</span></span>
+<span id="cb37-3"><a href="estatística-básica.html#cb37-3"></a>modelo_regressao &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span>Temperatura, <span class="dt">data =</span> dados_regressao)</span>
+<span id="cb37-4"><a href="estatística-básica.html#cb37-4"></a></span>
+<span id="cb37-5"><a href="estatística-básica.html#cb37-5"></a><span class="co"># PRIMEIRO VAMOS VERIFICAR A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb37-6"><a href="estatística-básica.html#cb37-6"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb37-7"><a href="estatística-básica.html#cb37-7"></a><span class="co"># Os gráficos *Residuals vs Fitted*, *Scale-Location*, e *Residual vs Leverage* estão relacionados com a homogeneidade da variância. Nestes gráficos, esperamos ver os pontos dispersos no espaço sem padrões com formatos em *U* ou funil. </span></span>
+<span id="cb37-8"><a href="estatística-básica.html#cb37-8"></a><span class="co"># O gráfico *Normal Q-Q* está relacionado com a distribuição normal dos resíduos. Neste gráfico, esperamos ver os pontos próximos a reta sem padrões com formatos em *U* ou *S*. </span></span>
+<span id="cb37-9"><a href="estatística-básica.html#cb37-9"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb37-10"><a href="estatística-básica.html#cb37-10"></a><span class="kw">plot</span>(modelo_regressao)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="estatística-básica.html#cb38-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="estatística-básica.html#cb40-1"></a><span class="co"># VERIFICANDO OS RESULTADOS DA REGRESSÃO</span></span>
+<span id="cb40-2"><a href="estatística-básica.html#cb40-2"></a><span class="co">#****************************************</span></span>
+<span id="cb40-3"><a href="estatística-básica.html#cb40-3"></a><span class="kw">anova</span>(modelo_regressao)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: CRC
+##              Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Temperatura   1  80.931  80.931   38.92 9.011e-09 ***
+## Residuals   107 222.500   2.079                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="estatística-básica.html#cb42-1"></a><span class="co"># ou</span></span>
+<span id="cb42-2"><a href="estatística-básica.html#cb42-2"></a><span class="co"># esta função apresenta os resultados mais detalhados com a estimativa do intercepto, inclinação da reta (slope) e o coeficiente de determinação (R2) que indica a proporção da variação na variável Y que pode ser atribuída à variação na variável X.</span></span>
+<span id="cb42-3"><a href="estatística-básica.html#cb42-3"></a><span class="kw">summary</span>(modelo_regressao)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = CRC ~ Temperatura, data = dados_regressao)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.4535 -0.7784  0.0888  0.9168  3.1868 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 16.23467    0.91368  17.768  &lt; 2e-16 ***
+## Temperatura  0.26905    0.04313   6.239 9.01e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.442 on 107 degrees of freedom
+## Multiple R-squared:  0.2667,	Adjusted R-squared:  0.2599 
+## F-statistic: 38.92 on 1 and 107 DF,  p-value: 9.011e-09</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="estatística-básica.html#cb44-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb44-2"><a href="estatística-básica.html#cb44-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dados_regressao, <span class="kw">aes</span>(<span class="dt">x=</span> Temperatura, <span class="dt">y=</span> CRC)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb44-3"><a href="estatística-básica.html#cb44-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Temperatura média anual (°C)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Comprimento rostro-cloacal (mm)&quot;</span>, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb44-4"><a href="estatística-básica.html#cb44-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span></span>
+<span id="cb44-5"><a href="estatística-básica.html#cb44-5"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="dv">25</span>, <span class="dt">y =</span> <span class="fl">17.8</span>, <span class="dt">label =</span> <span class="st">&quot;R2 = 0.26, P &lt; 0.001&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">7</span>) <span class="op">+</span></span>
+<span id="cb44-6"><a href="estatística-básica.html#cb44-6"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb44-7"><a href="estatística-básica.html#cb44-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>)) <span class="op">+</span></span>
+<span id="cb44-8"><a href="estatística-básica.html#cb44-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">20</span>)) <span class="op">+</span></span>
+<span id="cb44-9"><a href="estatística-básica.html#cb44-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb44-10"><a href="estatística-básica.html#cb44-10"></a>        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb44-11"><a href="estatística-básica.html#cb44-11"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, rejeitamos a hipótese nula que não existe relação entre o tamanho do CRC das populações de <em>D. minutus</em> e a temperatura da localidade onde elas ocorrem (F<sub>1,107</sub> = 38,92, P &lt; 0,001). Os resultados mostram que o tamanho do CRC das populações tem uma relação positiva com a temperatura das localidades. Assim, populações de <em>D. minutus</em> em localidades mais quentes apresentam maior CRC do que as populações em localidades mais frias.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="regressão-múltipla" class="section level2">
+<h2><span class="header-section-number">2.5</span> Regressão Múltipla</h2>
+<div id="backgorund-da-análise-4" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Backgorund da análise</h3>
+<p>A regressão múltipla é uma extensão da regressão simples. Ela é usada quando queremos determinar o valor da variável resposta (Y) com base nos valores de duas ou mais variáveis preditoras (X<sub>1</sub>, X<sub>2</sub>, X<sub><em>n</em></sub>).</p>
+<blockquote>
+<p><span class="math display">\[ Y = \beta_0 + \beta_{1}X_1 + \beta_{n}X_n + \epsilon_i \]</span></p>
+</blockquote>
+<p>Onde:</p>
+<ul>
+<li><p><span class="math inline">\(\beta_0\)</span> = intercepto que representa o valor da função quando X = 0;</p></li>
+<li><p><span class="math inline">\(\beta_{n}\)</span> = inclinação (<em>slope</em>) que mede a mudança na variável Y para cada mudança de unidade das variáveis X<sub>n</sub>;</p></li>
+<li><p><span class="math inline">\(\epsilon_{1}\)</span> = erro aleatório referente a variável Y que não pode ser explicado pelas variáveis preditoras.</p></li>
+</ul>
+<blockquote>
+<h4 id="premissas-da-regressão-múltipla"><span class="header-section-number">2.5.1</span> Premissas da Regressão Múltipla:</h4>
+<ul>
+<li>As amostras devem ser independentes;</li>
+<li>As unidades amostrais são selecionadas aleatoriamente;</li>
+<li>Distribuição normal (gaussiana) dos resíduos;</li>
+<li>Homogeneidade da variância.</li>
+</ul>
+</blockquote>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---regressão-múltipla" class="section level4">
+<h4><span class="header-section-number">2.5.1.1</span> Exemplo prático 1 - Regressão múltipla</h4>
+<div id="explicação-dos-dados-5" class="section level5">
+<h5><span class="header-section-number">2.5.1.1.1</span> Explicação dos dados</h5>
+<p>Utilizaremos o mesmo exemplo da regressão simples. Contudo, além do gradiente de temperatura média anual (°C) incluiremos o gradiente de precipitação anual (mm) como outra variável preditora do tamanho médio do comprimento rostro-cloacal (CRC em mm) de populações de <em>Dendropsophus minutus</em> (Anura:Hylidae) amostradas em 109 localidades no Brasil (Boaratti &amp; da Silva 2015).</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>O tamanho do CRC das populações de <em>D. minutus</em> é influênciado pela temperatura e precipitação das localidades onde os indivíduos ocorrem?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>O CRC das populações serão menores em localidades com clima quente e chuvoso do que em localidades com clima frio e seco.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as populações (unidade amostral) nas linhas e CRC médio (mm) e temperatura e precipitação como colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditores nas colunas</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="análise-5" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Análise</h3>
+<p>Cálculo da regressão múltipla</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="estatística-básica.html#cb45-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb45-2"><a href="estatística-básica.html#cb45-2"></a><span class="co">#********************</span></span>
+<span id="cb45-3"><a href="estatística-básica.html#cb45-3"></a>dados_regressao_mul &lt;-<span class="st"> </span>ecodados<span class="op">::</span>regressoes</span>
+<span id="cb45-4"><a href="estatística-básica.html#cb45-4"></a><span class="kw">head</span>(dados_regressao_mul) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>##      Municipio      CRC Temperatura Precipitacao
+## 1     Acorizal 22.98816    24.13000       1228.2
+## 2  Alpinopolis 22.91788    20.09417       1487.6
+## 3 Alto_Paraiso 21.97629    21.86167       1812.4
+## 4    Americana 23.32453    20.28333       1266.2
+## 5      Apiacas 22.83651    25.47333       2154.0
+## 6  Arianopolis 20.86989    20.12167       1269.2</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="estatística-básica.html#cb47-1"></a><span class="co"># ANALISE DA REGRESSÃO</span></span>
+<span id="cb47-2"><a href="estatística-básica.html#cb47-2"></a><span class="co">#************************</span></span>
+<span id="cb47-3"><a href="estatística-básica.html#cb47-3"></a>modelo_regressao_mul &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span>Temperatura <span class="op">+</span><span class="st"> </span>Precipitacao, <span class="dt">data =</span> dados_regressao_mul)</span>
+<span id="cb47-4"><a href="estatística-básica.html#cb47-4"></a></span>
+<span id="cb47-5"><a href="estatística-básica.html#cb47-5"></a><span class="co"># MULTICOLINEARIDADE</span></span>
+<span id="cb47-6"><a href="estatística-básica.html#cb47-6"></a><span class="co">#********************</span></span>
+<span id="cb47-7"><a href="estatística-básica.html#cb47-7"></a><span class="co"># Multicolinearidade ocorre quando as variáveis preditoras são correlacionadas. Essa correlação é um problema porque as variáveis preditores deveriam ser independentes. O Fator de Inflação da Variância (VIF) é um teste que identifica a correlação entre as variáveis e mostra a força dessa correlação. Alguns autores consideram valores de VIF acima de 10 como fortemente correlacionadas, outros mais conservadores consideram o valor de 3.</span></span>
+<span id="cb47-8"><a href="estatística-básica.html#cb47-8"></a><span class="kw">library</span>(car)</span>
+<span id="cb47-9"><a href="estatística-básica.html#cb47-9"></a><span class="kw">vif</span>(modelo_regressao_mul)</span></code></pre></div>
+<pre><code>##  Temperatura Precipitacao 
+##     1.041265     1.041265</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="estatística-básica.html#cb49-1"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb49-2"><a href="estatística-básica.html#cb49-2"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb49-3"><a href="estatística-básica.html#cb49-3"></a><span class="co"># Os gráficos *Residuals vs Fitted*, *Scale-Location*, e *Residual vs Leverage* estão relacionados com a homogeneidade da variância. Nestes gráficos, esperamos ver os pontos dispersos no espaço sem padrões em forma de *U* ou funil. </span></span>
+<span id="cb49-4"><a href="estatística-básica.html#cb49-4"></a><span class="co"># O gráfico *Normal Q-Q* está relacionado com a distribuição normal dos resíduos. Neste gráfico, esperamos ver os pontos próximos a reta sem padrões em forma de *U* ou *S*. </span></span>
+<span id="cb49-5"><a href="estatística-básica.html#cb49-5"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb49-6"><a href="estatística-básica.html#cb49-6"></a><span class="kw">plot</span>(modelo_regressao_mul)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="estatística-básica.html#cb50-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="estatística-básica.html#cb52-1"></a><span class="co"># VERIFICANDO OS RESULTADOS DA REGRESSÃO</span></span>
+<span id="cb52-2"><a href="estatística-básica.html#cb52-2"></a><span class="co">#****************************************</span></span>
+<span id="cb52-3"><a href="estatística-básica.html#cb52-3"></a><span class="kw">anova</span>(modelo_regressao_mul)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: CRC
+##               Df  Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Temperatura    1  80.931  80.931 39.0028 8.94e-09 ***
+## Precipitacao   1   2.549   2.549  1.2283   0.2702    
+## Residuals    106 219.951   2.075                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="estatística-básica.html#cb54-1"></a><span class="co"># ou</span></span>
+<span id="cb54-2"><a href="estatística-básica.html#cb54-2"></a><span class="kw">summary</span>(modelo_regressao_mul)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = CRC ~ Temperatura + Precipitacao, data = dados_regressao_mul)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.4351 -0.8026  0.0140  0.9420  3.4300 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  16.7162571  1.0108674  16.537  &lt; 2e-16 ***
+## Temperatura   0.2787445  0.0439601   6.341 5.71e-09 ***
+## Precipitacao -0.0004270  0.0003852  -1.108     0.27    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.44 on 106 degrees of freedom
+## Multiple R-squared:  0.2751,	Adjusted R-squared:  0.2614 
+## F-statistic: 20.12 on 2 and 106 DF,  p-value: 3.927e-08</code></pre>
+<p>Percebam que a temperatura tem uma relação significativa com o tamanho do CRC das populações (P &lt; 0.001), enquanto que a precipitação não apresenta relação com o CRC (P = 0.27). Neste caso, é interessante saber se um modelo mais simples (e.g. contendo apenas temperatura) explicaria a distribuição tão bem ou melhor do que este modelo mais complexo considerando dois parâmetros (temperatura e precipitação).</p>
+<p>Para isso, podemos utilizar a <em>LIKELIHOOD RATIO TEST (LRT)</em> para comparar modelos. A LRT compara dois modelos aninhados, testando se os parâmetros do modelo mais complexo diferem significativamente do modelo mais simples.Em outras palavras, ele testa se há necessidade de se incluir um parâmetro extra no modelo para explicar os dados.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="estatística-básica.html#cb56-1"></a><span class="co">## CRIANDO OS MODELOS ANINHADOS</span></span>
+<span id="cb56-2"><a href="estatística-básica.html#cb56-2"></a><span class="co">#********************************</span></span>
+<span id="cb56-3"><a href="estatística-básica.html#cb56-3"></a>modelo_regressao_mul &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span>Temperatura <span class="op">+</span><span class="st"> </span>Precipitacao, <span class="dt">data =</span> dados_regressao_mul)</span>
+<span id="cb56-4"><a href="estatística-básica.html#cb56-4"></a>modelo_regressao &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span>Temperatura, <span class="dt">data =</span> dados_regressao_mul)</span>
+<span id="cb56-5"><a href="estatística-básica.html#cb56-5"></a></span>
+<span id="cb56-6"><a href="estatística-básica.html#cb56-6"></a><span class="co"># LIKELIHHOD RATIO </span><span class="al">TEST</span><span class="co"> (LRT)</span></span>
+<span id="cb56-7"><a href="estatística-básica.html#cb56-7"></a><span class="co">#*******************************</span></span>
+<span id="cb56-8"><a href="estatística-básica.html#cb56-8"></a><span class="co"># A hipótese nula é que o modelo mais simples é melhor</span></span>
+<span id="cb56-9"><a href="estatística-básica.html#cb56-9"></a><span class="co"># Valores de p &lt; 0.05 rejeita a hipótese nula e o modelo mais complexo é o melhor</span></span>
+<span id="cb56-10"><a href="estatística-básica.html#cb56-10"></a><span class="co"># Valores de p &gt; 0.05 não rejeita a hipótese nula e o modelo mais simples é o melhor</span></span>
+<span id="cb56-11"><a href="estatística-básica.html#cb56-11"></a><span class="kw">library</span>(lmtest)</span>
+<span id="cb56-12"><a href="estatística-básica.html#cb56-12"></a><span class="kw">lrtest</span>(modelo_regressao_mul, modelo_regressao)</span></code></pre></div>
+<pre><code>## Likelihood ratio test
+## 
+## Model 1: CRC ~ Temperatura + Precipitacao
+## Model 2: CRC ~ Temperatura
+##   #Df  LogLik Df  Chisq Pr(&gt;Chisq)
+## 1   4 -192.93                     
+## 2   3 -193.55 -1 1.2558     0.2624</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="estatística-básica.html#cb58-1"></a><span class="co"># COMPARANDO COM O MODELO SOMENTE COM O INTERCEPTO</span></span>
+<span id="cb58-2"><a href="estatística-básica.html#cb58-2"></a><span class="co">#************************************************</span></span>
+<span id="cb58-3"><a href="estatística-básica.html#cb58-3"></a><span class="co"># criando um modelo sem parâmetros, só o intercepto</span></span>
+<span id="cb58-4"><a href="estatística-básica.html#cb58-4"></a>modelo_intercepto &lt;-<span class="st"> </span><span class="kw">lm</span>(CRC <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> dados_regressao_mul)</span>
+<span id="cb58-5"><a href="estatística-básica.html#cb58-5"></a><span class="kw">lrtest</span>(modelo_regressao, modelo_intercepto)</span></code></pre></div>
+<pre><code>## Likelihood ratio test
+## 
+## Model 1: CRC ~ Temperatura
+## Model 2: CRC ~ 1
+##   #Df  LogLik Df  Chisq Pr(&gt;Chisq)    
+## 1   3 -193.55                         
+## 2   2 -210.46 -1 33.815  6.061e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, a precipitação não está associada com a variação no tamanho do CRC das populações de <em>D. minutus</em>. Por outro lado, temperatura explicou 26% da variação do tamanho do CRC das populações.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="análises-de-variância-anova" class="section level2">
+<h2><span class="header-section-number">2.6</span> Análises de Variância (ANOVA)</h2>
+<div id="backgorund-da-análise-5" class="section level3">
+<h3><span class="header-section-number">2.6.1</span> Backgorund da análise</h3>
+<p>Anova refere-se a uma variedade de delineamentos experimentais nos quais a variável preditora é categórica e a variável resposta é contínua (Gotelli &amp; Ellison 2013). Exemplos desses delineamentos experimentais são: Anova de um fator, Anova de dois fatores, Anova em blocos aleatorizados, Anova de medidas repetidas e Anova <em>split-splot</em>. De forma geral, a Anova é um teste estatístico usado para comparar a média entre grupos amostrados independentementes. Para isso, o teste leva em conta, além das médias dos grupos, a variação dos dados dentro e entre os grupos. Neste capítulo, iremos demonstrar as linhas de comandos para alguns dos principais delineamentos experimentais.</p>
+<blockquote>
+<h4 id="premissas-da-anova"><span class="header-section-number">2.6.1</span> Premissas da Anova:</h4>
+<ul>
+<li>As amostras devem ser independentes;</li>
+<li>As unidades amostrais são selecionadas aleatoriamente;</li>
+<li>Distribuição normal (gaussiana) dos resíduos;</li>
+<li>Homogeneidade da variância.</li>
+</ul>
+</blockquote>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="anova-de-um-fator" class="section level2">
+<h2><span class="header-section-number">2.7</span> ANOVA de um fator</h2>
+<p>Este teste considera delineamentos experimentais com apenas um fator (ou tratamento) que pode ser composto por três ou mais grupos (ou níveis).</p>
+<div id="exemplo-prático-1---anova-de-um-fator" class="section level4">
+<h4><span class="header-section-number">2.7.0.1</span> Exemplo prático 1 - Anova de um fator</h4>
+<div id="explicação-dos-dados-6" class="section level5">
+<h5><span class="header-section-number">2.7.0.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos se o adubo X-2020 disponibilizado recentemente no mercado melhora o crescimento dos indivíduos de <em>Coffea arabica</em> como divulgado pela empresa responsável pela venda do produto. Para isso, foi realizado um experimento com indivíduos de <em>C. arabica</em> cultivados em três grupos: i) grupo controle onde os indivíduos não receberam adubação, ii) grupo onde os indivíduos receberam a adição do adubo tradicional mais utilizado pelos produtores de <em>C. arabica</em>, e iii) grupo onde os indivíduos receberam a adição do adubo X-2020.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>O crescimento dos indivíduos de <em>C. arabica</em> é melhorado pela adição do adubo X-2020?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>O crescimento dos indivíduos de <em>C. arabica</em> será maior no grupo que recebeu o adubo X-2020.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as plantas (unidade amostral) nas linhas e o tratamento na coluna.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variável preditora na coluna.</li>
+</ul>
+</div>
+</div>
+<div id="análise-6" class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Análise</h3>
+<p>Cálculo da Anova de um fator</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="estatística-básica.html#cb60-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb60-2"><a href="estatística-básica.html#cb60-2"></a><span class="co">#********************</span></span>
+<span id="cb60-3"><a href="estatística-básica.html#cb60-3"></a>dados_anova_simples &lt;-<span class="st"> </span>ecodados<span class="op">::</span>anova_simples</span>
+<span id="cb60-4"><a href="estatística-básica.html#cb60-4"></a><span class="kw">head</span>(dados_anova_simples) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>##   Crescimento Tratamento
+## 1       7.190   Controle
+## 2       6.758   Controle
+## 3       6.101   Controle
+## 4       4.758   Controle
+## 5       6.542   Controle
+## 6       7.667   Controle</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="estatística-básica.html#cb62-1"></a><span class="co"># ANALISE ANOVA de um fator</span></span>
+<span id="cb62-2"><a href="estatística-básica.html#cb62-2"></a><span class="co">#************************</span></span>
+<span id="cb62-3"><a href="estatística-básica.html#cb62-3"></a>Modelo_anova &lt;-<span class="st"> </span><span class="kw">aov</span>(Crescimento <span class="op">~</span><span class="st"> </span>Tratamento, <span class="dt">data =</span> dados_anova_simples) </span>
+<span id="cb62-4"><a href="estatística-básica.html#cb62-4"></a></span>
+<span id="cb62-5"><a href="estatística-básica.html#cb62-5"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb62-6"><a href="estatística-básica.html#cb62-6"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb62-7"><a href="estatística-básica.html#cb62-7"></a><span class="co"># Os gráficos *Residuals vs Fitted* e *Scale-Location* estão relacionados com a homogeneidade da variância. Nestes gráficos, esperamos ver os pontos dispersos no espaço sem padrões em forma de *U* ou funil. </span></span>
+<span id="cb62-8"><a href="estatística-básica.html#cb62-8"></a><span class="co"># O gráfico *Normal Q-Q* está relacionado com a distribuição normal dos resíduos. Neste gráfico, esperamos ver os pontos próximos a reta sem padrões em forma de *U* ou *S*. </span></span>
+<span id="cb62-9"><a href="estatística-básica.html#cb62-9"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb62-10"><a href="estatística-básica.html#cb62-10"></a><span class="kw">plot</span>(Modelo_anova)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="estatística-básica.html#cb63-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="estatística-básica.html#cb65-1"></a><span class="co"># Se preferir, você pode utilizar testes estatísticos</span></span>
+<span id="cb65-2"><a href="estatística-básica.html#cb65-2"></a><span class="co"># Teste de Shapiro-Wilk para normalidade separadamente para cada grupo</span></span>
+<span id="cb65-3"><a href="estatística-básica.html#cb65-3"></a><span class="kw">shapiro.test</span>(dados_anova_simples<span class="op">$</span>Crescimento[<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>])</span></code></pre></div>
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  dados_anova_simples$Crescimento[1:12]
+## W = 0.96731, p-value = 0.8806</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="estatística-básica.html#cb67-1"></a><span class="kw">shapiro.test</span>(dados_anova_simples<span class="op">$</span>Crescimento[<span class="dv">13</span><span class="op">:</span><span class="dv">24</span>])</span></code></pre></div>
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  dados_anova_simples$Crescimento[13:24]
+## W = 0.87324, p-value = 0.07184</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="estatística-básica.html#cb69-1"></a><span class="kw">shapiro.test</span>(dados_anova_simples<span class="op">$</span>Crescimento[<span class="dv">25</span><span class="op">:</span><span class="dv">36</span>])</span></code></pre></div>
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  dados_anova_simples$Crescimento[25:36]
+## W = 0.9294, p-value = 0.3738</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="estatística-básica.html#cb71-1"></a><span class="co"># Teste de Bartlett para homogeneidade da variância</span></span>
+<span id="cb71-2"><a href="estatística-básica.html#cb71-2"></a><span class="kw">bartlett.test</span>(Crescimento <span class="op">~</span><span class="st"> </span>Tratamento, <span class="dt">data =</span> dados_anova_simples)</span></code></pre></div>
+<pre><code>## 
+## 	Bartlett test of homogeneity of variances
+## 
+## data:  Crescimento by Tratamento
+## Bartlett&#39;s K-squared = 0.61835, df = 2, p-value = 0.7341</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="estatística-básica.html#cb73-1"></a><span class="co"># VERIFICANDO OS RESULTADOS DA ANOVA</span></span>
+<span id="cb73-2"><a href="estatística-básica.html#cb73-2"></a><span class="co">#****************************************</span></span>
+<span id="cb73-3"><a href="estatística-básica.html#cb73-3"></a><span class="kw">anova</span>(Modelo_anova)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Crescimento
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Tratamento  2 340.32 170.160  77.989 3.124e-13 ***
+## Residuals  33  72.00   2.182                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Percebam que o resultado da Anova (Pr(&gt;F) &lt; 0.001) indica que devemos rejeitar a hipótese nula que não há diferença entre as médias dos grupos. Contudo, os resultados não mostram quais são os grupos que apresentam diferenças. Para isso, temos que realizar testes de comparações múltiplas <em>post-hoc</em> para detectar os grupos que apresentam diferenças significativas entre as médias. <strong>Observação</strong> Os testes <em>post-hoc</em> só devem ser utilizados quando rejeitamos a hipótese nula (P &lt; 0.05) no teste da Anova.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="estatística-básica.html#cb75-1"></a><span class="co"># Diferenças entre os tratamentos</span></span>
+<span id="cb75-2"><a href="estatística-básica.html#cb75-2"></a><span class="co">#***********************************</span></span>
+<span id="cb75-3"><a href="estatística-básica.html#cb75-3"></a><span class="co"># Teste de Tuckey&#39;s honest significant difference</span></span>
+<span id="cb75-4"><a href="estatística-básica.html#cb75-4"></a><span class="kw">TukeyHSD</span>(Modelo_anova)</span></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = Crescimento ~ Tratamento, data = dados_anova_simples)
+## 
+## $Tratamento
+##                                       diff       lwr       upr     p adj
+## Adubo_X-2020-Adubo_Tradicional  0.04991667 -1.429784  1.529617 0.9962299
+## Controle-Adubo_Tradicional     -6.49716667 -7.976867 -5.017466 0.0000000
+## Controle-Adubo_X-2020          -6.54708333 -8.026784 -5.067383 0.0000000</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="estatística-básica.html#cb77-1"></a><span class="co"># ou</span></span>
+<span id="cb77-2"><a href="estatística-básica.html#cb77-2"></a></span>
+<span id="cb77-3"><a href="estatística-básica.html#cb77-3"></a><span class="co"># Teste T</span></span>
+<span id="cb77-4"><a href="estatística-básica.html#cb77-4"></a><span class="kw">pairwise.t.test</span>(dados_anova_simples<span class="op">$</span>Crescimento, dados_anova_simples<span class="op">$</span>Tratamento)</span></code></pre></div>
+<pre><code>## 
+## 	Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  dados_anova_simples$Crescimento and dados_anova_simples$Tratamento 
+## 
+##              Adubo_Tradicional Adubo_X-2020
+## Adubo_X-2020 0.93              -           
+## Controle     6e-12             6e-12       
+## 
+## P value adjustment method: holm</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="estatística-básica.html#cb79-1"></a><span class="co"># Reordenando a ordem que os grupos irão aparecer no gráfico</span></span>
+<span id="cb79-2"><a href="estatística-básica.html#cb79-2"></a>dados_anova_simples<span class="op">$</span>Tratamento &lt;-<span class="st"> </span><span class="kw">factor</span>(dados_anova_simples<span class="op">$</span>Tratamento , </span>
+<span id="cb79-3"><a href="estatística-básica.html#cb79-3"></a>                                      <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Controle&quot;</span>, <span class="st">&quot;Adubo_Tradicional&quot;</span>, <span class="st">&quot;Adubo_X-2020&quot;</span>))</span>
+<span id="cb79-4"><a href="estatística-básica.html#cb79-4"></a></span>
+<span id="cb79-5"><a href="estatística-básica.html#cb79-5"></a><span class="co"># Gráfico</span></span>
+<span id="cb79-6"><a href="estatística-básica.html#cb79-6"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb79-7"><a href="estatística-básica.html#cb79-7"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dados_anova_simples, <span class="kw">aes</span>(<span class="dt">x=</span> Tratamento, <span class="dt">y=</span> Crescimento, <span class="dt">color =</span> Tratamento)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb79-8"><a href="estatística-básica.html#cb79-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Adubação&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Crescimento Coffea arabica (cm)&quot;</span>, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb79-9"><a href="estatística-básica.html#cb79-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill=</span><span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>, <span class="st">&quot;brown1&quot;</span>), <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb79-10"><a href="estatística-básica.html#cb79-10"></a>               <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span></span>
+<span id="cb79-11"><a href="estatística-básica.html#cb79-11"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">position=</span><span class="kw">position_jitter</span>(<span class="fl">0.1</span>), <span class="dt">cex =</span> <span class="dv">4</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb79-12"><a href="estatística-básica.html#cb79-12"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>, <span class="st">&quot;brown1&quot;</span>)) <span class="op">+</span></span>
+<span id="cb79-13"><a href="estatística-básica.html#cb79-13"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>), <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>)) <span class="op">+</span></span>
+<span id="cb79-14"><a href="estatística-básica.html#cb79-14"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">12</span>, <span class="dt">label =</span> <span class="st">&quot;ab&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb79-15"><a href="estatística-básica.html#cb79-15"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">17</span>, <span class="dt">label =</span> <span class="st">&quot;a&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb79-16"><a href="estatística-básica.html#cb79-16"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="dv">3</span>, <span class="dt">y =</span> <span class="dv">17</span>, <span class="dt">label =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb79-17"><a href="estatística-básica.html#cb79-17"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Sem adubo&quot;</span>,<span class="st">&quot;Tradicional&quot;</span>,<span class="st">&quot;X-2020&quot;</span>)) <span class="op">+</span></span>
+<span id="cb79-18"><a href="estatística-básica.html#cb79-18"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb79-19"><a href="estatística-básica.html#cb79-19"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb79-20"><a href="estatística-básica.html#cb79-20"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb79-21"><a href="estatística-básica.html#cb79-21"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb79-22"><a href="estatística-básica.html#cb79-22"></a>        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb79-23"><a href="estatística-básica.html#cb79-23"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, os indivíduos de <em>C. arabica</em> que receberam adubação (tradicional e X-2020) apresentaram maior crescimento do que os indivíduos que não receberam adubação. Contudo, diferente do que foi divulgado pela empresa, o adubo X-2020 não apresentou melhor desempenho que o adubo tradicional já utilizado pelos produtores.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="anova-de-dois-fatores-ou-anova-fatorial" class="section level2">
+<h2><span class="header-section-number">2.8</span> ANOVA de dois fatores ou Anova fatorial</h2>
+<p>Este teste considera delineamentos amostrais com dois fatores (ou tratamento) que podem ser compostos por dois ou mais grupos (ou níveis). Esta análise tem uma vantagem, pois permite avaliar o efeito da interação entre os fatores na variável resposta. Quando a interação está presente, o impacto de um fator depende do nível (ou grupo) do outro fator.</p>
+<div id="exemplo-prático-1---anova-de-dois-fatores" class="section level4">
+<h4><span class="header-section-number">2.8.0.1</span> Exemplo prático 1 - Anova de dois fatores</h4>
+<div id="explicação-dos-dados-7" class="section level5">
+<h5><span class="header-section-number">2.8.0.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos se o tempo que o corpo leva para elimiar uma droga utilizada em exames de ressonância magnética está relacionado com o sistema XY de determinação do sexo e/ou com a idade dos pacientes. Para isso, foi realizado um experimento com 40 pacientes distribuídos da seguinte maneira: i) 10 indivíduos XX - jovens, ii) 10 indivíduos XX - idosas, iii) 10 indivíduos XY - jovens, e iv) 10 indivíduos XY - idosos.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>O tempo de eliminação da droga é dependente do sistema XY de determinação do sexo e idade dos pacientes?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>O tempo de eliminação da droga vai ser mais rápido nas pacientes XX e jovens.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com os pacientes (unidade amostral) nas linhas e os tratamentos nas colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e as variáveies preditoras nas colunas.</li>
+</ul>
+</div>
+</div>
+<div id="análise-7" class="section level3">
+<h3><span class="header-section-number">2.8.1</span> Análise</h3>
+<p>Cálculo da Anova de dois fator</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="estatística-básica.html#cb80-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb80-2"><a href="estatística-básica.html#cb80-2"></a><span class="co">#********************</span></span>
+<span id="cb80-3"><a href="estatística-básica.html#cb80-3"></a>dados_dois_fatores &lt;-<span class="st"> </span>ecodados<span class="op">::</span>anova_dois_fatores</span>
+<span id="cb80-4"><a href="estatística-básica.html#cb80-4"></a><span class="kw">head</span>(dados_dois_fatores) </span></code></pre></div>
+<pre><code>##    Tempo Pessoas Idade
+## 1 18.952      XX Jovem
+## 2 16.513      XX Jovem
+## 3 17.981      XX Jovem
+## 4 21.371      XX Jovem
+## 5 14.470      XX Jovem
+## 6 19.130      XX Jovem</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="estatística-básica.html#cb82-1"></a><span class="co"># Análise anova de dois fatores </span></span>
+<span id="cb82-2"><a href="estatística-básica.html#cb82-2"></a><span class="co">#********************************</span></span>
+<span id="cb82-3"><a href="estatística-básica.html#cb82-3"></a><span class="co"># A interação entre os fatores é representada por *</span></span>
+<span id="cb82-4"><a href="estatística-básica.html#cb82-4"></a>Modelo1 &lt;-<span class="st"> </span><span class="kw">aov</span>(Tempo <span class="op">~</span><span class="st"> </span>Pessoas <span class="op">*</span><span class="st"> </span>Idade, <span class="dt">data =</span> dados_dois_fatores) </span>
+<span id="cb82-5"><a href="estatística-básica.html#cb82-5"></a></span>
+<span id="cb82-6"><a href="estatística-básica.html#cb82-6"></a><span class="co"># Olhando os resultados</span></span>
+<span id="cb82-7"><a href="estatística-básica.html#cb82-7"></a><span class="kw">anova</span>(Modelo1)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Tempo
+##               Df  Sum Sq Mean Sq  F value    Pr(&gt;F)    
+## Pessoas        1  716.72  716.72 178.8538  1.56e-15 ***
+## Idade          1 1663.73 1663.73 415.1724 &lt; 2.2e-16 ***
+## Pessoas:Idade  1    4.77    4.77   1.1903    0.2825    
+## Residuals     36  144.26    4.01                       
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="estatística-básica.html#cb84-1"></a><span class="co"># Percebam que a interação não apresenta um efeito significativo (P &gt; 0.05). Assim, iremos retirar a interação e verificar, usando LIKELIHOOD RATIO </span><span class="al">TEST</span><span class="co"> (LRT), se o modelo mais simples é melhor </span></span>
+<span id="cb84-2"><a href="estatística-básica.html#cb84-2"></a>Modelo2 &lt;-<span class="st"> </span><span class="kw">aov</span>(Tempo <span class="op">~</span><span class="st"> </span>Pessoas <span class="op">+</span><span class="st"> </span>Idade, <span class="dt">data =</span> dados_dois_fatores) </span>
+<span id="cb84-3"><a href="estatística-básica.html#cb84-3"></a></span>
+<span id="cb84-4"><a href="estatística-básica.html#cb84-4"></a><span class="co"># A hipótese nula é que o modelo mais simples é melhor</span></span>
+<span id="cb84-5"><a href="estatística-básica.html#cb84-5"></a><span class="co"># Valores de p &lt; 0.05 rejeita a hipótese nula e o modelo mais complexo é o melhor</span></span>
+<span id="cb84-6"><a href="estatística-básica.html#cb84-6"></a><span class="co"># Valores de p &gt; 0.05 não rejeita a hipótese nula e o modelo mais simples é o melhor</span></span>
+<span id="cb84-7"><a href="estatística-básica.html#cb84-7"></a><span class="kw">library</span>(lmtest)</span>
+<span id="cb84-8"><a href="estatística-básica.html#cb84-8"></a><span class="kw">lrtest</span>(Modelo1, Modelo2)</span></code></pre></div>
+<pre><code>## Likelihood ratio test
+## 
+## Model 1: Tempo ~ Pessoas * Idade
+## Model 2: Tempo ~ Pessoas + Idade
+##   #Df  LogLik Df  Chisq Pr(&gt;Chisq)
+## 1   5 -82.413                     
+## 2   4 -83.063 -1 1.3012      0.254</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="estatística-básica.html#cb86-1"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb86-2"><a href="estatística-básica.html#cb86-2"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb86-3"><a href="estatística-básica.html#cb86-3"></a><span class="co"># Esta função mostra os resultados para multicolinearidade (a), dois gráficos avaliando a normalidade dos resíduos (b e  c), e um gráfico para a homogeneidade dos resíduos (d).</span></span>
+<span id="cb86-4"><a href="estatística-básica.html#cb86-4"></a><span class="kw">library</span>(sjPlot)</span>
+<span id="cb86-5"><a href="estatística-básica.html#cb86-5"></a><span class="kw">plot_grid</span>(<span class="kw">plot_model</span>(Modelo2, <span class="dt">type =</span> <span class="st">&quot;diag&quot;</span>))</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="estatística-básica.html#cb87-1"></a><span class="co"># VERIFICANDO OS RESULTADOS DA ANOVA</span></span>
+<span id="cb87-2"><a href="estatística-básica.html#cb87-2"></a><span class="co">#****************************************</span></span>
+<span id="cb87-3"><a href="estatística-básica.html#cb87-3"></a><span class="kw">anova</span>(Modelo2)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Tempo
+##           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Pessoas    1  716.72  716.72  177.94 1.041e-15 ***
+## Idade      1 1663.73 1663.73  413.05 &lt; 2.2e-16 ***
+## Residuals 37  149.03    4.03                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Percebam que o resultado da Anova (Pr(&gt;F) &lt; 0.001) indica que devemos rejeitar a hipótese nula que não há diferença entre as médias dos sistema XY e idade dos pacientes. Neste caso, não precisamos realizar testes de comparações múltiplas <em>post-hoc</em> porque os fatores apresentam apenas dois níveis. Contudo, se no seu delineamento experimental um dos fatores apresentar três ou mais níveis, você deverá utilizar os testes de comparações <em>post-hoc</em> para determinar as diferenças entre os grupos. <strong>Observação</strong> Os testes <em>post-hoc</em> só devem ser utilizados quando rejeitamos a hipótese nula (P &lt; 0.05) no teste da Anova.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="estatística-básica.html#cb89-1"></a><span class="co"># Diferenças entre os tratamentos</span></span>
+<span id="cb89-2"><a href="estatística-básica.html#cb89-2"></a><span class="co">#***********************************</span></span>
+<span id="cb89-3"><a href="estatística-básica.html#cb89-3"></a><span class="co"># Teste de Tuckey&#39;s honest significant difference</span></span>
+<span id="cb89-4"><a href="estatística-básica.html#cb89-4"></a><span class="kw">TukeyHSD</span>(Modelo2)</span></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = Tempo ~ Pessoas + Idade, data = dados_dois_fatores)
+## 
+## $Pessoas
+##          diff      lwr      upr p adj
+## XY-XX 8.46595 7.180008 9.751892     0
+## 
+## $Idade
+##                  diff       lwr       upr p adj
+## Jovem-Idoso -12.89855 -14.18449 -11.61261     0</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="estatística-básica.html#cb91-1"></a><span class="co"># Gráfico</span></span>
+<span id="cb91-2"><a href="estatística-básica.html#cb91-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb91-3"><a href="estatística-básica.html#cb91-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dados_dois_fatores, <span class="kw">aes</span>(<span class="dt">y=</span> Tempo, <span class="dt">x=</span> Pessoas, <span class="dt">color =</span> Idade)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb91-4"><a href="estatística-básica.html#cb91-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb91-5"><a href="estatística-básica.html#cb91-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sistema XY de determinação do sexo&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Tempo (horas) para eliminar a droga&quot;</span>, </span>
+<span id="cb91-6"><a href="estatística-básica.html#cb91-6"></a>       <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb91-7"><a href="estatística-básica.html#cb91-7"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">position=</span><span class="kw">position_jitterdodge</span>(), <span class="dt">cex =</span> <span class="dv">4</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb91-8"><a href="estatística-básica.html#cb91-8"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>)) <span class="op">+</span></span>
+<span id="cb91-9"><a href="estatística-básica.html#cb91-9"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">50</span>), <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)) <span class="op">+</span></span>
+<span id="cb91-10"><a href="estatística-básica.html#cb91-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb91-11"><a href="estatística-básica.html#cb91-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb91-12"><a href="estatística-básica.html#cb91-12"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb91-13"><a href="estatística-básica.html#cb91-13"></a>        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, O sitesma XY de determinação do sexo e a idade dos pacientes tem um efeito no tempo de eliminação da droga do organismo. Os pacientes XX e jovens apresentam eliminação mais rápida da droga do que pacientes XY e idosos.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="anova-em-blocos-aleatorizados" class="section level2">
+<h2><span class="header-section-number">2.9</span> ANOVA em blocos aleatorizados</h2>
+<p>No delineamento experimental com blocos aleatorizados, cada fator é agrupado em blocos, com réplicas de cada nível do fator representado em cada bloco (Gotelli &amp; Elisson 2013). O bloco é uma área ou período de tempo dentro do qual as condições ambientais são relativamente homogêneas. O objetivo do uso dos blocos é controlar fontes de variações indesejadas na variável dependente que não são de interesse do pesquisador. Desta maneira, podemos retirar dos resíduos, os efeitos das variações indesejadas que não do nosso interesse, e testar com maior poder estatístico os efeitos dos tratamentos de interesse. Importante, os blocos devem ser arranjados de forma que as condições ambientais sejam mais similares dentro dos blocos do que entre os blocos.</p>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---anova-em-blocos-aleatorizados" class="section level4">
+<h4><span class="header-section-number">2.9.0.1</span> Exemplo prático 1 - Anova em blocos aleatorizados</h4>
+<div id="explicação-dos-dados-8" class="section level5">
+<h5><span class="header-section-number">2.9.0.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos a riqueza de espécies de anuros amostradas em poças artificiais instaladas a diferentes distâncias de seis fragmentos florestais no sudeste do Brasil (da Silva et al. 2020). Os fragmentos florestais apresentam diferenças entre si que não do interesse do pesquisador. Por isso, eles foram incluídos como blocos nas análises. As poças artificiais foram instaladas em todos os fragmentos florestais basedo no seguinte delineamento experimental (da Silva et al. 2012): i) 4 poças no interior do fragmento a 100m de distância da borda do fragmento; ii) 4 poças no interior no fragmento a 50m de distância da borda do fragmento; iii) 4 poças no na borda do fragmento; iv) 4 poças na matriz de pastagem a 50m de distância da borda do fragmento; e v) 4 poças na matriz de pastagem a 100m de distância da borda do fragmento. Percebam que todos os tratamentos foram instalados em todos os blocos.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>A distância da poça artifical ao fragmento florestal influência a riqueza de espécies anuros?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>Poças na borda do fragmento florestal apresentarão maior riqueza de espécies do que poças distantes da borda.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as poças (unidade amostral) nas linhas e o tratamento e bloco nas colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditoras nas colunas.</li>
+</ul>
+</div>
+</div>
+<div id="análise-8" class="section level3">
+<h3><span class="header-section-number">2.9.1</span> Análise</h3>
+<p>Cálculo da Anova em blocos aleatorizados</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="estatística-básica.html#cb92-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb92-2"><a href="estatística-básica.html#cb92-2"></a><span class="co">#********************</span></span>
+<span id="cb92-3"><a href="estatística-básica.html#cb92-3"></a>dados_bloco &lt;-<span class="st"> </span>ecodados<span class="op">::</span>anova_bloco</span>
+<span id="cb92-4"><a href="estatística-básica.html#cb92-4"></a><span class="kw">str</span>(dados_bloco) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:	30 obs. of  3 variables:
+##  $ Riqueza: int  90 95 107 92 89 92 81 92 93 80 ...
+##  $ Blocos : chr  &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; ...
+##  $ Pocas  : chr  &quot;Int-50m&quot; &quot;Int-100m&quot; &quot;Borda&quot; &quot;Mat-50m&quot; ...</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="estatística-básica.html#cb94-1"></a><span class="co"># ANALISE ANOVA em blocos aleatorizados</span></span>
+<span id="cb94-2"><a href="estatística-básica.html#cb94-2"></a><span class="co">#****************************************</span></span>
+<span id="cb94-3"><a href="estatística-básica.html#cb94-3"></a><span class="co"># Há duas maneiras para incluir os efeitos dos blocos</span></span>
+<span id="cb94-4"><a href="estatística-básica.html#cb94-4"></a>model_bloco1 &lt;-<span class="st"> </span><span class="kw">aov</span>(Riqueza <span class="op">~</span><span class="st"> </span>Pocas <span class="op">+</span><span class="st"> </span>Blocos, <span class="dt">data =</span> dados_bloco)</span>
+<span id="cb94-5"><a href="estatística-básica.html#cb94-5"></a></span>
+<span id="cb94-6"><a href="estatística-básica.html#cb94-6"></a>model_bloco2 &lt;-<span class="st"> </span><span class="kw">aov</span>(Riqueza <span class="op">~</span><span class="st"> </span>Pocas <span class="op">+</span><span class="st"> </span><span class="kw">Error</span>(Blocos), <span class="dt">data =</span> dados_bloco)</span>
+<span id="cb94-7"><a href="estatística-básica.html#cb94-7"></a></span>
+<span id="cb94-8"><a href="estatística-básica.html#cb94-8"></a><span class="co"># Percebam que as duas formas apresentam os mesmo resultados para o efeito da distância das poças que é o fator de interesse no estudo. Lembre-se que nos delineamentos experimentais em bloco, o pesquisador não está interessado no efeito do bloco, mas sim controlar a variação associada a ele.</span></span>
+<span id="cb94-9"><a href="estatística-básica.html#cb94-9"></a><span class="kw">anova</span>(model_bloco1)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Riqueza
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## Pocas      4 1504.5  376.12  2.9071 0.0478 *
+## Blocos     5 1089.0  217.79  1.6834 0.1846  
+## Residuals 20 2587.5  129.38                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="estatística-básica.html#cb96-1"></a><span class="kw">summary</span>(model_bloco2)</span></code></pre></div>
+<pre><code>## 
+## Error: Blocos
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Residuals  5   1089   217.8               
+## 
+## Error: Within
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## Pocas      4   1504   376.1   2.907 0.0478 *
+## Residuals 20   2588   129.4                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="estatística-básica.html#cb98-1"></a><span class="co"># O que não pode acontecer é ignorar o efeito do bloco que é incorporado pelos resíduos quando não informado no modelo. Veja abaixo a forma errada de analisar delineamento experimental com blocos.</span></span>
+<span id="cb98-2"><a href="estatística-básica.html#cb98-2"></a></span>
+<span id="cb98-3"><a href="estatística-básica.html#cb98-3"></a>modelo_errado &lt;-<span class="st"> </span><span class="kw">aov</span>(Riqueza <span class="op">~</span><span class="st"> </span>Pocas, <span class="dt">data =</span> dados_bloco)</span>
+<span id="cb98-4"><a href="estatística-básica.html#cb98-4"></a><span class="kw">anova</span>(modelo_errado)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Riqueza
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## Pocas      4 1504.5  376.12  2.5576 0.06359 .
+## Residuals 25 3676.5  147.06                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="estatística-básica.html#cb100-1"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb100-2"><a href="estatística-básica.html#cb100-2"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb100-3"><a href="estatística-básica.html#cb100-3"></a><span class="co"># Os gráficos *Residuals vs Fitted* e *Scale-Location* estão relacionados com a homogeneidade da variância. Nestes gráficos, esperamos ver os pontos dispersos no espaço sem padrões em forma de *U* ou funil. </span></span>
+<span id="cb100-4"><a href="estatística-básica.html#cb100-4"></a><span class="co"># O gráfico *Normal Q-Q* está relacionado com a distribuição normal dos resíduos. Neste gráfico, esperamos ver os pontos próximos a reta sem padrões em forma de *U* ou *S*. </span></span>
+<span id="cb100-5"><a href="estatística-básica.html#cb100-5"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb100-6"><a href="estatística-básica.html#cb100-6"></a><span class="kw">plot</span>(model_bloco1)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="estatística-básica.html#cb101-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<p>Percebam que o resultado da Anova (Pr(&gt;F) &lt; 0.001) indica que devemos rejeitar a hipótese nula que não há diferença entre as médias dos grupos. Contudo, os resultados não mostram quais são os grupos que apresentam diferenças. Para isso, temos que realizar testes de comparações múltiplas <em>post-hoc</em> para detectar os grupos que apresentam diferenças significativas entre as médias. <strong>Observação</strong> Os testes <em>post-hoc</em> só devem ser utilizados quando rejeitamos a hipótese nula (P &lt; 0.05) no teste da Anova.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="estatística-básica.html#cb103-1"></a><span class="co"># Diferenças entre os tratamentos</span></span>
+<span id="cb103-2"><a href="estatística-básica.html#cb103-2"></a><span class="co">#***********************************</span></span>
+<span id="cb103-3"><a href="estatística-básica.html#cb103-3"></a><span class="co"># Teste de Tuckey&#39;s honest significant difference</span></span>
+<span id="cb103-4"><a href="estatística-básica.html#cb103-4"></a><span class="kw">library</span>(lsmeans)</span>
+<span id="cb103-5"><a href="estatística-básica.html#cb103-5"></a><span class="kw">pairs</span>(<span class="kw">lsmeans</span>(model_bloco1, <span class="st">&quot;Pocas&quot;</span>), <span class="dt">adjust =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
+<pre><code>##  contrast                estimate   SE df t.ratio p.value
+##  Borda - (Int-100m)        16.000 6.57 20  2.436  0.1463 
+##  Borda - (Int-50m)         19.833 6.57 20  3.020  0.0472 
+##  Borda - (Mat-100m)        15.833 6.57 20  2.411  0.1531 
+##  Borda - (Mat-50m)          8.167 6.57 20  1.244  0.7269 
+##  (Int-100m) - (Int-50m)     3.833 6.57 20  0.584  0.9760 
+##  (Int-100m) - (Mat-100m)   -0.167 6.57 20 -0.025  1.0000 
+##  (Int-100m) - (Mat-50m)    -7.833 6.57 20 -1.193  0.7553 
+##  (Int-50m) - (Mat-100m)    -4.000 6.57 20 -0.609  0.9720 
+##  (Int-50m) - (Mat-50m)    -11.667 6.57 20 -1.777  0.4135 
+##  (Mat-100m) - (Mat-50m)    -7.667 6.57 20 -1.167  0.7692 
+## 
+## Results are averaged over the levels of: Blocos 
+## P value adjustment: tukey method for comparing a family of 5 estimates</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="estatística-básica.html#cb105-1"></a><span class="co"># Reordenando a ordem que os grupos irão aparecer no gráfico</span></span>
+<span id="cb105-2"><a href="estatística-básica.html#cb105-2"></a>dados_bloco<span class="op">$</span>Pocas &lt;-<span class="st"> </span><span class="kw">factor</span>(dados_bloco<span class="op">$</span>Pocas, </span>
+<span id="cb105-3"><a href="estatística-básica.html#cb105-3"></a>                              <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Int-100m&quot;</span>, <span class="st">&quot;Int-50m&quot;</span>, <span class="st">&quot;Borda&quot;</span>, <span class="st">&quot;Mat-50m&quot;</span>, <span class="st">&quot;Mat-100m&quot;</span>))</span>
+<span id="cb105-4"><a href="estatística-básica.html#cb105-4"></a></span>
+<span id="cb105-5"><a href="estatística-básica.html#cb105-5"></a><span class="co"># Gráfico</span></span>
+<span id="cb105-6"><a href="estatística-básica.html#cb105-6"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb105-7"><a href="estatística-básica.html#cb105-7"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dados_bloco, <span class="kw">aes</span>(<span class="dt">x=</span> Pocas, <span class="dt">y=</span> Riqueza)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb105-8"><a href="estatística-básica.html#cb105-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Poças artificiais&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Riqueza de espécies de anuros&quot;</span>, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb105-9"><a href="estatística-básica.html#cb105-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb105-10"><a href="estatística-básica.html#cb105-10"></a>               <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span></span>
+<span id="cb105-11"><a href="estatística-básica.html#cb105-11"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">position=</span><span class="kw">position_jitter</span>(<span class="fl">0.1</span>), <span class="dt">cex =</span> <span class="dv">5</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb105-12"><a href="estatística-básica.html#cb105-12"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;-100m&quot;</span>,<span class="st">&quot;-50m&quot;</span>,<span class="st">&quot;Borda&quot;</span>, <span class="st">&quot;50m&quot;</span>, <span class="st">&quot;100m&quot;</span>)) <span class="op">+</span></span>
+<span id="cb105-13"><a href="estatística-básica.html#cb105-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb105-14"><a href="estatística-básica.html#cb105-14"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb105-15"><a href="estatística-básica.html#cb105-15"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, rejeitamos a hipótese nula que a distância da poças artificiais até as bordas dos fragmentos florestais não influência a riqueza de espécies de anuros. As poças artificiais instaladas nas bordas dos fragmentos florestais apresentaram maior riqueza de espécies do que as poças distantes.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="análise-de-covariância-ancova" class="section level2">
+<h2><span class="header-section-number">2.10</span> Análise de covariância (ANCOVA)</h2>
+<p>A ANCOVA pode ser compreendida como uma extensão da Anova com a adição de variável contínua (covariável) medida em todas as unidades amostrais (Gotelli &amp; Ellison 2013). A ideia é que a covariável também afete os valores da variável resposta. Não incluir a covariável irá fazer com que a variação não explicada pelo modelo concentre-se nos resíduos. Incluindo a covariável, o tamanho do resíduo é menor, e o teste para avaliar as diferenças nos tratamentos terá mais poder estatístico.</p>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---ancova" class="section level4">
+<h4><span class="header-section-number">2.10.0.1</span> Exemplo prático 1 - ANCOVA</h4>
+<div id="explicação-dos-dados-9" class="section level5">
+<h5><span class="header-section-number">2.10.0.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos o efeito da herbivoria na biomassa dos frutos de uma espécie de árvore na Mata Atlântica. O delineamento experimental permitiu que alguns indivíduos sofressem herbivoria e outros não. Os pesquisadores também mediram o tamanho da raiz dos indíviduos para inseri-la como uma covariável no modelo.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>A herbivoria diminiu a biomssa dos frutos?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>Os indivíduos que sofreram herbivoria irão produzir frutos com menor biomassa do que os indivíduos sem herbivoria.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as indivíduos da espéci de planta (unidade amostral) nas linhas e o tratamento e a covariável nas colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditoras nas colunas.</li>
+</ul>
+</div>
+</div>
+<div id="análise-9" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> Análise</h3>
+<p>Cálculo da ANCOVA</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="estatística-básica.html#cb106-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb106-2"><a href="estatística-básica.html#cb106-2"></a><span class="co">#********************</span></span>
+<span id="cb106-3"><a href="estatística-básica.html#cb106-3"></a>dados_ancova &lt;-<span class="st"> </span>ecodados<span class="op">::</span>ancova</span>
+<span id="cb106-4"><a href="estatística-básica.html#cb106-4"></a><span class="kw">str</span>(dados_ancova) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:	40 obs. of  3 variables:
+##  $ Raiz      : num  6.22 6.49 4.92 5.13 5.42 ...
+##  $ Biomassa  : num  59.8 61 14.7 19.3 34.2 ...
+##  $ Herbivoria: chr  &quot;Sem_herb&quot; &quot;Sem_herb&quot; &quot;Sem_herb&quot; &quot;Sem_herb&quot; ...</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="estatística-básica.html#cb108-1"></a><span class="co"># ANALISE ANCOVA</span></span>
+<span id="cb108-2"><a href="estatística-básica.html#cb108-2"></a><span class="co">#****************************************</span></span>
+<span id="cb108-3"><a href="estatística-básica.html#cb108-3"></a>modelo_ancova &lt;-<span class="st"> </span><span class="kw">lm</span>(Biomassa <span class="op">~</span><span class="st"> </span>Herbivoria <span class="op">+</span><span class="st"> </span>Raiz, <span class="dt">data =</span> dados_ancova)</span>
+<span id="cb108-4"><a href="estatística-básica.html#cb108-4"></a></span>
+<span id="cb108-5"><a href="estatística-básica.html#cb108-5"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb108-6"><a href="estatística-básica.html#cb108-6"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb108-7"><a href="estatística-básica.html#cb108-7"></a><span class="co"># Esta função mostra os resultados para multicolinearidade (a), dois gráficos avaliando a normalidade dos resíduos (b e  c), e um gráfico para a homogeneidade dos resíduos (d).</span></span>
+<span id="cb108-8"><a href="estatística-básica.html#cb108-8"></a><span class="kw">library</span>(sjPlot)</span>
+<span id="cb108-9"><a href="estatística-básica.html#cb108-9"></a><span class="kw">plot_grid</span>(<span class="kw">plot_model</span>(modelo_ancova, <span class="dt">type =</span> <span class="st">&quot;diag&quot;</span>))</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="estatística-básica.html#cb109-1"></a><span class="co"># OLHANDO OS RESULTADOS</span></span>
+<span id="cb109-2"><a href="estatística-básica.html#cb109-2"></a><span class="co">#********************</span></span>
+<span id="cb109-3"><a href="estatística-básica.html#cb109-3"></a><span class="kw">anova</span>(modelo_ancova)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Biomassa
+##            Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Herbivoria  1  1941.9  1941.9  33.759 1.135e-06 ***
+## Raiz        1 17434.1 17434.1 303.075 &lt; 2.2e-16 ***
+## Residuals  37  2128.4    57.5                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Percebam que o resultado da ANCOVA (Pr(&gt;F) &lt; 0.001) indica que tanto a herbivoria como a o tamanho da raiz (covariável) tem efeitos significativos na biomassa dos frutos.</p>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="estatística-básica.html#cb111-1"></a><span class="co"># Gráfico</span></span>
+<span id="cb111-2"><a href="estatística-básica.html#cb111-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb111-3"><a href="estatística-básica.html#cb111-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dados_ancova, <span class="kw">aes</span>(<span class="dt">x=</span> Raiz, <span class="dt">y=</span> Biomassa, <span class="dt">fill =</span> Herbivoria)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb111-4"><a href="estatística-básica.html#cb111-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Tamanho da raiz (cm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Biomassa dos frutos (g)&quot;</span>, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb111-5"><a href="estatística-básica.html#cb111-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></span>
+<span id="cb111-6"><a href="estatística-básica.html#cb111-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb111-7"><a href="estatística-básica.html#cb111-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb111-8"><a href="estatística-básica.html#cb111-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),  </span>
+<span id="cb111-9"><a href="estatística-básica.html#cb111-9"></a>        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb111-10"><a href="estatística-básica.html#cb111-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>) <span class="op">+</span></span>
+<span id="cb111-11"><a href="estatística-básica.html#cb111-11"></a><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Herbivoria&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Com herbivoria&quot;</span>, <span class="st">&quot;Sem herbivoria&quot;</span>)) <span class="op">+</span></span>
+<span id="cb111-12"><a href="estatística-básica.html#cb111-12"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Herbivoria), <span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, o tamanho da raiz (covariável) tem uma relação positiva com a biomassa dos frutos. Quanto maior o tamanho da raiz, maior a biomassa dos frutos. Usando a ANCOVA e controlando o efeito da covariável, percebemos que a herbivoria também afeta a biomassa dos frutos. Os indivíduos que não sofreram herbivoria produziram frutos com maior biomassa do que os indivíduos com herbivoria.</p>
+<p>
+ 
+</p>
+</div>
+<div id="para-se-aprofundar" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> Para se aprofundar</h3>
+<ul>
+<li>Recomendamos aos interessados os livros: i) Zar (2010) Biostatiscal analysis; ii) Gotelli &amp; Ellison (2013) A primer of ecological statistics; e iii) Quinn &amp; Keough (2002) Experimental design and data analysis for biologists.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introdução-à-análises-multidimensionais.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/paternogbc/livro_r_ecologia/edit/master/03_estatistica_basica.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["livro_r_ecologia.pdf", "livro_r_ecologia.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

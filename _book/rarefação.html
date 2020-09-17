@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Rarefação | Introdução ao R com aplicações em biodiversidade e conservação</title>
+  <title>Capítulo 5 Rarefação | Introdução ao R com aplicações em biodiversidade e conservação</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Rarefação | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta property="og:title" content="Capítulo 5 Rarefação | Introdução ao R com aplicações em biodiversidade e conservação" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Rarefação | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta name="twitter:title" content="Capítulo 5 Rarefação | Introdução ao R com aplicações em biodiversidade e conservação" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-09-11" />
+<meta name="date" content="2020-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -135,61 +135,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
-<li class="chapter" data-level="2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>2</b> Introdução à Análises Multidimensionais</a><ul>
-<li class="chapter" data-level="2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1</b> Backgorund da análise</a></li>
-<li class="chapter" data-level="2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>2.2</b> Exemplo 1:</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>2.2.1</b> Explicação da análise</a></li>
-<li class="chapter" data-level="2.2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#análise"><i class="fa fa-check"></i><b>2.2.2</b> Análise</a></li>
+<li class="chapter" data-level="2" data-path="estatística-básica.html"><a href="estatística-básica.html"><i class="fa fa-check"></i><b>2</b> Estatística básica</a><ul>
+<li class="chapter" data-level="2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-de-student-para-duas-amostras-independentes"><i class="fa fa-check"></i><b>2.1</b> Teste T (de Student) para duas amostras independentes</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.1.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>2.1.2</b> Análise</a></li>
+<li class="chapter" data-level="2.1.3" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>2.1.3</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>2.3</b> Exemplo 2:</a></li>
+<li class="chapter" data-level="2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-para-amostras-pareadas"><i class="fa fa-check"></i><b>2.2</b> Teste T para amostras pareadas</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>2.2.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>2.2.2</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html"><i class="fa fa-check"></i><b>3</b> K-means e agrupamentos não-hierarquicos</a><ul>
-<li class="chapter" data-level="3.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
-<li class="chapter" data-level="3.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-1"><i class="fa fa-check"></i><b>3.2</b> Exemplo 1:</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>3.2.1</b> Explicação da análise</a></li>
-<li class="chapter" data-level="3.2.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-1"><i class="fa fa-check"></i><b>3.2.2</b> Análise</a></li>
+<li class="chapter" data-level="2.3" data-path="estatística-básica.html"><a href="estatística-básica.html#correlação-de-pearson"><i class="fa fa-check"></i><b>2.3</b> Correlação de Pearson</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>2.3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>2.3.2</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>3.3</b> Backgorund da análise</a></li>
-<li class="chapter" data-level="3.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-2"><i class="fa fa-check"></i><b>3.4</b> Exemplo 1:</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>3.4.1</b> Explicação da análise</a></li>
-<li class="chapter" data-level="3.4.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-2"><i class="fa fa-check"></i><b>3.4.2</b> Análise</a></li>
-<li class="chapter" data-level="3.4.3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#para-se-aprofundar"><i class="fa fa-check"></i><b>3.4.3</b> Para se aprofundar</a></li>
+<li class="chapter" data-level="2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-simples"><i class="fa fa-check"></i><b>2.4</b> Regressão Simples</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-3"><i class="fa fa-check"></i><b>2.4.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.4.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>2.4.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-múltipla"><i class="fa fa-check"></i><b>2.5</b> Regressão Múltipla</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-4"><i class="fa fa-check"></i><b>2.5.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="2.5.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>2.5.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análises-de-variância-anova"><i class="fa fa-check"></i><b>2.6</b> Análises de Variância (ANOVA)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-5"><i class="fa fa-check"></i><b>2.6.1</b> Backgorund da análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-um-fator"><i class="fa fa-check"></i><b>2.7</b> ANOVA de um fator</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>2.7.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-dois-fatores-ou-anova-fatorial"><i class="fa fa-check"></i><b>2.8</b> ANOVA de dois fatores ou Anova fatorial</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-7"><i class="fa fa-check"></i><b>2.8.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-em-blocos-aleatorizados"><i class="fa fa-check"></i><b>2.9</b> ANOVA em blocos aleatorizados</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-8"><i class="fa fa-check"></i><b>2.9.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-de-covariância-ancova"><i class="fa fa-check"></i><b>2.10</b> Análise de covariância (ANCOVA)</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-9"><i class="fa fa-check"></i><b>2.10.1</b> Análise</a></li>
+<li class="chapter" data-level="2.10.2" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>2.10.2</b> Para se aprofundar</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>4</b> Rarefação</a><ul>
-<li class="chapter" data-level="4.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>4.1</b> Background da análise</a></li>
-<li class="chapter" data-level="4.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>4.2</b> Exemplo prático 1 - Morcegos</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>4.2.1</b> Explicação</a></li>
-<li class="chapter" data-level="4.2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#análise"><i class="fa fa-check"></i><b>4.2.2</b> Análise</a></li>
-<li class="chapter" data-level="4.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>4.2.3</b> Interpretação dos resultados</a></li>
+<li class="chapter" data-level="3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>3</b> Introdução à Análises Multidimensionais</a><ul>
+<li class="chapter" data-level="3.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>3.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>3.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="3.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>3.2.2</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>4.3</b> Exemplo prático 2 - Rarefação</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>4.3.1</b> Explicação</a></li>
-<li class="chapter" data-level="4.3.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-1"><i class="fa fa-check"></i><b>4.3.2</b> Análise</a></li>
-<li class="chapter" data-level="4.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>4.3.3</b> Interpretação dos resultados</a></li>
+<li class="chapter" data-level="3.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>3.3</b> Exemplo 2:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#para-se-aprofundar"><i class="fa fa-check"></i><b>4.4</b> Para se aprofundar</a></li>
+<li class="chapter" data-level="4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html"><i class="fa fa-check"></i><b>4</b> K-means e agrupamentos não-hierarquicos</a><ul>
+<li class="chapter" data-level="4.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>4.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="4.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-1"><i class="fa fa-check"></i><b>4.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>4.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>4.2.2</b> Análise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>5</b> Estimadores de Riqueza</a><ul>
-<li class="chapter" data-level="5.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>5.1</b> Backgorund da análise</a></li>
-<li class="chapter" data-level="5.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>5.2</b> Estimadores baseados na abundância das espécies</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>5.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
-<li class="chapter" data-level="5.2.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#análise"><i class="fa fa-check"></i><b>5.2.2</b> Análise</a></li>
-<li class="chapter" data-level="5.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>5.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
-<li class="chapter" data-level="5.2.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-1"><i class="fa fa-check"></i><b>5.2.4</b> Análise</a></li>
+<li class="chapter" data-level="4.3" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>4.3</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="4.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-2"><i class="fa fa-check"></i><b>4.4</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>4.4.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="4.4.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>4.4.2</b> Análise</a></li>
+<li class="chapter" data-level="4.4.3" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>4.4.3</b> Para se aprofundar</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>5.3</b> Estimadores baseados na incidência das espécies</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>5.3.1</b> CHAO 2 - (Chao 1987):</a></li>
-<li class="chapter" data-level="5.3.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#análise-2"><i class="fa fa-check"></i><b>5.3.2</b> Análise</a></li>
-<li class="chapter" data-level="5.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>5.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
-<li class="chapter" data-level="5.3.4" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-3"><i class="fa fa-check"></i><b>5.3.4</b> Análise</a></li>
-<li class="chapter" data-level="5.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>5.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
-<li class="chapter" data-level="5.3.6" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-4"><i class="fa fa-check"></i><b>5.3.6</b> Análise</a></li>
-<li class="chapter" data-level="5.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>5.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
-<li class="chapter" data-level="5.3.8" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-5"><i class="fa fa-check"></i><b>5.3.8</b> Análise</a></li>
-<li class="chapter" data-level="5.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>5.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
-<li class="chapter" data-level="5.3.10" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#análise-6"><i class="fa fa-check"></i><b>5.3.10</b> Análise</a></li>
-<li class="chapter" data-level="5.3.11" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#para-se-aprofundar"><i class="fa fa-check"></i><b>5.3.11</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>5</b> Rarefação</a><ul>
+<li class="chapter" data-level="5.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>5.1</b> Background da análise</a></li>
+<li class="chapter" data-level="5.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>5.2</b> Exemplo prático 1 - Morcegos</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>5.2.1</b> Explicação</a></li>
+<li class="chapter" data-level="5.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>5.2.2</b> Análise</a></li>
+<li class="chapter" data-level="5.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>5.2.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>5.3</b> Exemplo prático 2 - Rarefação</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>5.3.1</b> Explicação</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>5.3.2</b> Análise</a></li>
+<li class="chapter" data-level="5.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>5.3.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>5.4</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>6</b> Estimadores de Riqueza</a><ul>
+<li class="chapter" data-level="6.1" data-path="estatística-básica.html"><a href="estatística-básica.html#backgorund-da-análise"><i class="fa fa-check"></i><b>6.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="6.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>6.2</b> Estimadores baseados na abundância das espécies</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>6.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
+<li class="chapter" data-level="6.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>6.2.2</b> Análise</a></li>
+<li class="chapter" data-level="6.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>6.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
+<li class="chapter" data-level="6.2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>6.2.4</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>6.3</b> Estimadores baseados na incidência das espécies</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>6.3.1</b> CHAO 2 - (Chao 1987):</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>6.3.2</b> Análise</a></li>
+<li class="chapter" data-level="6.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>6.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
+<li class="chapter" data-level="6.3.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>6.3.4</b> Análise</a></li>
+<li class="chapter" data-level="6.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>6.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
+<li class="chapter" data-level="6.3.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>6.3.6</b> Análise</a></li>
+<li class="chapter" data-level="6.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>6.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
+<li class="chapter" data-level="6.3.8" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>6.3.8</b> Análise</a></li>
+<li class="chapter" data-level="6.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>6.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
+<li class="chapter" data-level="6.3.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>6.3.10</b> Análise</a></li>
+<li class="chapter" data-level="6.3.11" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>6.3.11</b> Para se aprofundar</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -214,9 +253,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="rarefação" class="section level1">
-<h1><span class="header-section-number">Capítulo 4</span> Rarefação</h1>
+<h1><span class="header-section-number">Capítulo 5</span> Rarefação</h1>
 <div id="background-da-análise" class="section level2">
-<h2><span class="header-section-number">4.1</span> Background da análise</h2>
+<h2><span class="header-section-number">5.1</span> Background da análise</h2>
 <p>Uma das dificuldades na comparação da riqueza de espécies entre comunidades é decorrente da diferença no esforço amostral (e.g.diferença no número de indivíduos, discrepância na quantidade de unidades amostrais ou área amostrada) que inevitavelmente influenciará no número de espécies observadas (Gotelli &amp; Chao 2013). O método de rarefação nos permite comparar o número de espécies entre comunidades quando o tamanho da amostra ou a abundância de indivíduos não são iguais. A rarefação calcula o número esperado de espécies em cada comunidade tendo como base comparativa um valor em que todas as amostras atinjam um tamanho padrão, ou comparações baseadas na comunidade com menor número de amostragens ou com menos indivíduos. O teste foi formulado considerando seguinte pergunta: Se considerarmos <em>n</em> indivíduos ou amostras (<em>n</em> &lt; N) para cada comunidade, quantas espécies registraríamos nas comunidades considerando o mesmo número de indivíduos ou amostras?</p>
 <p><span class="math display">\[E(S) = \sum 1 - \frac{{(N - N_1)}/{n}}{{N}/{n}}\]</span></p>
 <p>Onde:</p>
@@ -240,9 +279,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Contudo, é importante ressaltar que esta última restrição foi superada por Colwell et al. (2012) e Chao &amp; Jost (2012) que desenvolveram uma nova abordagem onde os dados podem ser interpolados (rarefeito) para amostras menores e extrapolados para amostras maiores.</p>
 </div>
 <div id="exemplo-prático-1---morcegos" class="section level2">
-<h2><span class="header-section-number">4.2</span> Exemplo prático 1 - Morcegos</h2>
+<h2><span class="header-section-number">5.2</span> Exemplo prático 1 - Morcegos</h2>
 <div id="explicação" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Explicação</h3>
+<h3><span class="header-section-number">5.2.1</span> Explicação</h3>
 <p><strong>Explicação dos dados</strong></p>
 <p>Neste exemplo usaremos os dados de espécies de morcegos amostradas em três fragmentos florestais (Breviglieri 2008): i) Mata Ciliar do Córrego Talhadinho com 12 hectares inserida em uma matriz de pastagem; ii) Mata Ciliar do Córrego dos Tenentes com 10 hectares inserida em uma matriz de cultivo de cana-de-açucar e pastagem; e iii) Fazenda Experimental de Pindorama com 128 hectares inserida uma matriz de cana-de-açúcar e pastagem.</p>
 <p><strong>Pergunta:</strong></p>
@@ -266,15 +305,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="análise" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Análise</h3>
+<h3><span class="header-section-number">5.2.2</span> Análise</h3>
 <p>Calculo da rarefação</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="rarefação.html#cb36-1"></a><span class="kw">library</span>(iNEXT)</span>
-<span id="cb36-2"><a href="rarefação.html#cb36-2"></a><span class="kw">library</span>(devtools)</span>
-<span id="cb36-3"><a href="rarefação.html#cb36-3"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;paternogbc/ecodados&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="rarefação.html#cb147-1"></a><span class="kw">library</span>(iNEXT)</span>
+<span id="cb147-2"><a href="rarefação.html#cb147-2"></a><span class="kw">library</span>(devtools)</span>
+<span id="cb147-3"><a href="rarefação.html#cb147-3"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;paternogbc/ecodados&quot;</span>)</span></code></pre></div>
 <pre><code>##   
-   checking for file ‘/tmp/RtmpYptLcD/remotes26f80502b7cb3/paternogbc-ecodados-6592f84/DESCRIPTION’ ...
+   checking for file ‘/tmp/Rtmpi56827/remotes4cde4f8b593e/paternogbc-ecodados-6592f84/DESCRIPTION’ ...
   
-✓  checking for file ‘/tmp/RtmpYptLcD/remotes26f80502b7cb3/paternogbc-ecodados-6592f84/DESCRIPTION’
+✓  checking for file ‘/tmp/Rtmpi56827/remotes4cde4f8b593e/paternogbc-ecodados-6592f84/DESCRIPTION’
 ## 
   
 ─  preparing ‘ecodados’:
@@ -292,21 +331,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
    
 ## </code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="rarefação.html#cb38-1"></a><span class="kw">library</span>(ecodados)</span>
-<span id="cb38-2"><a href="rarefação.html#cb38-2"></a></span>
-<span id="cb38-3"><a href="rarefação.html#cb38-3"></a>dados_rarefacao &lt;-<span class="st"> </span>rarefacao_morcegos</span>
-<span id="cb38-4"><a href="rarefação.html#cb38-4"></a>resultados_morcegos &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_rarefacao, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
-<span id="cb38-5"><a href="rarefação.html#cb38-5"></a><span class="co"># q refere-se a família *Hill-numbers* (Hill 1973) onde 0 = riqueza de espécies, 1 =  diversidade de Shannon, e 2 = diversidade de Simpson.</span></span>
-<span id="cb38-6"><a href="rarefação.html#cb38-6"></a><span class="co"># Veja mais detalhes sobre os números de Hill no Capítulo 7 onde tratamos de extrapolações.</span></span>
-<span id="cb38-7"><a href="rarefação.html#cb38-7"></a><span class="co"># datatype refere-se ao tipo de dados que você vai analisar (e.g. abudância, incidência).</span></span>
-<span id="cb38-8"><a href="rarefação.html#cb38-8"></a><span class="co"># endpoint refere-se ao valor de referência que você determina para a extrapolação.</span></span>
-<span id="cb38-9"><a href="rarefação.html#cb38-9"></a></span>
-<span id="cb38-10"><a href="rarefação.html#cb38-10"></a><span class="co"># Visualizar os resultados </span></span>
-<span id="cb38-11"><a href="rarefação.html#cb38-11"></a><span class="kw">ggiNEXT</span>(resultados_morcegos, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="rarefação.html#cb149-1"></a><span class="kw">library</span>(ecodados)</span>
+<span id="cb149-2"><a href="rarefação.html#cb149-2"></a></span>
+<span id="cb149-3"><a href="rarefação.html#cb149-3"></a>dados_rarefacao &lt;-<span class="st"> </span>rarefacao_morcegos</span>
+<span id="cb149-4"><a href="rarefação.html#cb149-4"></a>resultados_morcegos &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_rarefacao, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
+<span id="cb149-5"><a href="rarefação.html#cb149-5"></a><span class="co"># q refere-se a família *Hill-numbers* (Hill 1973) onde 0 = riqueza de espécies, 1 =  diversidade de Shannon, e 2 = diversidade de Simpson.</span></span>
+<span id="cb149-6"><a href="rarefação.html#cb149-6"></a><span class="co"># Veja mais detalhes sobre os números de Hill no Capítulo 7 onde tratamos de extrapolações.</span></span>
+<span id="cb149-7"><a href="rarefação.html#cb149-7"></a><span class="co"># datatype refere-se ao tipo de dados que você vai analisar (e.g. abudância, incidência).</span></span>
+<span id="cb149-8"><a href="rarefação.html#cb149-8"></a><span class="co"># endpoint refere-se ao valor de referência que você determina para a extrapolação.</span></span>
+<span id="cb149-9"><a href="rarefação.html#cb149-9"></a></span>
+<span id="cb149-10"><a href="rarefação.html#cb149-10"></a><span class="co"># Visualizar os resultados </span></span>
+<span id="cb149-11"><a href="rarefação.html#cb149-11"></a><span class="kw">ggiNEXT</span>(resultados_morcegos, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 </div>
 <div id="interpretação-dos-resultados" class="section level3">
-<h3><span class="header-section-number">4.2.3</span> Interpretação dos resultados</h3>
+<h3><span class="header-section-number">5.2.3</span> Interpretação dos resultados</h3>
 <p>Neste exemplo, foram registrados 166 indivíduos na MC_Tenentes, 413 na MC_Talhadinho e 223 na FF_Experimental. Lembrando, você não pode comparar a riqueza de espécies observada diretamente: 15 espécies na MC_Tenentes, 17 espécies na MC_Talhadinho, e 13 espécies no FF_Experimental. A comparação da riqueza de espécies entre as comunidades deve ser feita com base na riqueza de espécies estimada que é calculada com base no número de indivíduos da comunidade com menor abundância (166 indivíduos). Olhando o gráfico é possível perceber que a riqueza de espécies de morcegos estimada não é diferente entre os três fragmentos florestais quando corrigimos o problema da abundância pela rarefação. A interpretação é feita com base no intervalo de confiança de 95%. As curvas serão diferentes quando os intervalos de confiança não se sobreporem (Chao et al. 2014). Percebam que está abordagem, além da interpolação (rarefação), também realiza extrapolações que podem ser usadas para estimar o número de espécies caso o esforço de coleta fosse maior. Este é o assunto do nosso próximo capítulo.</p>
 <p>
  
@@ -314,9 +353,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="exemplo-prático-2---rarefação" class="section level2">
-<h2><span class="header-section-number">4.3</span> Exemplo prático 2 - Rarefação</h2>
+<h2><span class="header-section-number">5.3</span> Exemplo prático 2 - Rarefação</h2>
 <div id="explicação-1" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Explicação</h3>
+<h3><span class="header-section-number">5.3.1</span> Explicação</h3>
 <p><strong>Explicação dos dados</strong></p>
 <p>Neste exemplo iremos comparar o número de espécies de anuros e répteis (serptentes e lagartos) usando informações dos indivíduos depositados em coleções científicas e coletas de campo (da Silva et al. 2017).</p>
 <p><strong>Pergunta:</strong></p>
@@ -340,32 +379,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="análise-1" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Análise</h3>
+<h3><span class="header-section-number">5.3.2</span> Análise</h3>
 <p>Calculo da rarefação para os dados de répteis</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="rarefação.html#cb39-1"></a><span class="kw">library</span>(iNEXT)</span>
-<span id="cb39-2"><a href="rarefação.html#cb39-2"></a></span>
-<span id="cb39-3"><a href="rarefação.html#cb39-3"></a>rarefacao_repteis &lt;-<span class="st"> </span>rarefacao_repteis</span>
-<span id="cb39-4"><a href="rarefação.html#cb39-4"></a>resultados_repteis &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_repteis, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">200</span>)</span>
-<span id="cb39-5"><a href="rarefação.html#cb39-5"></a></span>
-<span id="cb39-6"><a href="rarefação.html#cb39-6"></a><span class="co"># Visualizar os resultados </span></span>
-<span id="cb39-7"><a href="rarefação.html#cb39-7"></a><span class="kw">ggiNEXT</span>(resultados_repteis, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="rarefação.html#cb150-1"></a><span class="kw">library</span>(iNEXT)</span>
+<span id="cb150-2"><a href="rarefação.html#cb150-2"></a></span>
+<span id="cb150-3"><a href="rarefação.html#cb150-3"></a>rarefacao_repteis &lt;-<span class="st"> </span>rarefacao_repteis</span>
+<span id="cb150-4"><a href="rarefação.html#cb150-4"></a>resultados_repteis &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_repteis, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">200</span>)</span>
+<span id="cb150-5"><a href="rarefação.html#cb150-5"></a></span>
+<span id="cb150-6"><a href="rarefação.html#cb150-6"></a><span class="co"># Visualizar os resultados </span></span>
+<span id="cb150-7"><a href="rarefação.html#cb150-7"></a><span class="kw">ggiNEXT</span>(resultados_repteis, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 </div>
 <div id="interpretação-dos-resultados-1" class="section level3">
-<h3><span class="header-section-number">4.3.3</span> Interpretação dos resultados</h3>
+<h3><span class="header-section-number">5.3.3</span> Interpretação dos resultados</h3>
 <p>Neste exemplo,foram registradas oito espécies de répteis nas coletas de campo (40 indivíduos) e 28 espécies nas coleções científicas (77 indivíduos). Com base na rarefação, concluímos que a riqueza de espécies de répteis obtida nas coleções científicas é 2,5 vezes maior do que a obtida em coletas de campo.</p>
 <p>
  
 </p>
 <p>Calculo da rarefação para os dados dos anuros</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="rarefação.html#cb40-1"></a><span class="kw">library</span>(iNEXT)</span>
-<span id="cb40-2"><a href="rarefação.html#cb40-2"></a></span>
-<span id="cb40-3"><a href="rarefação.html#cb40-3"></a>rarefacao_anuros &lt;-<span class="st"> </span>rarefacao_anuros</span>
-<span id="cb40-4"><a href="rarefação.html#cb40-4"></a>resultados_anuros &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_anuros, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
-<span id="cb40-5"><a href="rarefação.html#cb40-5"></a></span>
-<span id="cb40-6"><a href="rarefação.html#cb40-6"></a><span class="co"># Visualizar os resultados </span></span>
-<span id="cb40-7"><a href="rarefação.html#cb40-7"></a><span class="kw">ggiNEXT</span>(resultados_anuros, <span class="dt">type =</span> <span class="dv">1</span>, <span class="dt">grey =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="rarefação.html#cb151-1"></a><span class="kw">library</span>(iNEXT)</span>
+<span id="cb151-2"><a href="rarefação.html#cb151-2"></a></span>
+<span id="cb151-3"><a href="rarefação.html#cb151-3"></a>rarefacao_anuros &lt;-<span class="st"> </span>rarefacao_anuros</span>
+<span id="cb151-4"><a href="rarefação.html#cb151-4"></a>resultados_anuros &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_anuros, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
+<span id="cb151-5"><a href="rarefação.html#cb151-5"></a></span>
+<span id="cb151-6"><a href="rarefação.html#cb151-6"></a><span class="co"># Visualizar os resultados </span></span>
+<span id="cb151-7"><a href="rarefação.html#cb151-7"></a><span class="kw">ggiNEXT</span>(resultados_anuros, <span class="dt">type =</span> <span class="dv">1</span>, <span class="dt">grey =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <p><strong>Interpretação dos resultados</strong></p>
 <p>Neste exemplo,foram registradas 21 espécies de anuros nas coletas de campo (709 indivíduos) e 12 espécies nas coleções científicas (37 indivíduos). Com base na rarefação, concluímos que não há diferença entre a riqueza de espécies de anuros obtida em coletas de campo e coleções científicas.</p>
 <p>
@@ -374,7 +413,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="para-se-aprofundar" class="section level2">
-<h2><span class="header-section-number">4.4</span> Para se aprofundar</h2>
+<h2><span class="header-section-number">5.4</span> Para se aprofundar</h2>
 <ul>
 <li><p>Recomendamos aos interessados que olhem a página do <a href="http://viceroy.eeb.uconn.edu/estimates">EstimateS software</a> e baixem o manual do usuário que contém informações detalhadas sobre os índices de rarefação.Este site foi criado e é mantido pelo Dr. Robert K. Colwell, um dos maiores especialistas do mundo em estimativas da biodiversidade</p></li>
 <li><p>Recomendamos também o livro Magurran &amp; McGill (2010) - Biological Diversity Frontiers in Measurement and Assessment.</p></li>

@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 Análises de Variância (ANOVA) | Introdução ao R com aplicações em biodiversidade e conservação</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 Análises de Variância (ANOVA) | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Análises de Variância (ANOVA) | Introdução ao R com aplicações em biodiversidade e conservação" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="" />
+
+
+<meta name="date" content="2020-09-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regressão-múltipla.html"/>
+<link rel="next" href="introdução-à-análises-multidimensionais.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
+<li class="chapter" data-level="2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html"><i class="fa fa-check"></i><b>2</b> Teste T (de Student) para duas amostras independentes</a><ul>
+<li class="chapter" data-level="2.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#backgorund-da-análise"><i class="fa fa-check"></i><b>2.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>2.1.1</b> Análise</a></li>
+<li class="chapter" data-level="2.1.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>2.1.2</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html"><i class="fa fa-check"></i><b>3</b> Teste T para amostras pareadas</a><ul>
+<li class="chapter" data-level="3.1" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#análise-2"><i class="fa fa-check"></i><b>3.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html"><i class="fa fa-check"></i><b>4</b> Correlação de Pearson</a><ul>
+<li class="chapter" data-level="4.1" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>4.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#análise-3"><i class="fa fa-check"></i><b>4.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regressão-simples.html"><a href="regressão-simples.html"><i class="fa fa-check"></i><b>5</b> Regressão Simples</a><ul>
+<li class="chapter" data-level="5.1" data-path="regressão-simples.html"><a href="regressão-simples.html#backgorund-da-análise-3"><i class="fa fa-check"></i><b>5.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="regressão-simples.html"><a href="regressão-simples.html#análise-4"><i class="fa fa-check"></i><b>5.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html"><i class="fa fa-check"></i><b>6</b> Regressão Múltipla</a><ul>
+<li class="chapter" data-level="6.1" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html#backgorund-da-análise-4"><i class="fa fa-check"></i><b>6.1</b> Backgorund da análise</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html#análise-5"><i class="fa fa-check"></i><b>6.1.1</b> Análise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html"><i class="fa fa-check"></i><b>7</b> Análises de Variância (ANOVA)</a><ul>
+<li class="chapter" data-level="7.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#backgorund-da-análise-5"><i class="fa fa-check"></i><b>7.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="7.2" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#anova-de-um-fator"><i class="fa fa-check"></i><b>7.2</b> ANOVA de um fator</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-6"><i class="fa fa-check"></i><b>7.2.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#anova-de-dois-fatores-ou-anova-fatorial"><i class="fa fa-check"></i><b>7.3</b> ANOVA de dois fatores ou Anova fatorial</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-7"><i class="fa fa-check"></i><b>7.3.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#anova-em-blocos-aleatorizados"><i class="fa fa-check"></i><b>7.4</b> ANOVA em blocos aleatorizados</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-8"><i class="fa fa-check"></i><b>7.4.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-de-covariância-ancova"><i class="fa fa-check"></i><b>7.5</b> Análise de covariância (ANCOVA)</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-9"><i class="fa fa-check"></i><b>7.5.1</b> Análise</a></li>
+<li class="chapter" data-level="7.5.2" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>7.5.2</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>8</b> Introdução à Análises Multidimensionais</a><ul>
+<li class="chapter" data-level="8.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#backgorund-da-análise"><i class="fa fa-check"></i><b>8.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="8.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>8.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>8.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="8.2.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>8.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>8.3</b> Exemplo 2:</a></li>
+<li class="chapter" data-level="8.4" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>8.4</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="8.5" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1-1"><i class="fa fa-check"></i><b>8.5</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>8.5.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="8.5.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>8.5.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>8.6</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="8.7" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1-2"><i class="fa fa-check"></i><b>8.7</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>8.7.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="8.7.2" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#análise-2"><i class="fa fa-check"></i><b>8.7.2</b> Análise</a></li>
+<li class="chapter" data-level="8.7.3" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>8.7.3</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>9</b> Rarefação</a><ul>
+<li class="chapter" data-level="9.1" data-path="rarefação.html"><a href="rarefação.html#background-da-análise"><i class="fa fa-check"></i><b>9.1</b> Background da análise</a></li>
+<li class="chapter" data-level="9.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>9.2</b> Exemplo prático 1 - Morcegos</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>9.2.1</b> Explicação</a></li>
+<li class="chapter" data-level="9.2.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>9.2.2</b> Análise</a></li>
+<li class="chapter" data-level="9.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>9.2.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>9.3</b> Exemplo prático 2 - Rarefação</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>9.3.1</b> Explicação</a></li>
+<li class="chapter" data-level="9.3.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>9.3.2</b> Análise</a></li>
+<li class="chapter" data-level="9.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>9.3.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>9.4</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>10</b> Estimadores de Riqueza</a><ul>
+<li class="chapter" data-level="10.1" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#backgorund-da-análise"><i class="fa fa-check"></i><b>10.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="10.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>10.2</b> Estimadores baseados na abundância das espécies</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>10.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
+<li class="chapter" data-level="10.2.2" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise"><i class="fa fa-check"></i><b>10.2.2</b> Análise</a></li>
+<li class="chapter" data-level="10.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>10.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
+<li class="chapter" data-level="10.2.4" data-path="teste-t-de-student-para-duas-amostras-independentes.html"><a href="teste-t-de-student-para-duas-amostras-independentes.html#análise-1"><i class="fa fa-check"></i><b>10.2.4</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>10.3</b> Estimadores baseados na incidência das espécies</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>10.3.1</b> CHAO 2 - (Chao 1987):</a></li>
+<li class="chapter" data-level="10.3.2" data-path="teste-t-para-amostras-pareadas.html"><a href="teste-t-para-amostras-pareadas.html#análise-2"><i class="fa fa-check"></i><b>10.3.2</b> Análise</a></li>
+<li class="chapter" data-level="10.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>10.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
+<li class="chapter" data-level="10.3.4" data-path="correlação-de-pearson.html"><a href="correlação-de-pearson.html#análise-3"><i class="fa fa-check"></i><b>10.3.4</b> Análise</a></li>
+<li class="chapter" data-level="10.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>10.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
+<li class="chapter" data-level="10.3.6" data-path="regressão-simples.html"><a href="regressão-simples.html#análise-4"><i class="fa fa-check"></i><b>10.3.6</b> Análise</a></li>
+<li class="chapter" data-level="10.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>10.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
+<li class="chapter" data-level="10.3.8" data-path="regressão-múltipla.html"><a href="regressão-múltipla.html#análise-5"><i class="fa fa-check"></i><b>10.3.8</b> Análise</a></li>
+<li class="chapter" data-level="10.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>10.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
+<li class="chapter" data-level="10.3.10" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#análise-6"><i class="fa fa-check"></i><b>10.3.10</b> Análise</a></li>
+<li class="chapter" data-level="10.3.11" data-path="análises-de-variância-anova.html"><a href="análises-de-variância-anova.html#para-se-aprofundar"><i class="fa fa-check"></i><b>10.3.11</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="análises-de-variância-anova" class="section level1">
+<h1><span class="header-section-number">Capítulo 7</span> Análises de Variância (ANOVA)</h1>
+<div id="backgorund-da-análise-5" class="section level2">
+<h2><span class="header-section-number">7.1</span> Backgorund da análise</h2>
+<p>Anova refere-se a uma variedade de delineamentos experimentais nos quais a variável preditora é categórica e a variável resposta é contínua (Gotelli &amp; Ellison 2013). Exemplos desses delineamentos experimentais são: Anova de um fator, Anova de dois fatores, Anova em blocos aleatorizados, Anova de medidas repetidas e Anova <em>split-splot</em>. De forma geral, a Anova é um teste estatístico usado para comparar a média entre grupos amostrados independentementes. Para isso, o teste leva em conta, além das médias dos grupos, a variação dos dados dentro e entre os grupos. Neste capítulo, iremos demonstrar as linhas de comandos para alguns dos principais delineamentos experimentais.</p>
+<blockquote>
+<h4 id="premissas-da-anova"><span class="header-section-number">7.1</span> Premissas da Anova:</h4>
+<ul>
+<li>As amostras devem ser independentes;</li>
+<li>As unidades amostrais são selecionadas aleatoriamente;</li>
+<li>Distribuição normal (gaussiana) dos resíduos;</li>
+<li>Homogeneidade da variância.</li>
+</ul>
+</blockquote>
+<p>
+ 
+</p>
+</div>
+<div id="anova-de-um-fator" class="section level2">
+<h2><span class="header-section-number">7.2</span> ANOVA de um fator</h2>
+<p>Este teste considera delineamentos experimentais com apenas um fator (ou tratamento) que pode ser composto por três ou mais grupos (ou níveis).</p>
+<div id="exemplo-prático-1---anova-de-um-fator" class="section level4">
+<h4><span class="header-section-number">7.2.0.1</span> Exemplo prático 1 - Anova de um fator</h4>
+<div id="explicação-dos-dados-6" class="section level5">
+<h5><span class="header-section-number">7.2.0.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos se o adubo X-2020 disponibilizado recentemente no mercado melhora o crescimento dos indivíduos de <em>Coffea arabica</em> como divulgado pela empresa responsável pela venda do produto. Para isso, foi realizado um experimento com indivíduos de <em>C. arabica</em> cultivados em três grupos: i) grupo controle onde os indivíduos não receberam adubação, ii) grupo onde os indivíduos receberam a adição do adubo tradicional mais utilizado pelos produtores de <em>C. arabica</em>, e iii) grupo onde os indivíduos receberam a adição do adubo X-2020.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>O crescimento dos indivíduos de <em>C. arabica</em> é melhorado pela adição do adubo X-2020?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>O crescimento dos indivíduos de <em>C. arabica</em> será maior no grupo que recebeu o adubo X-2020.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as plantas (unidade amostral) nas linhas e o tratamento na coluna.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variável preditora na coluna.</li>
+</ul>
+</div>
+</div>
+<div id="análise-6" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Análise</h3>
+<p>Cálculo da Anova de um fator</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="análises-de-variância-anova.html#cb60-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb60-2"><a href="análises-de-variância-anova.html#cb60-2"></a><span class="co">#********************</span></span>
+<span id="cb60-3"><a href="análises-de-variância-anova.html#cb60-3"></a>dados_anova_simples &lt;-<span class="st"> </span>ecodados<span class="op">::</span>anova_simples</span>
+<span id="cb60-4"><a href="análises-de-variância-anova.html#cb60-4"></a><span class="kw">head</span>(dados_anova_simples) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>##   Crescimento Tratamento
+## 1       7.190   Controle
+## 2       6.758   Controle
+## 3       6.101   Controle
+## 4       4.758   Controle
+## 5       6.542   Controle
+## 6       7.667   Controle</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="análises-de-variância-anova.html#cb62-1"></a><span class="co"># ANALISE ANOVA de um fator</span></span>
+<span id="cb62-2"><a href="análises-de-variância-anova.html#cb62-2"></a><span class="co">#************************</span></span>
+<span id="cb62-3"><a href="análises-de-variância-anova.html#cb62-3"></a>Modelo_anova &lt;-<span class="st"> </span><span class="kw">aov</span>(Crescimento <span class="op">~</span><span class="st"> </span>Tratamento, <span class="dt">data =</span> dados_anova_simples) </span>
+<span id="cb62-4"><a href="análises-de-variância-anova.html#cb62-4"></a></span>
+<span id="cb62-5"><a href="análises-de-variância-anova.html#cb62-5"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb62-6"><a href="análises-de-variância-anova.html#cb62-6"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb62-7"><a href="análises-de-variância-anova.html#cb62-7"></a><span class="co"># Os gráficos *Residuals vs Fitted* e *Scale-Location* estão relacionados com a homogeneidade da variância. Nestes gráficos, esperamos ver os pontos dispersos no espaço sem padrões em forma de *U* ou funil. </span></span>
+<span id="cb62-8"><a href="análises-de-variância-anova.html#cb62-8"></a><span class="co"># O gráfico *Normal Q-Q* está relacionado com a distribuição normal dos resíduos. Neste gráfico, esperamos ver os pontos próximos a reta sem padrões em forma de *U* ou *S*. </span></span>
+<span id="cb62-9"><a href="análises-de-variância-anova.html#cb62-9"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb62-10"><a href="análises-de-variância-anova.html#cb62-10"></a><span class="kw">plot</span>(Modelo_anova)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="análises-de-variância-anova.html#cb63-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="análises-de-variância-anova.html#cb65-1"></a><span class="co"># Se preferir, você pode utilizar testes estatísticos</span></span>
+<span id="cb65-2"><a href="análises-de-variância-anova.html#cb65-2"></a><span class="co"># Teste de Shapiro-Wilk para normalidade separadamente para cada grupo</span></span>
+<span id="cb65-3"><a href="análises-de-variância-anova.html#cb65-3"></a><span class="kw">shapiro.test</span>(dados_anova_simples<span class="op">$</span>Crescimento[<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>])</span></code></pre></div>
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  dados_anova_simples$Crescimento[1:12]
+## W = 0.96731, p-value = 0.8806</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="análises-de-variância-anova.html#cb67-1"></a><span class="kw">shapiro.test</span>(dados_anova_simples<span class="op">$</span>Crescimento[<span class="dv">13</span><span class="op">:</span><span class="dv">24</span>])</span></code></pre></div>
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  dados_anova_simples$Crescimento[13:24]
+## W = 0.87324, p-value = 0.07184</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="análises-de-variância-anova.html#cb69-1"></a><span class="kw">shapiro.test</span>(dados_anova_simples<span class="op">$</span>Crescimento[<span class="dv">25</span><span class="op">:</span><span class="dv">36</span>])</span></code></pre></div>
+<pre><code>## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  dados_anova_simples$Crescimento[25:36]
+## W = 0.9294, p-value = 0.3738</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="análises-de-variância-anova.html#cb71-1"></a><span class="co"># Teste de Bartlett para homogeneidade da variância</span></span>
+<span id="cb71-2"><a href="análises-de-variância-anova.html#cb71-2"></a><span class="kw">bartlett.test</span>(Crescimento <span class="op">~</span><span class="st"> </span>Tratamento, <span class="dt">data =</span> dados_anova_simples)</span></code></pre></div>
+<pre><code>## 
+## 	Bartlett test of homogeneity of variances
+## 
+## data:  Crescimento by Tratamento
+## Bartlett&#39;s K-squared = 0.61835, df = 2, p-value = 0.7341</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="análises-de-variância-anova.html#cb73-1"></a><span class="co"># VERIFICANDO OS RESULTADOS DA ANOVA</span></span>
+<span id="cb73-2"><a href="análises-de-variância-anova.html#cb73-2"></a><span class="co">#****************************************</span></span>
+<span id="cb73-3"><a href="análises-de-variância-anova.html#cb73-3"></a><span class="kw">anova</span>(Modelo_anova)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Crescimento
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Tratamento  2 340.32 170.160  77.989 3.124e-13 ***
+## Residuals  33  72.00   2.182                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Percebam que o resultado da Anova (Pr(&gt;F) &lt; 0.001) indica que devemos rejeitar a hipótese nula que não há diferença entre as médias dos grupos. Contudo, os resultados não mostram quais são os grupos que apresentam diferenças. Para isso, temos que realizar testes de comparações múltiplas <em>post-hoc</em> para detectar os grupos que apresentam diferenças significativas entre as médias. <strong>Observação</strong> Os testes <em>post-hoc</em> só devem ser utilizados quando rejeitamos a hipótese nula (P &lt; 0.05) no teste da Anova.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="análises-de-variância-anova.html#cb75-1"></a><span class="co"># Diferenças entre os tratamentos</span></span>
+<span id="cb75-2"><a href="análises-de-variância-anova.html#cb75-2"></a><span class="co">#***********************************</span></span>
+<span id="cb75-3"><a href="análises-de-variância-anova.html#cb75-3"></a><span class="co"># Teste de Tuckey&#39;s honest significant difference</span></span>
+<span id="cb75-4"><a href="análises-de-variância-anova.html#cb75-4"></a><span class="kw">TukeyHSD</span>(Modelo_anova)</span></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = Crescimento ~ Tratamento, data = dados_anova_simples)
+## 
+## $Tratamento
+##                                       diff       lwr       upr     p adj
+## Adubo_X-2020-Adubo_Tradicional  0.04991667 -1.429784  1.529617 0.9962299
+## Controle-Adubo_Tradicional     -6.49716667 -7.976867 -5.017466 0.0000000
+## Controle-Adubo_X-2020          -6.54708333 -8.026784 -5.067383 0.0000000</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="análises-de-variância-anova.html#cb77-1"></a><span class="co"># ou</span></span>
+<span id="cb77-2"><a href="análises-de-variância-anova.html#cb77-2"></a></span>
+<span id="cb77-3"><a href="análises-de-variância-anova.html#cb77-3"></a><span class="co"># Teste T</span></span>
+<span id="cb77-4"><a href="análises-de-variância-anova.html#cb77-4"></a><span class="kw">pairwise.t.test</span>(dados_anova_simples<span class="op">$</span>Crescimento, dados_anova_simples<span class="op">$</span>Tratamento)</span></code></pre></div>
+<pre><code>## 
+## 	Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  dados_anova_simples$Crescimento and dados_anova_simples$Tratamento 
+## 
+##              Adubo_Tradicional Adubo_X-2020
+## Adubo_X-2020 0.93              -           
+## Controle     6e-12             6e-12       
+## 
+## P value adjustment method: holm</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="análises-de-variância-anova.html#cb79-1"></a><span class="co"># Reordenando a ordem que os grupos irão aparecer no gráfico</span></span>
+<span id="cb79-2"><a href="análises-de-variância-anova.html#cb79-2"></a>dados_anova_simples<span class="op">$</span>Tratamento &lt;-<span class="st"> </span><span class="kw">factor</span>(dados_anova_simples<span class="op">$</span>Tratamento , </span>
+<span id="cb79-3"><a href="análises-de-variância-anova.html#cb79-3"></a>                                      <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Controle&quot;</span>, <span class="st">&quot;Adubo_Tradicional&quot;</span>, <span class="st">&quot;Adubo_X-2020&quot;</span>))</span>
+<span id="cb79-4"><a href="análises-de-variância-anova.html#cb79-4"></a></span>
+<span id="cb79-5"><a href="análises-de-variância-anova.html#cb79-5"></a><span class="co"># Gráfico</span></span>
+<span id="cb79-6"><a href="análises-de-variância-anova.html#cb79-6"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb79-7"><a href="análises-de-variância-anova.html#cb79-7"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dados_anova_simples, <span class="kw">aes</span>(<span class="dt">x=</span> Tratamento, <span class="dt">y=</span> Crescimento, <span class="dt">color =</span> Tratamento)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb79-8"><a href="análises-de-variância-anova.html#cb79-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Adubação&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Crescimento Coffea arabica (cm)&quot;</span>, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb79-9"><a href="análises-de-variância-anova.html#cb79-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill=</span><span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>, <span class="st">&quot;brown1&quot;</span>), <span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb79-10"><a href="análises-de-variância-anova.html#cb79-10"></a>               <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span></span>
+<span id="cb79-11"><a href="análises-de-variância-anova.html#cb79-11"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">position=</span><span class="kw">position_jitter</span>(<span class="fl">0.1</span>), <span class="dt">cex =</span> <span class="dv">4</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb79-12"><a href="análises-de-variância-anova.html#cb79-12"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>, <span class="st">&quot;brown1&quot;</span>)) <span class="op">+</span></span>
+<span id="cb79-13"><a href="análises-de-variância-anova.html#cb79-13"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>), <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>)) <span class="op">+</span></span>
+<span id="cb79-14"><a href="análises-de-variância-anova.html#cb79-14"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">12</span>, <span class="dt">label =</span> <span class="st">&quot;ab&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb79-15"><a href="análises-de-variância-anova.html#cb79-15"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">17</span>, <span class="dt">label =</span> <span class="st">&quot;a&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb79-16"><a href="análises-de-variância-anova.html#cb79-16"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">x =</span> <span class="dv">3</span>, <span class="dt">y =</span> <span class="dv">17</span>, <span class="dt">label =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span></span>
+<span id="cb79-17"><a href="análises-de-variância-anova.html#cb79-17"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Sem adubo&quot;</span>,<span class="st">&quot;Tradicional&quot;</span>,<span class="st">&quot;X-2020&quot;</span>)) <span class="op">+</span></span>
+<span id="cb79-18"><a href="análises-de-variância-anova.html#cb79-18"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb79-19"><a href="análises-de-variância-anova.html#cb79-19"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb79-20"><a href="análises-de-variância-anova.html#cb79-20"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb79-21"><a href="análises-de-variância-anova.html#cb79-21"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb79-22"><a href="análises-de-variância-anova.html#cb79-22"></a>        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb79-23"><a href="análises-de-variância-anova.html#cb79-23"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, os indivíduos de <em>C. arabica</em> que receberam adubação (tradicional e X-2020) apresentaram maior crescimento do que os indivíduos que não receberam adubação. Contudo, diferente do que foi divulgado pela empresa, o adubo X-2020 não apresentou melhor desempenho que o adubo tradicional já utilizado pelos produtores.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="anova-de-dois-fatores-ou-anova-fatorial" class="section level2">
+<h2><span class="header-section-number">7.3</span> ANOVA de dois fatores ou Anova fatorial</h2>
+<p>Este teste considera delineamentos amostrais com dois fatores (ou tratamento) que podem ser compostos por dois ou mais grupos (ou níveis). Esta análise tem uma vantagem, pois permite avaliar o efeito da interação entre os fatores na variável resposta. Quando a interação está presente, o impacto de um fator depende do nível (ou grupo) do outro fator.</p>
+<div id="exemplo-prático-1---anova-de-dois-fatores" class="section level4">
+<h4><span class="header-section-number">7.3.0.1</span> Exemplo prático 1 - Anova de dois fatores</h4>
+<div id="explicação-dos-dados-7" class="section level5">
+<h5><span class="header-section-number">7.3.0.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos se o tempo que o corpo leva para elimiar uma droga utilizada em exames de ressonância magnética está relacionado com o sistema XY de determinação do sexo e/ou com a idade dos pacientes. Para isso, foi realizado um experimento com 40 pacientes distribuídos da seguinte maneira: i) 10 indivíduos XX - jovens, ii) 10 indivíduos XX - idosas, iii) 10 indivíduos XY - jovens, e iv) 10 indivíduos XY - idosos.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>O tempo de eliminação da droga é dependente do sistema XY de determinação do sexo e idade dos pacientes?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>O tempo de eliminação da droga vai ser mais rápido nas pacientes XX e jovens.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com os pacientes (unidade amostral) nas linhas e os tratamentos nas colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e as variáveies preditoras nas colunas.</li>
+</ul>
+</div>
+</div>
+<div id="análise-7" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Análise</h3>
+<p>Cálculo da Anova de dois fator</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="análises-de-variância-anova.html#cb80-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb80-2"><a href="análises-de-variância-anova.html#cb80-2"></a><span class="co">#********************</span></span>
+<span id="cb80-3"><a href="análises-de-variância-anova.html#cb80-3"></a>dados_dois_fatores &lt;-<span class="st"> </span>ecodados<span class="op">::</span>anova_dois_fatores</span>
+<span id="cb80-4"><a href="análises-de-variância-anova.html#cb80-4"></a><span class="kw">head</span>(dados_dois_fatores) </span></code></pre></div>
+<pre><code>##    Tempo Pessoas Idade
+## 1 18.952      XX Jovem
+## 2 16.513      XX Jovem
+## 3 17.981      XX Jovem
+## 4 21.371      XX Jovem
+## 5 14.470      XX Jovem
+## 6 19.130      XX Jovem</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="análises-de-variância-anova.html#cb82-1"></a><span class="co"># Análise anova de dois fatores </span></span>
+<span id="cb82-2"><a href="análises-de-variância-anova.html#cb82-2"></a><span class="co">#********************************</span></span>
+<span id="cb82-3"><a href="análises-de-variância-anova.html#cb82-3"></a><span class="co"># A interação entre os fatores é representada por *</span></span>
+<span id="cb82-4"><a href="análises-de-variância-anova.html#cb82-4"></a>Modelo1 &lt;-<span class="st"> </span><span class="kw">aov</span>(Tempo <span class="op">~</span><span class="st"> </span>Pessoas <span class="op">*</span><span class="st"> </span>Idade, <span class="dt">data =</span> dados_dois_fatores) </span>
+<span id="cb82-5"><a href="análises-de-variância-anova.html#cb82-5"></a></span>
+<span id="cb82-6"><a href="análises-de-variância-anova.html#cb82-6"></a><span class="co"># Olhando os resultados</span></span>
+<span id="cb82-7"><a href="análises-de-variância-anova.html#cb82-7"></a><span class="kw">anova</span>(Modelo1)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Tempo
+##               Df  Sum Sq Mean Sq  F value    Pr(&gt;F)    
+## Pessoas        1  716.72  716.72 178.8538  1.56e-15 ***
+## Idade          1 1663.73 1663.73 415.1724 &lt; 2.2e-16 ***
+## Pessoas:Idade  1    4.77    4.77   1.1903    0.2825    
+## Residuals     36  144.26    4.01                       
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="análises-de-variância-anova.html#cb84-1"></a><span class="co"># Percebam que a interação não apresenta um efeito significativo (P &gt; 0.05). Assim, iremos retirar a interação e verificar, usando LIKELIHOOD RATIO </span><span class="al">TEST</span><span class="co"> (LRT), se o modelo mais simples é melhor </span></span>
+<span id="cb84-2"><a href="análises-de-variância-anova.html#cb84-2"></a>Modelo2 &lt;-<span class="st"> </span><span class="kw">aov</span>(Tempo <span class="op">~</span><span class="st"> </span>Pessoas <span class="op">+</span><span class="st"> </span>Idade, <span class="dt">data =</span> dados_dois_fatores) </span>
+<span id="cb84-3"><a href="análises-de-variância-anova.html#cb84-3"></a></span>
+<span id="cb84-4"><a href="análises-de-variância-anova.html#cb84-4"></a><span class="co"># A hipótese nula é que o modelo mais simples é melhor</span></span>
+<span id="cb84-5"><a href="análises-de-variância-anova.html#cb84-5"></a><span class="co"># Valores de p &lt; 0.05 rejeita a hipótese nula e o modelo mais complexo é o melhor</span></span>
+<span id="cb84-6"><a href="análises-de-variância-anova.html#cb84-6"></a><span class="co"># Valores de p &gt; 0.05 não rejeita a hipótese nula e o modelo mais simples é o melhor</span></span>
+<span id="cb84-7"><a href="análises-de-variância-anova.html#cb84-7"></a><span class="kw">library</span>(lmtest)</span>
+<span id="cb84-8"><a href="análises-de-variância-anova.html#cb84-8"></a><span class="kw">lrtest</span>(Modelo1, Modelo2)</span></code></pre></div>
+<pre><code>## Likelihood ratio test
+## 
+## Model 1: Tempo ~ Pessoas * Idade
+## Model 2: Tempo ~ Pessoas + Idade
+##   #Df  LogLik Df  Chisq Pr(&gt;Chisq)
+## 1   5 -82.413                     
+## 2   4 -83.063 -1 1.3012      0.254</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="análises-de-variância-anova.html#cb86-1"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb86-2"><a href="análises-de-variância-anova.html#cb86-2"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb86-3"><a href="análises-de-variância-anova.html#cb86-3"></a><span class="co"># Esta função mostra os resultados para multicolinearidade (a), dois gráficos avaliando a normalidade dos resíduos (b e  c), e um gráfico para a homogeneidade dos resíduos (d).</span></span>
+<span id="cb86-4"><a href="análises-de-variância-anova.html#cb86-4"></a><span class="kw">library</span>(sjPlot)</span>
+<span id="cb86-5"><a href="análises-de-variância-anova.html#cb86-5"></a><span class="kw">plot_grid</span>(<span class="kw">plot_model</span>(Modelo2, <span class="dt">type =</span> <span class="st">&quot;diag&quot;</span>))</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="análises-de-variância-anova.html#cb87-1"></a><span class="co"># VERIFICANDO OS RESULTADOS DA ANOVA</span></span>
+<span id="cb87-2"><a href="análises-de-variância-anova.html#cb87-2"></a><span class="co">#****************************************</span></span>
+<span id="cb87-3"><a href="análises-de-variância-anova.html#cb87-3"></a><span class="kw">anova</span>(Modelo2)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Tempo
+##           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Pessoas    1  716.72  716.72  177.94 1.041e-15 ***
+## Idade      1 1663.73 1663.73  413.05 &lt; 2.2e-16 ***
+## Residuals 37  149.03    4.03                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Percebam que o resultado da Anova (Pr(&gt;F) &lt; 0.001) indica que devemos rejeitar a hipótese nula que não há diferença entre as médias dos sistema XY e idade dos pacientes. Neste caso, não precisamos realizar testes de comparações múltiplas <em>post-hoc</em> porque os fatores apresentam apenas dois níveis. Contudo, se no seu delineamento experimental um dos fatores apresentar três ou mais níveis, você deverá utilizar os testes de comparações <em>post-hoc</em> para determinar as diferenças entre os grupos. <strong>Observação</strong> Os testes <em>post-hoc</em> só devem ser utilizados quando rejeitamos a hipótese nula (P &lt; 0.05) no teste da Anova.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="análises-de-variância-anova.html#cb89-1"></a><span class="co"># Diferenças entre os tratamentos</span></span>
+<span id="cb89-2"><a href="análises-de-variância-anova.html#cb89-2"></a><span class="co">#***********************************</span></span>
+<span id="cb89-3"><a href="análises-de-variância-anova.html#cb89-3"></a><span class="co"># Teste de Tuckey&#39;s honest significant difference</span></span>
+<span id="cb89-4"><a href="análises-de-variância-anova.html#cb89-4"></a><span class="kw">TukeyHSD</span>(Modelo2)</span></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = Tempo ~ Pessoas + Idade, data = dados_dois_fatores)
+## 
+## $Pessoas
+##          diff      lwr      upr p adj
+## XY-XX 8.46595 7.180008 9.751892     0
+## 
+## $Idade
+##                  diff       lwr       upr p adj
+## Jovem-Idoso -12.89855 -14.18449 -11.61261     0</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="análises-de-variância-anova.html#cb91-1"></a><span class="co"># Gráfico</span></span>
+<span id="cb91-2"><a href="análises-de-variância-anova.html#cb91-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb91-3"><a href="análises-de-variância-anova.html#cb91-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dados_dois_fatores, <span class="kw">aes</span>(<span class="dt">y=</span> Tempo, <span class="dt">x=</span> Pessoas, <span class="dt">color =</span> Idade)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb91-4"><a href="análises-de-variância-anova.html#cb91-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb91-5"><a href="análises-de-variância-anova.html#cb91-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sistema XY de determinação do sexo&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Tempo (horas) para eliminar a droga&quot;</span>, </span>
+<span id="cb91-6"><a href="análises-de-variância-anova.html#cb91-6"></a>       <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb91-7"><a href="análises-de-variância-anova.html#cb91-7"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">position=</span><span class="kw">position_jitterdodge</span>(), <span class="dt">cex =</span> <span class="dv">4</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb91-8"><a href="análises-de-variância-anova.html#cb91-8"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;steelblue1&quot;</span>, <span class="st">&quot;springgreen1&quot;</span>)) <span class="op">+</span></span>
+<span id="cb91-9"><a href="análises-de-variância-anova.html#cb91-9"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">50</span>), <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)) <span class="op">+</span></span>
+<span id="cb91-10"><a href="análises-de-variância-anova.html#cb91-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb91-11"><a href="análises-de-variância-anova.html#cb91-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb91-12"><a href="análises-de-variância-anova.html#cb91-12"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb91-13"><a href="análises-de-variância-anova.html#cb91-13"></a>        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, O sitesma XY de determinação do sexo e a idade dos pacientes tem um efeito no tempo de eliminação da droga do organismo. Os pacientes XX e jovens apresentam eliminação mais rápida da droga do que pacientes XY e idosos.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="anova-em-blocos-aleatorizados" class="section level2">
+<h2><span class="header-section-number">7.4</span> ANOVA em blocos aleatorizados</h2>
+<p>No delineamento experimental com blocos aleatorizados, cada fator é agrupado em blocos, com réplicas de cada nível do fator representado em cada bloco (Gotelli &amp; Elisson 2013). O bloco é uma área ou período de tempo dentro do qual as condições ambientais são relativamente homogêneas. O objetivo do uso dos blocos é controlar fontes de variações indesejadas na variável dependente que não são de interesse do pesquisador. Desta maneira, podemos retirar dos resíduos, os efeitos das variações indesejadas que não do nosso interesse, e testar com maior poder estatístico os efeitos dos tratamentos de interesse. Importante, os blocos devem ser arranjados de forma que as condições ambientais sejam mais similares dentro dos blocos do que entre os blocos.</p>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---anova-em-blocos-aleatorizados" class="section level4">
+<h4><span class="header-section-number">7.4.0.1</span> Exemplo prático 1 - Anova em blocos aleatorizados</h4>
+<div id="explicação-dos-dados-8" class="section level5">
+<h5><span class="header-section-number">7.4.0.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos a riqueza de espécies de anuros amostradas em poças artificiais instaladas a diferentes distâncias de seis fragmentos florestais no sudeste do Brasil (da Silva et al. 2020). Os fragmentos florestais apresentam diferenças entre si que não do interesse do pesquisador. Por isso, eles foram incluídos como blocos nas análises. As poças artificiais foram instaladas em todos os fragmentos florestais basedo no seguinte delineamento experimental (da Silva et al. 2012): i) 4 poças no interior do fragmento a 100m de distância da borda do fragmento; ii) 4 poças no interior no fragmento a 50m de distância da borda do fragmento; iii) 4 poças no na borda do fragmento; iv) 4 poças na matriz de pastagem a 50m de distância da borda do fragmento; e v) 4 poças na matriz de pastagem a 100m de distância da borda do fragmento. Percebam que todos os tratamentos foram instalados em todos os blocos.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>A distância da poça artifical ao fragmento florestal influência a riqueza de espécies anuros?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>Poças na borda do fragmento florestal apresentarão maior riqueza de espécies do que poças distantes da borda.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as poças (unidade amostral) nas linhas e o tratamento e bloco nas colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditoras nas colunas.</li>
+</ul>
+</div>
+</div>
+<div id="análise-8" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Análise</h3>
+<p>Cálculo da Anova em blocos aleatorizados</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="análises-de-variância-anova.html#cb92-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb92-2"><a href="análises-de-variância-anova.html#cb92-2"></a><span class="co">#********************</span></span>
+<span id="cb92-3"><a href="análises-de-variância-anova.html#cb92-3"></a>dados_bloco &lt;-<span class="st"> </span>ecodados<span class="op">::</span>anova_bloco</span>
+<span id="cb92-4"><a href="análises-de-variância-anova.html#cb92-4"></a><span class="kw">str</span>(dados_bloco) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:	30 obs. of  3 variables:
+##  $ Riqueza: int  90 95 107 92 89 92 81 92 93 80 ...
+##  $ Blocos : chr  &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; ...
+##  $ Pocas  : chr  &quot;Int-50m&quot; &quot;Int-100m&quot; &quot;Borda&quot; &quot;Mat-50m&quot; ...</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="análises-de-variância-anova.html#cb94-1"></a><span class="co"># ANALISE ANOVA em blocos aleatorizados</span></span>
+<span id="cb94-2"><a href="análises-de-variância-anova.html#cb94-2"></a><span class="co">#****************************************</span></span>
+<span id="cb94-3"><a href="análises-de-variância-anova.html#cb94-3"></a><span class="co"># Há duas maneiras para incluir os efeitos dos blocos</span></span>
+<span id="cb94-4"><a href="análises-de-variância-anova.html#cb94-4"></a>model_bloco1 &lt;-<span class="st"> </span><span class="kw">aov</span>(Riqueza <span class="op">~</span><span class="st"> </span>Pocas <span class="op">+</span><span class="st"> </span>Blocos, <span class="dt">data =</span> dados_bloco)</span>
+<span id="cb94-5"><a href="análises-de-variância-anova.html#cb94-5"></a></span>
+<span id="cb94-6"><a href="análises-de-variância-anova.html#cb94-6"></a>model_bloco2 &lt;-<span class="st"> </span><span class="kw">aov</span>(Riqueza <span class="op">~</span><span class="st"> </span>Pocas <span class="op">+</span><span class="st"> </span><span class="kw">Error</span>(Blocos), <span class="dt">data =</span> dados_bloco)</span>
+<span id="cb94-7"><a href="análises-de-variância-anova.html#cb94-7"></a></span>
+<span id="cb94-8"><a href="análises-de-variância-anova.html#cb94-8"></a><span class="co"># Percebam que as duas formas apresentam os mesmo resultados para o efeito da distância das poças que é o fator de interesse no estudo. Lembre-se que nos delineamentos experimentais em bloco, o pesquisador não está interessado no efeito do bloco, mas sim controlar a variação associada a ele.</span></span>
+<span id="cb94-9"><a href="análises-de-variância-anova.html#cb94-9"></a><span class="kw">anova</span>(model_bloco1)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Riqueza
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## Pocas      4 1504.5  376.12  2.9071 0.0478 *
+## Blocos     5 1089.0  217.79  1.6834 0.1846  
+## Residuals 20 2587.5  129.38                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="análises-de-variância-anova.html#cb96-1"></a><span class="kw">summary</span>(model_bloco2)</span></code></pre></div>
+<pre><code>## 
+## Error: Blocos
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Residuals  5   1089   217.8               
+## 
+## Error: Within
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## Pocas      4   1504   376.1   2.907 0.0478 *
+## Residuals 20   2588   129.4                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="análises-de-variância-anova.html#cb98-1"></a><span class="co"># O que não pode acontecer é ignorar o efeito do bloco que é incorporado pelos resíduos quando não informado no modelo. Veja abaixo a forma errada de analisar delineamento experimental com blocos.</span></span>
+<span id="cb98-2"><a href="análises-de-variância-anova.html#cb98-2"></a></span>
+<span id="cb98-3"><a href="análises-de-variância-anova.html#cb98-3"></a>modelo_errado &lt;-<span class="st"> </span><span class="kw">aov</span>(Riqueza <span class="op">~</span><span class="st"> </span>Pocas, <span class="dt">data =</span> dados_bloco)</span>
+<span id="cb98-4"><a href="análises-de-variância-anova.html#cb98-4"></a><span class="kw">anova</span>(modelo_errado)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Riqueza
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## Pocas      4 1504.5  376.12  2.5576 0.06359 .
+## Residuals 25 3676.5  147.06                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="análises-de-variância-anova.html#cb100-1"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb100-2"><a href="análises-de-variância-anova.html#cb100-2"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb100-3"><a href="análises-de-variância-anova.html#cb100-3"></a><span class="co"># Os gráficos *Residuals vs Fitted* e *Scale-Location* estão relacionados com a homogeneidade da variância. Nestes gráficos, esperamos ver os pontos dispersos no espaço sem padrões em forma de *U* ou funil. </span></span>
+<span id="cb100-4"><a href="análises-de-variância-anova.html#cb100-4"></a><span class="co"># O gráfico *Normal Q-Q* está relacionado com a distribuição normal dos resíduos. Neste gráfico, esperamos ver os pontos próximos a reta sem padrões em forma de *U* ou *S*. </span></span>
+<span id="cb100-5"><a href="análises-de-variância-anova.html#cb100-5"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb100-6"><a href="análises-de-variância-anova.html#cb100-6"></a><span class="kw">plot</span>(model_bloco1)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="análises-de-variância-anova.html#cb101-1"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<p>Percebam que o resultado da Anova (Pr(&gt;F) &lt; 0.001) indica que devemos rejeitar a hipótese nula que não há diferença entre as médias dos grupos. Contudo, os resultados não mostram quais são os grupos que apresentam diferenças. Para isso, temos que realizar testes de comparações múltiplas <em>post-hoc</em> para detectar os grupos que apresentam diferenças significativas entre as médias. <strong>Observação</strong> Os testes <em>post-hoc</em> só devem ser utilizados quando rejeitamos a hipótese nula (P &lt; 0.05) no teste da Anova.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="análises-de-variância-anova.html#cb103-1"></a><span class="co"># Diferenças entre os tratamentos</span></span>
+<span id="cb103-2"><a href="análises-de-variância-anova.html#cb103-2"></a><span class="co">#***********************************</span></span>
+<span id="cb103-3"><a href="análises-de-variância-anova.html#cb103-3"></a><span class="co"># Teste de Tuckey&#39;s honest significant difference</span></span>
+<span id="cb103-4"><a href="análises-de-variância-anova.html#cb103-4"></a><span class="kw">library</span>(lsmeans)</span>
+<span id="cb103-5"><a href="análises-de-variância-anova.html#cb103-5"></a><span class="kw">pairs</span>(<span class="kw">lsmeans</span>(model_bloco1, <span class="st">&quot;Pocas&quot;</span>), <span class="dt">adjust =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
+<pre><code>##  contrast                estimate   SE df t.ratio p.value
+##  Borda - (Int-100m)        16.000 6.57 20  2.436  0.1463 
+##  Borda - (Int-50m)         19.833 6.57 20  3.020  0.0472 
+##  Borda - (Mat-100m)        15.833 6.57 20  2.411  0.1531 
+##  Borda - (Mat-50m)          8.167 6.57 20  1.244  0.7269 
+##  (Int-100m) - (Int-50m)     3.833 6.57 20  0.584  0.9760 
+##  (Int-100m) - (Mat-100m)   -0.167 6.57 20 -0.025  1.0000 
+##  (Int-100m) - (Mat-50m)    -7.833 6.57 20 -1.193  0.7553 
+##  (Int-50m) - (Mat-100m)    -4.000 6.57 20 -0.609  0.9720 
+##  (Int-50m) - (Mat-50m)    -11.667 6.57 20 -1.777  0.4135 
+##  (Mat-100m) - (Mat-50m)    -7.667 6.57 20 -1.167  0.7692 
+## 
+## Results are averaged over the levels of: Blocos 
+## P value adjustment: tukey method for comparing a family of 5 estimates</code></pre>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="análises-de-variância-anova.html#cb105-1"></a><span class="co"># Reordenando a ordem que os grupos irão aparecer no gráfico</span></span>
+<span id="cb105-2"><a href="análises-de-variância-anova.html#cb105-2"></a>dados_bloco<span class="op">$</span>Pocas &lt;-<span class="st"> </span><span class="kw">factor</span>(dados_bloco<span class="op">$</span>Pocas, </span>
+<span id="cb105-3"><a href="análises-de-variância-anova.html#cb105-3"></a>                              <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Int-100m&quot;</span>, <span class="st">&quot;Int-50m&quot;</span>, <span class="st">&quot;Borda&quot;</span>, <span class="st">&quot;Mat-50m&quot;</span>, <span class="st">&quot;Mat-100m&quot;</span>))</span>
+<span id="cb105-4"><a href="análises-de-variância-anova.html#cb105-4"></a></span>
+<span id="cb105-5"><a href="análises-de-variância-anova.html#cb105-5"></a><span class="co"># Gráfico</span></span>
+<span id="cb105-6"><a href="análises-de-variância-anova.html#cb105-6"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb105-7"><a href="análises-de-variância-anova.html#cb105-7"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dados_bloco, <span class="kw">aes</span>(<span class="dt">x=</span> Pocas, <span class="dt">y=</span> Riqueza)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb105-8"><a href="análises-de-variância-anova.html#cb105-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Poças artificiais&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Riqueza de espécies de anuros&quot;</span>, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb105-9"><a href="análises-de-variância-anova.html#cb105-9"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb105-10"><a href="análises-de-variância-anova.html#cb105-10"></a>               <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span></span>
+<span id="cb105-11"><a href="análises-de-variância-anova.html#cb105-11"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">position=</span><span class="kw">position_jitter</span>(<span class="fl">0.1</span>), <span class="dt">cex =</span> <span class="dv">5</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb105-12"><a href="análises-de-variância-anova.html#cb105-12"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;-100m&quot;</span>,<span class="st">&quot;-50m&quot;</span>,<span class="st">&quot;Borda&quot;</span>, <span class="st">&quot;50m&quot;</span>, <span class="st">&quot;100m&quot;</span>)) <span class="op">+</span></span>
+<span id="cb105-13"><a href="análises-de-variância-anova.html#cb105-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb105-14"><a href="análises-de-variância-anova.html#cb105-14"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb105-15"><a href="análises-de-variância-anova.html#cb105-15"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) </span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, rejeitamos a hipótese nula que a distância da poças artificiais até as bordas dos fragmentos florestais não influência a riqueza de espécies de anuros. As poças artificiais instaladas nas bordas dos fragmentos florestais apresentaram maior riqueza de espécies do que as poças distantes.</p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="análise-de-covariância-ancova" class="section level2">
+<h2><span class="header-section-number">7.5</span> Análise de covariância (ANCOVA)</h2>
+<p>A ANCOVA pode ser compreendida como uma extensão da Anova com a adição de variável contínua (covariável) medida em todas as unidades amostrais (Gotelli &amp; Ellison 2013). A ideia é que a covariável também afete os valores da variável resposta. Não incluir a covariável irá fazer com que a variação não explicada pelo modelo concentre-se nos resíduos. Incluindo a covariável, o tamanho do resíduo é menor, e o teste para avaliar as diferenças nos tratamentos terá mais poder estatístico.</p>
+<p>
+ 
+</p>
+<div id="exemplo-prático-1---ancova" class="section level4">
+<h4><span class="header-section-number">7.5.0.1</span> Exemplo prático 1 - ANCOVA</h4>
+<div id="explicação-dos-dados-9" class="section level5">
+<h5><span class="header-section-number">7.5.0.1.1</span> Explicação dos dados</h5>
+<p>Neste exemplo, avaliaremos o efeito da herbivoria na biomassa dos frutos de uma espécie de árvore na Mata Atlântica. O delineamento experimental permitiu que alguns indivíduos sofressem herbivoria e outros não. Os pesquisadores também mediram o tamanho da raiz dos indíviduos para inseri-la como uma covariável no modelo.</p>
+<p><strong>Pergunta:</strong></p>
+<blockquote>
+<p>A herbivoria diminiu a biomssa dos frutos?</p>
+</blockquote>
+<p><strong>Predições</strong></p>
+<blockquote>
+<p>Os indivíduos que sofreram herbivoria irão produzir frutos com menor biomassa do que os indivíduos sem herbivoria.</p>
+</blockquote>
+<p><strong>Variáveis</strong></p>
+<ul>
+<li>Variáveis preditoras
+<ul>
+<li>Dataframe com as indivíduos da espéci de planta (unidade amostral) nas linhas e o tratamento e a covariável nas colunas.</li>
+</ul></li>
+</ul>
+<p><strong>Checklist</strong></p>
+<ul>
+<li>Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditoras nas colunas.</li>
+</ul>
+</div>
+</div>
+<div id="análise-9" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Análise</h3>
+<p>Cálculo da ANCOVA</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="análises-de-variância-anova.html#cb106-1"></a><span class="co">## IMPORTANDO DADOS</span></span>
+<span id="cb106-2"><a href="análises-de-variância-anova.html#cb106-2"></a><span class="co">#********************</span></span>
+<span id="cb106-3"><a href="análises-de-variância-anova.html#cb106-3"></a>dados_ancova &lt;-<span class="st"> </span>ecodados<span class="op">::</span>ancova</span>
+<span id="cb106-4"><a href="análises-de-variância-anova.html#cb106-4"></a><span class="kw">str</span>(dados_ancova) <span class="co"># verificar se o dataframe foi lido corretamente</span></span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:	40 obs. of  3 variables:
+##  $ Raiz      : num  6.22 6.49 4.92 5.13 5.42 ...
+##  $ Biomassa  : num  59.8 61 14.7 19.3 34.2 ...
+##  $ Herbivoria: chr  &quot;Sem_herb&quot; &quot;Sem_herb&quot; &quot;Sem_herb&quot; &quot;Sem_herb&quot; ...</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="análises-de-variância-anova.html#cb108-1"></a><span class="co"># ANALISE ANCOVA</span></span>
+<span id="cb108-2"><a href="análises-de-variância-anova.html#cb108-2"></a><span class="co">#****************************************</span></span>
+<span id="cb108-3"><a href="análises-de-variância-anova.html#cb108-3"></a>modelo_ancova &lt;-<span class="st"> </span><span class="kw">lm</span>(Biomassa <span class="op">~</span><span class="st"> </span>Herbivoria <span class="op">+</span><span class="st"> </span>Raiz, <span class="dt">data =</span> dados_ancova)</span>
+<span id="cb108-4"><a href="análises-de-variância-anova.html#cb108-4"></a></span>
+<span id="cb108-5"><a href="análises-de-variância-anova.html#cb108-5"></a><span class="co"># VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS</span></span>
+<span id="cb108-6"><a href="análises-de-variância-anova.html#cb108-6"></a><span class="co">#***********************************************************************</span></span>
+<span id="cb108-7"><a href="análises-de-variância-anova.html#cb108-7"></a><span class="co"># Esta função mostra os resultados para multicolinearidade (a), dois gráficos avaliando a normalidade dos resíduos (b e  c), e um gráfico para a homogeneidade dos resíduos (d).</span></span>
+<span id="cb108-8"><a href="análises-de-variância-anova.html#cb108-8"></a><span class="kw">library</span>(sjPlot)</span>
+<span id="cb108-9"><a href="análises-de-variância-anova.html#cb108-9"></a><span class="kw">plot_grid</span>(<span class="kw">plot_model</span>(modelo_ancova, <span class="dt">type =</span> <span class="st">&quot;diag&quot;</span>))</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="análises-de-variância-anova.html#cb109-1"></a><span class="co"># OLHANDO OS RESULTADOS</span></span>
+<span id="cb109-2"><a href="análises-de-variância-anova.html#cb109-2"></a><span class="co">#********************</span></span>
+<span id="cb109-3"><a href="análises-de-variância-anova.html#cb109-3"></a><span class="kw">anova</span>(modelo_ancova)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Biomassa
+##            Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Herbivoria  1  1941.9  1941.9  33.759 1.135e-06 ***
+## Raiz        1 17434.1 17434.1 303.075 &lt; 2.2e-16 ***
+## Residuals  37  2128.4    57.5                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Percebam que o resultado da ANCOVA (Pr(&gt;F) &lt; 0.001) indica que tanto a herbivoria como a o tamanho da raiz (covariável) tem efeitos significativos na biomassa dos frutos.</p>
+<p>Visualizar os resultados em gráfico</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="análises-de-variância-anova.html#cb111-1"></a><span class="co"># Gráfico</span></span>
+<span id="cb111-2"><a href="análises-de-variância-anova.html#cb111-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb111-3"><a href="análises-de-variância-anova.html#cb111-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> dados_ancova, <span class="kw">aes</span>(<span class="dt">x=</span> Raiz, <span class="dt">y=</span> Biomassa, <span class="dt">fill =</span> Herbivoria)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb111-4"><a href="análises-de-variância-anova.html#cb111-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Tamanho da raiz (cm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Biomassa dos frutos (g)&quot;</span>, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb111-5"><a href="análises-de-variância-anova.html#cb111-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></span>
+<span id="cb111-6"><a href="análises-de-variância-anova.html#cb111-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb111-7"><a href="análises-de-variância-anova.html#cb111-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>), <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">17</span>)) <span class="op">+</span></span>
+<span id="cb111-8"><a href="análises-de-variância-anova.html#cb111-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),  </span>
+<span id="cb111-9"><a href="análises-de-variância-anova.html#cb111-9"></a>        <span class="dt">panel.border =</span> <span class="kw">element_rect</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="ot">NA</span>, <span class="dt">size =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb111-10"><a href="análises-de-variância-anova.html#cb111-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>) <span class="op">+</span></span>
+<span id="cb111-11"><a href="análises-de-variância-anova.html#cb111-11"></a><span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Herbivoria&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Com herbivoria&quot;</span>, <span class="st">&quot;Sem herbivoria&quot;</span>)) <span class="op">+</span></span>
+<span id="cb111-12"><a href="análises-de-variância-anova.html#cb111-12"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Herbivoria), <span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">show.legend =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><strong>Interpretação dos resultados</strong></p>
+<p>Neste exemplo, o tamanho da raiz (covariável) tem uma relação positiva com a biomassa dos frutos. Quanto maior o tamanho da raiz, maior a biomassa dos frutos. Usando a ANCOVA e controlando o efeito da covariável, percebemos que a herbivoria também afeta a biomassa dos frutos. Os indivíduos que não sofreram herbivoria produziram frutos com maior biomassa do que os indivíduos com herbivoria.</p>
+<p>
+ 
+</p>
+</div>
+<div id="para-se-aprofundar" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> Para se aprofundar</h3>
+<ul>
+<li>Recomendamos aos interessados os livros: i) Zar (2010) Biostatiscal analysis; ii) Gotelli &amp; Ellison (2013) A primer of ecological statistics; e iii) Quinn &amp; Keough (2002) Experimental design and data analysis for biologists.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regressão-múltipla.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introdução-à-análises-multidimensionais.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/paternogbc/livro_r_ecologia/edit/master/03_estatistica_basica.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["livro_r_ecologia.pdf", "livro_r_ecologia.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
