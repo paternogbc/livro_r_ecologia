@@ -2,7 +2,7 @@
 
 ## Teste T (de Student) para duas amostras independentes
 
-### Backgorund da análise
+### Background da análise
 
 Uma das perguntas mais comum em estatística é saber se há diferença entre as médias de dois grupos ou tratamentos. Para responder esta pergunta, William Sealy Gosset, químico da cervejaria Guinness, em 1908 desenvolveu o Teste T que é uma estátistica que segue uma distribuição t de Student para rejeitar ou não uma hipótese nula de médias iguais entre os grupos. 
 
@@ -100,8 +100,8 @@ library(ggplot2)
 ggplot(data = CRC_PN_macho, aes(x= Estacao, y= CRC, color = Estacao)) + 
   labs(x = "Estações", y = "CRC (mm) - P. nattereri", size = 15) +
   geom_boxplot(fill=c("steelblue1", "springgreen1"), color="black", outlier.shape = NA) +
-  geom_jitter(shape = 16, position=position_jitter(0.2), cex = 7, alpha = 0.7) +
-  scale_color_manual(values = c("steelblue1", "springgreen1")) +
+  geom_jitter(shape = 16, position=position_jitter(0.1), cex = 6, alpha = 0.7) +
+  scale_color_manual(values = c("black", "black")) +
   geom_text(x = 2.2, y = 4.6, label = "t = 4.15, P < 0.001", color = "black", size = 5) +
   theme_bw() +
   theme(axis.text.y = element_text(size = 15), axis.text.x = element_text(size = 15)) +
@@ -192,8 +192,8 @@ library(ggplot2)
 ggplot(data = CRC_LP_femea, aes(x= Estacao, y= CRC, color = Estacao)) + 
   labs(x = "Estações", y = "CRC (mm) - L. podicipinus", size = 15) +
   geom_boxplot(fill=c("steelblue1", "springgreen1"), color="black", outlier.shape = NA) +
-  geom_jitter(shape = 16, position=position_jitter(0.2), cex = 7, alpha = 0.7) +
-  scale_color_manual(values = c("steelblue1", "springgreen1")) +
+  geom_jitter(shape = 16, position=position_jitter(0.1), cex = 6, alpha = 0.7) +
+  scale_color_manual(values = c("black", "black")) +
   geom_text(x = 2.2, y = 1.7, label = "t = 1.76, P = 0.12", color = "black", size = 5) +
   theme_bw() +
   theme(axis.text.y = element_text(size = 15), axis.text.x = element_text(size = 15)) +
@@ -211,7 +211,7 @@ Neste exemplo, não rejeitamos a hipótese nula e consideramos que as médias do
 
 ## Teste T para amostras pareadas
 
-### Backgorund da análise
+### Background da análise
 
 O Teste T Pareado é uma estatística que  usa dados medidos duas vezes na mesma unidade amostral, resultando em pares de observações para cada amostra (amostras pareadas). Ele determina se a diferença da média entre duas observações é zero. 
 
@@ -264,6 +264,7 @@ Calculo do Teste T com amostras pareadas
 #*************************
 Pareado <- ecodados::teste_t_pareado
 head(Pareado) # verificar se o dataframe foi lido corretamente
+tail(Pareado)
 
 # TESTE T PAREADO
 #*****************
@@ -292,9 +293,9 @@ Neste exemplo, rejeitamos a hipótese nula que a riqueza de espécies de artróp
 
 ## Correlação de Pearson
 
-### Backgorund da análise
+### Background da análise
 
-É um teste que mede a força relativa da relação linear entre duas variáveis contínuas (X e Y). Importante ressaltar que a análise de correlação não assume que a variável X influêncie a variável Y ou que exista uma relação de causa e efeito entre elas (Zar 2016). A análise é definida em termos da variância de X, a variância de Y, e a covariância de X e Y (i.e. como elas variam juntas).
+É um teste que mede a o grau de associação entre duas variáveis contínuas (X e Y). Importante ressaltar que a análise de correlação não assume que a variável X influêncie a variável Y ou que exista uma relação de causa e efeito entre elas (Zar 2016). A análise é definida em termos da variância de X, a variância de Y, e a covariância de X e Y (i.e. como elas variam juntas).
 
 > $$ r = \frac{\sum{XY} - \frac{\sum{X} \sum{Y}}{n}}{\sqrt{\left(\sum{X^2} - \frac{\sum{X}^2}{n}\right)\left(\sum{Y^2} - \frac{\sum{Y}^2}{n}\right)}} $$
 
@@ -358,7 +359,7 @@ Visualizar os resultados em gráfico
 library(ggplot2)
 ggplot(data = correlacao_arbustos, aes(x= Tamanho_raiz, y= Tamanho_tronco)) + 
   labs(x = "Tamanho da raiz", y = "Altura do tronco", size = 20) +
-  geom_point(size = 15, shape = 21, fill = "gray") +
+  geom_point(size = 10, shape = 21, fill = "gray") +
   geom_text(x = 14, y = 14, label = "r = 0.89, P < 0.001", color = "black", size = 7) +
   theme_bw() +
   theme(axis.title.y = element_text(size = 20), axis.title.x = element_text(size = 20)) +
@@ -376,9 +377,9 @@ Neste exemplo, rejeitamos a hipótese nula que as variáveis não são correlaci
 <p>&nbsp;</p>
 
 
-## Regressão Simples
+## Regressão Linear Simples
 
-### Backgorund da análise
+### Background da análise
 
 A regressão simples é usada para analisar a relação entre uma variável preditora (plotada no eixo-X) e uma variável resposta (plotada no eixo-Y). As duas variáveis devem ser contínuas. Diferente das correlações, a regressão assume uma relação de causa e efeito entre as variáveis. O valor da variável preditora (X) causa, direta ou indiretamente, o valor da variável resposta (Y). Assim, Y é uma função linear de X:
 
@@ -388,11 +389,11 @@ Onde:
 
 * $\beta_0$ = intercepto que representa o valor da função quando X = 0,
 
-* $\beta_{1}$ = inclinação (*slope*) que mede a mudança na variável Y para cada mudança de unidade da variável X.
+* $\beta_{1}$ = inclinação (*slope*) que mede a mudança na variável Y para cada mudança de unidade da variável X. Este parâmetro é usado para testar a hipótese nula da regressão que assume que $\beta_{1}$ = 0.
 
 * $\epsilon_{1}$ = erro aleatório referente a variável Y que não pode ser explicado pela variável X.
 
-> ####  Premissas da Regressão Simples: 
+> ####  Premissas da Regressão Linear Simples: 
 > - As amostras devem ser independentes;
 > - As unidades amostrais são selecionadas aleatoriamente;
 > - Distribuição normal (gaussiana) dos resíduos; 
@@ -400,7 +401,7 @@ Onde:
 
 <p>&nbsp;</p>
 
-#### Exemplo prático 1 - Regressão simples
+#### Exemplo prático 1 - Regressão linear simples
 ##### Explicação dos dados
 
 Neste exemplo, avaliaremos a relação entre o gradiente de temperatura média anual (°C) e o tamanho médio do comprimento rostro-cloacal (CRC em mm) de populações de *Dendropsophus minutus* (Anura:Hylidae) amostradas em 109 localidades no Brasil (Boaratti & da Silva 2015). 
@@ -427,7 +428,7 @@ Neste exemplo, avaliaremos a relação entre o gradiente de temperatura média a
 
 ### Análise
 
-Calculo da regressão simples
+Calculo da regressão linear simples
 
 ```{r}
 ## IMPORTANDO DADOS
@@ -463,7 +464,7 @@ Visualizar os resultados em gráfico
 library(ggplot2)
 ggplot(data = dados_regressao, aes(x= Temperatura, y= CRC)) + 
   labs(x = "Temperatura média anual (°C)", y = "Comprimento rostro-cloacal (mm)", size = 20) +
-  geom_point(size = 15, shape = 21, fill = "gray") +
+  geom_point(size = 10, shape = 21, fill = "gray") +
   geom_text(x = 25, y = 17.8, label = "R2 = 0.26, P < 0.001", color = "black", size = 7) +
   theme_bw() +
   theme(axis.title.y = element_text(size = 20), axis.title.x = element_text(size = 20)) +
@@ -480,9 +481,9 @@ Neste exemplo, rejeitamos a hipótese nula que não existe relação entre o tam
 
 <p>&nbsp;</p>
 
-## Regressão Múltipla
+## Regressão Linear Múltipla
 
-### Backgorund da análise
+### Background da análise
 
 A regressão múltipla é uma extensão da regressão simples. Ela é usada quando queremos determinar o valor da variável resposta (Y) com base nos valores de duas ou mais variáveis preditoras (X<sub>1</sub>, X<sub>2</sub>, X<sub>*n*</sub>). 
 
@@ -496,7 +497,7 @@ Onde:
 
 * $\epsilon_{1}$ = erro aleatório referente a variável Y que não pode ser explicado pelas variáveis preditoras.
 
-> ####  Premissas da Regressão Múltipla: 
+> ####  Premissas da Regressão Linear Múltipla: 
 > - As amostras devem ser independentes;
 > - As unidades amostrais são selecionadas aleatoriamente;
 > - Distribuição normal (gaussiana) dos resíduos; 
@@ -504,7 +505,7 @@ Onde:
 
 <p>&nbsp;</p>
 
-#### Exemplo prático 1 - Regressão múltipla
+#### Exemplo prático 1 - Regressão linear múltipla
 ##### Explicação dos dados
 
 Utilizaremos o mesmo exemplo da regressão simples. Contudo, além do gradiente de temperatura média anual (°C) incluiremos o gradiente de precipitação anual (mm) como outra variável preditora do tamanho médio do comprimento rostro-cloacal (CRC em mm) de populações de *Dendropsophus minutus* (Anura:Hylidae) amostradas em 109 localidades no Brasil (Boaratti & da Silva 2015).
@@ -531,7 +532,7 @@ Utilizaremos o mesmo exemplo da regressão simples. Contudo, além do gradiente 
 
 ### Análise
 
-Cálculo da regressão múltipla
+Cálculo da regressão linear múltipla
 
 ```{r}
 ## IMPORTANDO DADOS
@@ -599,7 +600,7 @@ Neste exemplo, a precipitação não está associada com a variação no tamanho
 
 ## Análises de Variância (ANOVA)
 
-### Backgorund da análise
+### Background da análise
 
 Anova refere-se a uma variedade de delineamentos experimentais nos quais a variável preditora é categórica e a variável resposta é contínua (Gotelli & Ellison 2013). Exemplos desses delineamentos experimentais são: Anova de um fator, Anova de dois fatores, Anova em blocos aleatorizados, Anova de medidas repetidas e Anova *split-splot*. De forma geral, a Anova é um teste estatístico usado para comparar a média entre grupos amostrados independentementes. Para isso,  o teste leva em conta, além das médias dos grupos, a variação dos dados dentro e entre os grupos. Neste capítulo, iremos demonstrar as linhas de comandos para alguns dos principais delineamentos experimentais. 
 
@@ -683,11 +684,6 @@ Percebam que o resultado da Anova (Pr(>F) < 0.001) indica que devemos rejeitar a
 #***********************************
 # Teste de Tuckey's honest significant difference
 TukeyHSD(Modelo_anova)
-
-# ou
-
-# Teste T
-pairwise.t.test(dados_anova_simples$Crescimento, dados_anova_simples$Tratamento)
 ```
 
 Visualizar os resultados em gráfico 
@@ -777,7 +773,7 @@ Modelo2 <- aov(Tempo ~ Pessoas + Idade, data = dados_dois_fatores)
 # A hipótese nula é que o modelo mais simples é melhor
 # Valores de p < 0.05 rejeita a hipótese nula e o modelo mais complexo é o melhor
 # Valores de p > 0.05 não rejeita a hipótese nula e o modelo mais simples é o melhor
-library(lmtest)
+library(emmeans)
 lrtest(Modelo1, Modelo2)
 
 # VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS
@@ -825,8 +821,112 @@ Neste exemplo, O sitesma XY de determinação do sexo e a idade dos pacientes te
 
 <p>&nbsp;</p>
 
+
+#### Exemplo prático 2 - Anova de dois fatores com efeito da interação
+##### Explicação dos dados
+
+Neste exemplo usaremos os mesmos dados do exemplo anterior. Neste caso, alteremos os dados para que a interação seja significativa.
+
+```{r}
+## IMPORTANDO DADOS
+#********************
+dados_dois_fatores_interacao <- ecodados::anova_dois_fatores_interacao1
+head(dados_dois_fatores_interacao)
+
+# Análise anova de dois fatores 
+#********************************
+# A interação entre os fatores é representada por *
+Modelo_interacao1 <- aov(Tempo ~ Pessoas * Idade, data = dados_dois_fatores_interacao) 
+
+# Olhando os resultados
+anova(Modelo_interacao1)
+```
+
+Percebam que a interação é significativa (P < 0.05). Agora nossa interpretação precisa ser baseada na interação entre os fatores. Vamos visualizar os resultados em gráfico.
+
+```{r}
+# Gráfico
+library(ggplot2)
+library(ggforce)
+ggplot(data = dados_dois_fatores_interacao, aes(y= Tempo, x= Pessoas, color = Idade)) + 
+  geom_boxplot() +
+  stat_summary(fun = mean, geom="point", aes(group=Idade, x = Pessoas), color = "black",
+               position = position_dodge(0.7), size  = 4) +
+  geom_link(aes(x = 0.8, y = 31, xend = 1.8, yend = 40), color = "steelblue1", 
+            lwd  = 1.3, linetype = 2) + 
+  geom_link(aes(x = 1.2, y = 28.5, xend = 2.2, yend = 26.5), color = "springgreen1", 
+            lwd  = 1.3, linetype = 2) + 
+  labs(x = "Sistema XY de determinação do sexo", y = "Tempo (horas) para eliminar a droga", 
+       size = 20) +
+  scale_color_manual(values = c("steelblue1", "springgreen1", "steelblue1", 
+                                "springgreen1")) +
+  scale_y_continuous(limits = c(10, 50), breaks = c(10, 20, 30, 40, 50)) +
+  theme(axis.title.y = element_text(size = 17), axis.title.x = element_text(size = 17)) +
+  theme(axis.text.y = element_text(size = 17), axis.text.x = element_text(size = 17)) +
+  theme(panel.grid.minor = element_blank(), 
+        panel.border = element_rect(colour = "black", fill=NA, size = 2))
+```
+
+**Interpretação dos resultados**
+
+Percebam que para saber a resposta do fator idade (jovem ou idoso) na eliminação da droga, você precisa saber com qual pessoa (XX ou XY) ele está associado. Isso porque a resposta de um fator depende do outro fator. Jovens eliminam o droga do corpo mais rápido nas pessoa XY enquanto os idosos eliminam a droga mais rápido nas pessoas XX. 
+
+<p>&nbsp;</p>
+
+#### Exemplo prático 3 - Anova de dois fatores com efeito da interação
+##### Explicação dos dados
+
+Neste exemplo usaremos os mesmos dados do exemplo anterior. Neste caso, alteremos os dados para que a interação seja significativa.
+
+```{r}
+## IMPORTANDO DADOS
+#********************
+dados_dois_fatores_interacao2 <- ecodados::anova_dois_fatores_interacao2
+head(dados_dois_fatores_interacao2)
+
+# Análise anova de dois fatores 
+#********************************
+# A interação entre os fatores é representada por *
+Modelo_interacao2 <- aov(Tempo ~ Pessoas * Idade, data = dados_dois_fatores_interacao2)
+
+# Olhando os resultados
+anova(Modelo_interacao2)
+```
+
+Percebam que a interação é significativa (P < 0.05), mas a idade não é significativa. Nossa interpretação precisa ser baseada na interação entre os fatores. Vamos visualizar os resultados em gráfico.
+
+```{r}
+# Gráfico
+library(ggplot2)
+library(ggforce)
+ggplot(data = dados_dois_fatores_interacao2, aes(y= Tempo, x= Pessoas, color = Idade)) + 
+  geom_boxplot() +
+  stat_summary(fun = mean, geom="point", aes(group=Idade, x = Pessoas), color = "black",
+               position = position_dodge(0.7), size  = 4) +
+  geom_link(aes(x = 0.8, y = 31, xend = 1.8, yend = 27), color = "steelblue1", 
+            lwd  = 1.3, linetype = 2) + 
+  geom_link(aes(x = 1.2, y = 19, xend = 2.2, yend = 41), color = "springgreen1", 
+            lwd  = 1.3, linetype = 2) + 
+  labs(x = "Sistema XY de determinação do sexo", y = "Tempo (horas) para eliminar a droga", 
+       size = 20) +
+  scale_color_manual(values = c("steelblue1", "springgreen1", "steelblue1", "springgreen1")) +
+  scale_y_continuous(limits = c(10, 50), breaks = c(10, 20, 30, 40, 50)) +
+  theme(axis.title.y = element_text(size = 17), axis.title.x = element_text(size = 17)) +
+  theme(axis.text.y = element_text(size = 17), axis.text.x = element_text(size = 17)) +
+  theme(panel.grid.minor = element_blank(), 
+        panel.border = element_rect(colour = "black", fill=NA, size = 2))
+```
+
+**Interpretação dos resultados**
+
+Percebam que as linhas se cruzam. Esse é exemplo clássico de interação. Novamente, para saber a resposta do fator idade (jovem ou idoso), você precisa saber com qual pessoa (XX ou XY) ele está associado. Jovens são mais rápidos para eliminar a droga em pessoas XX enquanto os idosos são mais rápidos para eliminar a droga nas pessoas XY.
+
+<p>&nbsp;</p>
+
+
+
 ## ANOVA em blocos aleatorizados
-No delineamento experimental com blocos aleatorizados, cada fator é agrupado em blocos, com réplicas de cada nível do fator representado em cada bloco (Gotelli & Elisson 2013). O bloco é uma área ou período de tempo dentro do qual as condições ambientais são relativamente homogêneas.  O objetivo do uso dos blocos é controlar fontes de variações indesejadas na variável dependente que não são de interesse do pesquisador. Desta maneira, podemos retirar dos resíduos, os efeitos das variações indesejadas que não do nosso interesse, e testar com maior poder estatístico os efeitos dos tratamentos de interesse. Importante, os blocos devem ser arranjados de forma que as condições ambientais sejam mais similares dentro dos blocos do que entre os blocos. 
+No delineamento experimental com blocos aleatorizados, cada fator é agrupado em blocos, com réplicas de cada nível do fator representado em cada bloco (Gotelli & Elisson 2013). O bloco é uma área ou período de tempo dentro do qual as condições ambientais são relativamente homogêneas.  O objetivo do uso dos blocos é controlar fontes de variações indesejadas na variável dependente que não são de interesse do pesquisador. Desta maneira, podemos retirar dos resíduos, os efeitos das variações indesejadas que não são do nosso interesse, e testar com maior poder estatístico os efeitos dos tratamentos de interesse. Importante, os blocos devem ser arranjados de forma que as condições ambientais sejam mais similares dentro dos blocos do que entre os blocos. 
 
 <p>&nbsp;</p>
 
@@ -984,7 +1084,19 @@ plot_grid(plot_model(modelo_ancova, type = "diag"))
 anova(modelo_ancova)
 ```
 
-Percebam que o resultado da ANCOVA (Pr(>F) < 0.001) indica que tanto a herbivoria como a o tamanho da raiz (covariável) tem efeitos significativos na biomassa dos frutos.
+Percebam que o resultado da ANCOVA (Pr(>F) < 0.001) indica que tanto a herbivoria como a o tamanho da raiz (covariável) tem efeitos significativos na biomassa dos frutos. Contudo, a interação entre as variáveis não foi signigicativa. Vamos usar o Likelihood ratio test (LRT) para ver se podemos seguir com um modelo mais simples (sem interação).
+
+```{r}
+modelo_ancova <- lm(Biomassa ~ Herbivoria * Raiz, data = dados_ancova)
+modelo_ancova2 <- lm(Biomassa ~ Herbivoria + Raiz, data = dados_ancova)
+
+# LRT 
+library(lmtest)
+# A hipótese nula é que o modelo mais simples é melhor
+# Valores de p < 0.05 rejeita a hipótese nula e o modelo mais complexo é o melhor
+# Valores de p > 0.05 não rejeita a hipótese nula e o modelo mais simples é o melhor
+lrtest(modelo_ancova, modelo_ancova2)
+```
 
 Visualizar os resultados em gráfico 
 
@@ -993,7 +1105,7 @@ Visualizar os resultados em gráfico
 library(ggplot2)
 ggplot(data = dados_ancova, aes(x= Raiz, y= Biomassa, fill = Herbivoria)) + 
   labs(x = "Tamanho da raiz (cm)", y = "Biomassa dos frutos (g)", size = 20) +
-  geom_point(size = 15, shape = 21) +
+  geom_point(size = 10, shape = 21) +
   theme(axis.title.y = element_text(size = 17), axis.title.x = element_text(size = 17)) +
   theme(axis.text.y = element_text(size = 17), axis.text.x = element_text(size = 17)) +
   theme(panel.grid.major = element_blank(),  
