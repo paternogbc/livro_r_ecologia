@@ -773,7 +773,7 @@ Modelo2 <- aov(Tempo ~ Pessoas + Idade, data = dados_dois_fatores)
 # A hipótese nula é que o modelo mais simples é melhor
 # Valores de p < 0.05 rejeita a hipótese nula e o modelo mais complexo é o melhor
 # Valores de p > 0.05 não rejeita a hipótese nula e o modelo mais simples é o melhor
-library(emmeans)
+library(lmtest)
 lrtest(Modelo1, Modelo2)
 
 # VERIFICANDO A NORMALIDADE E HOMOGENEIDADE DAS VARIÂNCIAS
@@ -998,7 +998,7 @@ Percebam que o resultado da Anova (Pr(>F) < 0.001) indica que devemos rejeitar a
 # Diferenças entre os tratamentos
 #***********************************
 # Teste de Tuckey's honest significant difference
-library(lsmeans)
+library(emmeans)
 pairs(lsmeans(model_bloco1, "Pocas"), adjust = "tukey")
 ```
 
