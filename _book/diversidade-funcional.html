@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 Diversidade Funcional | Introdução ao R com aplicações em biodiversidade e conservação</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 Diversidade Funcional | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Diversidade Funcional | Introdução ao R com aplicações em biodiversidade e conservação" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="" />
+
+
+<meta name="date" content="2020-09-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="references.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
+<li class="chapter" data-level="2" data-path="estatística-básica.html"><a href="estatística-básica.html"><i class="fa fa-check"></i><b>2</b> Estatística básica</a><ul>
+<li class="chapter" data-level="2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-de-student-para-duas-amostras-independentes"><i class="fa fa-check"></i><b>2.1</b> Teste T (de Student) para duas amostras independentes</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise"><i class="fa fa-check"></i><b>2.1.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.1.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>2.1.2</b> Análise</a></li>
+<li class="chapter" data-level="2.1.3" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>2.1.3</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-para-amostras-pareadas"><i class="fa fa-check"></i><b>2.2</b> Teste T para amostras pareadas</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-1"><i class="fa fa-check"></i><b>2.2.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>2.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="estatística-básica.html"><a href="estatística-básica.html#correlação-de-pearson"><i class="fa fa-check"></i><b>2.3</b> Correlação de Pearson</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-2"><i class="fa fa-check"></i><b>2.3.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>2.3.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-linear-simples"><i class="fa fa-check"></i><b>2.4</b> Regressão Linear Simples</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-3"><i class="fa fa-check"></i><b>2.4.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.4.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>2.4.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-linear-múltipla"><i class="fa fa-check"></i><b>2.5</b> Regressão Linear Múltipla</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-4"><i class="fa fa-check"></i><b>2.5.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.5.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>2.5.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análises-de-variância-anova"><i class="fa fa-check"></i><b>2.6</b> Análises de Variância (ANOVA)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-5"><i class="fa fa-check"></i><b>2.6.1</b> Background da análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-um-fator"><i class="fa fa-check"></i><b>2.7</b> ANOVA de um fator</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>2.7.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-dois-fatores-ou-anova-fatorial"><i class="fa fa-check"></i><b>2.8</b> ANOVA de dois fatores ou Anova fatorial</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-7"><i class="fa fa-check"></i><b>2.8.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-em-blocos-aleatorizados"><i class="fa fa-check"></i><b>2.9</b> ANOVA em blocos aleatorizados</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-8"><i class="fa fa-check"></i><b>2.9.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-de-covariância-ancova"><i class="fa fa-check"></i><b>2.10</b> Análise de covariância (ANCOVA)</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-9"><i class="fa fa-check"></i><b>2.10.1</b> Análise</a></li>
+<li class="chapter" data-level="2.10.2" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>2.10.2</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>3</b> Introdução à Análises Multidimensionais</a><ul>
+<li class="chapter" data-level="3.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>3.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>3.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="3.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>3.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>3.3</b> Exemplo 2:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html"><i class="fa fa-check"></i><b>4</b> K-means e agrupamentos não-hierarquicos</a><ul>
+<li class="chapter" data-level="4.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>4.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="4.2" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-1"><i class="fa fa-check"></i><b>4.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>4.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>4.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>4.3</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="4.4" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#exemplo-1-2"><i class="fa fa-check"></i><b>4.4</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="k-means-e-agrupamentos-não-hierarquicos.html"><a href="k-means-e-agrupamentos-não-hierarquicos.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>4.4.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="4.4.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>4.4.2</b> Análise</a></li>
+<li class="chapter" data-level="4.4.3" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>4.4.3</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>5</b> Rarefação</a><ul>
+<li class="chapter" data-level="5.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise"><i class="fa fa-check"></i><b>5.1</b> Background da análise</a></li>
+<li class="chapter" data-level="5.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>5.2</b> Exemplo prático 1 - Morcegos</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>5.2.1</b> Explicação</a></li>
+<li class="chapter" data-level="5.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>5.2.2</b> Análise</a></li>
+<li class="chapter" data-level="5.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>5.2.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>5.3</b> Exemplo prático 2 - Rarefação</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>5.3.1</b> Explicação</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>5.3.2</b> Análise</a></li>
+<li class="chapter" data-level="5.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>5.3.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>5.4</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>6</b> Estimadores de Riqueza</a><ul>
+<li class="chapter" data-level="6.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>6.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="6.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>6.2</b> Estimadores baseados na abundância das espécies</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>6.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
+<li class="chapter" data-level="6.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>6.2.2</b> Análise</a></li>
+<li class="chapter" data-level="6.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>6.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
+<li class="chapter" data-level="6.2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>6.2.4</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>6.3</b> Estimadores baseados na incidência das espécies</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>6.3.1</b> CHAO 2 - (Chao 1987):</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>6.3.2</b> Análise</a></li>
+<li class="chapter" data-level="6.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>6.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
+<li class="chapter" data-level="6.3.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>6.3.4</b> Análise</a></li>
+<li class="chapter" data-level="6.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>6.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
+<li class="chapter" data-level="6.3.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>6.3.6</b> Análise</a></li>
+<li class="chapter" data-level="6.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>6.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
+<li class="chapter" data-level="6.3.8" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>6.3.8</b> Análise</a></li>
+<li class="chapter" data-level="6.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>6.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
+<li class="chapter" data-level="6.3.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>6.3.10</b> Análise</a></li>
+<li class="chapter" data-level="6.3.11" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>6.3.11</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html"><i class="fa fa-check"></i><b>7</b> Diversidade Funcional</a><ul>
+<li class="chapter" data-level="7.1" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#aspectos-teóricos"><i class="fa fa-check"></i><b>7.1</b> 2.1 Aspectos teóricos</a></li>
+<li class="chapter" data-level="7.2" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#definindo-a-dissimilaridade-entre-espécies"><i class="fa fa-check"></i><b>7.2</b> 2.2. Definindo a dis(similaridade) entre espécies</a></li>
+<li class="chapter" data-level="7.3" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#métricas-de-diversidade-funcional-alpha"><i class="fa fa-check"></i><b>7.3</b> 2.3 Métricas de diversidade funcional (alpha)</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#riqueza-funcional"><i class="fa fa-check"></i><b>7.3.1</b> 2.2.1 Riqueza funcional</a></li>
+<li class="chapter" data-level="7.3.2" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#divergência-funcional"><i class="fa fa-check"></i><b>7.3.2</b> 2.2.2. Divergência funcional</a></li>
+<li class="chapter" data-level="7.3.3" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>7.3.3</b> Análise</a></li>
+<li class="chapter" data-level="7.3.4" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#regularidade-funcional"><i class="fa fa-check"></i><b>7.3.4</b> 2.2.3. Regularidade funcional</a></li>
+<li class="chapter" data-level="7.3.5" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>7.3.5</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#métricas-de-diversidade-funcional-beta"><i class="fa fa-check"></i><b>7.4</b> 2.3 Métricas de diversidade funcional (beta)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="diversidade-funcional" class="section level1">
+<h1><span class="header-section-number">Capítulo 7</span> Diversidade Funcional</h1>
+<div id="aspectos-teóricos" class="section level2">
+<h2><span class="header-section-number">7.1</span> 2.1 Aspectos teóricos</h2>
+<p>Até a década de 1990, a teoria ecológica investigava basicamente quais processos determinavam a abundância e riqueza de espécies no espaço e tempo. Esta década foi marcada por intensos debates sobre as regras de montagem de comunidades e como interações e filtros ambientais determinavam a coexistência de espécies (Strong et al. 1984). Porém, a década 2000 foi marcada pelo uso mais explícito da características das espécies como uma variável fundamental tanto explicar como as espécies seriam afetadas pelo ambiente, quanto para entender como tais espécies afetariam o ecossistema (Diaz &amp; Cabido 2001, McGill et al. 2006). O primeiro estudo que utilizou o termo Diversidade Funcional foi publicado por Williams (1994), que comparou espécies de naúplios filogenéticamente relacionadas e demonstrou que elas possuem alta plasticidade funcional que favorecem ampla variação de comportamentos e, desse modo, permitem que sejam espécies generalistas em ambientes em contante mudança.
+A unidade básica desses estudos, o atributo funcional (do inglês “functional trait”), é definido como uma propriedade mensurável dos organismos (geralmente em nível individual) que represente características morfológicas, fisiológicas ou fenológicas que afetam a aptidão alterando aspectos do crescimento, reprodução e sobrevivência (Violle et al. 2007). Mais especificamente, o atributo funcional pode ser divido em atributo efeito (i.e., atributos do organismo que afetam condições ambientais ou propriedades do ecossistema) e resposta (i.e., atributos do organismo que variam em resposta a condições ambientais) (Violle et al. 2007).</p>
+<p>As medidas de diversidade, então, passam a ser representadas não somente por diferenças no número e na quantidade de espécies. Ao invés disso, as diferenças/semelhanças dos atributos funcionais das espécies dentro e entre localidades é usada como uma medida de diversidade. Desse modo, a variação no grau de expressão de diferentes atributos funcionais entre diferentes populações, comunidades ou ecossistemas é definida como <em>Diversidade Funcional</em> (<strong>sensu</strong> Garnier 2015). Porém, a diversidade funcional não deve ser usada como medida única, uma vez que tais diferenças entre os atributos funcionais pode ser medida a partir da abundância relativa, riqueza e variação dos atributos funcionais. Desse modo, podemos dividir a diversidade funcional em três diferentes medidas: <em>(1)</em> riqueza funcional, <em>(2)</em> divergência funcional, e <em>(3)</em> regularidade funcional (Villéger et al. 2008). Existem dezenas de métricas que calculam cada uma dessas “dimensões” da diversidadade funcional, mas se destacam aquelas baseadas em dendrograma (e.g., FD: Petchey &amp; Gaston 2004) ou em medidas de distância (e.g., Villeger et al. 2008). Assim como a diversidade taxonômica (<em>Capítulo XXX</em>), a diversidade funcional pode ser medida em componentes alfa e beta. A seguir, apresentamos diferentes maneiras de calcular a distância entre localidades tendo como base os atributos funcionais das espécies e, além disso, demonstramos como calcular algumas das métricas de diversidade (alfa e beta) funcional mais usadas em ecologia. A parte final deste capítulo apresenta dois exemplos de como podemos testar hipóteses ecológicas comparando a diversidade funcional alfa e beta.</p>
+</div>
+<div id="definindo-a-dissimilaridade-entre-espécies" class="section level2">
+<h2><span class="header-section-number">7.2</span> 2.2. Definindo a dis(similaridade) entre espécies</h2>
+<p>Definir o quão diferente ou semelhante são duas espécies que ocorrem em um determinada localidade é a base para calcular a diversidade alfa e beta funcional. Para isso, é fundamental ter em mente que os atributos funcionais podem ser de vários tipos como, por exemplo, contínuo (e.g., tamanho corporal em cm), categórico (e.g., guilda: frugívoro, detritívoro, etc.), ordinal (e.g., 1 para organismo até 5 cm, 2 para organismos entre 5 e 30 cm, e 3 para organismos amiores do que 30 cm), binários (e.g., presença ou ausência de espinho), entre outros (veja Tabela 1 em Gonçalves-Souza et al. 2019). Por este motivo, a decisão do método de distância só será possível após o reconhecimento do tipo de cada um dos atributos funcionais escolhidos. Em linhas gerais, para variáveis contínuas a distância euclideana é a melhor opção, enquanto para os outros tipos de variáveis ou para matrizes com mais de um tipo de variáveis, a distância de Gower deve ser usada (Pavoine et al. 2009).</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="diversidade-funcional.html#cb182-1"></a><span class="kw">library</span>(FD)</span>
+<span id="cb182-2"><a href="diversidade-funcional.html#cb182-2"></a><span class="kw">library</span>(ade4)</span>
+<span id="cb182-3"><a href="diversidade-funcional.html#cb182-3"></a><span class="kw">library</span>(ecodados)</span>
+<span id="cb182-4"><a href="diversidade-funcional.html#cb182-4"></a><span class="kw">library</span>(gridExtra)</span>
+<span id="cb182-5"><a href="diversidade-funcional.html#cb182-5"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb182-6"><a href="diversidade-funcional.html#cb182-6"></a><span class="kw">library</span>(ggrepel)</span>
+<span id="cb182-7"><a href="diversidade-funcional.html#cb182-7"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb182-8"><a href="diversidade-funcional.html#cb182-8"></a><span class="kw">library</span>(picante)</span>
+<span id="cb182-9"><a href="diversidade-funcional.html#cb182-9"></a></span>
+<span id="cb182-10"><a href="diversidade-funcional.html#cb182-10"></a></span>
+<span id="cb182-11"><a href="diversidade-funcional.html#cb182-11"></a><span class="co">### Baixe todos esses dados, pois serão utilizados em outras partes deste capítulo</span></span>
+<span id="cb182-12"><a href="diversidade-funcional.html#cb182-12"></a></span>
+<span id="cb182-13"><a href="diversidade-funcional.html#cb182-13"></a></span>
+<span id="cb182-14"><a href="diversidade-funcional.html#cb182-14"></a>comun_fren_dat &lt;-<span class="st"> </span>ecodados<span class="op">::</span>fundiv_frenette2012a_comu</span>
+<span id="cb182-15"><a href="diversidade-funcional.html#cb182-15"></a>ambie_fren_dat &lt;-<span class="st"> </span>ecodados<span class="op">::</span>fundiv_frenette2012a_amb</span>
+<span id="cb182-16"><a href="diversidade-funcional.html#cb182-16"></a>trait_fren_dat &lt;-<span class="st"> </span>ecodados<span class="op">::</span>fundiv_frenette2012a_trait</span>
+<span id="cb182-17"><a href="diversidade-funcional.html#cb182-17"></a>trait_dat      &lt;-<span class="st"> </span>ecodados<span class="op">::</span>fundiv_barbaro2009a_trait</span>
+<span id="cb182-18"><a href="diversidade-funcional.html#cb182-18"></a>comun_dat      &lt;-<span class="st"> </span>ecodados<span class="op">::</span>fundiv_barbaro2009a_comu</span>
+<span id="cb182-19"><a href="diversidade-funcional.html#cb182-19"></a>ambie_dat      &lt;-<span class="st"> </span>ecodados<span class="op">::</span>fundiv_barbaro2009a_amb</span>
+<span id="cb182-20"><a href="diversidade-funcional.html#cb182-20"></a></span>
+<span id="cb182-21"><a href="diversidade-funcional.html#cb182-21"></a></span>
+<span id="cb182-22"><a href="diversidade-funcional.html#cb182-22"></a></span>
+<span id="cb182-23"><a href="diversidade-funcional.html#cb182-23"></a><span class="co"># Medidas de distância com dados contínuos (quantitativos)</span></span>
+<span id="cb182-24"><a href="diversidade-funcional.html#cb182-24"></a></span>
+<span id="cb182-25"><a href="diversidade-funcional.html#cb182-25"></a>trait_cont &lt;-<span class="st"> </span>trait_fren_dat</span>
+<span id="cb182-26"><a href="diversidade-funcional.html#cb182-26"></a>trait_pad &lt;-<span class="st"> </span><span class="kw">decostand</span>(trait_cont, <span class="st">&quot;standardize&quot;</span>)</span>
+<span id="cb182-27"><a href="diversidade-funcional.html#cb182-27"></a>euclid_dis &lt;-<span class="st"> </span><span class="kw">vegdist</span>(trait_pad, <span class="st">&quot;euclidean&quot;</span>)</span>
+<span id="cb182-28"><a href="diversidade-funcional.html#cb182-28"></a></span>
+<span id="cb182-29"><a href="diversidade-funcional.html#cb182-29"></a>pcoa_traits_cont &lt;-<span class="st"> </span><span class="kw">pcoa</span>(euclid_dis, <span class="dt">correction=</span><span class="st">&quot;cailliez&quot;</span>) <span class="co"># Resultados são idênticos ao de uma PCA</span></span>
+<span id="cb182-30"><a href="diversidade-funcional.html#cb182-30"></a>eixos_cont &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(pcoa_traits_cont<span class="op">$</span>vectors[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]) <span class="co"># Selecionar os dois primeiros eixos</span></span>
+<span id="cb182-31"><a href="diversidade-funcional.html#cb182-31"></a></span>
+<span id="cb182-32"><a href="diversidade-funcional.html#cb182-32"></a>eixos_cont <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb182-33"><a href="diversidade-funcional.html#cb182-33"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Axis<span class="fl">.1</span>, <span class="dt">y=</span>Axis<span class="fl">.2</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb182-34"><a href="diversidade-funcional.html#cb182-34"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">size=</span><span class="dv">3</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;#4575b4&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb182-35"><a href="diversidade-funcional.html#cb182-35"></a><span class="st">   </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(Axis<span class="fl">.1</span>, Axis<span class="fl">.2</span>, <span class="dt">label =</span> <span class="kw">rownames</span>(eixos_cont))) <span class="op">+</span></span>
+<span id="cb182-36"><a href="diversidade-funcional.html#cb182-36"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;PCO 1&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;PCO 2&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb182-37"><a href="diversidade-funcional.html#cb182-37"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb182-38"><a href="diversidade-funcional.html#cb182-38"></a>        <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb182-39"><a href="diversidade-funcional.html#cb182-39"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb182-40"><a href="diversidade-funcional.html#cb182-40"></a>        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb182-41"><a href="diversidade-funcional.html#cb182-41"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">linetype=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb182-42"><a href="diversidade-funcional.html#cb182-42"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>, <span class="dt">linetype=</span><span class="dv">2</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb182-43"><a href="diversidade-funcional.html#cb182-43"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">legend.title=</span><span class="kw">element_blank</span>()) -&gt;<span class="st"> </span>plot_trait_cont</span>
+<span id="cb182-44"><a href="diversidade-funcional.html#cb182-44"></a>plot_trait_cont</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="diversidade-funcional.html#cb183-1"></a><span class="kw">ggsave</span>(<span class="st">&quot;trait_cont.pdf&quot;</span>, plot_trait_cont, <span class="dt">height =</span> <span class="dv">14</span>, <span class="dt">width =</span> <span class="dv">14</span>, <span class="dt">dpi =</span> <span class="dv">600</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb183-2"><a href="diversidade-funcional.html#cb183-2"></a></span>
+<span id="cb183-3"><a href="diversidade-funcional.html#cb183-3"></a><span class="co"># Medidas de distância com dados categóricos</span></span>
+<span id="cb183-4"><a href="diversidade-funcional.html#cb183-4"></a></span>
+<span id="cb183-5"><a href="diversidade-funcional.html#cb183-5"></a>trait_dat <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb183-6"><a href="diversidade-funcional.html#cb183-6"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select_if</span>(is.character) -&gt;<span class="st"> </span>trait_cat </span>
+<span id="cb183-7"><a href="diversidade-funcional.html#cb183-7"></a>dist_categ &lt;-<span class="st"> </span><span class="kw">gowdis</span>(trait_cat)</span>
+<span id="cb183-8"><a href="diversidade-funcional.html#cb183-8"></a></span>
+<span id="cb183-9"><a href="diversidade-funcional.html#cb183-9"></a><span class="co"># Visualize os dados com uma PCoA </span></span>
+<span id="cb183-10"><a href="diversidade-funcional.html#cb183-10"></a></span>
+<span id="cb183-11"><a href="diversidade-funcional.html#cb183-11"></a>pcoa_traits_cat &lt;-<span class="st"> </span><span class="kw">pcoa</span>(dist_categ, <span class="dt">correction=</span><span class="st">&quot;cailliez&quot;</span>)</span>
+<span id="cb183-12"><a href="diversidade-funcional.html#cb183-12"></a>eixos_cat &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(pcoa_traits_cat<span class="op">$</span>vectors[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]) <span class="co"># Selecionar os dois primeiros eixos</span></span>
+<span id="cb183-13"><a href="diversidade-funcional.html#cb183-13"></a></span>
+<span id="cb183-14"><a href="diversidade-funcional.html#cb183-14"></a>eixos_cat <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb183-15"><a href="diversidade-funcional.html#cb183-15"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Axis<span class="fl">.1</span>, <span class="dt">y=</span>Axis<span class="fl">.2</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb183-16"><a href="diversidade-funcional.html#cb183-16"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">size=</span><span class="dv">3</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;#4575b4&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb183-17"><a href="diversidade-funcional.html#cb183-17"></a><span class="st">   </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(Axis<span class="fl">.1</span>, Axis<span class="fl">.2</span>, <span class="dt">label =</span> <span class="kw">rownames</span>(eixos_cat))) <span class="op">+</span></span>
+<span id="cb183-18"><a href="diversidade-funcional.html#cb183-18"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;PCO 1&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;PCO 2&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb183-19"><a href="diversidade-funcional.html#cb183-19"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb183-20"><a href="diversidade-funcional.html#cb183-20"></a>        <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb183-21"><a href="diversidade-funcional.html#cb183-21"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb183-22"><a href="diversidade-funcional.html#cb183-22"></a>        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb183-23"><a href="diversidade-funcional.html#cb183-23"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">linetype=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb183-24"><a href="diversidade-funcional.html#cb183-24"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>, <span class="dt">linetype=</span><span class="dv">2</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb183-25"><a href="diversidade-funcional.html#cb183-25"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">legend.title=</span><span class="kw">element_blank</span>()) -&gt;<span class="st"> </span>plot_trait_cat</span>
+<span id="cb183-26"><a href="diversidade-funcional.html#cb183-26"></a>plot_trait_cat</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-62-2.png" width="672" /></p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="diversidade-funcional.html#cb184-1"></a><span class="kw">ggsave</span>(<span class="st">&quot;trait_cat.pdf&quot;</span>, plot_trait_cat, <span class="dt">height =</span> <span class="dv">14</span>, <span class="dt">width =</span> <span class="dv">14</span>, <span class="dt">dpi =</span> <span class="dv">600</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb184-2"><a href="diversidade-funcional.html#cb184-2"></a></span>
+<span id="cb184-3"><a href="diversidade-funcional.html#cb184-3"></a><span class="co"># Medidas de distância com dados mistos: contínuos, categóricos, entre outros</span></span>
+<span id="cb184-4"><a href="diversidade-funcional.html#cb184-4"></a><span class="co"># Primeiro, é necessário organizar cada tipo de dado com a função prep.TYPE</span></span>
+<span id="cb184-5"><a href="diversidade-funcional.html#cb184-5"></a></span>
+<span id="cb184-6"><a href="diversidade-funcional.html#cb184-6"></a><span class="co"># Verifique a classe de todos os traits e veja se estão de acordo com sua expectativa</span></span>
+<span id="cb184-7"><a href="diversidade-funcional.html#cb184-7"></a></span>
+<span id="cb184-8"><a href="diversidade-funcional.html#cb184-8"></a>trait_dat <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb184-9"><a href="diversidade-funcional.html#cb184-9"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise_all</span>(class) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb184-10"><a href="diversidade-funcional.html#cb184-10"></a><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(variable, class)</span></code></pre></div>
+<pre><code>##    variable     class
+## 1     trend character
+## 2   redlist character
+## 3     regio   integer
+## 4      biog character
+## 5     activ character
+## 6      diet character
+## 7    winter character
+## 8     color character
+## 9     breed character
+## 10     body   integer
+## 11     wing character
+## 12   period character</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="diversidade-funcional.html#cb186-1"></a><span class="co"># Atribuir classe ORDINAL para os traits ordinais, uma vez que foram reconhecidos como numéricos (&quot;integer&quot;)</span></span>
+<span id="cb186-2"><a href="diversidade-funcional.html#cb186-2"></a></span>
+<span id="cb186-3"><a href="diversidade-funcional.html#cb186-3"></a>trait_dat<span class="op">$</span>regio &lt;-<span class="st"> </span><span class="kw">as.ordered</span>(trait_dat<span class="op">$</span>regio)</span>
+<span id="cb186-4"><a href="diversidade-funcional.html#cb186-4"></a>trait_dat<span class="op">$</span>body &lt;-<span class="st"> </span><span class="kw">as.ordered</span>(trait_dat<span class="op">$</span>body)</span>
+<span id="cb186-5"><a href="diversidade-funcional.html#cb186-5"></a></span>
+<span id="cb186-6"><a href="diversidade-funcional.html#cb186-6"></a><span class="co">## Combinar cada tipo de trait em um data.frame separado</span></span>
+<span id="cb186-7"><a href="diversidade-funcional.html#cb186-7"></a><span class="co"># Categóricos</span></span>
+<span id="cb186-8"><a href="diversidade-funcional.html#cb186-8"></a></span>
+<span id="cb186-9"><a href="diversidade-funcional.html#cb186-9"></a>trait_categ &lt;-<span class="st"> </span><span class="kw">cbind.data.frame</span>(<span class="dt">trend=</span>trait_dat<span class="op">$</span>trend, <span class="dt">redlist=</span>trait_dat<span class="op">$</span>redlist, <span class="dt">biog=</span>trait_dat<span class="op">$</span>biog, <span class="dt">activ=</span>trait_dat<span class="op">$</span>activ,  <span class="dt">diet=</span>trait_dat<span class="op">$</span>diet, <span class="dt">winter=</span>trait_dat<span class="op">$</span>winter,<span class="dt">color=</span>trait_dat<span class="op">$</span>color, <span class="dt">breed=</span>trait_dat<span class="op">$</span>breed,<span class="dt">wing=</span>trait_dat<span class="op">$</span>wing, <span class="dt">period=</span>trait_dat<span class="op">$</span>period)</span>
+<span id="cb186-10"><a href="diversidade-funcional.html#cb186-10"></a></span>
+<span id="cb186-11"><a href="diversidade-funcional.html#cb186-11"></a><span class="co"># Ordinais</span></span>
+<span id="cb186-12"><a href="diversidade-funcional.html#cb186-12"></a>trait_ord &lt;-<span class="st"> </span><span class="kw">cbind.data.frame</span>(<span class="dt">regio=</span>trait_dat<span class="op">$</span>regio, <span class="dt">body=</span>trait_dat<span class="op">$</span>body)</span>
+<span id="cb186-13"><a href="diversidade-funcional.html#cb186-13"></a><span class="kw">rownames</span>(trait_categ) &lt;-<span class="st"> </span><span class="kw">rownames</span>(trait_dat)</span>
+<span id="cb186-14"><a href="diversidade-funcional.html#cb186-14"></a><span class="kw">rownames</span>(trait_ord) &lt;-<span class="st"> </span><span class="kw">rownames</span>(trait_dat)</span>
+<span id="cb186-15"><a href="diversidade-funcional.html#cb186-15"></a></span>
+<span id="cb186-16"><a href="diversidade-funcional.html#cb186-16"></a><span class="co"># Agora, combinar os dois data.frames em uma lista chamada &quot;ktab&quot;</span></span>
+<span id="cb186-17"><a href="diversidade-funcional.html#cb186-17"></a>ktab_list &lt;-<span class="st"> </span><span class="kw">ktab.list.df</span>(<span class="kw">list</span>(trait_categ, trait_ord))</span>
+<span id="cb186-18"><a href="diversidade-funcional.html#cb186-18"></a></span>
+<span id="cb186-19"><a href="diversidade-funcional.html#cb186-19"></a><span class="co"># Por fim, calcular a distância funcional entre as espécies</span></span>
+<span id="cb186-20"><a href="diversidade-funcional.html#cb186-20"></a><span class="co"># Em &quot;type&quot;, a letra N indica variável categórica (ou nominal), enquanto a letra</span></span>
+<span id="cb186-21"><a href="diversidade-funcional.html#cb186-21"></a><span class="co"># O indica variável ordinal</span></span>
+<span id="cb186-22"><a href="diversidade-funcional.html#cb186-22"></a></span>
+<span id="cb186-23"><a href="diversidade-funcional.html#cb186-23"></a>dist_mist &lt;-<span class="st"> </span><span class="kw">dist.ktab</span>(ktab_list, <span class="dt">type=</span> <span class="kw">c</span>(<span class="st">&quot;N&quot;</span>, <span class="st">&quot;O&quot;</span>))</span>
+<span id="cb186-24"><a href="diversidade-funcional.html#cb186-24"></a></span>
+<span id="cb186-25"><a href="diversidade-funcional.html#cb186-25"></a><span class="co"># Visualize os dados com uma PCoA (Ver Capítulo XXX)</span></span>
+<span id="cb186-26"><a href="diversidade-funcional.html#cb186-26"></a></span>
+<span id="cb186-27"><a href="diversidade-funcional.html#cb186-27"></a>pcoa_traits_mist &lt;-<span class="st"> </span><span class="kw">pcoa</span>(dist_mist, <span class="dt">correction=</span><span class="st">&quot;cailliez&quot;</span>)</span>
+<span id="cb186-28"><a href="diversidade-funcional.html#cb186-28"></a>eixos_mist &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(pcoa_traits_mist<span class="op">$</span>vectors[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])  <span class="co"># exportar 2 eixos</span></span>
+<span id="cb186-29"><a href="diversidade-funcional.html#cb186-29"></a></span>
+<span id="cb186-30"><a href="diversidade-funcional.html#cb186-30"></a>eixos_mist <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb186-31"><a href="diversidade-funcional.html#cb186-31"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Axis<span class="fl">.1</span>, <span class="dt">y=</span>Axis<span class="fl">.2</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb186-32"><a href="diversidade-funcional.html#cb186-32"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">size=</span><span class="dv">3</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;#d73027&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb186-33"><a href="diversidade-funcional.html#cb186-33"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(Axis<span class="fl">.1</span>, Axis<span class="fl">.2</span>, <span class="dt">label =</span> <span class="kw">rownames</span>(eixos_mist)))<span class="op">+</span></span>
+<span id="cb186-34"><a href="diversidade-funcional.html#cb186-34"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;PCO 1&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;PCO 2&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb186-35"><a href="diversidade-funcional.html#cb186-35"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb186-36"><a href="diversidade-funcional.html#cb186-36"></a>        <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb186-37"><a href="diversidade-funcional.html#cb186-37"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb186-38"><a href="diversidade-funcional.html#cb186-38"></a>        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb186-39"><a href="diversidade-funcional.html#cb186-39"></a><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">linetype=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb186-40"><a href="diversidade-funcional.html#cb186-40"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>, <span class="dt">linetype=</span><span class="dv">2</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb186-41"><a href="diversidade-funcional.html#cb186-41"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">legend.title=</span><span class="kw">element_blank</span>()) -&gt;<span class="st"> </span>plot_trait_mist</span>
+<span id="cb186-42"><a href="diversidade-funcional.html#cb186-42"></a>plot_trait_mist</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-62-3.png" width="672" /></p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="diversidade-funcional.html#cb187-1"></a><span class="co">## Exportar resultad em pdf. Você pode mudar .pdf por .png ou .svg.</span></span>
+<span id="cb187-2"><a href="diversidade-funcional.html#cb187-2"></a><span class="kw">ggsave</span>(<span class="st">&quot;trait_mist.pdf&quot;</span>, plot_trait_mist, <span class="dt">height =</span> <span class="dv">14</span>, <span class="dt">width =</span> <span class="dv">14</span>, <span class="dt">dpi =</span> <span class="dv">600</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb187-3"><a href="diversidade-funcional.html#cb187-3"></a></span>
+<span id="cb187-4"><a href="diversidade-funcional.html#cb187-4"></a><span class="co"># Agora podemos combinar os dois gráficos para comparar as duas medidas de distância, uma somente com dados categóricos (Gower) e uma com dados categóricos e ordinais (Gower)</span></span>
+<span id="cb187-5"><a href="diversidade-funcional.html#cb187-5"></a></span>
+<span id="cb187-6"><a href="diversidade-funcional.html#cb187-6"></a><span class="kw">grid.arrange</span>(plot_trait_cat, plot_trait_mist, <span class="dt">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-62-4.png" width="672" /></p>
+</div>
+<div id="métricas-de-diversidade-funcional-alpha" class="section level2">
+<h2><span class="header-section-number">7.3</span> 2.3 Métricas de diversidade funcional (alpha)</h2>
+<div id="riqueza-funcional" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> 2.2.1 Riqueza funcional</h3>
+<p>A riqueza funcional mede a quantidade de espaço funcional preenchido pela espécies de uma comunidade (Mason &amp; Mouillot 2013). A estimativa desse espaço pode ser calculada usando dengrogramas (Petchey &amp; Gaston 2002) ou através do método <strong>Convex Hull</strong> (Cornwell et al. 2006) que dão origem, respectivamente, as duas métricas mais usadas: (1) Diversidade Funcional (FD) e (Riqueza Funcional - FRic). Os índices de riqueza funcional geralmente são usados como indicadores do espaço de nicho que é potencialmente usado ou não (Schleuter et al. 2010).</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="diversidade-funcional.html#cb188-1"></a><span class="co"># Antes de calcular as métricas de diversidade funcional, vamos calcular a riqueza de espécies com intuito de comparação entre métricas</span></span>
+<span id="cb188-2"><a href="diversidade-funcional.html#cb188-2"></a></span>
+<span id="cb188-3"><a href="diversidade-funcional.html#cb188-3"></a>richness &lt;-<span class="st"> </span><span class="kw">dbFD</span>(dist_mist, comun_dat)<span class="op">$</span>nbsp <span class="co"># Calcula a riqueza de espécies</span></span></code></pre></div>
+<pre><code>## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When &#39;x&#39; is a distance matrix, CWM cannot be calculated.</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="diversidade-funcional.html#cb190-1"></a><span class="co"># Primeiro passo: definir uma distância apropriada (veja descrição anterior)</span></span>
+<span id="cb190-2"><a href="diversidade-funcional.html#cb190-2"></a></span>
+<span id="cb190-3"><a href="diversidade-funcional.html#cb190-3"></a><span class="co"># Aqui, iremos utilizar a distância de todos os dados trait_dat (variáveis categóricas e ordinais)</span></span>
+<span id="cb190-4"><a href="diversidade-funcional.html#cb190-4"></a></span>
+<span id="cb190-5"><a href="diversidade-funcional.html#cb190-5"></a>dist_mist</span></code></pre></div>
+<pre><code>##            sp1       sp2       sp3       sp4       sp5       sp6       sp7
+## sp2  0.5000000                                                            
+## sp3  0.7107801 0.6808389                                                  
+## sp4  0.7771900 0.8538292 0.7179711                                        
+## sp5  0.6107116 0.7345988 0.7381353 0.5106682                              
+## sp6  0.5041691 0.6487320 0.6527339 0.6522593 0.5177440                    
+## sp7  0.5041691 0.5809646 0.7137190 0.7132850 0.5177440 0.4082483          
+## sp8  0.9574271 0.9128709 0.8447140 0.8106696 0.7689990 0.8466582 0.8466582
+## sp9  0.8322170 0.7743619 0.8705685 0.7862568 0.6712758 0.8618286 0.7590006
+## sp10 0.8196798 0.8447140 0.8164966 0.7259317 0.6556685 0.7452327 0.8497285
+## sp11 0.7381353 0.7658396 0.6755013 0.7674028 0.7671647 0.5971604 0.5971604
+## sp12 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp13 0.6454972 0.7637626 0.8196798 0.7845499 0.6516846 0.6192712 0.6192712
+## sp14 0.9128709 0.7637626 0.7395100 0.8605338 0.9172565 0.7959251 0.8466582
+## sp15 0.8684391 0.7100609 0.7423352 0.8468228 0.8274814 0.7637626 0.8164966
+## sp16 0.8660254 0.8660254 0.6808389 0.6290397 0.7892837 0.7664984 0.8190563
+## sp17 0.2886751 0.5773503 0.7671647 0.7771900 0.6107116 0.5809646 0.5809646
+## sp18 0.6652707 0.5160455 0.7689102 0.8859268 0.7307151 0.7019605 0.6398556
+## sp19 0.7892837 0.6755013 0.8184398 0.7432689 0.8164966 0.7754948 0.7197631
+## sp20 0.6149610 0.6479535 0.5381778 0.7674028 0.7671647 0.5971604 0.7233721
+## sp21 0.6755013 0.6755013 0.7658396 0.7432689 0.8164966 0.7197631 0.6593372
+## sp22 0.6107116 0.6107116 0.7658396 0.8480067 0.7637626 0.5927834 0.5927834
+## sp23 0.6573806 0.5906064 0.6921158 0.7395100 0.8199027 0.7096247 0.7096247
+## sp24 0.5292494 0.5948301 0.7155949 0.8234825 0.7375481 0.5252793 0.5252793
+## sp25 0.8404178 0.7345988 0.7093497 0.7432689 0.6454972 0.7754948 0.7197631
+## sp26 0.8886143 0.7892837 0.8184398 0.7973594 0.7071068 0.8274814 0.7754948
+## sp27 0.8347284 0.8289488 0.7716277 0.7712263 0.7920294 0.6652707 0.6652707
+## sp28 0.6454972 0.7637626 0.7671647 0.8290703 0.7345988 0.5809646 0.5809646
+## sp29 0.7137190 0.6839065 0.7100609 0.7660943 0.5971604 0.7107801 0.5818433
+## sp30 0.8347284 0.8289488 0.7155949 0.6543114 0.7920294 0.6652707 0.6652707
+## sp31 0.8259233 0.6573806 0.8035489 0.8447140 0.8199027 0.7096247 0.7660943
+## sp32 0.9213121 0.8259233 0.9013088 0.7938566 0.9159187 0.8680825 0.8186781
+## sp33 0.8414675 0.7842952 0.8794158 0.8705685 0.8355590 0.7276576 0.7276576
+## sp34 0.7520331 0.7456127 0.6813161 0.6558429 0.7252023 0.6787075 0.5421967
+## sp35 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp36 0.6944209 0.7995447 0.7942658 0.6558429 0.6652707 0.6142561 0.7375481
+##            sp8       sp9      sp10      sp11      sp12      sp13      sp14
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9  0.5160455                                                            
+## sp10 0.5448624 0.4177992                                                  
+## sp11 0.6867080 0.7182727 0.7127595                                        
+## sp12 0.5160455 0.7071068 0.7126637 0.4272966                              
+## sp13 0.7071068 0.6652707 0.6495191 0.5887001 0.6652707                    
+## sp14 0.7637626 0.8264198 0.7938566 0.7449169 0.5913006 0.8660254          
+## sp15 0.6192712 0.6950778 0.6560273 0.8051504 0.6950778 0.8945186 0.5478718
+## sp16 0.7637626 0.8753873 0.8447140 0.8184398 0.7185423 1.0000000 0.6454972
+## sp17 0.9574271 0.8322170 0.8196798 0.7925762 0.8808623 0.6454972 0.9574271
+## sp18 0.7743619 0.5773503 0.6515798 0.6577099 0.7071068 0.6652707 0.7185423
+## sp19 0.8213969 0.7241058 0.7988958 0.7395100 0.7795271 0.6516846 0.7689990
+## sp20 0.8971628 0.8261854 0.7127595 0.6454972 0.7182727 0.7164039 0.6230847
+## sp21 0.8213969 0.7795271 0.8494515 0.6808389 0.7241058 0.5842598 0.7689990
+## sp22 0.7127595 0.7241058 0.7449169 0.5448624 0.5980489 0.4179627 0.7689990
+## sp23 0.8814629 0.8425832 0.8605338 0.7432689 0.7915890 0.6660657 0.7259317
+## sp24 0.7526397 0.7417301 0.7470295 0.5253079 0.6192712 0.3992684 0.8061016
+## sp25 0.7127595 0.6640752 0.7449169 0.7395100 0.7241058 0.8706470 0.7127595
+## sp26 0.5842598 0.6640752 0.7449169 0.8447140 0.7241058 0.9172565 0.7127595
+## sp27 0.6950778 0.8466582 0.8513047 0.5253079 0.5478718 0.7590006 0.6950778
+## sp28 0.8164966 0.7805458 0.7671647 0.6793455 0.7805458 0.5773503 0.8660254
+## sp29 0.8248465 0.6256088 0.7417301 0.7197631 0.8008660 0.7452327 0.8248465
+## sp30 0.7526397 0.7959251 0.8008660 0.5994011 0.7417301 0.7590006 0.7526397
+## sp31 0.7259317 0.6781935 0.6381106 0.7432689 0.7370752 0.7812235 0.6002584
+## sp32 0.7259317 0.7370752 0.8106696 0.8480067 0.7370752 0.8814629 0.6002584
+## sp33 0.6136882 0.6660657 0.6719621 0.7165635 0.6002584 0.7435692 0.6136882
+## sp34 0.8312616 0.7689990 0.8751661 0.5078283 0.6516846 0.7856703 0.6640752
+## sp35 0.5160455 0.7071068 0.7126637 0.4272966 0.0000000 0.6652707 0.5913006
+## sp36 0.7241058 0.8213969 0.7182727 0.7126637 0.7127595 0.7307151 0.7241058
+##           sp15      sp16      sp17      sp18      sp19      sp20      sp21
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16 0.6487320                                                            
+## sp17 0.9151611 0.9128709                                                  
+## sp18 0.6950778 0.9217572 0.7252023                                        
+## sp19 0.8763897 0.8404178 0.7345988 0.6640752                              
+## sp20 0.8051504 0.7658396 0.6793455 0.6577099 0.6808389                    
+## sp21 0.8763897 0.7892837 0.7345988 0.6640752 0.4082483 0.6808389          
+## sp22 0.7754948 0.8886143 0.6755013 0.5980489 0.5773503 0.6808389 0.4082483
+## sp23 0.8186781 0.7738320 0.7179711 0.6136882 0.5055430 0.6849200 0.2981729
+## sp24 0.7743619 0.8777753 0.6028584 0.6192712 0.6063788 0.6652932 0.4483621
+## sp25 0.6593372 0.6755013 0.7892837 0.7241058 0.8164966 0.8447140 0.8660254
+## sp26 0.5177440 0.6755013 0.8404178 0.7241058 0.8660254 0.9381942 0.9128709
+## sp27 0.7185423 0.7214496 0.7832230 0.8466582 0.7859359 0.7805650 0.8372745
+## sp28 0.7664984 0.9128709 0.5773503 0.7252023 0.7345988 0.7381353 0.7345988
+## sp29 0.7395100 0.7964891 0.6527339 0.6889991 0.6939744 0.7197631 0.8051504
+## sp30 0.7743619 0.7770604 0.7832230 0.7959251 0.6715866 0.7252230 0.7310006
+## sp31 0.5035545 0.8259233 0.7738320 0.6136882 0.7110371 0.7432689 0.8199027
+## sp32 0.6482545 0.6573806 0.8749186 0.7915890 0.5821572 0.7973594 0.7110371
+## sp33 0.5194903 0.7842952 0.7904013 0.7259317 0.7224104 0.7725261 0.8297852
+## sp34 0.8372745 0.6874627 0.8055353 0.7127595 0.7185423 0.6515798 0.6580043
+## sp35 0.6950778 0.7185423 0.8808623 0.7071068 0.7795271 0.7182727 0.7241058
+## sp36 0.6063788 0.6874627 0.7520331 0.8213969 0.8753873 0.7689102 0.7743619
+##           sp22      sp23      sp24      sp25      sp26      sp27      sp28
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23 0.5055430                                                            
+## sp24 0.1853695 0.5194903                                                  
+## sp25 0.8164966 0.8199027 0.8372745                                        
+## sp26 0.8660254 0.8692374 0.8856421 0.4082483                              
+## sp27 0.7310006 0.8774225 0.7071068 0.6715866 0.6715866                    
+## sp28 0.6107116 0.7738320 0.5292494 0.7892837 0.7892837 0.6028584          
+## sp29 0.7516208 0.8468228 0.7126637 0.5611897 0.6939744 0.6515798 0.5854299
+## sp30 0.7310006 0.7766618 0.7071068 0.7310006 0.7310006 0.5000000 0.5292494
+## sp31 0.7110371 0.7637626 0.7210202 0.5821572 0.5821572 0.6607094 0.5906064
+## sp32 0.8199027 0.7637626 0.8285752 0.7674028 0.6498003 0.6607094 0.7179711
+## sp33 0.7224104 0.8753873 0.7096247 0.7224104 0.5959950 0.5035545 0.5398157
+## sp34 0.7185423 0.7224104 0.7197631 0.6580043 0.7743619 0.5927834 0.7520331
+## sp35 0.5980489 0.7915890 0.6192712 0.7241058 0.7241058 0.5478718 0.7805458
+## sp36 0.6580043 0.7779525 0.6593372 0.7743619 0.7185423 0.6593372 0.7520331
+##           sp29      sp30      sp31      sp32      sp33      sp34      sp35
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23                                                                      
+## sp24                                                                      
+## sp25                                                                      
+## sp26                                                                      
+## sp27                                                                      
+## sp28                                                                      
+## sp29                                                                      
+## sp30 0.7126637                                                            
+## sp31 0.6834536 0.5943093                                                  
+## sp32 0.7419179 0.5943093 0.5773503                                        
+## sp33 0.6543114 0.5804313 0.4277495 0.4277495                              
+## sp34 0.6652932 0.5177440 0.7779525 0.7224104 0.7674028                    
+## sp35 0.8008660 0.7417301 0.7370752 0.7370752 0.6002584 0.6516846          
+## sp36 0.7805650 0.7754948 0.7779525 0.8297852 0.7110371 0.7637626 0.7127595</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="diversidade-funcional.html#cb192-1"></a><span class="co"># O índice &quot;Functional Richness&quot; só funciona para comunidades com 3 ou mais espécies</span></span>
+<span id="cb192-2"><a href="diversidade-funcional.html#cb192-2"></a><span class="co"># Caso você tenha comunidades com 1 ou 2 espécies, o valor será NA</span></span>
+<span id="cb192-3"><a href="diversidade-funcional.html#cb192-3"></a></span>
+<span id="cb192-4"><a href="diversidade-funcional.html#cb192-4"></a>fric &lt;-<span class="st"> </span><span class="kw">dbFD</span>(dist_mist, comun_dat)<span class="op">$</span>FRic</span></code></pre></div>
+<pre><code>## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When &#39;x&#39; is a distance matrix, CWM cannot be calculated.</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="diversidade-funcional.html#cb194-1"></a><span class="co"># Functional Diversity (Petchey &amp; Gaston 2002)</span></span>
+<span id="cb194-2"><a href="diversidade-funcional.html#cb194-2"></a></span>
+<span id="cb194-3"><a href="diversidade-funcional.html#cb194-3"></a><span class="co">## Passo 1: análise de agrupamento para criar o dendrograma </span></span>
+<span id="cb194-4"><a href="diversidade-funcional.html#cb194-4"></a></span>
+<span id="cb194-5"><a href="diversidade-funcional.html#cb194-5"></a>dend &lt;-<span class="st"> </span><span class="kw">hclust</span>(dist_mist, <span class="st">&quot;average&quot;</span>)</span>
+<span id="cb194-6"><a href="diversidade-funcional.html#cb194-6"></a></span>
+<span id="cb194-7"><a href="diversidade-funcional.html#cb194-7"></a><span class="co">## Passo 2: transformar o dengrograma em um arquivo da classe phylo</span></span>
+<span id="cb194-8"><a href="diversidade-funcional.html#cb194-8"></a></span>
+<span id="cb194-9"><a href="diversidade-funcional.html#cb194-9"></a>tree_dend &lt;-<span class="kw">as.phylo</span>(dend)</span>
+<span id="cb194-10"><a href="diversidade-funcional.html#cb194-10"></a></span>
+<span id="cb194-11"><a href="diversidade-funcional.html#cb194-11"></a><span class="co">## Passo 3: calcular o valor da diversidade funcional </span></span>
+<span id="cb194-12"><a href="diversidade-funcional.html#cb194-12"></a></span>
+<span id="cb194-13"><a href="diversidade-funcional.html#cb194-13"></a>FD &lt;-<span class="st"> </span><span class="kw">pd</span>(comun_dat, tree_dend)<span class="op">$</span>PD</span></code></pre></div>
+</div>
+<div id="divergência-funcional" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> 2.2.2. Divergência funcional</h3>
+<p>#!!!! Dúvida — Como inserir uma Figura externa? !!!!!!!!</p>
+<p>A divergência funcional é uma medida que descreve a irregularidade na distribuição dos valores dos atributos no volume do espaço funcional ocupado por todas as espécies de uma certa comunidade (Garnier 2015, Figura ???). Para obter os valores de divergência, o espaço funcional é calculado através do método <strong>Convex Hull</strong> (Functional Divergence) ou do espaço multidimensional calculado com um PCoA (Functional Dispersion). Nos dois casos, o valor da métrica representa a distância média das espécies para o centro de gravidade ou centroide do espaço funcional, ponderado pela abundância relativa das espécies (Villeger et al. 2008, Laliberté &amp; Legendre 2010). Desse modo, a divergência funcional é uma medida que calcula o grau de diferenciação em que a distribuição da abundância maximiza a divergência entre entre os atributos funcionais (Mason &amp; Mouillot). Em geral, estudos que usam esses índices buscam entender o grau de diferenciação de recursos de espécies que coexistem em uma comunidade (Garnier 2015).</p>
+</div>
+<div id="análise" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> Análise</h3>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="diversidade-funcional.html#cb195-1"></a><span class="kw">library</span>(FD)</span>
+<span id="cb195-2"><a href="diversidade-funcional.html#cb195-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb195-3"><a href="diversidade-funcional.html#cb195-3"></a><span class="kw">library</span>(ecodados)</span>
+<span id="cb195-4"><a href="diversidade-funcional.html#cb195-4"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb195-5"><a href="diversidade-funcional.html#cb195-5"></a><span class="kw">library</span>(SYNCSA)</span>
+<span id="cb195-6"><a href="diversidade-funcional.html#cb195-6"></a></span>
+<span id="cb195-7"><a href="diversidade-funcional.html#cb195-7"></a></span>
+<span id="cb195-8"><a href="diversidade-funcional.html#cb195-8"></a><span class="co"># Primeiro passo: definir uma distância apropriada (veja descrição anterior)</span></span>
+<span id="cb195-9"><a href="diversidade-funcional.html#cb195-9"></a></span>
+<span id="cb195-10"><a href="diversidade-funcional.html#cb195-10"></a><span class="co"># Aqui, iremos utilizar a distância de todos os dados trait_dat (variáveis categóricas e ordinais)</span></span>
+<span id="cb195-11"><a href="diversidade-funcional.html#cb195-11"></a></span>
+<span id="cb195-12"><a href="diversidade-funcional.html#cb195-12"></a>dist_mist</span></code></pre></div>
+<pre><code>##            sp1       sp2       sp3       sp4       sp5       sp6       sp7
+## sp2  0.5000000                                                            
+## sp3  0.7107801 0.6808389                                                  
+## sp4  0.7771900 0.8538292 0.7179711                                        
+## sp5  0.6107116 0.7345988 0.7381353 0.5106682                              
+## sp6  0.5041691 0.6487320 0.6527339 0.6522593 0.5177440                    
+## sp7  0.5041691 0.5809646 0.7137190 0.7132850 0.5177440 0.4082483          
+## sp8  0.9574271 0.9128709 0.8447140 0.8106696 0.7689990 0.8466582 0.8466582
+## sp9  0.8322170 0.7743619 0.8705685 0.7862568 0.6712758 0.8618286 0.7590006
+## sp10 0.8196798 0.8447140 0.8164966 0.7259317 0.6556685 0.7452327 0.8497285
+## sp11 0.7381353 0.7658396 0.6755013 0.7674028 0.7671647 0.5971604 0.5971604
+## sp12 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp13 0.6454972 0.7637626 0.8196798 0.7845499 0.6516846 0.6192712 0.6192712
+## sp14 0.9128709 0.7637626 0.7395100 0.8605338 0.9172565 0.7959251 0.8466582
+## sp15 0.8684391 0.7100609 0.7423352 0.8468228 0.8274814 0.7637626 0.8164966
+## sp16 0.8660254 0.8660254 0.6808389 0.6290397 0.7892837 0.7664984 0.8190563
+## sp17 0.2886751 0.5773503 0.7671647 0.7771900 0.6107116 0.5809646 0.5809646
+## sp18 0.6652707 0.5160455 0.7689102 0.8859268 0.7307151 0.7019605 0.6398556
+## sp19 0.7892837 0.6755013 0.8184398 0.7432689 0.8164966 0.7754948 0.7197631
+## sp20 0.6149610 0.6479535 0.5381778 0.7674028 0.7671647 0.5971604 0.7233721
+## sp21 0.6755013 0.6755013 0.7658396 0.7432689 0.8164966 0.7197631 0.6593372
+## sp22 0.6107116 0.6107116 0.7658396 0.8480067 0.7637626 0.5927834 0.5927834
+## sp23 0.6573806 0.5906064 0.6921158 0.7395100 0.8199027 0.7096247 0.7096247
+## sp24 0.5292494 0.5948301 0.7155949 0.8234825 0.7375481 0.5252793 0.5252793
+## sp25 0.8404178 0.7345988 0.7093497 0.7432689 0.6454972 0.7754948 0.7197631
+## sp26 0.8886143 0.7892837 0.8184398 0.7973594 0.7071068 0.8274814 0.7754948
+## sp27 0.8347284 0.8289488 0.7716277 0.7712263 0.7920294 0.6652707 0.6652707
+## sp28 0.6454972 0.7637626 0.7671647 0.8290703 0.7345988 0.5809646 0.5809646
+## sp29 0.7137190 0.6839065 0.7100609 0.7660943 0.5971604 0.7107801 0.5818433
+## sp30 0.8347284 0.8289488 0.7155949 0.6543114 0.7920294 0.6652707 0.6652707
+## sp31 0.8259233 0.6573806 0.8035489 0.8447140 0.8199027 0.7096247 0.7660943
+## sp32 0.9213121 0.8259233 0.9013088 0.7938566 0.9159187 0.8680825 0.8186781
+## sp33 0.8414675 0.7842952 0.8794158 0.8705685 0.8355590 0.7276576 0.7276576
+## sp34 0.7520331 0.7456127 0.6813161 0.6558429 0.7252023 0.6787075 0.5421967
+## sp35 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp36 0.6944209 0.7995447 0.7942658 0.6558429 0.6652707 0.6142561 0.7375481
+##            sp8       sp9      sp10      sp11      sp12      sp13      sp14
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9  0.5160455                                                            
+## sp10 0.5448624 0.4177992                                                  
+## sp11 0.6867080 0.7182727 0.7127595                                        
+## sp12 0.5160455 0.7071068 0.7126637 0.4272966                              
+## sp13 0.7071068 0.6652707 0.6495191 0.5887001 0.6652707                    
+## sp14 0.7637626 0.8264198 0.7938566 0.7449169 0.5913006 0.8660254          
+## sp15 0.6192712 0.6950778 0.6560273 0.8051504 0.6950778 0.8945186 0.5478718
+## sp16 0.7637626 0.8753873 0.8447140 0.8184398 0.7185423 1.0000000 0.6454972
+## sp17 0.9574271 0.8322170 0.8196798 0.7925762 0.8808623 0.6454972 0.9574271
+## sp18 0.7743619 0.5773503 0.6515798 0.6577099 0.7071068 0.6652707 0.7185423
+## sp19 0.8213969 0.7241058 0.7988958 0.7395100 0.7795271 0.6516846 0.7689990
+## sp20 0.8971628 0.8261854 0.7127595 0.6454972 0.7182727 0.7164039 0.6230847
+## sp21 0.8213969 0.7795271 0.8494515 0.6808389 0.7241058 0.5842598 0.7689990
+## sp22 0.7127595 0.7241058 0.7449169 0.5448624 0.5980489 0.4179627 0.7689990
+## sp23 0.8814629 0.8425832 0.8605338 0.7432689 0.7915890 0.6660657 0.7259317
+## sp24 0.7526397 0.7417301 0.7470295 0.5253079 0.6192712 0.3992684 0.8061016
+## sp25 0.7127595 0.6640752 0.7449169 0.7395100 0.7241058 0.8706470 0.7127595
+## sp26 0.5842598 0.6640752 0.7449169 0.8447140 0.7241058 0.9172565 0.7127595
+## sp27 0.6950778 0.8466582 0.8513047 0.5253079 0.5478718 0.7590006 0.6950778
+## sp28 0.8164966 0.7805458 0.7671647 0.6793455 0.7805458 0.5773503 0.8660254
+## sp29 0.8248465 0.6256088 0.7417301 0.7197631 0.8008660 0.7452327 0.8248465
+## sp30 0.7526397 0.7959251 0.8008660 0.5994011 0.7417301 0.7590006 0.7526397
+## sp31 0.7259317 0.6781935 0.6381106 0.7432689 0.7370752 0.7812235 0.6002584
+## sp32 0.7259317 0.7370752 0.8106696 0.8480067 0.7370752 0.8814629 0.6002584
+## sp33 0.6136882 0.6660657 0.6719621 0.7165635 0.6002584 0.7435692 0.6136882
+## sp34 0.8312616 0.7689990 0.8751661 0.5078283 0.6516846 0.7856703 0.6640752
+## sp35 0.5160455 0.7071068 0.7126637 0.4272966 0.0000000 0.6652707 0.5913006
+## sp36 0.7241058 0.8213969 0.7182727 0.7126637 0.7127595 0.7307151 0.7241058
+##           sp15      sp16      sp17      sp18      sp19      sp20      sp21
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16 0.6487320                                                            
+## sp17 0.9151611 0.9128709                                                  
+## sp18 0.6950778 0.9217572 0.7252023                                        
+## sp19 0.8763897 0.8404178 0.7345988 0.6640752                              
+## sp20 0.8051504 0.7658396 0.6793455 0.6577099 0.6808389                    
+## sp21 0.8763897 0.7892837 0.7345988 0.6640752 0.4082483 0.6808389          
+## sp22 0.7754948 0.8886143 0.6755013 0.5980489 0.5773503 0.6808389 0.4082483
+## sp23 0.8186781 0.7738320 0.7179711 0.6136882 0.5055430 0.6849200 0.2981729
+## sp24 0.7743619 0.8777753 0.6028584 0.6192712 0.6063788 0.6652932 0.4483621
+## sp25 0.6593372 0.6755013 0.7892837 0.7241058 0.8164966 0.8447140 0.8660254
+## sp26 0.5177440 0.6755013 0.8404178 0.7241058 0.8660254 0.9381942 0.9128709
+## sp27 0.7185423 0.7214496 0.7832230 0.8466582 0.7859359 0.7805650 0.8372745
+## sp28 0.7664984 0.9128709 0.5773503 0.7252023 0.7345988 0.7381353 0.7345988
+## sp29 0.7395100 0.7964891 0.6527339 0.6889991 0.6939744 0.7197631 0.8051504
+## sp30 0.7743619 0.7770604 0.7832230 0.7959251 0.6715866 0.7252230 0.7310006
+## sp31 0.5035545 0.8259233 0.7738320 0.6136882 0.7110371 0.7432689 0.8199027
+## sp32 0.6482545 0.6573806 0.8749186 0.7915890 0.5821572 0.7973594 0.7110371
+## sp33 0.5194903 0.7842952 0.7904013 0.7259317 0.7224104 0.7725261 0.8297852
+## sp34 0.8372745 0.6874627 0.8055353 0.7127595 0.7185423 0.6515798 0.6580043
+## sp35 0.6950778 0.7185423 0.8808623 0.7071068 0.7795271 0.7182727 0.7241058
+## sp36 0.6063788 0.6874627 0.7520331 0.8213969 0.8753873 0.7689102 0.7743619
+##           sp22      sp23      sp24      sp25      sp26      sp27      sp28
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23 0.5055430                                                            
+## sp24 0.1853695 0.5194903                                                  
+## sp25 0.8164966 0.8199027 0.8372745                                        
+## sp26 0.8660254 0.8692374 0.8856421 0.4082483                              
+## sp27 0.7310006 0.8774225 0.7071068 0.6715866 0.6715866                    
+## sp28 0.6107116 0.7738320 0.5292494 0.7892837 0.7892837 0.6028584          
+## sp29 0.7516208 0.8468228 0.7126637 0.5611897 0.6939744 0.6515798 0.5854299
+## sp30 0.7310006 0.7766618 0.7071068 0.7310006 0.7310006 0.5000000 0.5292494
+## sp31 0.7110371 0.7637626 0.7210202 0.5821572 0.5821572 0.6607094 0.5906064
+## sp32 0.8199027 0.7637626 0.8285752 0.7674028 0.6498003 0.6607094 0.7179711
+## sp33 0.7224104 0.8753873 0.7096247 0.7224104 0.5959950 0.5035545 0.5398157
+## sp34 0.7185423 0.7224104 0.7197631 0.6580043 0.7743619 0.5927834 0.7520331
+## sp35 0.5980489 0.7915890 0.6192712 0.7241058 0.7241058 0.5478718 0.7805458
+## sp36 0.6580043 0.7779525 0.6593372 0.7743619 0.7185423 0.6593372 0.7520331
+##           sp29      sp30      sp31      sp32      sp33      sp34      sp35
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23                                                                      
+## sp24                                                                      
+## sp25                                                                      
+## sp26                                                                      
+## sp27                                                                      
+## sp28                                                                      
+## sp29                                                                      
+## sp30 0.7126637                                                            
+## sp31 0.6834536 0.5943093                                                  
+## sp32 0.7419179 0.5943093 0.5773503                                        
+## sp33 0.6543114 0.5804313 0.4277495 0.4277495                              
+## sp34 0.6652932 0.5177440 0.7779525 0.7224104 0.7674028                    
+## sp35 0.8008660 0.7417301 0.7370752 0.7370752 0.6002584 0.6516846          
+## sp36 0.7805650 0.7754948 0.7779525 0.8297852 0.7110371 0.7637626 0.7127595</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="diversidade-funcional.html#cb197-1"></a><span class="co"># O índice &quot;Functional Divergence&quot; só funciona para comunidades com 3 ou mais espécies</span></span>
+<span id="cb197-2"><a href="diversidade-funcional.html#cb197-2"></a><span class="co"># Caso você tenha comunidades com 1 ou 2 espécies, a análise irá retornar o valor NA</span></span>
+<span id="cb197-3"><a href="diversidade-funcional.html#cb197-3"></a></span>
+<span id="cb197-4"><a href="diversidade-funcional.html#cb197-4"></a>fdiv &lt;-<span class="st"> </span><span class="kw">dbFD</span>(dist_mist, comun_dat)<span class="op">$</span>FDiv</span></code></pre></div>
+<pre><code>## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When &#39;x&#39; is a distance matrix, CWM cannot be calculated.</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="diversidade-funcional.html#cb199-1"></a><span class="co"># O índice &quot;Functional Dispersion&quot; atribui valor 0 para comunidades com 1 ou 2 espécies</span></span>
+<span id="cb199-2"><a href="diversidade-funcional.html#cb199-2"></a>fdis &lt;-<span class="st"> </span><span class="kw">dbFD</span>(dist_mist, comun_dat)<span class="op">$</span>FDis<span class="co"># Fdis=0 em locais com somente uma espécie</span></span></code></pre></div>
+<pre><code>## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When &#39;x&#39; is a distance matrix, CWM cannot be calculated.</code></pre>
+</div>
+<div id="regularidade-funcional" class="section level3">
+<h3><span class="header-section-number">7.3.4</span> 2.2.3. Regularidade funcional</h3>
+<p>A regularidade funcional (do inglês <strong>Functional Evenness</strong>) mede o quão regular é a distribuição da abundância dos valores dos atributos funcionais no espaço funcional. Diferente dos outros métodos, a versão multidimensional deste índice utiliza um método chamado <strong>Minimum Spanning Tree</strong> (MST) para conectar todas espécies no espaço funcional. A distância par-a-par das espécies na MST é ponderada pela abundância relativa das espécies e, desse modo, o valor final da regularidade funcional (FEve) vai variar de 0 (máxima irregularidade da distribuição da abundância ou distância funcional das espécies) a 1 (máxima regularidade).</p>
+</div>
+<div id="análise-1" class="section level3">
+<h3><span class="header-section-number">7.3.5</span> Análise</h3>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="diversidade-funcional.html#cb201-1"></a><span class="kw">library</span>(FD)</span>
+<span id="cb201-2"><a href="diversidade-funcional.html#cb201-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb201-3"><a href="diversidade-funcional.html#cb201-3"></a><span class="kw">library</span>(ecodados)</span>
+<span id="cb201-4"><a href="diversidade-funcional.html#cb201-4"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb201-5"><a href="diversidade-funcional.html#cb201-5"></a><span class="kw">library</span>(GGally)</span>
+<span id="cb201-6"><a href="diversidade-funcional.html#cb201-6"></a></span>
+<span id="cb201-7"><a href="diversidade-funcional.html#cb201-7"></a><span class="co"># Aqui, iremos utilizar a distância de todos os dados trait_dat (variáveis categóricas e ordinais)</span></span>
+<span id="cb201-8"><a href="diversidade-funcional.html#cb201-8"></a></span>
+<span id="cb201-9"><a href="diversidade-funcional.html#cb201-9"></a>dist_mist</span></code></pre></div>
+<pre><code>##            sp1       sp2       sp3       sp4       sp5       sp6       sp7
+## sp2  0.5000000                                                            
+## sp3  0.7107801 0.6808389                                                  
+## sp4  0.7771900 0.8538292 0.7179711                                        
+## sp5  0.6107116 0.7345988 0.7381353 0.5106682                              
+## sp6  0.5041691 0.6487320 0.6527339 0.6522593 0.5177440                    
+## sp7  0.5041691 0.5809646 0.7137190 0.7132850 0.5177440 0.4082483          
+## sp8  0.9574271 0.9128709 0.8447140 0.8106696 0.7689990 0.8466582 0.8466582
+## sp9  0.8322170 0.7743619 0.8705685 0.7862568 0.6712758 0.8618286 0.7590006
+## sp10 0.8196798 0.8447140 0.8164966 0.7259317 0.6556685 0.7452327 0.8497285
+## sp11 0.7381353 0.7658396 0.6755013 0.7674028 0.7671647 0.5971604 0.5971604
+## sp12 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp13 0.6454972 0.7637626 0.8196798 0.7845499 0.6516846 0.6192712 0.6192712
+## sp14 0.9128709 0.7637626 0.7395100 0.8605338 0.9172565 0.7959251 0.8466582
+## sp15 0.8684391 0.7100609 0.7423352 0.8468228 0.8274814 0.7637626 0.8164966
+## sp16 0.8660254 0.8660254 0.6808389 0.6290397 0.7892837 0.7664984 0.8190563
+## sp17 0.2886751 0.5773503 0.7671647 0.7771900 0.6107116 0.5809646 0.5809646
+## sp18 0.6652707 0.5160455 0.7689102 0.8859268 0.7307151 0.7019605 0.6398556
+## sp19 0.7892837 0.6755013 0.8184398 0.7432689 0.8164966 0.7754948 0.7197631
+## sp20 0.6149610 0.6479535 0.5381778 0.7674028 0.7671647 0.5971604 0.7233721
+## sp21 0.6755013 0.6755013 0.7658396 0.7432689 0.8164966 0.7197631 0.6593372
+## sp22 0.6107116 0.6107116 0.7658396 0.8480067 0.7637626 0.5927834 0.5927834
+## sp23 0.6573806 0.5906064 0.6921158 0.7395100 0.8199027 0.7096247 0.7096247
+## sp24 0.5292494 0.5948301 0.7155949 0.8234825 0.7375481 0.5252793 0.5252793
+## sp25 0.8404178 0.7345988 0.7093497 0.7432689 0.6454972 0.7754948 0.7197631
+## sp26 0.8886143 0.7892837 0.8184398 0.7973594 0.7071068 0.8274814 0.7754948
+## sp27 0.8347284 0.8289488 0.7716277 0.7712263 0.7920294 0.6652707 0.6652707
+## sp28 0.6454972 0.7637626 0.7671647 0.8290703 0.7345988 0.5809646 0.5809646
+## sp29 0.7137190 0.6839065 0.7100609 0.7660943 0.5971604 0.7107801 0.5818433
+## sp30 0.8347284 0.8289488 0.7155949 0.6543114 0.7920294 0.6652707 0.6652707
+## sp31 0.8259233 0.6573806 0.8035489 0.8447140 0.8199027 0.7096247 0.7660943
+## sp32 0.9213121 0.8259233 0.9013088 0.7938566 0.9159187 0.8680825 0.8186781
+## sp33 0.8414675 0.7842952 0.8794158 0.8705685 0.8355590 0.7276576 0.7276576
+## sp34 0.7520331 0.7456127 0.6813161 0.6558429 0.7252023 0.6787075 0.5421967
+## sp35 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp36 0.6944209 0.7995447 0.7942658 0.6558429 0.6652707 0.6142561 0.7375481
+##            sp8       sp9      sp10      sp11      sp12      sp13      sp14
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9  0.5160455                                                            
+## sp10 0.5448624 0.4177992                                                  
+## sp11 0.6867080 0.7182727 0.7127595                                        
+## sp12 0.5160455 0.7071068 0.7126637 0.4272966                              
+## sp13 0.7071068 0.6652707 0.6495191 0.5887001 0.6652707                    
+## sp14 0.7637626 0.8264198 0.7938566 0.7449169 0.5913006 0.8660254          
+## sp15 0.6192712 0.6950778 0.6560273 0.8051504 0.6950778 0.8945186 0.5478718
+## sp16 0.7637626 0.8753873 0.8447140 0.8184398 0.7185423 1.0000000 0.6454972
+## sp17 0.9574271 0.8322170 0.8196798 0.7925762 0.8808623 0.6454972 0.9574271
+## sp18 0.7743619 0.5773503 0.6515798 0.6577099 0.7071068 0.6652707 0.7185423
+## sp19 0.8213969 0.7241058 0.7988958 0.7395100 0.7795271 0.6516846 0.7689990
+## sp20 0.8971628 0.8261854 0.7127595 0.6454972 0.7182727 0.7164039 0.6230847
+## sp21 0.8213969 0.7795271 0.8494515 0.6808389 0.7241058 0.5842598 0.7689990
+## sp22 0.7127595 0.7241058 0.7449169 0.5448624 0.5980489 0.4179627 0.7689990
+## sp23 0.8814629 0.8425832 0.8605338 0.7432689 0.7915890 0.6660657 0.7259317
+## sp24 0.7526397 0.7417301 0.7470295 0.5253079 0.6192712 0.3992684 0.8061016
+## sp25 0.7127595 0.6640752 0.7449169 0.7395100 0.7241058 0.8706470 0.7127595
+## sp26 0.5842598 0.6640752 0.7449169 0.8447140 0.7241058 0.9172565 0.7127595
+## sp27 0.6950778 0.8466582 0.8513047 0.5253079 0.5478718 0.7590006 0.6950778
+## sp28 0.8164966 0.7805458 0.7671647 0.6793455 0.7805458 0.5773503 0.8660254
+## sp29 0.8248465 0.6256088 0.7417301 0.7197631 0.8008660 0.7452327 0.8248465
+## sp30 0.7526397 0.7959251 0.8008660 0.5994011 0.7417301 0.7590006 0.7526397
+## sp31 0.7259317 0.6781935 0.6381106 0.7432689 0.7370752 0.7812235 0.6002584
+## sp32 0.7259317 0.7370752 0.8106696 0.8480067 0.7370752 0.8814629 0.6002584
+## sp33 0.6136882 0.6660657 0.6719621 0.7165635 0.6002584 0.7435692 0.6136882
+## sp34 0.8312616 0.7689990 0.8751661 0.5078283 0.6516846 0.7856703 0.6640752
+## sp35 0.5160455 0.7071068 0.7126637 0.4272966 0.0000000 0.6652707 0.5913006
+## sp36 0.7241058 0.8213969 0.7182727 0.7126637 0.7127595 0.7307151 0.7241058
+##           sp15      sp16      sp17      sp18      sp19      sp20      sp21
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16 0.6487320                                                            
+## sp17 0.9151611 0.9128709                                                  
+## sp18 0.6950778 0.9217572 0.7252023                                        
+## sp19 0.8763897 0.8404178 0.7345988 0.6640752                              
+## sp20 0.8051504 0.7658396 0.6793455 0.6577099 0.6808389                    
+## sp21 0.8763897 0.7892837 0.7345988 0.6640752 0.4082483 0.6808389          
+## sp22 0.7754948 0.8886143 0.6755013 0.5980489 0.5773503 0.6808389 0.4082483
+## sp23 0.8186781 0.7738320 0.7179711 0.6136882 0.5055430 0.6849200 0.2981729
+## sp24 0.7743619 0.8777753 0.6028584 0.6192712 0.6063788 0.6652932 0.4483621
+## sp25 0.6593372 0.6755013 0.7892837 0.7241058 0.8164966 0.8447140 0.8660254
+## sp26 0.5177440 0.6755013 0.8404178 0.7241058 0.8660254 0.9381942 0.9128709
+## sp27 0.7185423 0.7214496 0.7832230 0.8466582 0.7859359 0.7805650 0.8372745
+## sp28 0.7664984 0.9128709 0.5773503 0.7252023 0.7345988 0.7381353 0.7345988
+## sp29 0.7395100 0.7964891 0.6527339 0.6889991 0.6939744 0.7197631 0.8051504
+## sp30 0.7743619 0.7770604 0.7832230 0.7959251 0.6715866 0.7252230 0.7310006
+## sp31 0.5035545 0.8259233 0.7738320 0.6136882 0.7110371 0.7432689 0.8199027
+## sp32 0.6482545 0.6573806 0.8749186 0.7915890 0.5821572 0.7973594 0.7110371
+## sp33 0.5194903 0.7842952 0.7904013 0.7259317 0.7224104 0.7725261 0.8297852
+## sp34 0.8372745 0.6874627 0.8055353 0.7127595 0.7185423 0.6515798 0.6580043
+## sp35 0.6950778 0.7185423 0.8808623 0.7071068 0.7795271 0.7182727 0.7241058
+## sp36 0.6063788 0.6874627 0.7520331 0.8213969 0.8753873 0.7689102 0.7743619
+##           sp22      sp23      sp24      sp25      sp26      sp27      sp28
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23 0.5055430                                                            
+## sp24 0.1853695 0.5194903                                                  
+## sp25 0.8164966 0.8199027 0.8372745                                        
+## sp26 0.8660254 0.8692374 0.8856421 0.4082483                              
+## sp27 0.7310006 0.8774225 0.7071068 0.6715866 0.6715866                    
+## sp28 0.6107116 0.7738320 0.5292494 0.7892837 0.7892837 0.6028584          
+## sp29 0.7516208 0.8468228 0.7126637 0.5611897 0.6939744 0.6515798 0.5854299
+## sp30 0.7310006 0.7766618 0.7071068 0.7310006 0.7310006 0.5000000 0.5292494
+## sp31 0.7110371 0.7637626 0.7210202 0.5821572 0.5821572 0.6607094 0.5906064
+## sp32 0.8199027 0.7637626 0.8285752 0.7674028 0.6498003 0.6607094 0.7179711
+## sp33 0.7224104 0.8753873 0.7096247 0.7224104 0.5959950 0.5035545 0.5398157
+## sp34 0.7185423 0.7224104 0.7197631 0.6580043 0.7743619 0.5927834 0.7520331
+## sp35 0.5980489 0.7915890 0.6192712 0.7241058 0.7241058 0.5478718 0.7805458
+## sp36 0.6580043 0.7779525 0.6593372 0.7743619 0.7185423 0.6593372 0.7520331
+##           sp29      sp30      sp31      sp32      sp33      sp34      sp35
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23                                                                      
+## sp24                                                                      
+## sp25                                                                      
+## sp26                                                                      
+## sp27                                                                      
+## sp28                                                                      
+## sp29                                                                      
+## sp30 0.7126637                                                            
+## sp31 0.6834536 0.5943093                                                  
+## sp32 0.7419179 0.5943093 0.5773503                                        
+## sp33 0.6543114 0.5804313 0.4277495 0.4277495                              
+## sp34 0.6652932 0.5177440 0.7779525 0.7224104 0.7674028                    
+## sp35 0.8008660 0.7417301 0.7370752 0.7370752 0.6002584 0.6516846          
+## sp36 0.7805650 0.7754948 0.7779525 0.8297852 0.7110371 0.7637626 0.7127595</code></pre>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="diversidade-funcional.html#cb203-1"></a><span class="co"># O índice &quot;Functional evenness&quot; só funciona para comunidades com 3 ou mais espécies</span></span>
+<span id="cb203-2"><a href="diversidade-funcional.html#cb203-2"></a><span class="co"># Caso você tenha comunidades com 1 ou 2 espécies, a análise irá retornar o valor NA</span></span>
+<span id="cb203-3"><a href="diversidade-funcional.html#cb203-3"></a></span>
+<span id="cb203-4"><a href="diversidade-funcional.html#cb203-4"></a>feve &lt;-<span class="st"> </span><span class="kw">dbFD</span>(dist_mist, comun_dat)<span class="op">$</span>FEve</span></code></pre></div>
+<pre><code>## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When &#39;x&#39; is a distance matrix, CWM cannot be calculated.</code></pre>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="diversidade-funcional.html#cb205-1"></a><span class="co">### Você pode criar uma tabela com os resultados de todas as métricas</span></span>
+<span id="cb205-2"><a href="diversidade-funcional.html#cb205-2"></a></span>
+<span id="cb205-3"><a href="diversidade-funcional.html#cb205-3"></a>locais &lt;-<span class="st"> </span><span class="kw">rownames</span>(comun_dat)</span>
+<span id="cb205-4"><a href="diversidade-funcional.html#cb205-4"></a></span>
+<span id="cb205-5"><a href="diversidade-funcional.html#cb205-5"></a>metricas &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">richness=</span>richness,</span>
+<span id="cb205-6"><a href="diversidade-funcional.html#cb205-6"></a>                       <span class="dt">FD_gp =</span> FD,</span>
+<span id="cb205-7"><a href="diversidade-funcional.html#cb205-7"></a>                       <span class="dt">fric =</span> fric,</span>
+<span id="cb205-8"><a href="diversidade-funcional.html#cb205-8"></a>                       <span class="dt">fdiv =</span> fdiv,</span>
+<span id="cb205-9"><a href="diversidade-funcional.html#cb205-9"></a>                       <span class="dt">fdis =</span> fdis,</span>
+<span id="cb205-10"><a href="diversidade-funcional.html#cb205-10"></a>                       <span class="dt">feve =</span> feve)</span>
+<span id="cb205-11"><a href="diversidade-funcional.html#cb205-11"></a></span>
+<span id="cb205-12"><a href="diversidade-funcional.html#cb205-12"></a><span class="co">### Gráfico para comparar o comportamento das métricas</span></span>
+<span id="cb205-13"><a href="diversidade-funcional.html#cb205-13"></a></span>
+<span id="cb205-14"><a href="diversidade-funcional.html#cb205-14"></a><span class="kw">ggpairs</span>(metricas)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+</div>
+</div>
+<div id="métricas-de-diversidade-funcional-beta" class="section level2">
+<h2><span class="header-section-number">7.4</span> 2.3 Métricas de diversidade funcional (beta)</h2>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="diversidade-funcional.html#cb206-1"></a><span class="kw">library</span>(FD)</span>
+<span id="cb206-2"><a href="diversidade-funcional.html#cb206-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb206-3"><a href="diversidade-funcional.html#cb206-3"></a><span class="kw">library</span>(ecodados)</span>
+<span id="cb206-4"><a href="diversidade-funcional.html#cb206-4"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb206-5"><a href="diversidade-funcional.html#cb206-5"></a><span class="kw">library</span>(GGally)</span>
+<span id="cb206-6"><a href="diversidade-funcional.html#cb206-6"></a><span class="kw">library</span>(betapart)</span>
+<span id="cb206-7"><a href="diversidade-funcional.html#cb206-7"></a><span class="kw">library</span>(vegan)</span>
+<span id="cb206-8"><a href="diversidade-funcional.html#cb206-8"></a></span>
+<span id="cb206-9"><a href="diversidade-funcional.html#cb206-9"></a><span class="co">### Partição da Diversidade beta (Método Baselga)</span></span>
+<span id="cb206-10"><a href="diversidade-funcional.html#cb206-10"></a></span>
+<span id="cb206-11"><a href="diversidade-funcional.html#cb206-11"></a>comun_fren_pa &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">decostand</span>(comun_fren_dat, <span class="st">&quot;pa&quot;</span>))</span>
+<span id="cb206-12"><a href="diversidade-funcional.html#cb206-12"></a>trait &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(trait_fren_dat)</span>
+<span id="cb206-13"><a href="diversidade-funcional.html#cb206-13"></a> </span>
+<span id="cb206-14"><a href="diversidade-funcional.html#cb206-14"></a><span class="kw">rowSums</span>(comun_fren_pa)<span class="op">&gt;</span><span class="kw">ncol</span>(trait)</span></code></pre></div>
+<pre><code>##    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   17 
+## TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+##   18   19   20   21   22   23   24   25   26   27   28   29   31   32   33   34 
+## TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+##   41   42   43   44   45   46   47   48   49   50   51   53   54   55 
+## TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="diversidade-funcional.html#cb208-1"></a><span class="kw">colnames</span>(comun_fren_pa)<span class="op">==</span><span class="kw">rownames</span>(trait)</span></code></pre></div>
+<pre><code>##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [31] TRUE TRUE</code></pre>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="diversidade-funcional.html#cb210-1"></a>fun_beta &lt;-<span class="st"> </span><span class="kw">functional.beta.pair</span>(<span class="dt">x =</span> comun_fren_pa, <span class="dt">trait=</span>trait, <span class="dt">index=</span><span class="st">&quot;jaccard&quot;</span>) <span class="co"># Está bem lento!!! Conferir</span></span>
+<span id="cb210-2"><a href="diversidade-funcional.html#cb210-2"></a></span>
+<span id="cb210-3"><a href="diversidade-funcional.html#cb210-3"></a><span class="co"># Os comandos abaixo permitem extrair a matriz de distância (par-a-par) com a partição em turnover e nestedness</span></span>
+<span id="cb210-4"><a href="diversidade-funcional.html#cb210-4"></a></span>
+<span id="cb210-5"><a href="diversidade-funcional.html#cb210-5"></a>fun_turnover &lt;-<span class="st"> </span>fun_beta<span class="op">$</span>funct.beta.jne</span>
+<span id="cb210-6"><a href="diversidade-funcional.html#cb210-6"></a>fun_nestedness &lt;-<span class="st"> </span>fun_beta<span class="op">$</span>funct.beta.jne</span>
+<span id="cb210-7"><a href="diversidade-funcional.html#cb210-7"></a></span>
+<span id="cb210-8"><a href="diversidade-funcional.html#cb210-8"></a></span>
+<span id="cb210-9"><a href="diversidade-funcional.html#cb210-9"></a><span class="co">### Composição Funcional: Community Wegihed Means (CWM)</span></span>
+<span id="cb210-10"><a href="diversidade-funcional.html#cb210-10"></a></span>
+<span id="cb210-11"><a href="diversidade-funcional.html#cb210-11"></a>cwm_fren &lt;-<span class="st"> </span><span class="kw">functcomp</span>(trait_pad, <span class="kw">as.matrix</span>(comun_fren_dat))</span>
+<span id="cb210-12"><a href="diversidade-funcional.html#cb210-12"></a>cwm_fren</span></code></pre></div>
+<pre><code>##             LA         SLA         LDMC         LN15         LCC
+## 1  -0.24117001 -0.34855154  0.197452005  0.187400303 -0.53673676
+## 2  -0.39773712  0.23266219 -0.090932698 -0.285977720  0.16431901
+## 3  -0.18571342  0.20107562 -0.398772647 -0.125064251 -0.43046175
+## 4  -0.22840640  0.16041005  0.804963068 -0.370425340  0.71938526
+## 5  -0.16647900  0.34869559  0.022322127 -0.204193092  0.20513913
+## 6  -0.32588213  0.36645830  0.049968287 -0.335257153  0.47130894
+## 7  -0.43197058 -0.25619948  0.882004760  0.096681649  0.42065181
+## 8  -0.33857863  1.12929965  0.278478893 -0.339493573  0.35571124
+## 9  -0.40637654  0.66868021  0.377931295 -0.759687717  0.67746099
+## 10 -0.33465801  0.26219601  0.683907823 -0.531993528  0.48456065
+## 11 -0.35362891  0.44031044 -0.098078566 -0.447057493  0.25490829
+## 12 -0.17542712  0.46363786 -0.252119368 -0.375615215  0.03807885
+## 13 -0.23670889  0.64165706 -0.243427434 -0.510792769  0.16037083
+## 14 -0.17552077  0.38780017 -0.221048163 -0.169623873 -0.11858724
+## 15 -0.13274039  0.36304974 -0.049173336 -0.254725433 -0.03772986
+## 17  0.01771351  0.87327677 -0.145441057 -0.489096566  0.08335821
+## 18  1.03239586  0.50046791 -0.426467881 -0.416310755  0.02468425
+## 19  0.37208764  1.45649761 -0.804115966  0.388010050 -0.20704973
+## 20  1.13432791  0.75003603 -0.294438976 -0.499286730 -0.06243781
+## 21  1.35442421 -0.70515495  2.082205988 -1.038022002  0.81956154
+## 22 -0.36252857 -0.11915470  0.470138892 -0.349437843  0.55666135
+## 23 -0.29349787  0.19703824  0.679820129 -0.474449656  0.71142400
+## 24 -0.33836216  0.08304760  0.099230530 -0.121483271  0.35394645
+## 25  0.31915111 -0.25335758  1.057707296 -0.542238715  0.63662030
+## 26 -0.24534578 -0.21751810  0.695937334 -0.007139066  0.47627258
+## 27 -0.20960264 -0.58180437  0.394392498 -0.518763303  0.37889078
+## 28 -0.26982346 -0.42908491  0.450840875 -0.202161091  0.02367337
+## 29 -0.32058272 -0.29318472  0.453475403 -0.212532176  0.10144194
+## 31 -0.38641680 -0.38582263  0.554819836  0.173638980  0.67867808
+## 32 -0.31712244 -0.11381172  0.791643497  0.096268499  0.32899087
+## 33 -0.32213376 -0.48103699  1.038751044  0.205328512  0.30745238
+## 34 -0.33013501 -0.65581527  1.293037498  0.231480875  0.26741920
+## 41 -0.21326809 -0.50951184  0.308211438  0.621624073 -0.02416227
+## 42 -0.26935232  0.21916126  0.572210470 -0.361020644  0.59665773
+## 43 -0.22062318  0.11645607  0.340636401  0.151210561  0.27108509
+## 44 -0.26028393 -0.26173176  0.172017848  0.244822665  0.23292430
+## 45 -0.23379351 -0.25943724  0.278658873  0.250480329  0.21130657
+## 46 -0.33192013  0.74464867  0.130344698 -0.929207679  0.45776144
+## 47  0.34630198  0.63422133 -0.042007884 -0.730381834  0.17446721
+## 48  0.39131426  1.01748971 -0.358288180  0.112660259 -0.12592045
+## 49  0.42699578  0.72427942  0.001705993 -0.893869698  0.29221358
+## 50 -0.13939830  0.90998495 -0.158000274 -0.706916062  0.41680064
+## 51 -0.27746336 -0.02797998  0.838975452 -0.400596491  0.68387800
+## 53  0.42752854 -0.40185894  0.806015665 -0.411297259  0.40868170
+## 54  0.03358955 -0.54014447  0.465576291 -0.403175303  0.33532396
+## 55  0.40337693 -0.42511472  1.072441309 -0.737290886  0.79404728</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="diversidade-funcional.html#cb212-1"></a><span class="co">### Exemplo 1: diversidade funcional (alfa) de 34 espécies de plantas em um gradiente de aridez (Frenette-Dussault et al. 2012)</span></span>
+<span id="cb212-2"><a href="diversidade-funcional.html#cb212-2"></a></span>
+<span id="cb212-3"><a href="diversidade-funcional.html#cb212-3"></a></span>
+<span id="cb212-4"><a href="diversidade-funcional.html#cb212-4"></a><span class="co"># Dados</span></span>
+<span id="cb212-5"><a href="diversidade-funcional.html#cb212-5"></a></span>
+<span id="cb212-6"><a href="diversidade-funcional.html#cb212-6"></a>comun_fren_dat <span class="co"># matriz de espécies por localidade</span></span></code></pre></div>
+<pre><code>##    sp1 sp2 sp3 sp5 sp6 sp7 sp8 sp9 sp10 sp11 sp12 sp13 sp14 sp15 sp17 sp18 sp19
+## 1    0  74   0   5   5   0   0   0    0   47    3    2    0    0   14    0    0
+## 2    0  10   0   6   0   0   0   0    2    4    2   24    0    0   47    0    0
+## 3    0   1   0   0   0   0   0   0    0    0    0    0    1    0   24    0    0
+## 4    0   3   0   0   0   0   0   0    0    0    0    2    0    0    3    0    0
+## 5    0   0   0  15   0   0   0   0    0   27    0    2    0    0    0    0    0
+## 6   23   0  22   2   0   0   7   0    4    0    0    0    0    0    0    0    0
+## 7    2   0   0   3   0   0   0   0    0    0    0    2    0    2    0    0    0
+## 8    7   0   0   7   0   0  10   0   43    0    0    0    0    2    0    0    0
+## 9    0   0   5   8   0   0   8   0    1    0    0    0    0    0    0    0    0
+## 10   1   0   0   4   0   0  16   0    0    0    0    0    0    1    0    0    5
+## 11   0   0   0   2   0   0   0   0    0    0    1    0    0    0   21    0    0
+## 12   0   5   0   1   0   0   0   0    0    0    0    0    0    0   35    0    0
+## 13   0   7   0   3   0   0   0   0    0    0    0    0    0    0   29    0    0
+## 14   0   1   0   0   0   0   0   0    0    0    0    0    0    0    4    0    0
+## 15   0   8   0   4   0   0   0   0    0    0    0    0    0    0    0    0    0
+## 17   0   0   0  34   0   0  29   0    8    0    0    0    6    0    0    3    0
+## 18   0   0   0   3   0   0   0  59    0    0    0    9    9    0    0    0   30
+## 19   0   0   0  21   3   0 128   0    1    0    0    3    1    0    0    0    0
+## 20   0   0   0   8   0   0   0  38    6    0    0    7    1    0    0    1    0
+## 21   0   0   0   1   1   0   0   0    0    0    0   17    0    0    0  138    0
+## 22   0   0   0   0   1   0   0   0    0    0    4   17    0    0    6    0   14
+## 23   0   0   0   0   4   0   0   0    0    0    0   12    0    0    1    0    0
+## 24   0   0   0   1   1   0   0   0    3    0    2    1    0    0   50    0    5
+## 25   0   0   0   0   4   0   0   0    0    0    0    8    0    0   22   36    0
+## 26   0   0   0   0   0   0   0   0    0   47   25    0    0    0    6    0    0
+## 27   0  11   0   1   0  29   0   0    0    0  221    0    0    0    9    0    0
+## 28   0  47   0   1  24   0   0   0    0   47   78    0    0    0   28    0    0
+## 29   0  18   0   1   0   0   0   0    0    0   66    0    0    0   23    0    0
+## 31  15   0 134  11   0   0   0   0    0    0    0    0    0    0    0    0    0
+## 32   0   0   1  82   0   0   5   0    0    0    0    0    0   46    0    0    0
+## 33   0   0   0  53   0   0   1   0    0    0    0    0    0   57    0    0    7
+## 34   0   0   0  15   0   0   2   0    3    0    0    0    0   26    0    0    0
+## 41   0   0   0   8   3   0   0   0    0  171   15    1    0    0    0    0    0
+## 42   0   0   0  19   0   0   0   0    2   32    0    0    0    0    0    0    0
+## 43   0   0   2   3   1   0   0   0   12   62    2    1    4    0    0    0    0
+## 44   0   0  11   4  12   0   0   0    2   66   12   31    0    0    0    0   19
+## 45   0   0   0  10   2   0   0   0    0   84    6    0    3    0    0    0    0
+## 46   0   0   0   4  20   0  16   0   10    0    0    1    3    0    0    0    0
+## 47   0   0   0  12  13   0   0  45   14    0    0    0   11    0    0    0    0
+## 48   0   0   0   7   0   0 133   0    1    0    0   13    3    0    0   18    0
+## 49   0   0   0   1   5   0   0  50    0    0    0    1    0    0    0    0    0
+## 50   0   0   0  10  22   0  75   0    4    0    0    0   45    0    0    0    0
+## 51   0   0   0   1   2   0   0   0    0    3    0   44    0    0    0    0    0
+## 53   0   0   0   0  13   0   0   1    0    0    0  109    0    0    0   66    0
+## 54   0   0   1   0  12   0   0   0    0    0  113   78    0    0   41   45    0
+## 55   0   0  16   0  55   0   0   0    0    0    0   11    0    0   23   94   36
+##    sp20 sp21 sp22 sp23 sp24 sp25 sp27 sp28 sp29 sp30 sp31 sp32 sp33 sp34 sp35
+## 1     1    0    0    0   21    5    0    0    1    4    0  113    0    0    4
+## 2     0    0    0    0    5   21    0    0    0   63    0   29    0    0    0
+## 3     0    9    1    0   64   12    0    1   30    6    0   21    0    0    0
+## 4     1    5    0    0    8    1    0    0    0    0    0  298    0    0    0
+## 5     6   14    1    0   42    6    0    5    0   15    0   21    0    0    1
+## 6     0    0   14   13    0    0    0    0    0   42    0    0    2    4    0
+## 7     0    0    1    2    0    0   41    0    0   71    0    0   80   19    0
+## 8     0    0    3    0    0    0    0    0    0   59    0    0   13   12    0
+## 9     0    0    1    2    0    0   14    0    0  139    0    0    9    3    0
+## 10    0    0    0   17    0    0    0    0    0  135    0    0   75   16    0
+## 11   12    7    3    0   16   10    0    9    0   48    1    5    0    0    0
+## 12    6    5   11    0  103    0    0    0    0   27    0   17    0    0    0
+## 13    1   22   14    0   70    0    0    0    0   63    0    6    0    0    0
+## 14   48    5    2    0   63    1    0   12    0    3    0    7    0    0    0
+## 15    9   11    1    0   57    0    0   12    0    0    1   31    0    0    0
+## 17    0    0    0   68    0    0    0    0    0   28    0    0    0    0    0
+## 18    0    0    0   52    0    0    0    0    0   31    5    0    0    0    0
+## 19    0    0    0    6    0    1    0    0    0   41    0    0    0    0    0
+## 20    0    0    0   35    0    1    0    0    0   24    1    0    0    0    0
+## 21    0    1    6    0    0    0    0    0    0    1    0   80    0    0    2
+## 22    0    0    7    1    0    1    0    0    0    7    0   46    0    2   19
+## 23    0    0    2    0    0    0    0    0    0   20    2  112    0    0    0
+## 24    0    0    2    2    0    1    0    0    0    8    0   73    0    0    0
+## 25    0    0    2    1    0    0    0    0    0    2    0   97    0    1    1
+## 26    0    0    0    0    0    2    0    3    0    2    0  142    0    0    0
+## 27    0    0    0    0    0    0    0    0    0    0    0   13    0    0    1
+## 28    0    1    2    0   34    1    0    1    0    0    0  124    0    9   38
+## 29    2    1    2    0    3    0    0    0   12    0    0  110    0   20    0
+## 31    0    0    1    0    0    0    0    0    0    8    0    0   67   65    0
+## 32    0    0    0    0    0    0    0    0    0    2    0    0  123   10    0
+## 33    0    0    0    0    0    0    8    0    0    5    0    0   68  213    0
+## 34    0    0    0    0    0    0    0    0    0    1    0    0  106  140    0
+## 41    2    7    1    0    4   24    0    8    0   28    0   16    0    3    0
+## 42   12    3    0    0    3   25    0    0    0   46    0  194    0    0    0
+## 43   26   16    0    0    0    7    0    0    0    1    3  107    0    0    0
+## 44    3   12    0   11    0    3    0    1    0    2    1   34    0   12    0
+## 45    1    2    1    0    0   64    0    0    0    2    0   57    0    1    0
+## 46    0    0    0   17    0    7    0    0    0  162   24    0    0    1    0
+## 47    0    0    2  113    0   18    0    0    0  100    3    0    0    0    0
+## 48    0    0    2   59    0    1    0    0    0   61    0    0    0    0    0
+## 49    0    0    0   33    0    2    0    0    0  162   20    0    0    0    0
+## 50    0    0    0   21    0    3    0    0    0  182   11    0    0    0    0
+## 51    0    0    0    3    0    2    0    0    0    1    0  315    0    0   49
+## 53    0    1    0    0    0    0    0   10    0    6    3   36    0    0    0
+## 54    0    0    0    0    0    1    0    1    0    0    0    1    0    0    0
+## 55    0    0    2    0    0    0    0    0    0    0    0  165    0    0    0</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="diversidade-funcional.html#cb214-1"></a>ambie_fren_dat <span class="co"># matriz de variáveis ambientais por localidade</span></span></code></pre></div>
+<pre><code>##     Grazing Aridity Exclosure Bare.ground.2009 Altitude
+## 1    Grazed   5.003         0             77.6      928
+## 2    Grazed   5.003         0             84.9      976
+## 3    Grazed   5.109         0             85.7      936
+## 4    Grazed   5.109         0             59.2      937
+## 5    Grazed   5.003         0             85.0      937
+## 6    Grazed   2.625         0             78.8     1628
+## 7    Grazed   2.625         0             75.2     1599
+## 8    Grazed   2.985         0             73.7     1611
+## 9    Grazed   2.625         0             71.8     1598
+## 10   Grazed   2.985         0             72.5     1593
+## 11   Grazed   5.109         0             81.5      917
+## 12   Grazed   5.109         0             81.3      929
+## 13   Grazed   5.109         0             75.2      941
+## 14   Grazed   5.109         0             84.9      945
+## 15   Grazed   5.109         0             92.1      927
+## 17   Grazed   4.254         0             75.3     1286
+## 18   Grazed   4.088         0             76.7     1314
+## 19   Grazed   4.425         0             62.8     1302
+## 20   Grazed   4.425         0             74.8     1302
+## 21   Grazed   4.536         0             82.6      978
+## 22   Grazed   4.533         0             90.1      919
+## 23   Grazed   4.533         0             85.7      921
+## 24   Grazed   4.397         0             90.3      911
+## 25   Grazed   3.903         0             84.4      938
+## 26 Ungrazed   5.003        13             75.7      950
+## 27 Ungrazed   5.003        13             75.3      946
+## 28 Ungrazed   5.003        13             75.3      947
+## 29 Ungrazed   5.003        13             59.8      955
+## 31 Ungrazed   2.625         5             76.5     1628
+## 32 Ungrazed   2.625         5             43.5     1617
+## 33 Ungrazed   2.625         5             57.0     1611
+## 34 Ungrazed   2.625         5             68.5     1611
+## 41 Ungrazed   4.965        50             84.8     1050
+## 42 Ungrazed   4.965        50             45.8     1048
+## 43 Ungrazed   4.965        50             68.3     1063
+## 44 Ungrazed   4.965        50             83.9     1064
+## 45 Ungrazed   4.965        50             74.0     1068
+## 46 Ungrazed   4.254         1             70.0     1291
+## 47 Ungrazed   4.254         1             65.5     1297
+## 48 Ungrazed   4.254         1             55.5     1293
+## 49 Ungrazed   4.254         1             60.3     1302
+## 50 Ungrazed   4.425         1             52.3     1302
+## 51 Ungrazed   4.536        11             52.5      988
+## 53 Ungrazed   3.906        11             80.5     1034
+## 54 Ungrazed   3.906        11             79.3     1034
+## 55 Ungrazed   3.906        11             59.3     1034</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="diversidade-funcional.html#cb216-1"></a>trait_fren_dat <span class="co"># matriz de atributos contínuos por espécie</span></span></code></pre></div>
+<pre><code>##           LA    SLA    LDMC   LN15     LCC
+## sp1   22.201  5.393 257.969  3.210 432.680
+## sp2   27.803  3.642 194.628  6.257 281.276
+## sp3   14.960  9.524 236.038  5.051 468.355
+## sp5   30.828 15.949 244.372 -0.421 450.266
+## sp6   50.863  4.505 315.679 -1.904 463.876
+## sp7  286.552  8.619 201.724  3.193 450.805
+## sp8  182.924 20.532 119.861  7.623 389.473
+## sp9  629.033 15.377 143.187  3.340 393.802
+## sp10  17.820 26.600 247.820  4.549 419.162
+## sp11  55.044  3.751 301.926  8.052 404.560
+## sp12  14.048  5.933 325.822  1.669 443.315
+## sp13   3.643  9.843 209.086  4.929 420.098
+## sp14  35.037 13.796 178.776 -0.400 462.883
+## sp15  37.975  8.975 306.213 10.228 419.355
+## sp17  10.163  8.379 154.654  5.182 403.914
+## sp18 430.583  1.906 598.311 -1.167 462.227
+## sp19   9.744  8.334 210.496  3.841 458.277
+## sp20  25.373 11.740 231.553  4.023 405.811
+## sp21  76.946 20.456 139.723  3.147 433.548
+## sp22   4.296 12.278 227.964  3.833 426.892
+## sp23  71.477 11.130 270.938  2.336 408.617
+## sp24  78.794 13.624 235.067  1.997 420.955
+## sp25  25.448 10.468 234.652  3.026 433.149
+## sp27   2.255  5.392 279.853 10.324 425.468
+## sp28   3.851  3.513 301.856  6.186 401.162
+## sp29  23.231  4.510 158.147  5.936 294.205
+## sp30   6.978 14.850 311.852 -0.157 457.671
+## sp31   9.564 10.946 159.904  3.021 369.946
+## sp32  40.091 10.578 358.145  2.499 455.474
+## sp33  18.449  4.445 432.189  4.480 432.073
+## sp34  29.501  4.860 410.760  3.689 433.906
+## sp35  21.275  3.577 441.302  0.170 448.661</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="diversidade-funcional.html#cb218-1"></a><span class="co"># Hipótese e predições:</span></span>
+<span id="cb218-2"><a href="diversidade-funcional.html#cb218-2"></a></span>
+<span id="cb218-3"><a href="diversidade-funcional.html#cb218-3"></a><span class="co"># Hipótese: O gradiente de aridez influencia a divergência e regularidade funcional de plantas</span></span>
+<span id="cb218-4"><a href="diversidade-funcional.html#cb218-4"></a><span class="co"># Predição 1: locais mais áridos possuem menor divergência funcional de plantas (métrica escolhida: FDis)</span></span>
+<span id="cb218-5"><a href="diversidade-funcional.html#cb218-5"></a><span class="co"># Predição 2: locais mais úmidos possuem menor regularidade funcional de plantas (métrica escolhida: FEve)</span></span>
+<span id="cb218-6"><a href="diversidade-funcional.html#cb218-6"></a></span>
+<span id="cb218-7"><a href="diversidade-funcional.html#cb218-7"></a><span class="co">## Passo 1: calcular a distância funcional</span></span>
+<span id="cb218-8"><a href="diversidade-funcional.html#cb218-8"></a></span>
+<span id="cb218-9"><a href="diversidade-funcional.html#cb218-9"></a>trait_pad &lt;-<span class="st"> </span><span class="kw">decostand</span>(trait_fren_dat, <span class="st">&quot;standardize&quot;</span>)</span>
+<span id="cb218-10"><a href="diversidade-funcional.html#cb218-10"></a>euclid_dis &lt;-<span class="st"> </span><span class="kw">vegdist</span>(trait_pad, <span class="st">&quot;euclidean&quot;</span>)</span>
+<span id="cb218-11"><a href="diversidade-funcional.html#cb218-11"></a></span>
+<span id="cb218-12"><a href="diversidade-funcional.html#cb218-12"></a></span>
+<span id="cb218-13"><a href="diversidade-funcional.html#cb218-13"></a><span class="co">## Passo 2: calcular a Divergência funcional (FDis) e Regularidade Funcional (FEve)</span></span>
+<span id="cb218-14"><a href="diversidade-funcional.html#cb218-14"></a></span>
+<span id="cb218-15"><a href="diversidade-funcional.html#cb218-15"></a>fdis &lt;-<span class="st"> </span><span class="kw">dbFD</span>(euclid_dis, comun_fren_dat)<span class="op">$</span>FDis<span class="co"># Fdis=0 em locais com somente uma espécie</span></span></code></pre></div>
+<pre><code>## FRic: No dimensionality reduction was required. All 5 PCoA axes were kept as &#39;traits&#39;. 
+## CWM: When &#39;x&#39; is a distance matrix, CWM cannot be calculated.</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="diversidade-funcional.html#cb220-1"></a>feve &lt;-<span class="st"> </span><span class="kw">dbFD</span>(euclid_dis, comun_fren_dat)<span class="op">$</span>FEve</span></code></pre></div>
+<pre><code>## FRic: No dimensionality reduction was required. All 5 PCoA axes were kept as &#39;traits&#39;. 
+## CWM: When &#39;x&#39; is a distance matrix, CWM cannot be calculated.</code></pre>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="diversidade-funcional.html#cb222-1"></a><span class="co">## Passo 3: Utilizar um modelo linear para comparar o efeito da aridez sobre FDis (predição 1) e FEve (predição 2)</span></span>
+<span id="cb222-2"><a href="diversidade-funcional.html#cb222-2"></a></span>
+<span id="cb222-3"><a href="diversidade-funcional.html#cb222-3"></a>lm_dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">aridez =</span> ambie_fren_dat<span class="op">$</span>Aridity, <span class="dt">fdis =</span> fdis, <span class="dt">feve =</span> feve)</span>
+<span id="cb222-4"><a href="diversidade-funcional.html#cb222-4"></a></span>
+<span id="cb222-5"><a href="diversidade-funcional.html#cb222-5"></a>mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(fdis <span class="op">~</span><span class="st"> </span>aridez, <span class="dt">data =</span> lm_dat)</span>
+<span id="cb222-6"><a href="diversidade-funcional.html#cb222-6"></a><span class="kw">plot</span>(mod1) <span class="co"># conferir os pressupostos da análise</span></span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-1.png" width="672" /><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-2.png" width="672" /><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-3.png" width="672" /><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-4.png" width="672" /></p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="diversidade-funcional.html#cb223-1"></a><span class="kw">anova</span>(mod1) <span class="co"># Conclusão: a aridez não tem efeito sobre a divergência funcional</span></span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: fdis
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## aridez     1 0.2083 0.20834  0.9945 0.3241
+## Residuals 44 9.2179 0.20950</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="diversidade-funcional.html#cb225-1"></a>mod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(feve <span class="op">~</span><span class="st"> </span>aridez, <span class="dt">data =</span> lm_dat)</span>
+<span id="cb225-2"><a href="diversidade-funcional.html#cb225-2"></a><span class="kw">plot</span>(mod2) <span class="co"># conferir os pressupostos da análise</span></span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-5.png" width="672" /><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-6.png" width="672" /><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-7.png" width="672" /><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-8.png" width="672" /></p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="diversidade-funcional.html#cb226-1"></a><span class="kw">anova</span>(mod2) <span class="co"># Conclusão: a aridez não tem efeito sobre a regularidade funcional</span></span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: feve
+##           Df  Sum Sq  Mean Sq F value Pr(&gt;F)
+## aridez     1 0.02098 0.020979  1.0447 0.3123
+## Residuals 44 0.88353 0.020080</code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="diversidade-funcional.html#cb228-1"></a><span class="co">## Passo 4: gráfico para visualizar os dois resultados  </span></span>
+<span id="cb228-2"><a href="diversidade-funcional.html#cb228-2"></a></span>
+<span id="cb228-3"><a href="diversidade-funcional.html#cb228-3"></a>lm_dat <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb228-4"><a href="diversidade-funcional.html#cb228-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>aridez, <span class="dt">y=</span>fdis)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb228-5"><a href="diversidade-funcional.html#cb228-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">size=</span><span class="dv">3</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;royalblue&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb228-6"><a href="diversidade-funcional.html#cb228-6"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Aridez&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Divergência Funcional (FDis)&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb228-7"><a href="diversidade-funcional.html#cb228-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb228-8"><a href="diversidade-funcional.html#cb228-8"></a>        <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb228-9"><a href="diversidade-funcional.html#cb228-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb228-10"><a href="diversidade-funcional.html#cb228-10"></a>        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb228-11"><a href="diversidade-funcional.html#cb228-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">legend.title=</span><span class="kw">element_blank</span>()) -&gt;<span class="st"> </span>plot_pred1</span>
+<span id="cb228-12"><a href="diversidade-funcional.html#cb228-12"></a>plot_pred1</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-9.png" width="672" /></p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="diversidade-funcional.html#cb229-1"></a>lm_dat <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb229-2"><a href="diversidade-funcional.html#cb229-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>aridez, <span class="dt">y=</span>feve)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb229-3"><a href="diversidade-funcional.html#cb229-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">size=</span><span class="dv">3</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;#d73027&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb229-4"><a href="diversidade-funcional.html#cb229-4"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Aridez&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Regularidade Funcional (FEve)&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb229-5"><a href="diversidade-funcional.html#cb229-5"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb229-6"><a href="diversidade-funcional.html#cb229-6"></a>        <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb229-7"><a href="diversidade-funcional.html#cb229-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="dv">14</span>),</span>
+<span id="cb229-8"><a href="diversidade-funcional.html#cb229-8"></a>        <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="fl">0.5</span>, <span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb229-9"><a href="diversidade-funcional.html#cb229-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">legend.title=</span><span class="kw">element_blank</span>()) -&gt;<span class="st"> </span>plot_pred2</span>
+<span id="cb229-10"><a href="diversidade-funcional.html#cb229-10"></a>plot_pred2</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-10.png" width="672" /></p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="diversidade-funcional.html#cb230-1"></a><span class="co">## Visualização dos dois gráficos em um única janela</span></span>
+<span id="cb230-2"><a href="diversidade-funcional.html#cb230-2"></a></span>
+<span id="cb230-3"><a href="diversidade-funcional.html#cb230-3"></a><span class="kw">grid.arrange</span>(plot_pred1, plot_pred2, <span class="dt">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-67-11.png" width="672" /></p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="diversidade-funcional.html#cb231-1"></a><span class="co">## Exportar resultad em pdf. Você pode mudar .pdf por .png ou .svg.</span></span>
+<span id="cb231-2"><a href="diversidade-funcional.html#cb231-2"></a><span class="kw">ggsave</span>(<span class="st">&quot;plot_pred1.pdf&quot;</span>, plot_pred1, <span class="dt">height =</span> <span class="dv">14</span>, <span class="dt">width =</span> <span class="dv">14</span>, <span class="dt">dpi =</span> <span class="dv">600</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb231-3"><a href="diversidade-funcional.html#cb231-3"></a><span class="kw">ggsave</span>(<span class="st">&quot;plot_pred2.pdf&quot;</span>, plot_pred2, <span class="dt">height =</span> <span class="dv">14</span>, <span class="dt">width =</span> <span class="dv">14</span>, <span class="dt">dpi =</span> <span class="dv">600</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="diversidade-funcional.html#cb232-1"></a><span class="co">### Exemplo 2: o pastejo influencia a diversidade beta funcional de 34 espécies de plantas (Frenette-Dussault et al. 2012)</span></span>
+<span id="cb232-2"><a href="diversidade-funcional.html#cb232-2"></a></span>
+<span id="cb232-3"><a href="diversidade-funcional.html#cb232-3"></a></span>
+<span id="cb232-4"><a href="diversidade-funcional.html#cb232-4"></a><span class="co"># Dados</span></span>
+<span id="cb232-5"><a href="diversidade-funcional.html#cb232-5"></a></span>
+<span id="cb232-6"><a href="diversidade-funcional.html#cb232-6"></a>comun_fren_dat <span class="co"># matriz de espécies por localidade</span></span></code></pre></div>
+<pre><code>##    sp1 sp2 sp3 sp5 sp6 sp7 sp8 sp9 sp10 sp11 sp12 sp13 sp14 sp15 sp17 sp18 sp19
+## 1    0  74   0   5   5   0   0   0    0   47    3    2    0    0   14    0    0
+## 2    0  10   0   6   0   0   0   0    2    4    2   24    0    0   47    0    0
+## 3    0   1   0   0   0   0   0   0    0    0    0    0    1    0   24    0    0
+## 4    0   3   0   0   0   0   0   0    0    0    0    2    0    0    3    0    0
+## 5    0   0   0  15   0   0   0   0    0   27    0    2    0    0    0    0    0
+## 6   23   0  22   2   0   0   7   0    4    0    0    0    0    0    0    0    0
+## 7    2   0   0   3   0   0   0   0    0    0    0    2    0    2    0    0    0
+## 8    7   0   0   7   0   0  10   0   43    0    0    0    0    2    0    0    0
+## 9    0   0   5   8   0   0   8   0    1    0    0    0    0    0    0    0    0
+## 10   1   0   0   4   0   0  16   0    0    0    0    0    0    1    0    0    5
+## 11   0   0   0   2   0   0   0   0    0    0    1    0    0    0   21    0    0
+## 12   0   5   0   1   0   0   0   0    0    0    0    0    0    0   35    0    0
+## 13   0   7   0   3   0   0   0   0    0    0    0    0    0    0   29    0    0
+## 14   0   1   0   0   0   0   0   0    0    0    0    0    0    0    4    0    0
+## 15   0   8   0   4   0   0   0   0    0    0    0    0    0    0    0    0    0
+## 17   0   0   0  34   0   0  29   0    8    0    0    0    6    0    0    3    0
+## 18   0   0   0   3   0   0   0  59    0    0    0    9    9    0    0    0   30
+## 19   0   0   0  21   3   0 128   0    1    0    0    3    1    0    0    0    0
+## 20   0   0   0   8   0   0   0  38    6    0    0    7    1    0    0    1    0
+## 21   0   0   0   1   1   0   0   0    0    0    0   17    0    0    0  138    0
+## 22   0   0   0   0   1   0   0   0    0    0    4   17    0    0    6    0   14
+## 23   0   0   0   0   4   0   0   0    0    0    0   12    0    0    1    0    0
+## 24   0   0   0   1   1   0   0   0    3    0    2    1    0    0   50    0    5
+## 25   0   0   0   0   4   0   0   0    0    0    0    8    0    0   22   36    0
+## 26   0   0   0   0   0   0   0   0    0   47   25    0    0    0    6    0    0
+## 27   0  11   0   1   0  29   0   0    0    0  221    0    0    0    9    0    0
+## 28   0  47   0   1  24   0   0   0    0   47   78    0    0    0   28    0    0
+## 29   0  18   0   1   0   0   0   0    0    0   66    0    0    0   23    0    0
+## 31  15   0 134  11   0   0   0   0    0    0    0    0    0    0    0    0    0
+## 32   0   0   1  82   0   0   5   0    0    0    0    0    0   46    0    0    0
+## 33   0   0   0  53   0   0   1   0    0    0    0    0    0   57    0    0    7
+## 34   0   0   0  15   0   0   2   0    3    0    0    0    0   26    0    0    0
+## 41   0   0   0   8   3   0   0   0    0  171   15    1    0    0    0    0    0
+## 42   0   0   0  19   0   0   0   0    2   32    0    0    0    0    0    0    0
+## 43   0   0   2   3   1   0   0   0   12   62    2    1    4    0    0    0    0
+## 44   0   0  11   4  12   0   0   0    2   66   12   31    0    0    0    0   19
+## 45   0   0   0  10   2   0   0   0    0   84    6    0    3    0    0    0    0
+## 46   0   0   0   4  20   0  16   0   10    0    0    1    3    0    0    0    0
+## 47   0   0   0  12  13   0   0  45   14    0    0    0   11    0    0    0    0
+## 48   0   0   0   7   0   0 133   0    1    0    0   13    3    0    0   18    0
+## 49   0   0   0   1   5   0   0  50    0    0    0    1    0    0    0    0    0
+## 50   0   0   0  10  22   0  75   0    4    0    0    0   45    0    0    0    0
+## 51   0   0   0   1   2   0   0   0    0    3    0   44    0    0    0    0    0
+## 53   0   0   0   0  13   0   0   1    0    0    0  109    0    0    0   66    0
+## 54   0   0   1   0  12   0   0   0    0    0  113   78    0    0   41   45    0
+## 55   0   0  16   0  55   0   0   0    0    0    0   11    0    0   23   94   36
+##    sp20 sp21 sp22 sp23 sp24 sp25 sp27 sp28 sp29 sp30 sp31 sp32 sp33 sp34 sp35
+## 1     1    0    0    0   21    5    0    0    1    4    0  113    0    0    4
+## 2     0    0    0    0    5   21    0    0    0   63    0   29    0    0    0
+## 3     0    9    1    0   64   12    0    1   30    6    0   21    0    0    0
+## 4     1    5    0    0    8    1    0    0    0    0    0  298    0    0    0
+## 5     6   14    1    0   42    6    0    5    0   15    0   21    0    0    1
+## 6     0    0   14   13    0    0    0    0    0   42    0    0    2    4    0
+## 7     0    0    1    2    0    0   41    0    0   71    0    0   80   19    0
+## 8     0    0    3    0    0    0    0    0    0   59    0    0   13   12    0
+## 9     0    0    1    2    0    0   14    0    0  139    0    0    9    3    0
+## 10    0    0    0   17    0    0    0    0    0  135    0    0   75   16    0
+## 11   12    7    3    0   16   10    0    9    0   48    1    5    0    0    0
+## 12    6    5   11    0  103    0    0    0    0   27    0   17    0    0    0
+## 13    1   22   14    0   70    0    0    0    0   63    0    6    0    0    0
+## 14   48    5    2    0   63    1    0   12    0    3    0    7    0    0    0
+## 15    9   11    1    0   57    0    0   12    0    0    1   31    0    0    0
+## 17    0    0    0   68    0    0    0    0    0   28    0    0    0    0    0
+## 18    0    0    0   52    0    0    0    0    0   31    5    0    0    0    0
+## 19    0    0    0    6    0    1    0    0    0   41    0    0    0    0    0
+## 20    0    0    0   35    0    1    0    0    0   24    1    0    0    0    0
+## 21    0    1    6    0    0    0    0    0    0    1    0   80    0    0    2
+## 22    0    0    7    1    0    1    0    0    0    7    0   46    0    2   19
+## 23    0    0    2    0    0    0    0    0    0   20    2  112    0    0    0
+## 24    0    0    2    2    0    1    0    0    0    8    0   73    0    0    0
+## 25    0    0    2    1    0    0    0    0    0    2    0   97    0    1    1
+## 26    0    0    0    0    0    2    0    3    0    2    0  142    0    0    0
+## 27    0    0    0    0    0    0    0    0    0    0    0   13    0    0    1
+## 28    0    1    2    0   34    1    0    1    0    0    0  124    0    9   38
+## 29    2    1    2    0    3    0    0    0   12    0    0  110    0   20    0
+## 31    0    0    1    0    0    0    0    0    0    8    0    0   67   65    0
+## 32    0    0    0    0    0    0    0    0    0    2    0    0  123   10    0
+## 33    0    0    0    0    0    0    8    0    0    5    0    0   68  213    0
+## 34    0    0    0    0    0    0    0    0    0    1    0    0  106  140    0
+## 41    2    7    1    0    4   24    0    8    0   28    0   16    0    3    0
+## 42   12    3    0    0    3   25    0    0    0   46    0  194    0    0    0
+## 43   26   16    0    0    0    7    0    0    0    1    3  107    0    0    0
+## 44    3   12    0   11    0    3    0    1    0    2    1   34    0   12    0
+## 45    1    2    1    0    0   64    0    0    0    2    0   57    0    1    0
+## 46    0    0    0   17    0    7    0    0    0  162   24    0    0    1    0
+## 47    0    0    2  113    0   18    0    0    0  100    3    0    0    0    0
+## 48    0    0    2   59    0    1    0    0    0   61    0    0    0    0    0
+## 49    0    0    0   33    0    2    0    0    0  162   20    0    0    0    0
+## 50    0    0    0   21    0    3    0    0    0  182   11    0    0    0    0
+## 51    0    0    0    3    0    2    0    0    0    1    0  315    0    0   49
+## 53    0    1    0    0    0    0    0   10    0    6    3   36    0    0    0
+## 54    0    0    0    0    0    1    0    1    0    0    0    1    0    0    0
+## 55    0    0    2    0    0    0    0    0    0    0    0  165    0    0    0</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="diversidade-funcional.html#cb234-1"></a>ambie_fren_dat <span class="co"># matriz de variáveis ambientais por localidade</span></span></code></pre></div>
+<pre><code>##     Grazing Aridity Exclosure Bare.ground.2009 Altitude
+## 1    Grazed   5.003         0             77.6      928
+## 2    Grazed   5.003         0             84.9      976
+## 3    Grazed   5.109         0             85.7      936
+## 4    Grazed   5.109         0             59.2      937
+## 5    Grazed   5.003         0             85.0      937
+## 6    Grazed   2.625         0             78.8     1628
+## 7    Grazed   2.625         0             75.2     1599
+## 8    Grazed   2.985         0             73.7     1611
+## 9    Grazed   2.625         0             71.8     1598
+## 10   Grazed   2.985         0             72.5     1593
+## 11   Grazed   5.109         0             81.5      917
+## 12   Grazed   5.109         0             81.3      929
+## 13   Grazed   5.109         0             75.2      941
+## 14   Grazed   5.109         0             84.9      945
+## 15   Grazed   5.109         0             92.1      927
+## 17   Grazed   4.254         0             75.3     1286
+## 18   Grazed   4.088         0             76.7     1314
+## 19   Grazed   4.425         0             62.8     1302
+## 20   Grazed   4.425         0             74.8     1302
+## 21   Grazed   4.536         0             82.6      978
+## 22   Grazed   4.533         0             90.1      919
+## 23   Grazed   4.533         0             85.7      921
+## 24   Grazed   4.397         0             90.3      911
+## 25   Grazed   3.903         0             84.4      938
+## 26 Ungrazed   5.003        13             75.7      950
+## 27 Ungrazed   5.003        13             75.3      946
+## 28 Ungrazed   5.003        13             75.3      947
+## 29 Ungrazed   5.003        13             59.8      955
+## 31 Ungrazed   2.625         5             76.5     1628
+## 32 Ungrazed   2.625         5             43.5     1617
+## 33 Ungrazed   2.625         5             57.0     1611
+## 34 Ungrazed   2.625         5             68.5     1611
+## 41 Ungrazed   4.965        50             84.8     1050
+## 42 Ungrazed   4.965        50             45.8     1048
+## 43 Ungrazed   4.965        50             68.3     1063
+## 44 Ungrazed   4.965        50             83.9     1064
+## 45 Ungrazed   4.965        50             74.0     1068
+## 46 Ungrazed   4.254         1             70.0     1291
+## 47 Ungrazed   4.254         1             65.5     1297
+## 48 Ungrazed   4.254         1             55.5     1293
+## 49 Ungrazed   4.254         1             60.3     1302
+## 50 Ungrazed   4.425         1             52.3     1302
+## 51 Ungrazed   4.536        11             52.5      988
+## 53 Ungrazed   3.906        11             80.5     1034
+## 54 Ungrazed   3.906        11             79.3     1034
+## 55 Ungrazed   3.906        11             59.3     1034</code></pre>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="diversidade-funcional.html#cb236-1"></a>trait_fren_dat <span class="co"># matriz de atributos contínuos por espécie</span></span></code></pre></div>
+<pre><code>##           LA    SLA    LDMC   LN15     LCC
+## sp1   22.201  5.393 257.969  3.210 432.680
+## sp2   27.803  3.642 194.628  6.257 281.276
+## sp3   14.960  9.524 236.038  5.051 468.355
+## sp5   30.828 15.949 244.372 -0.421 450.266
+## sp6   50.863  4.505 315.679 -1.904 463.876
+## sp7  286.552  8.619 201.724  3.193 450.805
+## sp8  182.924 20.532 119.861  7.623 389.473
+## sp9  629.033 15.377 143.187  3.340 393.802
+## sp10  17.820 26.600 247.820  4.549 419.162
+## sp11  55.044  3.751 301.926  8.052 404.560
+## sp12  14.048  5.933 325.822  1.669 443.315
+## sp13   3.643  9.843 209.086  4.929 420.098
+## sp14  35.037 13.796 178.776 -0.400 462.883
+## sp15  37.975  8.975 306.213 10.228 419.355
+## sp17  10.163  8.379 154.654  5.182 403.914
+## sp18 430.583  1.906 598.311 -1.167 462.227
+## sp19   9.744  8.334 210.496  3.841 458.277
+## sp20  25.373 11.740 231.553  4.023 405.811
+## sp21  76.946 20.456 139.723  3.147 433.548
+## sp22   4.296 12.278 227.964  3.833 426.892
+## sp23  71.477 11.130 270.938  2.336 408.617
+## sp24  78.794 13.624 235.067  1.997 420.955
+## sp25  25.448 10.468 234.652  3.026 433.149
+## sp27   2.255  5.392 279.853 10.324 425.468
+## sp28   3.851  3.513 301.856  6.186 401.162
+## sp29  23.231  4.510 158.147  5.936 294.205
+## sp30   6.978 14.850 311.852 -0.157 457.671
+## sp31   9.564 10.946 159.904  3.021 369.946
+## sp32  40.091 10.578 358.145  2.499 455.474
+## sp33  18.449  4.445 432.189  4.480 432.073
+## sp34  29.501  4.860 410.760  3.689 433.906
+## sp35  21.275  3.577 441.302  0.170 448.661</code></pre>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="diversidade-funcional.html#cb238-1"></a><span class="co"># Hipótese e predições:</span></span>
+<span id="cb238-2"><a href="diversidade-funcional.html#cb238-2"></a></span>
+<span id="cb238-3"><a href="diversidade-funcional.html#cb238-3"></a><span class="co"># Hipótese: o pastejo determina a ocorrência de espécies de plantas com diferentes atributos funcionais </span></span>
+<span id="cb238-4"><a href="diversidade-funcional.html#cb238-4"></a><span class="co"># Predição 1: a composição funcional de plantas é diferente entre áreas com e sem pastejo</span></span>
+<span id="cb238-5"><a href="diversidade-funcional.html#cb238-5"></a></span>
+<span id="cb238-6"><a href="diversidade-funcional.html#cb238-6"></a></span>
+<span id="cb238-7"><a href="diversidade-funcional.html#cb238-7"></a><span class="co">## Passo 1: calcular a distância funcional</span></span>
+<span id="cb238-8"><a href="diversidade-funcional.html#cb238-8"></a></span>
+<span id="cb238-9"><a href="diversidade-funcional.html#cb238-9"></a>cwm_dis &lt;-<span class="st"> </span><span class="kw">vegdist</span>(cwm_fren, <span class="st">&quot;euclidean&quot;</span>)</span>
+<span id="cb238-10"><a href="diversidade-funcional.html#cb238-10"></a></span>
+<span id="cb238-11"><a href="diversidade-funcional.html#cb238-11"></a><span class="co">## Passo 2: calcular os valores de composição funcional (CWM)</span></span>
+<span id="cb238-12"><a href="diversidade-funcional.html#cb238-12"></a></span>
+<span id="cb238-13"><a href="diversidade-funcional.html#cb238-13"></a>cwm_fren &lt;-<span class="st"> </span><span class="kw">functcomp</span>(trait_pad, <span class="kw">as.matrix</span>(comun_fren_dat))</span>
+<span id="cb238-14"><a href="diversidade-funcional.html#cb238-14"></a></span>
+<span id="cb238-15"><a href="diversidade-funcional.html#cb238-15"></a><span class="co">## Passo 3: testar se a composição funcional varia entre as áreas com uma PERMANOVA</span></span>
+<span id="cb238-16"><a href="diversidade-funcional.html#cb238-16"></a></span>
+<span id="cb238-17"><a href="diversidade-funcional.html#cb238-17"></a>perman_fren &lt;-<span class="st"> </span><span class="kw">adonis</span>(cwm_fren<span class="op">~</span>Grazing, <span class="dt">data =</span> ambie_fren_dat)</span>
+<span id="cb238-18"><a href="diversidade-funcional.html#cb238-18"></a></span>
+<span id="cb238-19"><a href="diversidade-funcional.html#cb238-19"></a><span class="co">## Passo 4: comparar a variação dentro de cada grupo com Betadisper </span></span>
+<span id="cb238-20"><a href="diversidade-funcional.html#cb238-20"></a></span>
+<span id="cb238-21"><a href="diversidade-funcional.html#cb238-21"></a>betad_fren &lt;-<span class="st"> </span><span class="kw">betadisper</span>(cwm_dis, ambie_fren_dat<span class="op">$</span>Grazing)</span>
+<span id="cb238-22"><a href="diversidade-funcional.html#cb238-22"></a><span class="kw">permutest</span>(betad_fren)</span></code></pre></div>
+<pre><code>## 
+## Permutation test for homogeneity of multivariate dispersions
+## Permutation: free
+## Number of permutations: 999
+## 
+## Response: Distances
+##           Df  Sum Sq  Mean Sq      F N.Perm Pr(&gt;F)
+## Groups     1  0.0539 0.053858 0.1946    999  0.679
+## Residuals 44 12.1763 0.276735</code></pre>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="diversidade-funcional.html#cb240-1"></a><span class="co">## Passo 5: visualização com PCoA</span></span>
+<span id="cb240-2"><a href="diversidade-funcional.html#cb240-2"></a></span>
+<span id="cb240-3"><a href="diversidade-funcional.html#cb240-3"></a><span class="kw">plot</span>(betad_fren)</span></code></pre></div>
+<p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/paternogbc/livro_r_ecologia/edit/master/diversidade_funcional_.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["livro_r_ecologia.pdf", "livro_r_ecologia.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

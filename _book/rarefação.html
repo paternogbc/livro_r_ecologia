@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-09-18" />
+<meta name="date" content="2020-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -232,6 +232,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html"><i class="fa fa-check"></i><b>7</b> Diversidade Funcional</a><ul>
+<li class="chapter" data-level="7.1" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#aspectos-teóricos"><i class="fa fa-check"></i><b>7.1</b> 2.1 Aspectos teóricos</a></li>
+<li class="chapter" data-level="7.2" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#definindo-a-dissimilaridade-entre-espécies"><i class="fa fa-check"></i><b>7.2</b> 2.2. Definindo a dis(similaridade) entre espécies</a></li>
+<li class="chapter" data-level="7.3" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#métricas-de-diversidade-funcional-alpha"><i class="fa fa-check"></i><b>7.3</b> 2.3 Métricas de diversidade funcional (alpha)</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#riqueza-funcional"><i class="fa fa-check"></i><b>7.3.1</b> 2.2.1 Riqueza funcional</a></li>
+<li class="chapter" data-level="7.3.2" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#divergência-funcional"><i class="fa fa-check"></i><b>7.3.2</b> 2.2.2. Divergência funcional</a></li>
+<li class="chapter" data-level="7.3.3" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>7.3.3</b> Análise</a></li>
+<li class="chapter" data-level="7.3.4" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#regularidade-funcional"><i class="fa fa-check"></i><b>7.3.4</b> 2.2.3. Regularidade funcional</a></li>
+<li class="chapter" data-level="7.3.5" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>7.3.5</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#métricas-de-diversidade-funcional-beta"><i class="fa fa-check"></i><b>7.4</b> 2.3 Métricas de diversidade funcional (beta)</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -309,41 +321,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Calculo da rarefação</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="rarefação.html#cb159-1"></a><span class="kw">library</span>(iNEXT)</span>
 <span id="cb159-2"><a href="rarefação.html#cb159-2"></a><span class="kw">library</span>(devtools)</span>
-<span id="cb159-3"><a href="rarefação.html#cb159-3"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;paternogbc/ecodados&quot;</span>)</span></code></pre></div>
-<pre><code>##   
-   checking for file ‘/tmp/RtmpDWvncR/remotes1a6176aeac7b/paternogbc-ecodados-4463a1d/DESCRIPTION’ ...
-  
-✓  checking for file ‘/tmp/RtmpDWvncR/remotes1a6176aeac7b/paternogbc-ecodados-4463a1d/DESCRIPTION’
-## 
-  
-─  preparing ‘ecodados’:
-##    checking DESCRIPTION meta-information ...
-  
-✓  checking DESCRIPTION meta-information
-## 
-  
-─  checking for LF line-endings in source and make files and shell scripts
-## 
-  
-─  checking for empty or unneeded directories
-## 
-  
-─  building ‘ecodados_0.1.0.tar.gz’
-## 
-  
-   
-## </code></pre>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="rarefação.html#cb161-1"></a><span class="kw">library</span>(ecodados)</span>
-<span id="cb161-2"><a href="rarefação.html#cb161-2"></a></span>
-<span id="cb161-3"><a href="rarefação.html#cb161-3"></a>dados_rarefacao &lt;-<span class="st"> </span>rarefacao_morcegos</span>
-<span id="cb161-4"><a href="rarefação.html#cb161-4"></a>resultados_morcegos &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_rarefacao, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
-<span id="cb161-5"><a href="rarefação.html#cb161-5"></a><span class="co"># q refere-se a família *Hill-numbers* (Hill 1973) onde 0 = riqueza de espécies, 1 =  diversidade de Shannon, e 2 = diversidade de Simpson.</span></span>
-<span id="cb161-6"><a href="rarefação.html#cb161-6"></a><span class="co"># Veja mais detalhes sobre os números de Hill no Capítulo 7 onde tratamos de extrapolações.</span></span>
-<span id="cb161-7"><a href="rarefação.html#cb161-7"></a><span class="co"># datatype refere-se ao tipo de dados que você vai analisar (e.g. abudância, incidência).</span></span>
-<span id="cb161-8"><a href="rarefação.html#cb161-8"></a><span class="co"># endpoint refere-se ao valor de referência que você determina para a extrapolação.</span></span>
-<span id="cb161-9"><a href="rarefação.html#cb161-9"></a></span>
-<span id="cb161-10"><a href="rarefação.html#cb161-10"></a><span class="co"># Visualizar os resultados </span></span>
-<span id="cb161-11"><a href="rarefação.html#cb161-11"></a><span class="kw">ggiNEXT</span>(resultados_morcegos, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
+<span id="cb159-3"><a href="rarefação.html#cb159-3"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;paternogbc/ecodados&quot;</span>)</span>
+<span id="cb159-4"><a href="rarefação.html#cb159-4"></a><span class="kw">library</span>(ecodados)</span>
+<span id="cb159-5"><a href="rarefação.html#cb159-5"></a></span>
+<span id="cb159-6"><a href="rarefação.html#cb159-6"></a>dados_rarefacao &lt;-<span class="st"> </span>rarefacao_morcegos</span>
+<span id="cb159-7"><a href="rarefação.html#cb159-7"></a>resultados_morcegos &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(dados_rarefacao, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
+<span id="cb159-8"><a href="rarefação.html#cb159-8"></a><span class="co"># q refere-se a família *Hill-numbers* (Hill 1973) onde 0 = riqueza de espécies, 1 =  diversidade de Shannon, e 2 = diversidade de Simpson.</span></span>
+<span id="cb159-9"><a href="rarefação.html#cb159-9"></a><span class="co"># Veja mais detalhes sobre os números de Hill no Capítulo 7 onde tratamos de extrapolações.</span></span>
+<span id="cb159-10"><a href="rarefação.html#cb159-10"></a><span class="co"># datatype refere-se ao tipo de dados que você vai analisar (e.g. abudância, incidência).</span></span>
+<span id="cb159-11"><a href="rarefação.html#cb159-11"></a><span class="co"># endpoint refere-se ao valor de referência que você determina para a extrapolação.</span></span>
+<span id="cb159-12"><a href="rarefação.html#cb159-12"></a></span>
+<span id="cb159-13"><a href="rarefação.html#cb159-13"></a><span class="co"># Visualizar os resultados </span></span>
+<span id="cb159-14"><a href="rarefação.html#cb159-14"></a><span class="kw">ggiNEXT</span>(resultados_morcegos, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
 </div>
 <div id="interpretação-dos-resultados" class="section level3">
@@ -383,13 +372,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="análise-1" class="section level3">
 <h3><span class="header-section-number">5.3.2</span> Análise</h3>
 <p>Calculo da rarefação para os dados de répteis</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="rarefação.html#cb162-1"></a><span class="kw">library</span>(iNEXT)</span>
-<span id="cb162-2"><a href="rarefação.html#cb162-2"></a></span>
-<span id="cb162-3"><a href="rarefação.html#cb162-3"></a>rarefacao_repteis &lt;-<span class="st"> </span>rarefacao_repteis</span>
-<span id="cb162-4"><a href="rarefação.html#cb162-4"></a>resultados_repteis &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_repteis, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">200</span>)</span>
-<span id="cb162-5"><a href="rarefação.html#cb162-5"></a></span>
-<span id="cb162-6"><a href="rarefação.html#cb162-6"></a><span class="co"># Visualizar os resultados </span></span>
-<span id="cb162-7"><a href="rarefação.html#cb162-7"></a><span class="kw">ggiNEXT</span>(resultados_repteis, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="rarefação.html#cb160-1"></a><span class="kw">library</span>(iNEXT)</span>
+<span id="cb160-2"><a href="rarefação.html#cb160-2"></a></span>
+<span id="cb160-3"><a href="rarefação.html#cb160-3"></a>rarefacao_repteis &lt;-<span class="st"> </span>rarefacao_repteis</span>
+<span id="cb160-4"><a href="rarefação.html#cb160-4"></a>resultados_repteis &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_repteis, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">200</span>)</span>
+<span id="cb160-5"><a href="rarefação.html#cb160-5"></a></span>
+<span id="cb160-6"><a href="rarefação.html#cb160-6"></a><span class="co"># Visualizar os resultados </span></span>
+<span id="cb160-7"><a href="rarefação.html#cb160-7"></a><span class="kw">ggiNEXT</span>(resultados_repteis, <span class="dt">type =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 </div>
 <div id="interpretação-dos-resultados-1" class="section level3">
@@ -399,13 +388,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  
 </p>
 <p>Calculo da rarefação para os dados dos anuros</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="rarefação.html#cb163-1"></a><span class="kw">library</span>(iNEXT)</span>
-<span id="cb163-2"><a href="rarefação.html#cb163-2"></a></span>
-<span id="cb163-3"><a href="rarefação.html#cb163-3"></a>rarefacao_anuros &lt;-<span class="st"> </span>rarefacao_anuros</span>
-<span id="cb163-4"><a href="rarefação.html#cb163-4"></a>resultados_anuros &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_anuros, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
-<span id="cb163-5"><a href="rarefação.html#cb163-5"></a></span>
-<span id="cb163-6"><a href="rarefação.html#cb163-6"></a><span class="co"># Visualizar os resultados </span></span>
-<span id="cb163-7"><a href="rarefação.html#cb163-7"></a><span class="kw">ggiNEXT</span>(resultados_anuros, <span class="dt">type =</span> <span class="dv">1</span>, <span class="dt">grey =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="rarefação.html#cb161-1"></a><span class="kw">library</span>(iNEXT)</span>
+<span id="cb161-2"><a href="rarefação.html#cb161-2"></a></span>
+<span id="cb161-3"><a href="rarefação.html#cb161-3"></a>rarefacao_anuros &lt;-<span class="st"> </span>rarefacao_anuros</span>
+<span id="cb161-4"><a href="rarefação.html#cb161-4"></a>resultados_anuros &lt;-<span class="st"> </span><span class="kw">iNEXT</span>(rarefacao_anuros, <span class="dt">q =</span> <span class="dv">0</span>, <span class="dt">datatype =</span> <span class="st">&quot;abundance&quot;</span>, <span class="dt">endpoint =</span> <span class="dv">800</span>)</span>
+<span id="cb161-5"><a href="rarefação.html#cb161-5"></a></span>
+<span id="cb161-6"><a href="rarefação.html#cb161-6"></a><span class="co"># Visualizar os resultados </span></span>
+<span id="cb161-7"><a href="rarefação.html#cb161-7"></a><span class="kw">ggiNEXT</span>(resultados_anuros, <span class="dt">type =</span> <span class="dv">1</span>, <span class="dt">grey =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><img src="livro_r_ecologia_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 <p><strong>Interpretação dos resultados</strong></p>
 <p>Neste exemplo,foram registradas 21 espécies de anuros nas coletas de campo (709 indivíduos) e 12 espécies nas coleções científicas (37 indivíduos). Com base na rarefação, concluímos que não há diferença entre a riqueza de espécies de anuros obtida em coletas de campo e coleções científicas.</p>

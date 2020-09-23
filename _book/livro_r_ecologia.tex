@@ -112,7 +112,7 @@
 
 \title{Introdução ao R com aplicações em biodiversidade e conservação}
 \author{}
-\date{\vspace{-2.5em}2020-09-18}
+\date{\vspace{-2.5em}2020-09-23}
 
 \begin{document}
 \maketitle
@@ -2683,38 +2683,38 @@ O argumento \texttt{centers} na função abaixo indica o número de grupos que s
 \end{Shaded}
 
 \begin{verbatim}
-## K-means clustering with 4 clusters of sizes 6, 3, 12, 8
+## K-means clustering with 4 clusters of sizes 3, 6, 12, 8
 ## 
 ## Cluster means:
 ##         Cogo        Satr       Phph       Neba        Thth        Teso
-## 1 0.06167791 0.122088022 0.26993915 0.35942538 0.032664966 0.135403325
-## 2 0.00000000 0.000000000 0.00000000 0.00000000 0.000000000 0.000000000
+## 1 0.00000000 0.000000000 0.00000000 0.00000000 0.000000000 0.000000000
+## 2 0.06167791 0.122088022 0.26993915 0.35942538 0.032664966 0.135403325
 ## 3 0.10380209 0.542300691 0.50086515 0.43325916 0.114024105 0.075651573
 ## 4 0.00000000 0.006691097 0.02506109 0.06987391 0.006691097 0.006691097
 ##         Chna       Chto       Lele      Lece       Baba      Spbi       Gogo
-## 1 0.06212775 0.21568957 0.25887226 0.2722562 0.15647062 0.1574388 0.16822286
-## 2 0.05205792 0.00000000 0.07647191 0.3166705 0.00000000 0.0000000 0.20500174
+## 1 0.05205792 0.00000000 0.07647191 0.3166705 0.00000000 0.0000000 0.20500174
+## 2 0.06212775 0.21568957 0.25887226 0.2722562 0.15647062 0.1574388 0.16822286
 ## 3 0.00000000 0.00000000 0.06983991 0.1237394 0.02385019 0.0000000 0.05670453
 ## 4 0.10687104 0.09377516 0.14194394 0.2011411 0.24327992 0.1326062 0.28386032
 ##         Eslu       Pefl      Rham       Legi       Scer       Cyca       Titi
-## 1 0.12276089 0.17261621 0.0793181 0.06190283 0.04516042 0.06190283 0.14539027
-## 2 0.07647191 0.00000000 0.0000000 0.05205792 0.07647191 0.00000000 0.00000000
+## 1 0.07647191 0.00000000 0.0000000 0.05205792 0.07647191 0.00000000 0.00000000
+## 2 0.12276089 0.17261621 0.0793181 0.06190283 0.04516042 0.06190283 0.14539027
 ## 3 0.04722294 0.02949244 0.0000000 0.00000000 0.00000000 0.00000000 0.03833408
 ## 4 0.20630360 0.16920496 0.2214275 0.19066542 0.13171275 0.16019126 0.26230024
 ##         Abbr      Icme       Acce       Ruru       Blbj      Alal       Anan
-## 1 0.01473139 0.0000000 0.03192175 0.32201597 0.01473139 0.1095241 0.04739636
-## 2 0.00000000 0.0000000 0.18058775 0.31667052 0.05205792 0.7618709 0.00000000
+## 1 0.00000000 0.0000000 0.18058775 0.31667052 0.05205792 0.7618709 0.00000000
+## 2 0.01473139 0.0000000 0.03192175 0.32201597 0.01473139 0.1095241 0.04739636
 ## 3 0.00000000 0.0000000 0.00000000 0.01049901 0.00000000 0.0000000 0.00000000
 ## 4 0.19561641 0.1331835 0.26713081 0.32103755 0.22883055 0.3326939 0.18873077
 ## 
 ## Clustering vector:
 ##  1  2  3  4  5  6  7  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 
-##  3  3  3  3  1  3  3  1  3  3  3  3  3  3  1  1  1  1  4  4  4  2  2  2  4  4 
+##  3  3  3  3  2  3  3  2  3  3  3  3  3  3  2  2  2  2  4  4  4  1  1  1  4  4 
 ## 28 29 30 
 ##  4  4  4 
 ## 
 ## Within cluster sum of squares by cluster:
-## [1] 1.7361453 0.3560423 2.5101386 0.4696535
+## [1] 0.3560423 1.7361453 2.5101386 0.4696535
 ##  (between_SS / total_SS =  66.7 %)
 ## 
 ## Available components:
@@ -2743,12 +2743,12 @@ Tanto \textbf{calinski} quando \textbf{ssi} são bons critérios para encontrar 
 \end{Shaded}
 
 \begin{verbatim}
-##      2 groups  3 groups  4 groups  5 groups   6 groups  7 groups  8 groups
-## SSE 8.2149405 6.4768108 5.0719796 4.3015573 3.58561200 2.9523667 2.4840549
-## ssi 0.1312111 0.1685126 0.1244603 0.1110514 0.08971007 0.1582497 0.1315299
-##      9 groups 10 groups
-## SSE 2.0521888  1.759929
-## ssi 0.1244271  0.101762
+##      2 groups  3 groups  4 groups  5 groups   6 groups   7 groups   8 groups
+## SSE 8.2149405 6.4768108 5.0719796 4.3015573 3.58561200 2.95236670 2.48405487
+## ssi 0.1312111 0.1685126 0.1398159 0.1286618 0.05917495 0.08003379 0.08456383
+##       9 groups 10 groups
+## SSE 2.05218880 1.7599292
+## ssi 0.07322004 0.1176037
 \end{verbatim}
 
 SSE: critério utilizado pelo algorítimo para achar o agrupamento ótimo dos objetos.
@@ -2881,10 +2881,10 @@ Primeiro vamos agrupar as unidades amostrais (poças) que informa os grupos de f
 
 \begin{verbatim}
 ##       cluster indicator_value probability
-## Rict        1          0.8364       0.011
-## Sduar       1          0.7475       0.045
+## Rict        1          0.8364       0.014
+## Sduar       1          0.7475       0.039
 ## 
-## Sum of probabilities                 =  8.077 
+## Sum of probabilities                 =  8.061 
 ## 
 ## Sum of Indicator Values              =  7.3 
 ## 
@@ -2934,9 +2934,9 @@ Para apresentar uma tabela dos resultados para todas as espécies temos de proce
 
 \begin{verbatim}
 ##    Aper    Bahe    Rict  Cleuco    Dmic    Dmin   Hpoly    Lfur    Pbar    Polf 
-##   1.000   0.063   0.011   0.444   0.200   0.075   0.262   1.000   0.585   1.000 
+##   1.000   0.056   0.014   0.427   0.201   0.068   0.255   1.000   0.637   1.000 
 ## Pmelano   Sduar    Shay    Sobt  Ssqual  Bokerm 
-##   1.000   0.045   0.450   0.715   1.000   0.227
+##   1.000   0.039   0.432   0.678   1.000   0.254
 \end{verbatim}
 
 \begin{Shaded}
@@ -2950,21 +2950,21 @@ Para apresentar uma tabela dos resultados para todas as espécies temos de proce
 \begin{verbatim}
 ##         maxgrp ind. value     P
 ## Aper         3  0.2432796 1.000
-## Bahe         2  0.6487329 0.063
-## Rict         1  0.8363823 0.011
-## Cleuco       3  0.4128631 0.444
-## Dmic         3  0.6645244 0.200
-## Dmin         1  0.7032145 0.075
-## Hpoly        2  0.6208711 0.262
+## Bahe         2  0.6487329 0.056
+## Rict         1  0.8363823 0.014
+## Cleuco       3  0.4128631 0.427
+## Dmic         3  0.6645244 0.201
+## Dmin         1  0.7032145 0.068
+## Hpoly        2  0.6208711 0.255
 ## Lfur         3  0.2279412 1.000
-## Pbar         1  0.2813725 0.585
+## Pbar         1  0.2813725 0.637
 ## Polf         3  0.2437500 1.000
 ## Pmelano      2  0.2500000 1.000
-## Sduar        1  0.7474527 0.045
-## Shay         3  0.4930269 0.450
-## Sobt         2  0.2222222 0.715
+## Sduar        1  0.7474527 0.039
+## Shay         3  0.4930269 0.432
+## Sobt         2  0.2222222 0.678
 ## Ssqual       3  0.2500000 1.000
-## Bokerm       2  0.4583333 0.227
+## Bokerm       2  0.4583333 0.254
 \end{verbatim}
 
 No resultado podemos ver que temos duas espécies indicadoras da fitofisionimia 1: \emph{Rhinella icterica} (Rict) e \emph{Scinax duartei} (Sduar). Nenhuma espécie foi indicadora dos outros grupos neste exemplo.
@@ -3320,20 +3320,20 @@ Calculo do estimador de riqueza - Chao 1
 \begin{verbatim}
 ## $chao
 ##         N      Chao   2.5%    97.5%  Std.Dev
-## Dia_2   1  6.425000  3.000 12.33333 2.602541
-## Dia_11  2  9.132357  6.000 14.00000 2.603968
-## Dia_7   3 11.061167  7.475 18.05000 2.643445
-## Dia_6   4 11.770000  8.475 17.57500 2.419151
-## Dia_4   5 12.708333  9.000 18.05000 2.510290
-## Dia_12  6 13.573333  9.475 20.00000 2.598057
-## Dia_14  7 14.536667 10.000 22.00000 2.921684
-## Dia_10  8 15.378333 11.000 22.00000 2.939996
-## Dia_13  9 16.130000 12.000 22.00000 2.870335
-## Dia_8  10 16.703333 12.000 22.00000 2.753895
-## Dia_5  11 17.650000 13.000 22.00000 2.520121
-## Dia_1  12 18.545000 14.500 22.00000 2.225989
-## Dia_9  13 19.460000 15.500 22.00000 1.626299
-## Dia_3  14 20.000000 20.000 20.00000 0.000000
+## Dia_10  1  7.138333  3.000 12.33333 2.839373
+## Dia_5   2 10.252619  6.000 17.50000 3.145299
+## Dia_9   3 11.846667  8.000 18.52500 2.620823
+## Dia_1   4 12.585833  9.000 16.26250 2.306254
+## Dia_14  5 13.171667 10.000 19.05000 2.406204
+## Dia_12  6 13.883333 10.000 20.00000 2.386039
+## Dia_2   7 14.431667 10.475 20.00000 2.585257
+## Dia_6   8 15.238333 12.000 21.05000 2.505578
+## Dia_3   9 15.818333 12.000 22.00000 2.658562
+## Dia_4  10 16.458333 12.475 22.00000 2.608302
+## Dia_8  11 17.450000 13.000 22.00000 2.544056
+## Dia_13 12 18.240000 14.475 22.00000 2.275784
+## Dia_11 13 19.060000 15.500 22.00000 1.788403
+## Dia_7  14 20.000000 20.000 20.00000 0.000000
 ## 
 ## attr(,"class")
 ## [1] "summary.poolaccum"
@@ -3470,21 +3470,21 @@ Calculo do estimador de riqueza - ACE
 
 \begin{verbatim}
 ## $ace
-##         N       ACE      2.5%    97.5%  Std.Dev
-## Dia_8   1  7.460536  3.545190 13.71429 2.912522
-## Dia_7   2 10.470854  6.000000 18.42880 3.272935
-## Dia_1   3 11.730845  7.414357 18.06351 2.711759
-## Dia_5   4 12.564230  8.623204 17.90292 2.614339
-## Dia_14  5 13.470064  9.000000 19.27114 2.644979
-## Dia_12  6 14.208073  9.000000 21.29764 2.926479
-## Dia_4   7 14.999757 10.475000 21.56822 2.856993
-## Dia_13  8 15.976322 11.000000 22.69653 3.127611
-## Dia_9   9 17.684920 12.052778 25.09679 3.737648
-## Dia_11 10 19.125599 12.551350 25.72368 4.041629
-## Dia_10 11 20.908207 14.083617 25.72368 3.934751
-## Dia_3  12 22.609058 15.192940 25.72368 3.347806
-## Dia_6  13 23.720305 17.676471 25.72368 2.483438
-## Dia_2  14 24.703704 24.703704 24.70370 0.000000
+##         N      ACE      2.5%    97.5%  Std.Dev
+## Dia_13  1  7.68465  3.761224 13.71429 2.739420
+## Dia_11  2 10.20131  6.000000 18.86734 3.138453
+## Dia_10  3 11.53591  7.675156 18.09257 2.625434
+## Dia_5   4 12.57999  8.150601 19.04307 2.714019
+## Dia_6   5 13.48343  9.000000 18.54139 2.546094
+## Dia_4   6 14.39221 11.103906 21.37247 2.568963
+## Dia_2   7 15.58836 11.619002 22.52926 2.982727
+## Dia_9   8 16.70465 12.019754 23.78107 3.521325
+## Dia_8   9 18.04637 12.504625 25.09679 3.725671
+## Dia_3  10 19.49560 13.457536 25.72368 3.888342
+## Dia_7  11 21.08349 13.700889 25.72368 3.813595
+## Dia_12 12 22.97936 17.238095 25.72368 3.132255
+## Dia_1  13 24.33551 17.676471 25.72368 1.941693
+## Dia_14 14 24.70370 24.703704 24.70370 0.000000
 ## 
 ## attr(,"class")
 ## [1] "summary.poolaccum"
@@ -3625,17 +3625,17 @@ Calculo do estimador de riqueza - Chao 2
 \begin{verbatim}
 ## $chao
 ##        N     Chao      2.5%    97.5%  Std.Dev
-##  [1,]  3 14.34910  7.676389 24.67917 5.656480
-##  [2,]  4 14.50504  8.767188 27.43594 4.262175
-##  [3,]  5 16.20640  9.933000 34.12500 6.038519
-##  [4,]  6 17.91264 10.633854 37.47292 6.788475
-##  [5,]  7 20.10500 11.632143 44.42857 7.800545
-##  [6,]  8 22.51469 13.211458 40.04531 7.310359
-##  [7,]  9 23.84852 13.680556 41.88889 7.577925
-##  [8,] 10 25.39175 13.800000 39.05000 7.640206
-##  [9,] 11 26.97682 14.818182 39.27273 7.011164
-## [10,] 12 29.53375 16.396875 39.45833 6.515418
-## [11,] 13 31.12923 22.384615 39.61538 4.894901
+##  [1,]  3 14.06600  8.096528 25.00000 5.324368
+##  [2,]  4 15.27832  9.500000 25.76250 5.370396
+##  [3,]  5 16.30382  9.875000 34.60000 6.422820
+##  [4,]  6 17.71076 10.816146 37.94792 6.552263
+##  [5,]  7 18.26700 12.196429 35.57500 5.574761
+##  [6,]  8 20.38501 12.471094 33.60312 5.898565
+##  [7,]  9 21.87185 13.777778 34.66667 6.228251
+##  [8,] 10 24.14100 15.025000 40.70375 6.773665
+##  [9,] 11 26.87955 16.045455 39.27273 6.361604
+## [10,] 12 28.36333 18.125000 39.45833 5.901282
+## [11,] 13 31.08385 22.384615 39.61538 5.073379
 ## [12,] 14 33.71429 33.714286 33.71429 0.000000
 ## 
 ## attr(,"class")
@@ -3769,17 +3769,17 @@ Calculo do estimador de riqueza - Jackknife 1
 \begin{verbatim}
 ## $jack1
 ##        N Jackknife 1      2.5%    97.5%  Std.Dev
-##  [1,]  3    13.73667  8.666667 19.33333 2.872641
-##  [2,]  4    15.20750 10.106250 20.25000 2.977834
-##  [3,]  5    15.97000  9.800000 22.02000 3.019181
-##  [4,]  6    16.79500 11.229167 22.66667 2.868112
-##  [5,]  7    17.38000 12.714286 22.52500 2.623037
-##  [6,]  8    18.38875 12.809375 23.12500 2.524870
-##  [7,]  9    19.15333 13.777778 23.68889 2.574723
-##  [8,] 10    19.81400 14.275000 23.30000 2.400548
-##  [9,] 11    20.59364 16.727273 23.36364 1.955787
-## [10,] 12    21.26917 18.666667 23.41667 1.592361
-## [11,] 13    21.90692 18.692308 23.46154 1.331956
+##  [1,]  3    13.91000  8.666667 19.33333 2.886889
+##  [2,]  4    14.84750  9.500000 20.25000 2.901562
+##  [3,]  5    15.72200 10.180000 21.60000 2.954181
+##  [4,]  6    16.26000 11.229167 22.00000 3.084147
+##  [5,]  7    16.96429 11.264286 23.04286 3.182835
+##  [6,]  8    18.15375 12.750000 24.00000 2.963469
+##  [7,]  9    19.09778 14.200000 23.22222 2.735562
+##  [8,] 10    19.60100 14.747500 23.77250 2.668276
+##  [9,] 11    20.54182 15.681818 23.36364 2.339387
+## [10,] 12    21.25083 17.185417 23.41667 1.962488
+## [11,] 13    21.88846 18.692308 23.46154 1.474886
 ## [12,] 14    22.57143 22.571429 22.57143 0.000000
 ## 
 ## attr(,"class")
@@ -3913,17 +3913,17 @@ Calculo do estimador de riqueza - Jackknife 2
 \begin{verbatim}
 ## $jack2
 ##        N Jackknife 2      2.5%    97.5%  Std.Dev
-##  [1,]  3    14.66000  8.412500 20.75417 3.194492
-##  [2,]  4    15.59833  8.741667 22.08333 3.635801
-##  [3,]  5    16.84400  9.050000 23.58625 3.947466
-##  [4,]  6    17.71067  9.398333 25.18000 4.019302
-##  [5,]  7    18.93095 11.935119 26.40476 4.087603
-##  [6,]  8    20.50018 13.776786 30.00000 4.230534
-##  [7,]  9    21.69083 14.614931 27.83437 3.749235
-##  [8,] 10    23.02044 14.977778 30.60000 3.899725
-##  [9,] 11    23.81473 17.570682 29.64795 3.669697
-## [10,] 12    24.37674 18.492424 28.49242 3.192388
-## [11,] 13    25.52551 21.301282 28.60897 2.255938
+##  [1,]  3    14.70500  8.079167 21.58750 3.604217
+##  [2,]  4    16.08250  9.860417 22.73958 3.491301
+##  [3,]  5    17.15050  9.766250 24.13625 4.096756
+##  [4,]  6    18.15700 10.153333 25.21167 4.070237
+##  [5,]  7    19.58310 12.952381 26.71726 3.912331
+##  [6,]  8    20.89179 14.457143 28.58527 3.883110
+##  [7,]  9    21.79181 14.463194 30.33333 4.045055
+##  [8,] 10    22.76900 14.467222 30.60000 3.909934
+##  [9,] 11    23.73045 18.445455 29.64795 3.341428
+## [10,] 12    24.17159 20.242424 28.49242 2.675710
+## [11,] 13    25.27872 21.301282 28.60897 2.375056
 ## [12,] 14    26.92308 26.923077 26.92308 0.000000
 ## 
 ## attr(,"class")
@@ -4055,17 +4055,17 @@ Calculo do estimador de riqueza - Bootstrap
 \begin{verbatim}
 ## $boot
 ##        N Bootstrap      2.5%    97.5%   Std.Dev
-##  [1,]  3  12.22926  8.193519 16.46389 2.3711167
-##  [2,]  4  13.12133  8.318262 17.10312 2.3562103
-##  [3,]  5  14.18726 10.523888 18.46186 2.1958469
-##  [4,]  6  14.72106 10.719349 18.59313 2.1560773
-##  [5,]  7  15.44956 11.896422 18.46717 1.8842047
-##  [6,]  8  16.20524 11.824978 19.60012 1.8142375
-##  [7,]  9  16.72008 12.307939 19.57946 1.7966583
-##  [8,] 10  17.36141 13.485395 19.58909 1.6611224
-##  [9,] 11  17.82640 14.315556 19.57877 1.4617363
-## [10,] 12  18.22062 15.864304 19.58719 1.3302413
-## [11,] 13  18.78008 16.570376 19.59107 0.9924151
+##  [1,]  3  11.84704  8.000000 16.46389 2.3190386
+##  [2,]  4  12.94781  8.577637 17.38437 2.1962108
+##  [3,]  5  13.69266 10.053544 17.35739 1.8995328
+##  [4,]  6  14.32928 10.771474 18.18936 1.9543032
+##  [5,]  7  15.17982 11.760032 19.22006 1.8656711
+##  [6,]  8  15.72431 12.813769 19.57182 1.9071242
+##  [7,]  9  16.48322 12.798939 19.60918 1.9996389
+##  [8,] 10  16.98964 12.926466 19.70187 1.9061921
+##  [9,] 11  17.52244 14.041299 19.57996 1.6548013
+## [10,] 12  18.10547 15.233580 19.58724 1.3979889
+## [11,] 13  18.87015 16.570415 19.59107 0.8407647
 ## [12,] 14  19.27832 19.278321 19.27832 0.0000000
 ## 
 ## attr(,"class")
@@ -4227,6 +4227,1639 @@ Veja que o ponto no final da linha contínua representa as 17 espécies de anuro
 \item
   Recomendamos também o livro Magurran \& McGill (2010) - Biological Diversity Frontiers in Measurement and Assessment.
 \end{itemize}
+
+\hypertarget{diversidade-funcional}{%
+\chapter{Diversidade Funcional}\label{diversidade-funcional}}
+
+\hypertarget{aspectos-teuxf3ricos}{%
+\section{2.1 Aspectos teóricos}\label{aspectos-teuxf3ricos}}
+
+Até a década de 1990, a teoria ecológica investigava basicamente quais processos determinavam a abundância e riqueza de espécies no espaço e tempo. Esta década foi marcada por intensos debates sobre as regras de montagem de comunidades e como interações e filtros ambientais determinavam a coexistência de espécies (Strong et al.~1984). Porém, a década 2000 foi marcada pelo uso mais explícito da características das espécies como uma variável fundamental tanto explicar como as espécies seriam afetadas pelo ambiente, quanto para entender como tais espécies afetariam o ecossistema (Diaz \& Cabido 2001, McGill et al.~2006). O primeiro estudo que utilizou o termo Diversidade Funcional foi publicado por Williams (1994), que comparou espécies de naúplios filogenéticamente relacionadas e demonstrou que elas possuem alta plasticidade funcional que favorecem ampla variação de comportamentos e, desse modo, permitem que sejam espécies generalistas em ambientes em contante mudança.
+A unidade básica desses estudos, o atributo funcional (do inglês ``functional trait''), é definido como uma propriedade mensurável dos organismos (geralmente em nível individual) que represente características morfológicas, fisiológicas ou fenológicas que afetam a aptidão alterando aspectos do crescimento, reprodução e sobrevivência (Violle et al.~2007). Mais especificamente, o atributo funcional pode ser divido em atributo efeito (i.e., atributos do organismo que afetam condições ambientais ou propriedades do ecossistema) e resposta (i.e., atributos do organismo que variam em resposta a condições ambientais) (Violle et al.~2007).
+
+As medidas de diversidade, então, passam a ser representadas não somente por diferenças no número e na quantidade de espécies. Ao invés disso, as diferenças/semelhanças dos atributos funcionais das espécies dentro e entre localidades é usada como uma medida de diversidade. Desse modo, a variação no grau de expressão de diferentes atributos funcionais entre diferentes populações, comunidades ou ecossistemas é definida como \emph{Diversidade Funcional} (\textbf{sensu} Garnier 2015). Porém, a diversidade funcional não deve ser usada como medida única, uma vez que tais diferenças entre os atributos funcionais pode ser medida a partir da abundância relativa, riqueza e variação dos atributos funcionais. Desse modo, podemos dividir a diversidade funcional em três diferentes medidas: \emph{(1)} riqueza funcional, \emph{(2)} divergência funcional, e \emph{(3)} regularidade funcional (Villéger et al.~2008). Existem dezenas de métricas que calculam cada uma dessas ``dimensões'' da diversidadade funcional, mas se destacam aquelas baseadas em dendrograma (e.g., FD: Petchey \& Gaston 2004) ou em medidas de distância (e.g., Villeger et al.~2008). Assim como a diversidade taxonômica (\emph{Capítulo XXX}), a diversidade funcional pode ser medida em componentes alfa e beta. A seguir, apresentamos diferentes maneiras de calcular a distância entre localidades tendo como base os atributos funcionais das espécies e, além disso, demonstramos como calcular algumas das métricas de diversidade (alfa e beta) funcional mais usadas em ecologia. A parte final deste capítulo apresenta dois exemplos de como podemos testar hipóteses ecológicas comparando a diversidade funcional alfa e beta.
+
+\hypertarget{definindo-a-dissimilaridade-entre-espuxe9cies}{%
+\section{2.2. Definindo a dis(similaridade) entre espécies}\label{definindo-a-dissimilaridade-entre-espuxe9cies}}
+
+Definir o quão diferente ou semelhante são duas espécies que ocorrem em um determinada localidade é a base para calcular a diversidade alfa e beta funcional. Para isso, é fundamental ter em mente que os atributos funcionais podem ser de vários tipos como, por exemplo, contínuo (e.g., tamanho corporal em cm), categórico (e.g., guilda: frugívoro, detritívoro, etc.), ordinal (e.g., 1 para organismo até 5 cm, 2 para organismos entre 5 e 30 cm, e 3 para organismos amiores do que 30 cm), binários (e.g., presença ou ausência de espinho), entre outros (veja Tabela 1 em Gonçalves-Souza et al.~2019). Por este motivo, a decisão do método de distância só será possível após o reconhecimento do tipo de cada um dos atributos funcionais escolhidos. Em linhas gerais, para variáveis contínuas a distância euclideana é a melhor opção, enquanto para os outros tipos de variáveis ou para matrizes com mais de um tipo de variáveis, a distância de Gower deve ser usada (Pavoine et al.~2009).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(FD)}
+\KeywordTok{library}\NormalTok{(ade4)}
+\KeywordTok{library}\NormalTok{(ecodados)}
+\KeywordTok{library}\NormalTok{(gridExtra)}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{(ggrepel)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(picante)}
+
+
+\CommentTok{### Baixe todos esses dados, pois serão utilizados em outras partes deste capítulo}
+
+
+\NormalTok{comun_fren_dat <-}\StringTok{ }\NormalTok{ecodados}\OperatorTok{::}\NormalTok{fundiv_frenette2012a_comu}
+\NormalTok{ambie_fren_dat <-}\StringTok{ }\NormalTok{ecodados}\OperatorTok{::}\NormalTok{fundiv_frenette2012a_amb}
+\NormalTok{trait_fren_dat <-}\StringTok{ }\NormalTok{ecodados}\OperatorTok{::}\NormalTok{fundiv_frenette2012a_trait}
+\NormalTok{trait_dat      <-}\StringTok{ }\NormalTok{ecodados}\OperatorTok{::}\NormalTok{fundiv_barbaro2009a_trait}
+\NormalTok{comun_dat      <-}\StringTok{ }\NormalTok{ecodados}\OperatorTok{::}\NormalTok{fundiv_barbaro2009a_comu}
+\NormalTok{ambie_dat      <-}\StringTok{ }\NormalTok{ecodados}\OperatorTok{::}\NormalTok{fundiv_barbaro2009a_amb}
+
+
+
+\CommentTok{# Medidas de distância com dados contínuos (quantitativos)}
+
+\NormalTok{trait_cont <-}\StringTok{ }\NormalTok{trait_fren_dat}
+\NormalTok{trait_pad <-}\StringTok{ }\KeywordTok{decostand}\NormalTok{(trait_cont, }\StringTok{"standardize"}\NormalTok{)}
+\NormalTok{euclid_dis <-}\StringTok{ }\KeywordTok{vegdist}\NormalTok{(trait_pad, }\StringTok{"euclidean"}\NormalTok{)}
+
+\NormalTok{pcoa_traits_cont <-}\StringTok{ }\KeywordTok{pcoa}\NormalTok{(euclid_dis, }\DataTypeTok{correction=}\StringTok{"cailliez"}\NormalTok{) }\CommentTok{# Resultados são idênticos ao de uma PCA}
+\NormalTok{eixos_cont <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(pcoa_traits_cont}\OperatorTok{$}\NormalTok{vectors[,}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{]) }\CommentTok{# Selecionar os dois primeiros eixos}
+
+\NormalTok{eixos_cont }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Axis}\FloatTok{.1}\NormalTok{, }\DataTypeTok{y=}\NormalTok{Axis}\FloatTok{.2}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{pch=}\DecValTok{21}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{color =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"#4575b4"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{   }\KeywordTok{geom_text_repel}\NormalTok{(}\KeywordTok{aes}\NormalTok{(Axis}\FloatTok{.1}\NormalTok{, Axis}\FloatTok{.2}\NormalTok{, }\DataTypeTok{label =} \KeywordTok{rownames}\NormalTok{(eixos_cont))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"PCO 1"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"PCO 2"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \DecValTok{0}\NormalTok{, }\DataTypeTok{linetype=}\DecValTok{2}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept =} \DecValTok{0}\NormalTok{, }\DataTypeTok{linetype=}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"top"}\NormalTok{, }\DataTypeTok{legend.title=}\KeywordTok{element_blank}\NormalTok{()) ->}\StringTok{ }\NormalTok{plot_trait_cont}
+\NormalTok{plot_trait_cont}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-62-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggsave}\NormalTok{(}\StringTok{"trait_cont.pdf"}\NormalTok{, plot_trait_cont, }\DataTypeTok{height =} \DecValTok{14}\NormalTok{, }\DataTypeTok{width =} \DecValTok{14}\NormalTok{, }\DataTypeTok{dpi =} \DecValTok{600}\NormalTok{, }\DataTypeTok{units =} \StringTok{"cm"}\NormalTok{)}
+
+\CommentTok{# Medidas de distância com dados categóricos}
+
+\NormalTok{trait_dat }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select_if}\NormalTok{(is.character) ->}\StringTok{ }\NormalTok{trait_cat }
+\NormalTok{dist_categ <-}\StringTok{ }\KeywordTok{gowdis}\NormalTok{(trait_cat)}
+
+\CommentTok{# Visualize os dados com uma PCoA }
+
+\NormalTok{pcoa_traits_cat <-}\StringTok{ }\KeywordTok{pcoa}\NormalTok{(dist_categ, }\DataTypeTok{correction=}\StringTok{"cailliez"}\NormalTok{)}
+\NormalTok{eixos_cat <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(pcoa_traits_cat}\OperatorTok{$}\NormalTok{vectors[,}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{]) }\CommentTok{# Selecionar os dois primeiros eixos}
+
+\NormalTok{eixos_cat }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Axis}\FloatTok{.1}\NormalTok{, }\DataTypeTok{y=}\NormalTok{Axis}\FloatTok{.2}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{pch=}\DecValTok{21}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{color =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"#4575b4"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{   }\KeywordTok{geom_text_repel}\NormalTok{(}\KeywordTok{aes}\NormalTok{(Axis}\FloatTok{.1}\NormalTok{, Axis}\FloatTok{.2}\NormalTok{, }\DataTypeTok{label =} \KeywordTok{rownames}\NormalTok{(eixos_cat))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"PCO 1"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"PCO 2"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \DecValTok{0}\NormalTok{, }\DataTypeTok{linetype=}\DecValTok{2}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept =} \DecValTok{0}\NormalTok{, }\DataTypeTok{linetype=}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"top"}\NormalTok{, }\DataTypeTok{legend.title=}\KeywordTok{element_blank}\NormalTok{()) ->}\StringTok{ }\NormalTok{plot_trait_cat}
+\NormalTok{plot_trait_cat}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-62-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggsave}\NormalTok{(}\StringTok{"trait_cat.pdf"}\NormalTok{, plot_trait_cat, }\DataTypeTok{height =} \DecValTok{14}\NormalTok{, }\DataTypeTok{width =} \DecValTok{14}\NormalTok{, }\DataTypeTok{dpi =} \DecValTok{600}\NormalTok{, }\DataTypeTok{units =} \StringTok{"cm"}\NormalTok{)}
+
+\CommentTok{# Medidas de distância com dados mistos: contínuos, categóricos, entre outros}
+\CommentTok{# Primeiro, é necessário organizar cada tipo de dado com a função prep.TYPE}
+
+\CommentTok{# Verifique a classe de todos os traits e veja se estão de acordo com sua expectativa}
+
+\NormalTok{trait_dat }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{summarise_all}\NormalTok{(class) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{tidyr}\OperatorTok{::}\KeywordTok{gather}\NormalTok{(variable, class)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    variable     class
+## 1     trend character
+## 2   redlist character
+## 3     regio   integer
+## 4      biog character
+## 5     activ character
+## 6      diet character
+## 7    winter character
+## 8     color character
+## 9     breed character
+## 10     body   integer
+## 11     wing character
+## 12   period character
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Atribuir classe ORDINAL para os traits ordinais, uma vez que foram reconhecidos como numéricos ("integer")}
+
+\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{regio <-}\StringTok{ }\KeywordTok{as.ordered}\NormalTok{(trait_dat}\OperatorTok{$}\NormalTok{regio)}
+\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{body <-}\StringTok{ }\KeywordTok{as.ordered}\NormalTok{(trait_dat}\OperatorTok{$}\NormalTok{body)}
+
+\CommentTok{## Combinar cada tipo de trait em um data.frame separado}
+\CommentTok{# Categóricos}
+
+\NormalTok{trait_categ <-}\StringTok{ }\KeywordTok{cbind.data.frame}\NormalTok{(}\DataTypeTok{trend=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{trend, }\DataTypeTok{redlist=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{redlist, }\DataTypeTok{biog=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{biog, }\DataTypeTok{activ=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{activ,  }\DataTypeTok{diet=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{diet, }\DataTypeTok{winter=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{winter,}\DataTypeTok{color=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{color, }\DataTypeTok{breed=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{breed,}\DataTypeTok{wing=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{wing, }\DataTypeTok{period=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{period)}
+
+\CommentTok{# Ordinais}
+\NormalTok{trait_ord <-}\StringTok{ }\KeywordTok{cbind.data.frame}\NormalTok{(}\DataTypeTok{regio=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{regio, }\DataTypeTok{body=}\NormalTok{trait_dat}\OperatorTok{$}\NormalTok{body)}
+\KeywordTok{rownames}\NormalTok{(trait_categ) <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(trait_dat)}
+\KeywordTok{rownames}\NormalTok{(trait_ord) <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(trait_dat)}
+
+\CommentTok{# Agora, combinar os dois data.frames em uma lista chamada "ktab"}
+\NormalTok{ktab_list <-}\StringTok{ }\KeywordTok{ktab.list.df}\NormalTok{(}\KeywordTok{list}\NormalTok{(trait_categ, trait_ord))}
+
+\CommentTok{# Por fim, calcular a distância funcional entre as espécies}
+\CommentTok{# Em "type", a letra N indica variável categórica (ou nominal), enquanto a letra}
+\CommentTok{# O indica variável ordinal}
+
+\NormalTok{dist_mist <-}\StringTok{ }\KeywordTok{dist.ktab}\NormalTok{(ktab_list, }\DataTypeTok{type=} \KeywordTok{c}\NormalTok{(}\StringTok{"N"}\NormalTok{, }\StringTok{"O"}\NormalTok{))}
+
+\CommentTok{# Visualize os dados com uma PCoA (Ver Capítulo XXX)}
+
+\NormalTok{pcoa_traits_mist <-}\StringTok{ }\KeywordTok{pcoa}\NormalTok{(dist_mist, }\DataTypeTok{correction=}\StringTok{"cailliez"}\NormalTok{)}
+\NormalTok{eixos_mist <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(pcoa_traits_mist}\OperatorTok{$}\NormalTok{vectors[,}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{])  }\CommentTok{# exportar 2 eixos}
+
+\NormalTok{eixos_mist }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Axis}\FloatTok{.1}\NormalTok{, }\DataTypeTok{y=}\NormalTok{Axis}\FloatTok{.2}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{pch=}\DecValTok{21}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{color =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"#d73027"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_text_repel}\NormalTok{(}\KeywordTok{aes}\NormalTok{(Axis}\FloatTok{.1}\NormalTok{, Axis}\FloatTok{.2}\NormalTok{, }\DataTypeTok{label =} \KeywordTok{rownames}\NormalTok{(eixos_mist)))}\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"PCO 1"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"PCO 2"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \DecValTok{0}\NormalTok{, }\DataTypeTok{linetype=}\DecValTok{2}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept =} \DecValTok{0}\NormalTok{, }\DataTypeTok{linetype=}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"top"}\NormalTok{, }\DataTypeTok{legend.title=}\KeywordTok{element_blank}\NormalTok{()) ->}\StringTok{ }\NormalTok{plot_trait_mist}
+\NormalTok{plot_trait_mist}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-62-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Exportar resultad em pdf. Você pode mudar .pdf por .png ou .svg.}
+\KeywordTok{ggsave}\NormalTok{(}\StringTok{"trait_mist.pdf"}\NormalTok{, plot_trait_mist, }\DataTypeTok{height =} \DecValTok{14}\NormalTok{, }\DataTypeTok{width =} \DecValTok{14}\NormalTok{, }\DataTypeTok{dpi =} \DecValTok{600}\NormalTok{, }\DataTypeTok{units =} \StringTok{"cm"}\NormalTok{)}
+
+\CommentTok{# Agora podemos combinar os dois gráficos para comparar as duas medidas de distância, uma somente com dados categóricos (Gower) e uma com dados categóricos e ordinais (Gower)}
+
+\KeywordTok{grid.arrange}\NormalTok{(plot_trait_cat, plot_trait_mist, }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-62-4.pdf}
+
+\hypertarget{muxe9tricas-de-diversidade-funcional-alpha}{%
+\section{2.3 Métricas de diversidade funcional (alpha)}\label{muxe9tricas-de-diversidade-funcional-alpha}}
+
+\hypertarget{riqueza-funcional}{%
+\subsection{2.2.1 Riqueza funcional}\label{riqueza-funcional}}
+
+A riqueza funcional mede a quantidade de espaço funcional preenchido pela espécies de uma comunidade (Mason \& Mouillot 2013). A estimativa desse espaço pode ser calculada usando dengrogramas (Petchey \& Gaston 2002) ou através do método \textbf{Convex Hull} (Cornwell et al.~2006) que dão origem, respectivamente, as duas métricas mais usadas: (1) Diversidade Funcional (FD) e (Riqueza Funcional - FRic). Os índices de riqueza funcional geralmente são usados como indicadores do espaço de nicho que é potencialmente usado ou não (Schleuter et al.~2010).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Antes de calcular as métricas de diversidade funcional, vamos calcular a riqueza de espécies com intuito de comparação entre métricas}
+
+\NormalTok{richness <-}\StringTok{ }\KeywordTok{dbFD}\NormalTok{(dist_mist, comun_dat)}\OperatorTok{$}\NormalTok{nbsp }\CommentTok{# Calcula a riqueza de espécies}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When 'x' is a distance matrix, CWM cannot be calculated.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Primeiro passo: definir uma distância apropriada (veja descrição anterior)}
+
+\CommentTok{# Aqui, iremos utilizar a distância de todos os dados trait_dat (variáveis categóricas e ordinais)}
+
+\NormalTok{dist_mist}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            sp1       sp2       sp3       sp4       sp5       sp6       sp7
+## sp2  0.5000000                                                            
+## sp3  0.7107801 0.6808389                                                  
+## sp4  0.7771900 0.8538292 0.7179711                                        
+## sp5  0.6107116 0.7345988 0.7381353 0.5106682                              
+## sp6  0.5041691 0.6487320 0.6527339 0.6522593 0.5177440                    
+## sp7  0.5041691 0.5809646 0.7137190 0.7132850 0.5177440 0.4082483          
+## sp8  0.9574271 0.9128709 0.8447140 0.8106696 0.7689990 0.8466582 0.8466582
+## sp9  0.8322170 0.7743619 0.8705685 0.7862568 0.6712758 0.8618286 0.7590006
+## sp10 0.8196798 0.8447140 0.8164966 0.7259317 0.6556685 0.7452327 0.8497285
+## sp11 0.7381353 0.7658396 0.6755013 0.7674028 0.7671647 0.5971604 0.5971604
+## sp12 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp13 0.6454972 0.7637626 0.8196798 0.7845499 0.6516846 0.6192712 0.6192712
+## sp14 0.9128709 0.7637626 0.7395100 0.8605338 0.9172565 0.7959251 0.8466582
+## sp15 0.8684391 0.7100609 0.7423352 0.8468228 0.8274814 0.7637626 0.8164966
+## sp16 0.8660254 0.8660254 0.6808389 0.6290397 0.7892837 0.7664984 0.8190563
+## sp17 0.2886751 0.5773503 0.7671647 0.7771900 0.6107116 0.5809646 0.5809646
+## sp18 0.6652707 0.5160455 0.7689102 0.8859268 0.7307151 0.7019605 0.6398556
+## sp19 0.7892837 0.6755013 0.8184398 0.7432689 0.8164966 0.7754948 0.7197631
+## sp20 0.6149610 0.6479535 0.5381778 0.7674028 0.7671647 0.5971604 0.7233721
+## sp21 0.6755013 0.6755013 0.7658396 0.7432689 0.8164966 0.7197631 0.6593372
+## sp22 0.6107116 0.6107116 0.7658396 0.8480067 0.7637626 0.5927834 0.5927834
+## sp23 0.6573806 0.5906064 0.6921158 0.7395100 0.8199027 0.7096247 0.7096247
+## sp24 0.5292494 0.5948301 0.7155949 0.8234825 0.7375481 0.5252793 0.5252793
+## sp25 0.8404178 0.7345988 0.7093497 0.7432689 0.6454972 0.7754948 0.7197631
+## sp26 0.8886143 0.7892837 0.8184398 0.7973594 0.7071068 0.8274814 0.7754948
+## sp27 0.8347284 0.8289488 0.7716277 0.7712263 0.7920294 0.6652707 0.6652707
+## sp28 0.6454972 0.7637626 0.7671647 0.8290703 0.7345988 0.5809646 0.5809646
+## sp29 0.7137190 0.6839065 0.7100609 0.7660943 0.5971604 0.7107801 0.5818433
+## sp30 0.8347284 0.8289488 0.7155949 0.6543114 0.7920294 0.6652707 0.6652707
+## sp31 0.8259233 0.6573806 0.8035489 0.8447140 0.8199027 0.7096247 0.7660943
+## sp32 0.9213121 0.8259233 0.9013088 0.7938566 0.9159187 0.8680825 0.8186781
+## sp33 0.8414675 0.7842952 0.8794158 0.8705685 0.8355590 0.7276576 0.7276576
+## sp34 0.7520331 0.7456127 0.6813161 0.6558429 0.7252023 0.6787075 0.5421967
+## sp35 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp36 0.6944209 0.7995447 0.7942658 0.6558429 0.6652707 0.6142561 0.7375481
+##            sp8       sp9      sp10      sp11      sp12      sp13      sp14
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9  0.5160455                                                            
+## sp10 0.5448624 0.4177992                                                  
+## sp11 0.6867080 0.7182727 0.7127595                                        
+## sp12 0.5160455 0.7071068 0.7126637 0.4272966                              
+## sp13 0.7071068 0.6652707 0.6495191 0.5887001 0.6652707                    
+## sp14 0.7637626 0.8264198 0.7938566 0.7449169 0.5913006 0.8660254          
+## sp15 0.6192712 0.6950778 0.6560273 0.8051504 0.6950778 0.8945186 0.5478718
+## sp16 0.7637626 0.8753873 0.8447140 0.8184398 0.7185423 1.0000000 0.6454972
+## sp17 0.9574271 0.8322170 0.8196798 0.7925762 0.8808623 0.6454972 0.9574271
+## sp18 0.7743619 0.5773503 0.6515798 0.6577099 0.7071068 0.6652707 0.7185423
+## sp19 0.8213969 0.7241058 0.7988958 0.7395100 0.7795271 0.6516846 0.7689990
+## sp20 0.8971628 0.8261854 0.7127595 0.6454972 0.7182727 0.7164039 0.6230847
+## sp21 0.8213969 0.7795271 0.8494515 0.6808389 0.7241058 0.5842598 0.7689990
+## sp22 0.7127595 0.7241058 0.7449169 0.5448624 0.5980489 0.4179627 0.7689990
+## sp23 0.8814629 0.8425832 0.8605338 0.7432689 0.7915890 0.6660657 0.7259317
+## sp24 0.7526397 0.7417301 0.7470295 0.5253079 0.6192712 0.3992684 0.8061016
+## sp25 0.7127595 0.6640752 0.7449169 0.7395100 0.7241058 0.8706470 0.7127595
+## sp26 0.5842598 0.6640752 0.7449169 0.8447140 0.7241058 0.9172565 0.7127595
+## sp27 0.6950778 0.8466582 0.8513047 0.5253079 0.5478718 0.7590006 0.6950778
+## sp28 0.8164966 0.7805458 0.7671647 0.6793455 0.7805458 0.5773503 0.8660254
+## sp29 0.8248465 0.6256088 0.7417301 0.7197631 0.8008660 0.7452327 0.8248465
+## sp30 0.7526397 0.7959251 0.8008660 0.5994011 0.7417301 0.7590006 0.7526397
+## sp31 0.7259317 0.6781935 0.6381106 0.7432689 0.7370752 0.7812235 0.6002584
+## sp32 0.7259317 0.7370752 0.8106696 0.8480067 0.7370752 0.8814629 0.6002584
+## sp33 0.6136882 0.6660657 0.6719621 0.7165635 0.6002584 0.7435692 0.6136882
+## sp34 0.8312616 0.7689990 0.8751661 0.5078283 0.6516846 0.7856703 0.6640752
+## sp35 0.5160455 0.7071068 0.7126637 0.4272966 0.0000000 0.6652707 0.5913006
+## sp36 0.7241058 0.8213969 0.7182727 0.7126637 0.7127595 0.7307151 0.7241058
+##           sp15      sp16      sp17      sp18      sp19      sp20      sp21
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16 0.6487320                                                            
+## sp17 0.9151611 0.9128709                                                  
+## sp18 0.6950778 0.9217572 0.7252023                                        
+## sp19 0.8763897 0.8404178 0.7345988 0.6640752                              
+## sp20 0.8051504 0.7658396 0.6793455 0.6577099 0.6808389                    
+## sp21 0.8763897 0.7892837 0.7345988 0.6640752 0.4082483 0.6808389          
+## sp22 0.7754948 0.8886143 0.6755013 0.5980489 0.5773503 0.6808389 0.4082483
+## sp23 0.8186781 0.7738320 0.7179711 0.6136882 0.5055430 0.6849200 0.2981729
+## sp24 0.7743619 0.8777753 0.6028584 0.6192712 0.6063788 0.6652932 0.4483621
+## sp25 0.6593372 0.6755013 0.7892837 0.7241058 0.8164966 0.8447140 0.8660254
+## sp26 0.5177440 0.6755013 0.8404178 0.7241058 0.8660254 0.9381942 0.9128709
+## sp27 0.7185423 0.7214496 0.7832230 0.8466582 0.7859359 0.7805650 0.8372745
+## sp28 0.7664984 0.9128709 0.5773503 0.7252023 0.7345988 0.7381353 0.7345988
+## sp29 0.7395100 0.7964891 0.6527339 0.6889991 0.6939744 0.7197631 0.8051504
+## sp30 0.7743619 0.7770604 0.7832230 0.7959251 0.6715866 0.7252230 0.7310006
+## sp31 0.5035545 0.8259233 0.7738320 0.6136882 0.7110371 0.7432689 0.8199027
+## sp32 0.6482545 0.6573806 0.8749186 0.7915890 0.5821572 0.7973594 0.7110371
+## sp33 0.5194903 0.7842952 0.7904013 0.7259317 0.7224104 0.7725261 0.8297852
+## sp34 0.8372745 0.6874627 0.8055353 0.7127595 0.7185423 0.6515798 0.6580043
+## sp35 0.6950778 0.7185423 0.8808623 0.7071068 0.7795271 0.7182727 0.7241058
+## sp36 0.6063788 0.6874627 0.7520331 0.8213969 0.8753873 0.7689102 0.7743619
+##           sp22      sp23      sp24      sp25      sp26      sp27      sp28
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23 0.5055430                                                            
+## sp24 0.1853695 0.5194903                                                  
+## sp25 0.8164966 0.8199027 0.8372745                                        
+## sp26 0.8660254 0.8692374 0.8856421 0.4082483                              
+## sp27 0.7310006 0.8774225 0.7071068 0.6715866 0.6715866                    
+## sp28 0.6107116 0.7738320 0.5292494 0.7892837 0.7892837 0.6028584          
+## sp29 0.7516208 0.8468228 0.7126637 0.5611897 0.6939744 0.6515798 0.5854299
+## sp30 0.7310006 0.7766618 0.7071068 0.7310006 0.7310006 0.5000000 0.5292494
+## sp31 0.7110371 0.7637626 0.7210202 0.5821572 0.5821572 0.6607094 0.5906064
+## sp32 0.8199027 0.7637626 0.8285752 0.7674028 0.6498003 0.6607094 0.7179711
+## sp33 0.7224104 0.8753873 0.7096247 0.7224104 0.5959950 0.5035545 0.5398157
+## sp34 0.7185423 0.7224104 0.7197631 0.6580043 0.7743619 0.5927834 0.7520331
+## sp35 0.5980489 0.7915890 0.6192712 0.7241058 0.7241058 0.5478718 0.7805458
+## sp36 0.6580043 0.7779525 0.6593372 0.7743619 0.7185423 0.6593372 0.7520331
+##           sp29      sp30      sp31      sp32      sp33      sp34      sp35
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23                                                                      
+## sp24                                                                      
+## sp25                                                                      
+## sp26                                                                      
+## sp27                                                                      
+## sp28                                                                      
+## sp29                                                                      
+## sp30 0.7126637                                                            
+## sp31 0.6834536 0.5943093                                                  
+## sp32 0.7419179 0.5943093 0.5773503                                        
+## sp33 0.6543114 0.5804313 0.4277495 0.4277495                              
+## sp34 0.6652932 0.5177440 0.7779525 0.7224104 0.7674028                    
+## sp35 0.8008660 0.7417301 0.7370752 0.7370752 0.6002584 0.6516846          
+## sp36 0.7805650 0.7754948 0.7779525 0.8297852 0.7110371 0.7637626 0.7127595
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# O índice "Functional Richness" só funciona para comunidades com 3 ou mais espécies}
+\CommentTok{# Caso você tenha comunidades com 1 ou 2 espécies, o valor será NA}
+
+\NormalTok{fric <-}\StringTok{ }\KeywordTok{dbFD}\NormalTok{(dist_mist, comun_dat)}\OperatorTok{$}\NormalTok{FRic}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When 'x' is a distance matrix, CWM cannot be calculated.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Functional Diversity (Petchey & Gaston 2002)}
+
+\CommentTok{## Passo 1: análise de agrupamento para criar o dendrograma }
+
+\NormalTok{dend <-}\StringTok{ }\KeywordTok{hclust}\NormalTok{(dist_mist, }\StringTok{"average"}\NormalTok{)}
+
+\CommentTok{## Passo 2: transformar o dengrograma em um arquivo da classe phylo}
+
+\NormalTok{tree_dend <-}\KeywordTok{as.phylo}\NormalTok{(dend)}
+
+\CommentTok{## Passo 3: calcular o valor da diversidade funcional }
+
+\NormalTok{FD <-}\StringTok{ }\KeywordTok{pd}\NormalTok{(comun_dat, tree_dend)}\OperatorTok{$}\NormalTok{PD}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{diverguxeancia-funcional}{%
+\subsection{2.2.2. Divergência funcional}\label{diverguxeancia-funcional}}
+
+\#!!!! Dúvida --- Como inserir uma Figura externa? !!!!!!!!
+
+A divergência funcional é uma medida que descreve a irregularidade na distribuição dos valores dos atributos no volume do espaço funcional ocupado por todas as espécies de uma certa comunidade (Garnier 2015, Figura ???). Para obter os valores de divergência, o espaço funcional é calculado através do método \textbf{Convex Hull} (Functional Divergence) ou do espaço multidimensional calculado com um PCoA (Functional Dispersion). Nos dois casos, o valor da métrica representa a distância média das espécies para o centro de gravidade ou centroide do espaço funcional, ponderado pela abundância relativa das espécies (Villeger et al.~2008, Laliberté \& Legendre 2010). Desse modo, a divergência funcional é uma medida que calcula o grau de diferenciação em que a distribuição da abundância maximiza a divergência entre entre os atributos funcionais (Mason \& Mouillot). Em geral, estudos que usam esses índices buscam entender o grau de diferenciação de recursos de espécies que coexistem em uma comunidade (Garnier 2015).
+
+\hypertarget{anuxe1lise}{%
+\subsection{Análise}\label{anuxe1lise}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(FD)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(ecodados)}
+\KeywordTok{library}\NormalTok{(vegan)}
+\KeywordTok{library}\NormalTok{(SYNCSA)}
+
+
+\CommentTok{# Primeiro passo: definir uma distância apropriada (veja descrição anterior)}
+
+\CommentTok{# Aqui, iremos utilizar a distância de todos os dados trait_dat (variáveis categóricas e ordinais)}
+
+\NormalTok{dist_mist}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            sp1       sp2       sp3       sp4       sp5       sp6       sp7
+## sp2  0.5000000                                                            
+## sp3  0.7107801 0.6808389                                                  
+## sp4  0.7771900 0.8538292 0.7179711                                        
+## sp5  0.6107116 0.7345988 0.7381353 0.5106682                              
+## sp6  0.5041691 0.6487320 0.6527339 0.6522593 0.5177440                    
+## sp7  0.5041691 0.5809646 0.7137190 0.7132850 0.5177440 0.4082483          
+## sp8  0.9574271 0.9128709 0.8447140 0.8106696 0.7689990 0.8466582 0.8466582
+## sp9  0.8322170 0.7743619 0.8705685 0.7862568 0.6712758 0.8618286 0.7590006
+## sp10 0.8196798 0.8447140 0.8164966 0.7259317 0.6556685 0.7452327 0.8497285
+## sp11 0.7381353 0.7658396 0.6755013 0.7674028 0.7671647 0.5971604 0.5971604
+## sp12 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp13 0.6454972 0.7637626 0.8196798 0.7845499 0.6516846 0.6192712 0.6192712
+## sp14 0.9128709 0.7637626 0.7395100 0.8605338 0.9172565 0.7959251 0.8466582
+## sp15 0.8684391 0.7100609 0.7423352 0.8468228 0.8274814 0.7637626 0.8164966
+## sp16 0.8660254 0.8660254 0.6808389 0.6290397 0.7892837 0.7664984 0.8190563
+## sp17 0.2886751 0.5773503 0.7671647 0.7771900 0.6107116 0.5809646 0.5809646
+## sp18 0.6652707 0.5160455 0.7689102 0.8859268 0.7307151 0.7019605 0.6398556
+## sp19 0.7892837 0.6755013 0.8184398 0.7432689 0.8164966 0.7754948 0.7197631
+## sp20 0.6149610 0.6479535 0.5381778 0.7674028 0.7671647 0.5971604 0.7233721
+## sp21 0.6755013 0.6755013 0.7658396 0.7432689 0.8164966 0.7197631 0.6593372
+## sp22 0.6107116 0.6107116 0.7658396 0.8480067 0.7637626 0.5927834 0.5927834
+## sp23 0.6573806 0.5906064 0.6921158 0.7395100 0.8199027 0.7096247 0.7096247
+## sp24 0.5292494 0.5948301 0.7155949 0.8234825 0.7375481 0.5252793 0.5252793
+## sp25 0.8404178 0.7345988 0.7093497 0.7432689 0.6454972 0.7754948 0.7197631
+## sp26 0.8886143 0.7892837 0.8184398 0.7973594 0.7071068 0.8274814 0.7754948
+## sp27 0.8347284 0.8289488 0.7716277 0.7712263 0.7920294 0.6652707 0.6652707
+## sp28 0.6454972 0.7637626 0.7671647 0.8290703 0.7345988 0.5809646 0.5809646
+## sp29 0.7137190 0.6839065 0.7100609 0.7660943 0.5971604 0.7107801 0.5818433
+## sp30 0.8347284 0.8289488 0.7155949 0.6543114 0.7920294 0.6652707 0.6652707
+## sp31 0.8259233 0.6573806 0.8035489 0.8447140 0.8199027 0.7096247 0.7660943
+## sp32 0.9213121 0.8259233 0.9013088 0.7938566 0.9159187 0.8680825 0.8186781
+## sp33 0.8414675 0.7842952 0.8794158 0.8705685 0.8355590 0.7276576 0.7276576
+## sp34 0.7520331 0.7456127 0.6813161 0.6558429 0.7252023 0.6787075 0.5421967
+## sp35 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp36 0.6944209 0.7995447 0.7942658 0.6558429 0.6652707 0.6142561 0.7375481
+##            sp8       sp9      sp10      sp11      sp12      sp13      sp14
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9  0.5160455                                                            
+## sp10 0.5448624 0.4177992                                                  
+## sp11 0.6867080 0.7182727 0.7127595                                        
+## sp12 0.5160455 0.7071068 0.7126637 0.4272966                              
+## sp13 0.7071068 0.6652707 0.6495191 0.5887001 0.6652707                    
+## sp14 0.7637626 0.8264198 0.7938566 0.7449169 0.5913006 0.8660254          
+## sp15 0.6192712 0.6950778 0.6560273 0.8051504 0.6950778 0.8945186 0.5478718
+## sp16 0.7637626 0.8753873 0.8447140 0.8184398 0.7185423 1.0000000 0.6454972
+## sp17 0.9574271 0.8322170 0.8196798 0.7925762 0.8808623 0.6454972 0.9574271
+## sp18 0.7743619 0.5773503 0.6515798 0.6577099 0.7071068 0.6652707 0.7185423
+## sp19 0.8213969 0.7241058 0.7988958 0.7395100 0.7795271 0.6516846 0.7689990
+## sp20 0.8971628 0.8261854 0.7127595 0.6454972 0.7182727 0.7164039 0.6230847
+## sp21 0.8213969 0.7795271 0.8494515 0.6808389 0.7241058 0.5842598 0.7689990
+## sp22 0.7127595 0.7241058 0.7449169 0.5448624 0.5980489 0.4179627 0.7689990
+## sp23 0.8814629 0.8425832 0.8605338 0.7432689 0.7915890 0.6660657 0.7259317
+## sp24 0.7526397 0.7417301 0.7470295 0.5253079 0.6192712 0.3992684 0.8061016
+## sp25 0.7127595 0.6640752 0.7449169 0.7395100 0.7241058 0.8706470 0.7127595
+## sp26 0.5842598 0.6640752 0.7449169 0.8447140 0.7241058 0.9172565 0.7127595
+## sp27 0.6950778 0.8466582 0.8513047 0.5253079 0.5478718 0.7590006 0.6950778
+## sp28 0.8164966 0.7805458 0.7671647 0.6793455 0.7805458 0.5773503 0.8660254
+## sp29 0.8248465 0.6256088 0.7417301 0.7197631 0.8008660 0.7452327 0.8248465
+## sp30 0.7526397 0.7959251 0.8008660 0.5994011 0.7417301 0.7590006 0.7526397
+## sp31 0.7259317 0.6781935 0.6381106 0.7432689 0.7370752 0.7812235 0.6002584
+## sp32 0.7259317 0.7370752 0.8106696 0.8480067 0.7370752 0.8814629 0.6002584
+## sp33 0.6136882 0.6660657 0.6719621 0.7165635 0.6002584 0.7435692 0.6136882
+## sp34 0.8312616 0.7689990 0.8751661 0.5078283 0.6516846 0.7856703 0.6640752
+## sp35 0.5160455 0.7071068 0.7126637 0.4272966 0.0000000 0.6652707 0.5913006
+## sp36 0.7241058 0.8213969 0.7182727 0.7126637 0.7127595 0.7307151 0.7241058
+##           sp15      sp16      sp17      sp18      sp19      sp20      sp21
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16 0.6487320                                                            
+## sp17 0.9151611 0.9128709                                                  
+## sp18 0.6950778 0.9217572 0.7252023                                        
+## sp19 0.8763897 0.8404178 0.7345988 0.6640752                              
+## sp20 0.8051504 0.7658396 0.6793455 0.6577099 0.6808389                    
+## sp21 0.8763897 0.7892837 0.7345988 0.6640752 0.4082483 0.6808389          
+## sp22 0.7754948 0.8886143 0.6755013 0.5980489 0.5773503 0.6808389 0.4082483
+## sp23 0.8186781 0.7738320 0.7179711 0.6136882 0.5055430 0.6849200 0.2981729
+## sp24 0.7743619 0.8777753 0.6028584 0.6192712 0.6063788 0.6652932 0.4483621
+## sp25 0.6593372 0.6755013 0.7892837 0.7241058 0.8164966 0.8447140 0.8660254
+## sp26 0.5177440 0.6755013 0.8404178 0.7241058 0.8660254 0.9381942 0.9128709
+## sp27 0.7185423 0.7214496 0.7832230 0.8466582 0.7859359 0.7805650 0.8372745
+## sp28 0.7664984 0.9128709 0.5773503 0.7252023 0.7345988 0.7381353 0.7345988
+## sp29 0.7395100 0.7964891 0.6527339 0.6889991 0.6939744 0.7197631 0.8051504
+## sp30 0.7743619 0.7770604 0.7832230 0.7959251 0.6715866 0.7252230 0.7310006
+## sp31 0.5035545 0.8259233 0.7738320 0.6136882 0.7110371 0.7432689 0.8199027
+## sp32 0.6482545 0.6573806 0.8749186 0.7915890 0.5821572 0.7973594 0.7110371
+## sp33 0.5194903 0.7842952 0.7904013 0.7259317 0.7224104 0.7725261 0.8297852
+## sp34 0.8372745 0.6874627 0.8055353 0.7127595 0.7185423 0.6515798 0.6580043
+## sp35 0.6950778 0.7185423 0.8808623 0.7071068 0.7795271 0.7182727 0.7241058
+## sp36 0.6063788 0.6874627 0.7520331 0.8213969 0.8753873 0.7689102 0.7743619
+##           sp22      sp23      sp24      sp25      sp26      sp27      sp28
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23 0.5055430                                                            
+## sp24 0.1853695 0.5194903                                                  
+## sp25 0.8164966 0.8199027 0.8372745                                        
+## sp26 0.8660254 0.8692374 0.8856421 0.4082483                              
+## sp27 0.7310006 0.8774225 0.7071068 0.6715866 0.6715866                    
+## sp28 0.6107116 0.7738320 0.5292494 0.7892837 0.7892837 0.6028584          
+## sp29 0.7516208 0.8468228 0.7126637 0.5611897 0.6939744 0.6515798 0.5854299
+## sp30 0.7310006 0.7766618 0.7071068 0.7310006 0.7310006 0.5000000 0.5292494
+## sp31 0.7110371 0.7637626 0.7210202 0.5821572 0.5821572 0.6607094 0.5906064
+## sp32 0.8199027 0.7637626 0.8285752 0.7674028 0.6498003 0.6607094 0.7179711
+## sp33 0.7224104 0.8753873 0.7096247 0.7224104 0.5959950 0.5035545 0.5398157
+## sp34 0.7185423 0.7224104 0.7197631 0.6580043 0.7743619 0.5927834 0.7520331
+## sp35 0.5980489 0.7915890 0.6192712 0.7241058 0.7241058 0.5478718 0.7805458
+## sp36 0.6580043 0.7779525 0.6593372 0.7743619 0.7185423 0.6593372 0.7520331
+##           sp29      sp30      sp31      sp32      sp33      sp34      sp35
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23                                                                      
+## sp24                                                                      
+## sp25                                                                      
+## sp26                                                                      
+## sp27                                                                      
+## sp28                                                                      
+## sp29                                                                      
+## sp30 0.7126637                                                            
+## sp31 0.6834536 0.5943093                                                  
+## sp32 0.7419179 0.5943093 0.5773503                                        
+## sp33 0.6543114 0.5804313 0.4277495 0.4277495                              
+## sp34 0.6652932 0.5177440 0.7779525 0.7224104 0.7674028                    
+## sp35 0.8008660 0.7417301 0.7370752 0.7370752 0.6002584 0.6516846          
+## sp36 0.7805650 0.7754948 0.7779525 0.8297852 0.7110371 0.7637626 0.7127595
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# O índice "Functional Divergence" só funciona para comunidades com 3 ou mais espécies}
+\CommentTok{# Caso você tenha comunidades com 1 ou 2 espécies, a análise irá retornar o valor NA}
+
+\NormalTok{fdiv <-}\StringTok{ }\KeywordTok{dbFD}\NormalTok{(dist_mist, comun_dat)}\OperatorTok{$}\NormalTok{FDiv}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When 'x' is a distance matrix, CWM cannot be calculated.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# O índice "Functional Dispersion" atribui valor 0 para comunidades com 1 ou 2 espécies}
+\NormalTok{fdis <-}\StringTok{ }\KeywordTok{dbFD}\NormalTok{(dist_mist, comun_dat)}\OperatorTok{$}\NormalTok{FDis}\CommentTok{# Fdis=0 em locais com somente uma espécie}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When 'x' is a distance matrix, CWM cannot be calculated.
+\end{verbatim}
+
+\hypertarget{regularidade-funcional}{%
+\subsection{2.2.3. Regularidade funcional}\label{regularidade-funcional}}
+
+A regularidade funcional (do inglês \textbf{Functional Evenness}) mede o quão regular é a distribuição da abundância dos valores dos atributos funcionais no espaço funcional. Diferente dos outros métodos, a versão multidimensional deste índice utiliza um método chamado \textbf{Minimum Spanning Tree} (MST) para conectar todas espécies no espaço funcional. A distância par-a-par das espécies na MST é ponderada pela abundância relativa das espécies e, desse modo, o valor final da regularidade funcional (FEve) vai variar de 0 (máxima irregularidade da distribuição da abundância ou distância funcional das espécies) a 1 (máxima regularidade).
+
+\hypertarget{anuxe1lise-1}{%
+\subsection{Análise}\label{anuxe1lise-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(FD)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(ecodados)}
+\KeywordTok{library}\NormalTok{(vegan)}
+\KeywordTok{library}\NormalTok{(GGally)}
+
+\CommentTok{# Aqui, iremos utilizar a distância de todos os dados trait_dat (variáveis categóricas e ordinais)}
+
+\NormalTok{dist_mist}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            sp1       sp2       sp3       sp4       sp5       sp6       sp7
+## sp2  0.5000000                                                            
+## sp3  0.7107801 0.6808389                                                  
+## sp4  0.7771900 0.8538292 0.7179711                                        
+## sp5  0.6107116 0.7345988 0.7381353 0.5106682                              
+## sp6  0.5041691 0.6487320 0.6527339 0.6522593 0.5177440                    
+## sp7  0.5041691 0.5809646 0.7137190 0.7132850 0.5177440 0.4082483          
+## sp8  0.9574271 0.9128709 0.8447140 0.8106696 0.7689990 0.8466582 0.8466582
+## sp9  0.8322170 0.7743619 0.8705685 0.7862568 0.6712758 0.8618286 0.7590006
+## sp10 0.8196798 0.8447140 0.8164966 0.7259317 0.6556685 0.7452327 0.8497285
+## sp11 0.7381353 0.7658396 0.6755013 0.7674028 0.7671647 0.5971604 0.5971604
+## sp12 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp13 0.6454972 0.7637626 0.8196798 0.7845499 0.6516846 0.6192712 0.6192712
+## sp14 0.9128709 0.7637626 0.7395100 0.8605338 0.9172565 0.7959251 0.8466582
+## sp15 0.8684391 0.7100609 0.7423352 0.8468228 0.8274814 0.7637626 0.8164966
+## sp16 0.8660254 0.8660254 0.6808389 0.6290397 0.7892837 0.7664984 0.8190563
+## sp17 0.2886751 0.5773503 0.7671647 0.7771900 0.6107116 0.5809646 0.5809646
+## sp18 0.6652707 0.5160455 0.7689102 0.8859268 0.7307151 0.7019605 0.6398556
+## sp19 0.7892837 0.6755013 0.8184398 0.7432689 0.8164966 0.7754948 0.7197631
+## sp20 0.6149610 0.6479535 0.5381778 0.7674028 0.7671647 0.5971604 0.7233721
+## sp21 0.6755013 0.6755013 0.7658396 0.7432689 0.8164966 0.7197631 0.6593372
+## sp22 0.6107116 0.6107116 0.7658396 0.8480067 0.7637626 0.5927834 0.5927834
+## sp23 0.6573806 0.5906064 0.6921158 0.7395100 0.8199027 0.7096247 0.7096247
+## sp24 0.5292494 0.5948301 0.7155949 0.8234825 0.7375481 0.5252793 0.5252793
+## sp25 0.8404178 0.7345988 0.7093497 0.7432689 0.6454972 0.7754948 0.7197631
+## sp26 0.8886143 0.7892837 0.8184398 0.7973594 0.7071068 0.8274814 0.7754948
+## sp27 0.8347284 0.8289488 0.7716277 0.7712263 0.7920294 0.6652707 0.6652707
+## sp28 0.6454972 0.7637626 0.7671647 0.8290703 0.7345988 0.5809646 0.5809646
+## sp29 0.7137190 0.6839065 0.7100609 0.7660943 0.5971604 0.7107801 0.5818433
+## sp30 0.8347284 0.8289488 0.7155949 0.6543114 0.7920294 0.6652707 0.6652707
+## sp31 0.8259233 0.6573806 0.8035489 0.8447140 0.8199027 0.7096247 0.7660943
+## sp32 0.9213121 0.8259233 0.9013088 0.7938566 0.9159187 0.8680825 0.8186781
+## sp33 0.8414675 0.7842952 0.8794158 0.8705685 0.8355590 0.7276576 0.7276576
+## sp34 0.7520331 0.7456127 0.6813161 0.6558429 0.7252023 0.6787075 0.5421967
+## sp35 0.8322170 0.8264198 0.7689102 0.8859268 0.8370252 0.7019605 0.7019605
+## sp36 0.6944209 0.7995447 0.7942658 0.6558429 0.6652707 0.6142561 0.7375481
+##            sp8       sp9      sp10      sp11      sp12      sp13      sp14
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9  0.5160455                                                            
+## sp10 0.5448624 0.4177992                                                  
+## sp11 0.6867080 0.7182727 0.7127595                                        
+## sp12 0.5160455 0.7071068 0.7126637 0.4272966                              
+## sp13 0.7071068 0.6652707 0.6495191 0.5887001 0.6652707                    
+## sp14 0.7637626 0.8264198 0.7938566 0.7449169 0.5913006 0.8660254          
+## sp15 0.6192712 0.6950778 0.6560273 0.8051504 0.6950778 0.8945186 0.5478718
+## sp16 0.7637626 0.8753873 0.8447140 0.8184398 0.7185423 1.0000000 0.6454972
+## sp17 0.9574271 0.8322170 0.8196798 0.7925762 0.8808623 0.6454972 0.9574271
+## sp18 0.7743619 0.5773503 0.6515798 0.6577099 0.7071068 0.6652707 0.7185423
+## sp19 0.8213969 0.7241058 0.7988958 0.7395100 0.7795271 0.6516846 0.7689990
+## sp20 0.8971628 0.8261854 0.7127595 0.6454972 0.7182727 0.7164039 0.6230847
+## sp21 0.8213969 0.7795271 0.8494515 0.6808389 0.7241058 0.5842598 0.7689990
+## sp22 0.7127595 0.7241058 0.7449169 0.5448624 0.5980489 0.4179627 0.7689990
+## sp23 0.8814629 0.8425832 0.8605338 0.7432689 0.7915890 0.6660657 0.7259317
+## sp24 0.7526397 0.7417301 0.7470295 0.5253079 0.6192712 0.3992684 0.8061016
+## sp25 0.7127595 0.6640752 0.7449169 0.7395100 0.7241058 0.8706470 0.7127595
+## sp26 0.5842598 0.6640752 0.7449169 0.8447140 0.7241058 0.9172565 0.7127595
+## sp27 0.6950778 0.8466582 0.8513047 0.5253079 0.5478718 0.7590006 0.6950778
+## sp28 0.8164966 0.7805458 0.7671647 0.6793455 0.7805458 0.5773503 0.8660254
+## sp29 0.8248465 0.6256088 0.7417301 0.7197631 0.8008660 0.7452327 0.8248465
+## sp30 0.7526397 0.7959251 0.8008660 0.5994011 0.7417301 0.7590006 0.7526397
+## sp31 0.7259317 0.6781935 0.6381106 0.7432689 0.7370752 0.7812235 0.6002584
+## sp32 0.7259317 0.7370752 0.8106696 0.8480067 0.7370752 0.8814629 0.6002584
+## sp33 0.6136882 0.6660657 0.6719621 0.7165635 0.6002584 0.7435692 0.6136882
+## sp34 0.8312616 0.7689990 0.8751661 0.5078283 0.6516846 0.7856703 0.6640752
+## sp35 0.5160455 0.7071068 0.7126637 0.4272966 0.0000000 0.6652707 0.5913006
+## sp36 0.7241058 0.8213969 0.7182727 0.7126637 0.7127595 0.7307151 0.7241058
+##           sp15      sp16      sp17      sp18      sp19      sp20      sp21
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16 0.6487320                                                            
+## sp17 0.9151611 0.9128709                                                  
+## sp18 0.6950778 0.9217572 0.7252023                                        
+## sp19 0.8763897 0.8404178 0.7345988 0.6640752                              
+## sp20 0.8051504 0.7658396 0.6793455 0.6577099 0.6808389                    
+## sp21 0.8763897 0.7892837 0.7345988 0.6640752 0.4082483 0.6808389          
+## sp22 0.7754948 0.8886143 0.6755013 0.5980489 0.5773503 0.6808389 0.4082483
+## sp23 0.8186781 0.7738320 0.7179711 0.6136882 0.5055430 0.6849200 0.2981729
+## sp24 0.7743619 0.8777753 0.6028584 0.6192712 0.6063788 0.6652932 0.4483621
+## sp25 0.6593372 0.6755013 0.7892837 0.7241058 0.8164966 0.8447140 0.8660254
+## sp26 0.5177440 0.6755013 0.8404178 0.7241058 0.8660254 0.9381942 0.9128709
+## sp27 0.7185423 0.7214496 0.7832230 0.8466582 0.7859359 0.7805650 0.8372745
+## sp28 0.7664984 0.9128709 0.5773503 0.7252023 0.7345988 0.7381353 0.7345988
+## sp29 0.7395100 0.7964891 0.6527339 0.6889991 0.6939744 0.7197631 0.8051504
+## sp30 0.7743619 0.7770604 0.7832230 0.7959251 0.6715866 0.7252230 0.7310006
+## sp31 0.5035545 0.8259233 0.7738320 0.6136882 0.7110371 0.7432689 0.8199027
+## sp32 0.6482545 0.6573806 0.8749186 0.7915890 0.5821572 0.7973594 0.7110371
+## sp33 0.5194903 0.7842952 0.7904013 0.7259317 0.7224104 0.7725261 0.8297852
+## sp34 0.8372745 0.6874627 0.8055353 0.7127595 0.7185423 0.6515798 0.6580043
+## sp35 0.6950778 0.7185423 0.8808623 0.7071068 0.7795271 0.7182727 0.7241058
+## sp36 0.6063788 0.6874627 0.7520331 0.8213969 0.8753873 0.7689102 0.7743619
+##           sp22      sp23      sp24      sp25      sp26      sp27      sp28
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23 0.5055430                                                            
+## sp24 0.1853695 0.5194903                                                  
+## sp25 0.8164966 0.8199027 0.8372745                                        
+## sp26 0.8660254 0.8692374 0.8856421 0.4082483                              
+## sp27 0.7310006 0.8774225 0.7071068 0.6715866 0.6715866                    
+## sp28 0.6107116 0.7738320 0.5292494 0.7892837 0.7892837 0.6028584          
+## sp29 0.7516208 0.8468228 0.7126637 0.5611897 0.6939744 0.6515798 0.5854299
+## sp30 0.7310006 0.7766618 0.7071068 0.7310006 0.7310006 0.5000000 0.5292494
+## sp31 0.7110371 0.7637626 0.7210202 0.5821572 0.5821572 0.6607094 0.5906064
+## sp32 0.8199027 0.7637626 0.8285752 0.7674028 0.6498003 0.6607094 0.7179711
+## sp33 0.7224104 0.8753873 0.7096247 0.7224104 0.5959950 0.5035545 0.5398157
+## sp34 0.7185423 0.7224104 0.7197631 0.6580043 0.7743619 0.5927834 0.7520331
+## sp35 0.5980489 0.7915890 0.6192712 0.7241058 0.7241058 0.5478718 0.7805458
+## sp36 0.6580043 0.7779525 0.6593372 0.7743619 0.7185423 0.6593372 0.7520331
+##           sp29      sp30      sp31      sp32      sp33      sp34      sp35
+## sp2                                                                       
+## sp3                                                                       
+## sp4                                                                       
+## sp5                                                                       
+## sp6                                                                       
+## sp7                                                                       
+## sp8                                                                       
+## sp9                                                                       
+## sp10                                                                      
+## sp11                                                                      
+## sp12                                                                      
+## sp13                                                                      
+## sp14                                                                      
+## sp15                                                                      
+## sp16                                                                      
+## sp17                                                                      
+## sp18                                                                      
+## sp19                                                                      
+## sp20                                                                      
+## sp21                                                                      
+## sp22                                                                      
+## sp23                                                                      
+## sp24                                                                      
+## sp25                                                                      
+## sp26                                                                      
+## sp27                                                                      
+## sp28                                                                      
+## sp29                                                                      
+## sp30 0.7126637                                                            
+## sp31 0.6834536 0.5943093                                                  
+## sp32 0.7419179 0.5943093 0.5773503                                        
+## sp33 0.6543114 0.5804313 0.4277495 0.4277495                              
+## sp34 0.6652932 0.5177440 0.7779525 0.7224104 0.7674028                    
+## sp35 0.8008660 0.7417301 0.7370752 0.7370752 0.6002584 0.6516846          
+## sp36 0.7805650 0.7754948 0.7779525 0.8297852 0.7110371 0.7637626 0.7127595
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# O índice "Functional evenness" só funciona para comunidades com 3 ou mais espécies}
+\CommentTok{# Caso você tenha comunidades com 1 ou 2 espécies, a análise irá retornar o valor NA}
+
+\NormalTok{feve <-}\StringTok{ }\KeywordTok{dbFD}\NormalTok{(dist_mist, comun_dat)}\OperatorTok{$}\NormalTok{FEve}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## FRic: Dimensionality reduction was required. The last 17 PCoA axes (out of 19 in total) were removed. 
+## FRic: Quality of the reduced-space representation = 0.3243851 
+## CWM: When 'x' is a distance matrix, CWM cannot be calculated.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{### Você pode criar uma tabela com os resultados de todas as métricas}
+
+\NormalTok{locais <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(comun_dat)}
+
+\NormalTok{metricas <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{richness=}\NormalTok{richness,}
+                       \DataTypeTok{FD_gp =}\NormalTok{ FD,}
+                       \DataTypeTok{fric =}\NormalTok{ fric,}
+                       \DataTypeTok{fdiv =}\NormalTok{ fdiv,}
+                       \DataTypeTok{fdis =}\NormalTok{ fdis,}
+                       \DataTypeTok{feve =}\NormalTok{ feve)}
+
+\CommentTok{### Gráfico para comparar o comportamento das métricas}
+
+\KeywordTok{ggpairs}\NormalTok{(metricas)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-65-1.pdf}
+
+\hypertarget{muxe9tricas-de-diversidade-funcional-beta}{%
+\section{2.3 Métricas de diversidade funcional (beta)}\label{muxe9tricas-de-diversidade-funcional-beta}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(FD)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(ecodados)}
+\KeywordTok{library}\NormalTok{(vegan)}
+\KeywordTok{library}\NormalTok{(GGally)}
+\KeywordTok{library}\NormalTok{(betapart)}
+\KeywordTok{library}\NormalTok{(vegan)}
+
+\CommentTok{### Partição da Diversidade beta (Método Baselga)}
+
+\NormalTok{comun_fren_pa <-}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(}\KeywordTok{decostand}\NormalTok{(comun_fren_dat, }\StringTok{"pa"}\NormalTok{))}
+\NormalTok{trait <-}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(trait_fren_dat)}
+ 
+\KeywordTok{rowSums}\NormalTok{(comun_fren_pa)}\OperatorTok{>}\KeywordTok{ncol}\NormalTok{(trait)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   17 
+## TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+##   18   19   20   21   22   23   24   25   26   27   28   29   31   32   33   34 
+## TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE 
+##   41   42   43   44   45   46   47   48   49   50   51   53   54   55 
+## TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{colnames}\NormalTok{(comun_fren_pa)}\OperatorTok{==}\KeywordTok{rownames}\NormalTok{(trait)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [31] TRUE TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fun_beta <-}\StringTok{ }\KeywordTok{functional.beta.pair}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ comun_fren_pa, }\DataTypeTok{trait=}\NormalTok{trait, }\DataTypeTok{index=}\StringTok{"jaccard"}\NormalTok{) }\CommentTok{# Está bem lento!!! Conferir}
+
+\CommentTok{# Os comandos abaixo permitem extrair a matriz de distância (par-a-par) com a partição em turnover e nestedness}
+
+\NormalTok{fun_turnover <-}\StringTok{ }\NormalTok{fun_beta}\OperatorTok{$}\NormalTok{funct.beta.jne}
+\NormalTok{fun_nestedness <-}\StringTok{ }\NormalTok{fun_beta}\OperatorTok{$}\NormalTok{funct.beta.jne}
+
+
+\CommentTok{### Composição Funcional: Community Wegihed Means (CWM)}
+
+\NormalTok{cwm_fren <-}\StringTok{ }\KeywordTok{functcomp}\NormalTok{(trait_pad, }\KeywordTok{as.matrix}\NormalTok{(comun_fren_dat))}
+\NormalTok{cwm_fren}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             LA         SLA         LDMC         LN15         LCC
+## 1  -0.24117001 -0.34855154  0.197452005  0.187400303 -0.53673676
+## 2  -0.39773712  0.23266219 -0.090932698 -0.285977720  0.16431901
+## 3  -0.18571342  0.20107562 -0.398772647 -0.125064251 -0.43046175
+## 4  -0.22840640  0.16041005  0.804963068 -0.370425340  0.71938526
+## 5  -0.16647900  0.34869559  0.022322127 -0.204193092  0.20513913
+## 6  -0.32588213  0.36645830  0.049968287 -0.335257153  0.47130894
+## 7  -0.43197058 -0.25619948  0.882004760  0.096681649  0.42065181
+## 8  -0.33857863  1.12929965  0.278478893 -0.339493573  0.35571124
+## 9  -0.40637654  0.66868021  0.377931295 -0.759687717  0.67746099
+## 10 -0.33465801  0.26219601  0.683907823 -0.531993528  0.48456065
+## 11 -0.35362891  0.44031044 -0.098078566 -0.447057493  0.25490829
+## 12 -0.17542712  0.46363786 -0.252119368 -0.375615215  0.03807885
+## 13 -0.23670889  0.64165706 -0.243427434 -0.510792769  0.16037083
+## 14 -0.17552077  0.38780017 -0.221048163 -0.169623873 -0.11858724
+## 15 -0.13274039  0.36304974 -0.049173336 -0.254725433 -0.03772986
+## 17  0.01771351  0.87327677 -0.145441057 -0.489096566  0.08335821
+## 18  1.03239586  0.50046791 -0.426467881 -0.416310755  0.02468425
+## 19  0.37208764  1.45649761 -0.804115966  0.388010050 -0.20704973
+## 20  1.13432791  0.75003603 -0.294438976 -0.499286730 -0.06243781
+## 21  1.35442421 -0.70515495  2.082205988 -1.038022002  0.81956154
+## 22 -0.36252857 -0.11915470  0.470138892 -0.349437843  0.55666135
+## 23 -0.29349787  0.19703824  0.679820129 -0.474449656  0.71142400
+## 24 -0.33836216  0.08304760  0.099230530 -0.121483271  0.35394645
+## 25  0.31915111 -0.25335758  1.057707296 -0.542238715  0.63662030
+## 26 -0.24534578 -0.21751810  0.695937334 -0.007139066  0.47627258
+## 27 -0.20960264 -0.58180437  0.394392498 -0.518763303  0.37889078
+## 28 -0.26982346 -0.42908491  0.450840875 -0.202161091  0.02367337
+## 29 -0.32058272 -0.29318472  0.453475403 -0.212532176  0.10144194
+## 31 -0.38641680 -0.38582263  0.554819836  0.173638980  0.67867808
+## 32 -0.31712244 -0.11381172  0.791643497  0.096268499  0.32899087
+## 33 -0.32213376 -0.48103699  1.038751044  0.205328512  0.30745238
+## 34 -0.33013501 -0.65581527  1.293037498  0.231480875  0.26741920
+## 41 -0.21326809 -0.50951184  0.308211438  0.621624073 -0.02416227
+## 42 -0.26935232  0.21916126  0.572210470 -0.361020644  0.59665773
+## 43 -0.22062318  0.11645607  0.340636401  0.151210561  0.27108509
+## 44 -0.26028393 -0.26173176  0.172017848  0.244822665  0.23292430
+## 45 -0.23379351 -0.25943724  0.278658873  0.250480329  0.21130657
+## 46 -0.33192013  0.74464867  0.130344698 -0.929207679  0.45776144
+## 47  0.34630198  0.63422133 -0.042007884 -0.730381834  0.17446721
+## 48  0.39131426  1.01748971 -0.358288180  0.112660259 -0.12592045
+## 49  0.42699578  0.72427942  0.001705993 -0.893869698  0.29221358
+## 50 -0.13939830  0.90998495 -0.158000274 -0.706916062  0.41680064
+## 51 -0.27746336 -0.02797998  0.838975452 -0.400596491  0.68387800
+## 53  0.42752854 -0.40185894  0.806015665 -0.411297259  0.40868170
+## 54  0.03358955 -0.54014447  0.465576291 -0.403175303  0.33532396
+## 55  0.40337693 -0.42511472  1.072441309 -0.737290886  0.79404728
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{### Exemplo 1: diversidade funcional (alfa) de 34 espécies de plantas em um gradiente de aridez (Frenette-Dussault et al. 2012)}
+
+
+\CommentTok{# Dados}
+
+\NormalTok{comun_fren_dat }\CommentTok{# matriz de espécies por localidade}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    sp1 sp2 sp3 sp5 sp6 sp7 sp8 sp9 sp10 sp11 sp12 sp13 sp14 sp15 sp17 sp18 sp19
+## 1    0  74   0   5   5   0   0   0    0   47    3    2    0    0   14    0    0
+## 2    0  10   0   6   0   0   0   0    2    4    2   24    0    0   47    0    0
+## 3    0   1   0   0   0   0   0   0    0    0    0    0    1    0   24    0    0
+## 4    0   3   0   0   0   0   0   0    0    0    0    2    0    0    3    0    0
+## 5    0   0   0  15   0   0   0   0    0   27    0    2    0    0    0    0    0
+## 6   23   0  22   2   0   0   7   0    4    0    0    0    0    0    0    0    0
+## 7    2   0   0   3   0   0   0   0    0    0    0    2    0    2    0    0    0
+## 8    7   0   0   7   0   0  10   0   43    0    0    0    0    2    0    0    0
+## 9    0   0   5   8   0   0   8   0    1    0    0    0    0    0    0    0    0
+## 10   1   0   0   4   0   0  16   0    0    0    0    0    0    1    0    0    5
+## 11   0   0   0   2   0   0   0   0    0    0    1    0    0    0   21    0    0
+## 12   0   5   0   1   0   0   0   0    0    0    0    0    0    0   35    0    0
+## 13   0   7   0   3   0   0   0   0    0    0    0    0    0    0   29    0    0
+## 14   0   1   0   0   0   0   0   0    0    0    0    0    0    0    4    0    0
+## 15   0   8   0   4   0   0   0   0    0    0    0    0    0    0    0    0    0
+## 17   0   0   0  34   0   0  29   0    8    0    0    0    6    0    0    3    0
+## 18   0   0   0   3   0   0   0  59    0    0    0    9    9    0    0    0   30
+## 19   0   0   0  21   3   0 128   0    1    0    0    3    1    0    0    0    0
+## 20   0   0   0   8   0   0   0  38    6    0    0    7    1    0    0    1    0
+## 21   0   0   0   1   1   0   0   0    0    0    0   17    0    0    0  138    0
+## 22   0   0   0   0   1   0   0   0    0    0    4   17    0    0    6    0   14
+## 23   0   0   0   0   4   0   0   0    0    0    0   12    0    0    1    0    0
+## 24   0   0   0   1   1   0   0   0    3    0    2    1    0    0   50    0    5
+## 25   0   0   0   0   4   0   0   0    0    0    0    8    0    0   22   36    0
+## 26   0   0   0   0   0   0   0   0    0   47   25    0    0    0    6    0    0
+## 27   0  11   0   1   0  29   0   0    0    0  221    0    0    0    9    0    0
+## 28   0  47   0   1  24   0   0   0    0   47   78    0    0    0   28    0    0
+## 29   0  18   0   1   0   0   0   0    0    0   66    0    0    0   23    0    0
+## 31  15   0 134  11   0   0   0   0    0    0    0    0    0    0    0    0    0
+## 32   0   0   1  82   0   0   5   0    0    0    0    0    0   46    0    0    0
+## 33   0   0   0  53   0   0   1   0    0    0    0    0    0   57    0    0    7
+## 34   0   0   0  15   0   0   2   0    3    0    0    0    0   26    0    0    0
+## 41   0   0   0   8   3   0   0   0    0  171   15    1    0    0    0    0    0
+## 42   0   0   0  19   0   0   0   0    2   32    0    0    0    0    0    0    0
+## 43   0   0   2   3   1   0   0   0   12   62    2    1    4    0    0    0    0
+## 44   0   0  11   4  12   0   0   0    2   66   12   31    0    0    0    0   19
+## 45   0   0   0  10   2   0   0   0    0   84    6    0    3    0    0    0    0
+## 46   0   0   0   4  20   0  16   0   10    0    0    1    3    0    0    0    0
+## 47   0   0   0  12  13   0   0  45   14    0    0    0   11    0    0    0    0
+## 48   0   0   0   7   0   0 133   0    1    0    0   13    3    0    0   18    0
+## 49   0   0   0   1   5   0   0  50    0    0    0    1    0    0    0    0    0
+## 50   0   0   0  10  22   0  75   0    4    0    0    0   45    0    0    0    0
+## 51   0   0   0   1   2   0   0   0    0    3    0   44    0    0    0    0    0
+## 53   0   0   0   0  13   0   0   1    0    0    0  109    0    0    0   66    0
+## 54   0   0   1   0  12   0   0   0    0    0  113   78    0    0   41   45    0
+## 55   0   0  16   0  55   0   0   0    0    0    0   11    0    0   23   94   36
+##    sp20 sp21 sp22 sp23 sp24 sp25 sp27 sp28 sp29 sp30 sp31 sp32 sp33 sp34 sp35
+## 1     1    0    0    0   21    5    0    0    1    4    0  113    0    0    4
+## 2     0    0    0    0    5   21    0    0    0   63    0   29    0    0    0
+## 3     0    9    1    0   64   12    0    1   30    6    0   21    0    0    0
+## 4     1    5    0    0    8    1    0    0    0    0    0  298    0    0    0
+## 5     6   14    1    0   42    6    0    5    0   15    0   21    0    0    1
+## 6     0    0   14   13    0    0    0    0    0   42    0    0    2    4    0
+## 7     0    0    1    2    0    0   41    0    0   71    0    0   80   19    0
+## 8     0    0    3    0    0    0    0    0    0   59    0    0   13   12    0
+## 9     0    0    1    2    0    0   14    0    0  139    0    0    9    3    0
+## 10    0    0    0   17    0    0    0    0    0  135    0    0   75   16    0
+## 11   12    7    3    0   16   10    0    9    0   48    1    5    0    0    0
+## 12    6    5   11    0  103    0    0    0    0   27    0   17    0    0    0
+## 13    1   22   14    0   70    0    0    0    0   63    0    6    0    0    0
+## 14   48    5    2    0   63    1    0   12    0    3    0    7    0    0    0
+## 15    9   11    1    0   57    0    0   12    0    0    1   31    0    0    0
+## 17    0    0    0   68    0    0    0    0    0   28    0    0    0    0    0
+## 18    0    0    0   52    0    0    0    0    0   31    5    0    0    0    0
+## 19    0    0    0    6    0    1    0    0    0   41    0    0    0    0    0
+## 20    0    0    0   35    0    1    0    0    0   24    1    0    0    0    0
+## 21    0    1    6    0    0    0    0    0    0    1    0   80    0    0    2
+## 22    0    0    7    1    0    1    0    0    0    7    0   46    0    2   19
+## 23    0    0    2    0    0    0    0    0    0   20    2  112    0    0    0
+## 24    0    0    2    2    0    1    0    0    0    8    0   73    0    0    0
+## 25    0    0    2    1    0    0    0    0    0    2    0   97    0    1    1
+## 26    0    0    0    0    0    2    0    3    0    2    0  142    0    0    0
+## 27    0    0    0    0    0    0    0    0    0    0    0   13    0    0    1
+## 28    0    1    2    0   34    1    0    1    0    0    0  124    0    9   38
+## 29    2    1    2    0    3    0    0    0   12    0    0  110    0   20    0
+## 31    0    0    1    0    0    0    0    0    0    8    0    0   67   65    0
+## 32    0    0    0    0    0    0    0    0    0    2    0    0  123   10    0
+## 33    0    0    0    0    0    0    8    0    0    5    0    0   68  213    0
+## 34    0    0    0    0    0    0    0    0    0    1    0    0  106  140    0
+## 41    2    7    1    0    4   24    0    8    0   28    0   16    0    3    0
+## 42   12    3    0    0    3   25    0    0    0   46    0  194    0    0    0
+## 43   26   16    0    0    0    7    0    0    0    1    3  107    0    0    0
+## 44    3   12    0   11    0    3    0    1    0    2    1   34    0   12    0
+## 45    1    2    1    0    0   64    0    0    0    2    0   57    0    1    0
+## 46    0    0    0   17    0    7    0    0    0  162   24    0    0    1    0
+## 47    0    0    2  113    0   18    0    0    0  100    3    0    0    0    0
+## 48    0    0    2   59    0    1    0    0    0   61    0    0    0    0    0
+## 49    0    0    0   33    0    2    0    0    0  162   20    0    0    0    0
+## 50    0    0    0   21    0    3    0    0    0  182   11    0    0    0    0
+## 51    0    0    0    3    0    2    0    0    0    1    0  315    0    0   49
+## 53    0    1    0    0    0    0    0   10    0    6    3   36    0    0    0
+## 54    0    0    0    0    0    1    0    1    0    0    0    1    0    0    0
+## 55    0    0    2    0    0    0    0    0    0    0    0  165    0    0    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ambie_fren_dat }\CommentTok{# matriz de variáveis ambientais por localidade}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Grazing Aridity Exclosure Bare.ground.2009 Altitude
+## 1    Grazed   5.003         0             77.6      928
+## 2    Grazed   5.003         0             84.9      976
+## 3    Grazed   5.109         0             85.7      936
+## 4    Grazed   5.109         0             59.2      937
+## 5    Grazed   5.003         0             85.0      937
+## 6    Grazed   2.625         0             78.8     1628
+## 7    Grazed   2.625         0             75.2     1599
+## 8    Grazed   2.985         0             73.7     1611
+## 9    Grazed   2.625         0             71.8     1598
+## 10   Grazed   2.985         0             72.5     1593
+## 11   Grazed   5.109         0             81.5      917
+## 12   Grazed   5.109         0             81.3      929
+## 13   Grazed   5.109         0             75.2      941
+## 14   Grazed   5.109         0             84.9      945
+## 15   Grazed   5.109         0             92.1      927
+## 17   Grazed   4.254         0             75.3     1286
+## 18   Grazed   4.088         0             76.7     1314
+## 19   Grazed   4.425         0             62.8     1302
+## 20   Grazed   4.425         0             74.8     1302
+## 21   Grazed   4.536         0             82.6      978
+## 22   Grazed   4.533         0             90.1      919
+## 23   Grazed   4.533         0             85.7      921
+## 24   Grazed   4.397         0             90.3      911
+## 25   Grazed   3.903         0             84.4      938
+## 26 Ungrazed   5.003        13             75.7      950
+## 27 Ungrazed   5.003        13             75.3      946
+## 28 Ungrazed   5.003        13             75.3      947
+## 29 Ungrazed   5.003        13             59.8      955
+## 31 Ungrazed   2.625         5             76.5     1628
+## 32 Ungrazed   2.625         5             43.5     1617
+## 33 Ungrazed   2.625         5             57.0     1611
+## 34 Ungrazed   2.625         5             68.5     1611
+## 41 Ungrazed   4.965        50             84.8     1050
+## 42 Ungrazed   4.965        50             45.8     1048
+## 43 Ungrazed   4.965        50             68.3     1063
+## 44 Ungrazed   4.965        50             83.9     1064
+## 45 Ungrazed   4.965        50             74.0     1068
+## 46 Ungrazed   4.254         1             70.0     1291
+## 47 Ungrazed   4.254         1             65.5     1297
+## 48 Ungrazed   4.254         1             55.5     1293
+## 49 Ungrazed   4.254         1             60.3     1302
+## 50 Ungrazed   4.425         1             52.3     1302
+## 51 Ungrazed   4.536        11             52.5      988
+## 53 Ungrazed   3.906        11             80.5     1034
+## 54 Ungrazed   3.906        11             79.3     1034
+## 55 Ungrazed   3.906        11             59.3     1034
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{trait_fren_dat }\CommentTok{# matriz de atributos contínuos por espécie}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           LA    SLA    LDMC   LN15     LCC
+## sp1   22.201  5.393 257.969  3.210 432.680
+## sp2   27.803  3.642 194.628  6.257 281.276
+## sp3   14.960  9.524 236.038  5.051 468.355
+## sp5   30.828 15.949 244.372 -0.421 450.266
+## sp6   50.863  4.505 315.679 -1.904 463.876
+## sp7  286.552  8.619 201.724  3.193 450.805
+## sp8  182.924 20.532 119.861  7.623 389.473
+## sp9  629.033 15.377 143.187  3.340 393.802
+## sp10  17.820 26.600 247.820  4.549 419.162
+## sp11  55.044  3.751 301.926  8.052 404.560
+## sp12  14.048  5.933 325.822  1.669 443.315
+## sp13   3.643  9.843 209.086  4.929 420.098
+## sp14  35.037 13.796 178.776 -0.400 462.883
+## sp15  37.975  8.975 306.213 10.228 419.355
+## sp17  10.163  8.379 154.654  5.182 403.914
+## sp18 430.583  1.906 598.311 -1.167 462.227
+## sp19   9.744  8.334 210.496  3.841 458.277
+## sp20  25.373 11.740 231.553  4.023 405.811
+## sp21  76.946 20.456 139.723  3.147 433.548
+## sp22   4.296 12.278 227.964  3.833 426.892
+## sp23  71.477 11.130 270.938  2.336 408.617
+## sp24  78.794 13.624 235.067  1.997 420.955
+## sp25  25.448 10.468 234.652  3.026 433.149
+## sp27   2.255  5.392 279.853 10.324 425.468
+## sp28   3.851  3.513 301.856  6.186 401.162
+## sp29  23.231  4.510 158.147  5.936 294.205
+## sp30   6.978 14.850 311.852 -0.157 457.671
+## sp31   9.564 10.946 159.904  3.021 369.946
+## sp32  40.091 10.578 358.145  2.499 455.474
+## sp33  18.449  4.445 432.189  4.480 432.073
+## sp34  29.501  4.860 410.760  3.689 433.906
+## sp35  21.275  3.577 441.302  0.170 448.661
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Hipótese e predições:}
+
+\CommentTok{# Hipótese: O gradiente de aridez influencia a divergência e regularidade funcional de plantas}
+\CommentTok{# Predição 1: locais mais áridos possuem menor divergência funcional de plantas (métrica escolhida: FDis)}
+\CommentTok{# Predição 2: locais mais úmidos possuem menor regularidade funcional de plantas (métrica escolhida: FEve)}
+
+\CommentTok{## Passo 1: calcular a distância funcional}
+
+\NormalTok{trait_pad <-}\StringTok{ }\KeywordTok{decostand}\NormalTok{(trait_fren_dat, }\StringTok{"standardize"}\NormalTok{)}
+\NormalTok{euclid_dis <-}\StringTok{ }\KeywordTok{vegdist}\NormalTok{(trait_pad, }\StringTok{"euclidean"}\NormalTok{)}
+
+
+\CommentTok{## Passo 2: calcular a Divergência funcional (FDis) e Regularidade Funcional (FEve)}
+
+\NormalTok{fdis <-}\StringTok{ }\KeywordTok{dbFD}\NormalTok{(euclid_dis, comun_fren_dat)}\OperatorTok{$}\NormalTok{FDis}\CommentTok{# Fdis=0 em locais com somente uma espécie}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## FRic: No dimensionality reduction was required. All 5 PCoA axes were kept as 'traits'. 
+## CWM: When 'x' is a distance matrix, CWM cannot be calculated.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{feve <-}\StringTok{ }\KeywordTok{dbFD}\NormalTok{(euclid_dis, comun_fren_dat)}\OperatorTok{$}\NormalTok{FEve}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## FRic: No dimensionality reduction was required. All 5 PCoA axes were kept as 'traits'. 
+## CWM: When 'x' is a distance matrix, CWM cannot be calculated.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Passo 3: Utilizar um modelo linear para comparar o efeito da aridez sobre FDis (predição 1) e FEve (predição 2)}
+
+\NormalTok{lm_dat <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{aridez =}\NormalTok{ ambie_fren_dat}\OperatorTok{$}\NormalTok{Aridity, }\DataTypeTok{fdis =}\NormalTok{ fdis, }\DataTypeTok{feve =}\NormalTok{ feve)}
+
+\NormalTok{mod1 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(fdis }\OperatorTok{~}\StringTok{ }\NormalTok{aridez, }\DataTypeTok{data =}\NormalTok{ lm_dat)}
+\KeywordTok{plot}\NormalTok{(mod1) }\CommentTok{# conferir os pressupostos da análise}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-1.pdf} \includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-2.pdf} \includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-3.pdf} \includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(mod1) }\CommentTok{# Conclusão: a aridez não tem efeito sobre a divergência funcional}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: fdis
+##           Df Sum Sq Mean Sq F value Pr(>F)
+## aridez     1 0.2083 0.20834  0.9945 0.3241
+## Residuals 44 9.2179 0.20950
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod2 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(feve }\OperatorTok{~}\StringTok{ }\NormalTok{aridez, }\DataTypeTok{data =}\NormalTok{ lm_dat)}
+\KeywordTok{plot}\NormalTok{(mod2) }\CommentTok{# conferir os pressupostos da análise}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-5.pdf} \includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-6.pdf} \includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-7.pdf} \includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-8.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(mod2) }\CommentTok{# Conclusão: a aridez não tem efeito sobre a regularidade funcional}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: feve
+##           Df  Sum Sq  Mean Sq F value Pr(>F)
+## aridez     1 0.02098 0.020979  1.0447 0.3123
+## Residuals 44 0.88353 0.020080
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Passo 4: gráfico para visualizar os dois resultados  }
+
+\NormalTok{lm_dat }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{aridez, }\DataTypeTok{y=}\NormalTok{fdis)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{pch=}\DecValTok{21}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{color =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"royalblue"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Aridez"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Divergência Funcional (FDis)"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"top"}\NormalTok{, }\DataTypeTok{legend.title=}\KeywordTok{element_blank}\NormalTok{()) ->}\StringTok{ }\NormalTok{plot_pred1}
+\NormalTok{plot_pred1}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-9.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lm_dat }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{aridez, }\DataTypeTok{y=}\NormalTok{feve)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{pch=}\DecValTok{21}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{color =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"#d73027"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Aridez"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Regularidade Funcional (FEve)"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.title.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{face=}\StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{14}\NormalTok{),}
+        \DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{vjust=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{size=}\DecValTok{12}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"top"}\NormalTok{, }\DataTypeTok{legend.title=}\KeywordTok{element_blank}\NormalTok{()) ->}\StringTok{ }\NormalTok{plot_pred2}
+\NormalTok{plot_pred2}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-10.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Visualização dos dois gráficos em um única janela}
+
+\KeywordTok{grid.arrange}\NormalTok{(plot_pred1, plot_pred2, }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-67-11.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Exportar resultad em pdf. Você pode mudar .pdf por .png ou .svg.}
+\KeywordTok{ggsave}\NormalTok{(}\StringTok{"plot_pred1.pdf"}\NormalTok{, plot_pred1, }\DataTypeTok{height =} \DecValTok{14}\NormalTok{, }\DataTypeTok{width =} \DecValTok{14}\NormalTok{, }\DataTypeTok{dpi =} \DecValTok{600}\NormalTok{, }\DataTypeTok{units =} \StringTok{"cm"}\NormalTok{)}
+\KeywordTok{ggsave}\NormalTok{(}\StringTok{"plot_pred2.pdf"}\NormalTok{, plot_pred2, }\DataTypeTok{height =} \DecValTok{14}\NormalTok{, }\DataTypeTok{width =} \DecValTok{14}\NormalTok{, }\DataTypeTok{dpi =} \DecValTok{600}\NormalTok{, }\DataTypeTok{units =} \StringTok{"cm"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{### Exemplo 2: o pastejo influencia a diversidade beta funcional de 34 espécies de plantas (Frenette-Dussault et al. 2012)}
+
+
+\CommentTok{# Dados}
+
+\NormalTok{comun_fren_dat }\CommentTok{# matriz de espécies por localidade}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    sp1 sp2 sp3 sp5 sp6 sp7 sp8 sp9 sp10 sp11 sp12 sp13 sp14 sp15 sp17 sp18 sp19
+## 1    0  74   0   5   5   0   0   0    0   47    3    2    0    0   14    0    0
+## 2    0  10   0   6   0   0   0   0    2    4    2   24    0    0   47    0    0
+## 3    0   1   0   0   0   0   0   0    0    0    0    0    1    0   24    0    0
+## 4    0   3   0   0   0   0   0   0    0    0    0    2    0    0    3    0    0
+## 5    0   0   0  15   0   0   0   0    0   27    0    2    0    0    0    0    0
+## 6   23   0  22   2   0   0   7   0    4    0    0    0    0    0    0    0    0
+## 7    2   0   0   3   0   0   0   0    0    0    0    2    0    2    0    0    0
+## 8    7   0   0   7   0   0  10   0   43    0    0    0    0    2    0    0    0
+## 9    0   0   5   8   0   0   8   0    1    0    0    0    0    0    0    0    0
+## 10   1   0   0   4   0   0  16   0    0    0    0    0    0    1    0    0    5
+## 11   0   0   0   2   0   0   0   0    0    0    1    0    0    0   21    0    0
+## 12   0   5   0   1   0   0   0   0    0    0    0    0    0    0   35    0    0
+## 13   0   7   0   3   0   0   0   0    0    0    0    0    0    0   29    0    0
+## 14   0   1   0   0   0   0   0   0    0    0    0    0    0    0    4    0    0
+## 15   0   8   0   4   0   0   0   0    0    0    0    0    0    0    0    0    0
+## 17   0   0   0  34   0   0  29   0    8    0    0    0    6    0    0    3    0
+## 18   0   0   0   3   0   0   0  59    0    0    0    9    9    0    0    0   30
+## 19   0   0   0  21   3   0 128   0    1    0    0    3    1    0    0    0    0
+## 20   0   0   0   8   0   0   0  38    6    0    0    7    1    0    0    1    0
+## 21   0   0   0   1   1   0   0   0    0    0    0   17    0    0    0  138    0
+## 22   0   0   0   0   1   0   0   0    0    0    4   17    0    0    6    0   14
+## 23   0   0   0   0   4   0   0   0    0    0    0   12    0    0    1    0    0
+## 24   0   0   0   1   1   0   0   0    3    0    2    1    0    0   50    0    5
+## 25   0   0   0   0   4   0   0   0    0    0    0    8    0    0   22   36    0
+## 26   0   0   0   0   0   0   0   0    0   47   25    0    0    0    6    0    0
+## 27   0  11   0   1   0  29   0   0    0    0  221    0    0    0    9    0    0
+## 28   0  47   0   1  24   0   0   0    0   47   78    0    0    0   28    0    0
+## 29   0  18   0   1   0   0   0   0    0    0   66    0    0    0   23    0    0
+## 31  15   0 134  11   0   0   0   0    0    0    0    0    0    0    0    0    0
+## 32   0   0   1  82   0   0   5   0    0    0    0    0    0   46    0    0    0
+## 33   0   0   0  53   0   0   1   0    0    0    0    0    0   57    0    0    7
+## 34   0   0   0  15   0   0   2   0    3    0    0    0    0   26    0    0    0
+## 41   0   0   0   8   3   0   0   0    0  171   15    1    0    0    0    0    0
+## 42   0   0   0  19   0   0   0   0    2   32    0    0    0    0    0    0    0
+## 43   0   0   2   3   1   0   0   0   12   62    2    1    4    0    0    0    0
+## 44   0   0  11   4  12   0   0   0    2   66   12   31    0    0    0    0   19
+## 45   0   0   0  10   2   0   0   0    0   84    6    0    3    0    0    0    0
+## 46   0   0   0   4  20   0  16   0   10    0    0    1    3    0    0    0    0
+## 47   0   0   0  12  13   0   0  45   14    0    0    0   11    0    0    0    0
+## 48   0   0   0   7   0   0 133   0    1    0    0   13    3    0    0   18    0
+## 49   0   0   0   1   5   0   0  50    0    0    0    1    0    0    0    0    0
+## 50   0   0   0  10  22   0  75   0    4    0    0    0   45    0    0    0    0
+## 51   0   0   0   1   2   0   0   0    0    3    0   44    0    0    0    0    0
+## 53   0   0   0   0  13   0   0   1    0    0    0  109    0    0    0   66    0
+## 54   0   0   1   0  12   0   0   0    0    0  113   78    0    0   41   45    0
+## 55   0   0  16   0  55   0   0   0    0    0    0   11    0    0   23   94   36
+##    sp20 sp21 sp22 sp23 sp24 sp25 sp27 sp28 sp29 sp30 sp31 sp32 sp33 sp34 sp35
+## 1     1    0    0    0   21    5    0    0    1    4    0  113    0    0    4
+## 2     0    0    0    0    5   21    0    0    0   63    0   29    0    0    0
+## 3     0    9    1    0   64   12    0    1   30    6    0   21    0    0    0
+## 4     1    5    0    0    8    1    0    0    0    0    0  298    0    0    0
+## 5     6   14    1    0   42    6    0    5    0   15    0   21    0    0    1
+## 6     0    0   14   13    0    0    0    0    0   42    0    0    2    4    0
+## 7     0    0    1    2    0    0   41    0    0   71    0    0   80   19    0
+## 8     0    0    3    0    0    0    0    0    0   59    0    0   13   12    0
+## 9     0    0    1    2    0    0   14    0    0  139    0    0    9    3    0
+## 10    0    0    0   17    0    0    0    0    0  135    0    0   75   16    0
+## 11   12    7    3    0   16   10    0    9    0   48    1    5    0    0    0
+## 12    6    5   11    0  103    0    0    0    0   27    0   17    0    0    0
+## 13    1   22   14    0   70    0    0    0    0   63    0    6    0    0    0
+## 14   48    5    2    0   63    1    0   12    0    3    0    7    0    0    0
+## 15    9   11    1    0   57    0    0   12    0    0    1   31    0    0    0
+## 17    0    0    0   68    0    0    0    0    0   28    0    0    0    0    0
+## 18    0    0    0   52    0    0    0    0    0   31    5    0    0    0    0
+## 19    0    0    0    6    0    1    0    0    0   41    0    0    0    0    0
+## 20    0    0    0   35    0    1    0    0    0   24    1    0    0    0    0
+## 21    0    1    6    0    0    0    0    0    0    1    0   80    0    0    2
+## 22    0    0    7    1    0    1    0    0    0    7    0   46    0    2   19
+## 23    0    0    2    0    0    0    0    0    0   20    2  112    0    0    0
+## 24    0    0    2    2    0    1    0    0    0    8    0   73    0    0    0
+## 25    0    0    2    1    0    0    0    0    0    2    0   97    0    1    1
+## 26    0    0    0    0    0    2    0    3    0    2    0  142    0    0    0
+## 27    0    0    0    0    0    0    0    0    0    0    0   13    0    0    1
+## 28    0    1    2    0   34    1    0    1    0    0    0  124    0    9   38
+## 29    2    1    2    0    3    0    0    0   12    0    0  110    0   20    0
+## 31    0    0    1    0    0    0    0    0    0    8    0    0   67   65    0
+## 32    0    0    0    0    0    0    0    0    0    2    0    0  123   10    0
+## 33    0    0    0    0    0    0    8    0    0    5    0    0   68  213    0
+## 34    0    0    0    0    0    0    0    0    0    1    0    0  106  140    0
+## 41    2    7    1    0    4   24    0    8    0   28    0   16    0    3    0
+## 42   12    3    0    0    3   25    0    0    0   46    0  194    0    0    0
+## 43   26   16    0    0    0    7    0    0    0    1    3  107    0    0    0
+## 44    3   12    0   11    0    3    0    1    0    2    1   34    0   12    0
+## 45    1    2    1    0    0   64    0    0    0    2    0   57    0    1    0
+## 46    0    0    0   17    0    7    0    0    0  162   24    0    0    1    0
+## 47    0    0    2  113    0   18    0    0    0  100    3    0    0    0    0
+## 48    0    0    2   59    0    1    0    0    0   61    0    0    0    0    0
+## 49    0    0    0   33    0    2    0    0    0  162   20    0    0    0    0
+## 50    0    0    0   21    0    3    0    0    0  182   11    0    0    0    0
+## 51    0    0    0    3    0    2    0    0    0    1    0  315    0    0   49
+## 53    0    1    0    0    0    0    0   10    0    6    3   36    0    0    0
+## 54    0    0    0    0    0    1    0    1    0    0    0    1    0    0    0
+## 55    0    0    2    0    0    0    0    0    0    0    0  165    0    0    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ambie_fren_dat }\CommentTok{# matriz de variáveis ambientais por localidade}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Grazing Aridity Exclosure Bare.ground.2009 Altitude
+## 1    Grazed   5.003         0             77.6      928
+## 2    Grazed   5.003         0             84.9      976
+## 3    Grazed   5.109         0             85.7      936
+## 4    Grazed   5.109         0             59.2      937
+## 5    Grazed   5.003         0             85.0      937
+## 6    Grazed   2.625         0             78.8     1628
+## 7    Grazed   2.625         0             75.2     1599
+## 8    Grazed   2.985         0             73.7     1611
+## 9    Grazed   2.625         0             71.8     1598
+## 10   Grazed   2.985         0             72.5     1593
+## 11   Grazed   5.109         0             81.5      917
+## 12   Grazed   5.109         0             81.3      929
+## 13   Grazed   5.109         0             75.2      941
+## 14   Grazed   5.109         0             84.9      945
+## 15   Grazed   5.109         0             92.1      927
+## 17   Grazed   4.254         0             75.3     1286
+## 18   Grazed   4.088         0             76.7     1314
+## 19   Grazed   4.425         0             62.8     1302
+## 20   Grazed   4.425         0             74.8     1302
+## 21   Grazed   4.536         0             82.6      978
+## 22   Grazed   4.533         0             90.1      919
+## 23   Grazed   4.533         0             85.7      921
+## 24   Grazed   4.397         0             90.3      911
+## 25   Grazed   3.903         0             84.4      938
+## 26 Ungrazed   5.003        13             75.7      950
+## 27 Ungrazed   5.003        13             75.3      946
+## 28 Ungrazed   5.003        13             75.3      947
+## 29 Ungrazed   5.003        13             59.8      955
+## 31 Ungrazed   2.625         5             76.5     1628
+## 32 Ungrazed   2.625         5             43.5     1617
+## 33 Ungrazed   2.625         5             57.0     1611
+## 34 Ungrazed   2.625         5             68.5     1611
+## 41 Ungrazed   4.965        50             84.8     1050
+## 42 Ungrazed   4.965        50             45.8     1048
+## 43 Ungrazed   4.965        50             68.3     1063
+## 44 Ungrazed   4.965        50             83.9     1064
+## 45 Ungrazed   4.965        50             74.0     1068
+## 46 Ungrazed   4.254         1             70.0     1291
+## 47 Ungrazed   4.254         1             65.5     1297
+## 48 Ungrazed   4.254         1             55.5     1293
+## 49 Ungrazed   4.254         1             60.3     1302
+## 50 Ungrazed   4.425         1             52.3     1302
+## 51 Ungrazed   4.536        11             52.5      988
+## 53 Ungrazed   3.906        11             80.5     1034
+## 54 Ungrazed   3.906        11             79.3     1034
+## 55 Ungrazed   3.906        11             59.3     1034
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{trait_fren_dat }\CommentTok{# matriz de atributos contínuos por espécie}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           LA    SLA    LDMC   LN15     LCC
+## sp1   22.201  5.393 257.969  3.210 432.680
+## sp2   27.803  3.642 194.628  6.257 281.276
+## sp3   14.960  9.524 236.038  5.051 468.355
+## sp5   30.828 15.949 244.372 -0.421 450.266
+## sp6   50.863  4.505 315.679 -1.904 463.876
+## sp7  286.552  8.619 201.724  3.193 450.805
+## sp8  182.924 20.532 119.861  7.623 389.473
+## sp9  629.033 15.377 143.187  3.340 393.802
+## sp10  17.820 26.600 247.820  4.549 419.162
+## sp11  55.044  3.751 301.926  8.052 404.560
+## sp12  14.048  5.933 325.822  1.669 443.315
+## sp13   3.643  9.843 209.086  4.929 420.098
+## sp14  35.037 13.796 178.776 -0.400 462.883
+## sp15  37.975  8.975 306.213 10.228 419.355
+## sp17  10.163  8.379 154.654  5.182 403.914
+## sp18 430.583  1.906 598.311 -1.167 462.227
+## sp19   9.744  8.334 210.496  3.841 458.277
+## sp20  25.373 11.740 231.553  4.023 405.811
+## sp21  76.946 20.456 139.723  3.147 433.548
+## sp22   4.296 12.278 227.964  3.833 426.892
+## sp23  71.477 11.130 270.938  2.336 408.617
+## sp24  78.794 13.624 235.067  1.997 420.955
+## sp25  25.448 10.468 234.652  3.026 433.149
+## sp27   2.255  5.392 279.853 10.324 425.468
+## sp28   3.851  3.513 301.856  6.186 401.162
+## sp29  23.231  4.510 158.147  5.936 294.205
+## sp30   6.978 14.850 311.852 -0.157 457.671
+## sp31   9.564 10.946 159.904  3.021 369.946
+## sp32  40.091 10.578 358.145  2.499 455.474
+## sp33  18.449  4.445 432.189  4.480 432.073
+## sp34  29.501  4.860 410.760  3.689 433.906
+## sp35  21.275  3.577 441.302  0.170 448.661
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Hipótese e predições:}
+
+\CommentTok{# Hipótese: o pastejo determina a ocorrência de espécies de plantas com diferentes atributos funcionais }
+\CommentTok{# Predição 1: a composição funcional de plantas é diferente entre áreas com e sem pastejo}
+
+
+\CommentTok{## Passo 1: calcular a distância funcional}
+
+\NormalTok{cwm_dis <-}\StringTok{ }\KeywordTok{vegdist}\NormalTok{(cwm_fren, }\StringTok{"euclidean"}\NormalTok{)}
+
+\CommentTok{## Passo 2: calcular os valores de composição funcional (CWM)}
+
+\NormalTok{cwm_fren <-}\StringTok{ }\KeywordTok{functcomp}\NormalTok{(trait_pad, }\KeywordTok{as.matrix}\NormalTok{(comun_fren_dat))}
+
+\CommentTok{## Passo 3: testar se a composição funcional varia entre as áreas com uma PERMANOVA}
+
+\NormalTok{perman_fren <-}\StringTok{ }\KeywordTok{adonis}\NormalTok{(cwm_fren}\OperatorTok{~}\NormalTok{Grazing, }\DataTypeTok{data =}\NormalTok{ ambie_fren_dat)}
+
+\CommentTok{## Passo 4: comparar a variação dentro de cada grupo com Betadisper }
+
+\NormalTok{betad_fren <-}\StringTok{ }\KeywordTok{betadisper}\NormalTok{(cwm_dis, ambie_fren_dat}\OperatorTok{$}\NormalTok{Grazing)}
+\KeywordTok{permutest}\NormalTok{(betad_fren)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Permutation test for homogeneity of multivariate dispersions
+## Permutation: free
+## Number of permutations: 999
+## 
+## Response: Distances
+##           Df  Sum Sq  Mean Sq      F N.Perm Pr(>F)
+## Groups     1  0.0539 0.053858 0.1946    999  0.682
+## Residuals 44 12.1763 0.276735
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Passo 5: visualização com PCoA}
+
+\KeywordTok{plot}\NormalTok{(betad_fren)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{livro_r_ecologia_files/figure-latex/unnamed-chunk-68-1.pdf}
 
   \bibliography{book.bib,packages.bib}
 
