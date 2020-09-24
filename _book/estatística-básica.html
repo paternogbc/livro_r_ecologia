@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-09-23" />
+<meta name="date" content="2020-09-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1239,7 +1239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb84-4"><a href="estatística-básica.html#cb84-4"></a><span class="co"># A hipótese nula é que o modelo mais simples é melhor</span></span>
 <span id="cb84-5"><a href="estatística-básica.html#cb84-5"></a><span class="co"># Valores de p &lt; 0.05 rejeita a hipótese nula e o modelo mais complexo é o melhor</span></span>
 <span id="cb84-6"><a href="estatística-básica.html#cb84-6"></a><span class="co"># Valores de p &gt; 0.05 não rejeita a hipótese nula e o modelo mais simples é o melhor</span></span>
-<span id="cb84-7"><a href="estatística-básica.html#cb84-7"></a><span class="kw">library</span>(emmeans)</span>
+<span id="cb84-7"><a href="estatística-básica.html#cb84-7"></a><span class="kw">library</span>(lmtest)</span>
 <span id="cb84-8"><a href="estatística-básica.html#cb84-8"></a><span class="kw">lrtest</span>(Modelo1, Modelo2)</span></code></pre></div>
 <pre><code>## Likelihood ratio test
 ## 
@@ -1527,7 +1527,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="estatística-básica.html#cb113-1"></a><span class="co"># Diferenças entre os tratamentos</span></span>
 <span id="cb113-2"><a href="estatística-básica.html#cb113-2"></a><span class="co">#***********************************</span></span>
 <span id="cb113-3"><a href="estatística-básica.html#cb113-3"></a><span class="co"># Teste de Tuckey&#39;s honest significant difference</span></span>
-<span id="cb113-4"><a href="estatística-básica.html#cb113-4"></a><span class="kw">library</span>(lsmeans)</span>
+<span id="cb113-4"><a href="estatística-básica.html#cb113-4"></a><span class="kw">library</span>(emmeans)</span>
 <span id="cb113-5"><a href="estatística-básica.html#cb113-5"></a><span class="kw">pairs</span>(<span class="kw">lsmeans</span>(model_bloco1, <span class="st">&quot;Pocas&quot;</span>), <span class="dt">adjust =</span> <span class="st">&quot;tukey&quot;</span>)</span></code></pre></div>
 <pre><code>##  contrast                estimate   SE df t.ratio p.value
 ##  Borda - (Int-100m)        16.000 6.57 20  2.436  0.1463 

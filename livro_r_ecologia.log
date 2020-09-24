@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.6.21)  23 SEP 2020 12:45
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.6.21)  24 SEP 2020 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1175,8 +1175,8 @@ Overfull \hbox (38.25pt too wide) in paragraph at lines 2724--2724
 
 
 Overfull \hbox (38.25pt too wide) in paragraph at lines 2724--2724
-[]\TU/lmtt/m/n/10 ## 1 0.00000000 0.000000000 0.00000000 0.00000000 0.000000000
- 0.000000000[] 
+[]\TU/lmtt/m/n/10 ## 1 0.10380209 0.542300691 0.50086515 0.43325916 0.114024105
+ 0.075651573[] 
  []
 
 
@@ -1187,8 +1187,8 @@ Overfull \hbox (38.25pt too wide) in paragraph at lines 2724--2724
 
 
 Overfull \hbox (38.25pt too wide) in paragraph at lines 2724--2724
-[]\TU/lmtt/m/n/10 ## 3 0.10380209 0.542300691 0.50086515 0.43325916 0.114024105
- 0.075651573[] 
+[]\TU/lmtt/m/n/10 ## 3 0.00000000 0.000000000 0.00000000 0.00000000 0.000000000
+ 0.000000000[] 
  []
 
 
@@ -1205,8 +1205,8 @@ Overfull \hbox (69.75pt too wide) in paragraph at lines 2724--2724
 
 
 Overfull \hbox (69.75pt too wide) in paragraph at lines 2724--2724
-[]\TU/lmtt/m/n/10 ## 1 0.05205792 0.00000000 0.07647191 0.3166705 0.00000000 0.
-0000000 0.20500174[] 
+[]\TU/lmtt/m/n/10 ## 1 0.00000000 0.00000000 0.06983991 0.1237394 0.02385019 0.
+0000000 0.05670453[] 
  []
 
 
@@ -1217,8 +1217,8 @@ Overfull \hbox (69.75pt too wide) in paragraph at lines 2724--2724
 
 
 Overfull \hbox (69.75pt too wide) in paragraph at lines 2724--2724
-[]\TU/lmtt/m/n/10 ## 3 0.00000000 0.00000000 0.06983991 0.1237394 0.02385019 0.
-0000000 0.05670453[] 
+[]\TU/lmtt/m/n/10 ## 3 0.05205792 0.00000000 0.07647191 0.3166705 0.00000000 0.
+0000000 0.20500174[] 
  []
 
 
@@ -1235,8 +1235,8 @@ Overfull \hbox (75.0pt too wide) in paragraph at lines 2724--2724
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 2724--2724
-[]\TU/lmtt/m/n/10 ## 1 0.07647191 0.00000000 0.0000000 0.05205792 0.07647191 0.
-00000000 0.00000000[] 
+[]\TU/lmtt/m/n/10 ## 1 0.04722294 0.02949244 0.0000000 0.00000000 0.00000000 0.
+00000000 0.03833408[] 
  []
 
 
@@ -1247,8 +1247,8 @@ Overfull \hbox (75.0pt too wide) in paragraph at lines 2724--2724
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 2724--2724
-[]\TU/lmtt/m/n/10 ## 3 0.04722294 0.02949244 0.0000000 0.00000000 0.00000000 0.
-00000000 0.03833408[] 
+[]\TU/lmtt/m/n/10 ## 3 0.07647191 0.00000000 0.0000000 0.05205792 0.07647191 0.
+00000000 0.00000000[] 
  []
 
 
@@ -1265,8 +1265,8 @@ Overfull \hbox (69.75pt too wide) in paragraph at lines 2724--2724
 
 
 Overfull \hbox (69.75pt too wide) in paragraph at lines 2724--2724
-[]\TU/lmtt/m/n/10 ## 1 0.00000000 0.0000000 0.18058775 0.31667052 0.05205792 0.
-7618709 0.00000000[] 
+[]\TU/lmtt/m/n/10 ## 1 0.00000000 0.0000000 0.00000000 0.01049901 0.00000000 0.
+0000000 0.00000000[] 
  []
 
 
@@ -1277,8 +1277,8 @@ Overfull \hbox (69.75pt too wide) in paragraph at lines 2724--2724
 
 
 Overfull \hbox (69.75pt too wide) in paragraph at lines 2724--2724
-[]\TU/lmtt/m/n/10 ## 3 0.00000000 0.0000000 0.00000000 0.01049901 0.00000000 0.
-0000000 0.00000000[] 
+[]\TU/lmtt/m/n/10 ## 3 0.00000000 0.0000000 0.18058775 0.31667052 0.05205792 0.
+7618709 0.00000000[] 
  []
 
 
@@ -1295,8 +1295,8 @@ Overfull \hbox (75.0pt too wide) in paragraph at lines 2724--2724
 
 
 Overfull \hbox (75.0pt too wide) in paragraph at lines 2724--2724
-[]\TU/lmtt/m/n/10 ##  3  3  3  3  2  3  3  2  3  3  3  3  3  3  2  2  2  2  4  
-4  4  1  1  1  4  4[] 
+[]\TU/lmtt/m/n/10 ##  1  1  1  1  2  1  1  2  1  1  1  1  1  1  2  2  2  2  4  
+4  4  3  3  3  4  4[] 
  []
 
 
@@ -1306,21 +1306,21 @@ Overfull \hbox (80.25pt too wide) in paragraph at lines 2724--2724
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 2752--2752
-[]\TU/lmtt/m/n/10 ##      2 groups  3 groups  4 groups  5 groups   6 groups   7
- groups   8 groups[] 
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2752--2752
+[]\TU/lmtt/m/n/10 ##      2 groups  3 groups  4 groups   5 groups  6 groups 7 g
+roups   8 groups[] 
  []
 
 [65]
-Overfull \hbox (69.75pt too wide) in paragraph at lines 2752--2752
-[]\TU/lmtt/m/n/10 ## SSE 8.2149405 6.4768108 5.0719796 4.3015573 3.58561200 2.9
-5236670 2.48405487[] 
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2752--2752
+[]\TU/lmtt/m/n/10 ## SSE 8.2149405 6.4768108 5.0719796 4.30155732 3.5856120 2.9
+52367 2.48405487[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 2752--2752
-[]\TU/lmtt/m/n/10 ## ssi 0.1312111 0.1685126 0.1398159 0.1286618 0.05917495 0.0
-8003379 0.08456383[] 
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2752--2752
+[]\TU/lmtt/m/n/10 ## ssi 0.1312111 0.1685126 0.1420398 0.08226682 0.1281785 0.1
+58845 0.07275788[] 
  []
 
 File: livro_r_ecologia_files/figure-latex/unnamed-chunk-40-1.pdf Graphic file (
@@ -1370,8 +1370,8 @@ Overfull \hbox (85.5pt too wide) in paragraph at lines 2940--2940
 
 
 Overfull \hbox (85.5pt too wide) in paragraph at lines 2940--2940
-[]\TU/lmtt/m/n/10 ##   1.000   0.056   0.014   0.427   0.201   0.068   0.255   
-1.000   0.637   1.000[] 
+[]\TU/lmtt/m/n/10 ##   1.000   0.064   0.015   0.405   0.216   0.071   0.255   
+1.000   0.634   1.000[] 
  []
 
 [69] [70
