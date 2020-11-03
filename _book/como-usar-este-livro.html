@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 11 Como usar este livro | Introdução ao R com aplicações em biodiversidade e conservação</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 11 Como usar este livro | Introdução ao R com aplicações em biodiversidade e conservação" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 11 Como usar este livro | Introdução ao R com aplicações em biodiversidade e conservação" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="" />
+
+
+<meta name="date" content="2020-11-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="por-que-usar-o-r.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-requisitos</a></li>
+<li class="chapter" data-level="2" data-path="estatística-básica.html"><a href="estatística-básica.html"><i class="fa fa-check"></i><b>2</b> Estatística básica</a><ul>
+<li class="chapter" data-level="2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-de-student-para-duas-amostras-independentes"><i class="fa fa-check"></i><b>2.1</b> Teste T (de Student) para duas amostras independentes</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise"><i class="fa fa-check"></i><b>2.1.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.1.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>2.1.2</b> Análise</a></li>
+<li class="chapter" data-level="2.1.3" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>2.1.3</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#teste-t-para-amostras-pareadas"><i class="fa fa-check"></i><b>2.2</b> Teste T para amostras pareadas</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-1"><i class="fa fa-check"></i><b>2.2.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>2.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="estatística-básica.html"><a href="estatística-básica.html#correlação-de-pearson"><i class="fa fa-check"></i><b>2.3</b> Correlação de Pearson</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-2"><i class="fa fa-check"></i><b>2.3.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>2.3.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-linear-simples"><i class="fa fa-check"></i><b>2.4</b> Regressão Linear Simples</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-3"><i class="fa fa-check"></i><b>2.4.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.4.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>2.4.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="estatística-básica.html"><a href="estatística-básica.html#regressão-linear-múltipla"><i class="fa fa-check"></i><b>2.5</b> Regressão Linear Múltipla</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-4"><i class="fa fa-check"></i><b>2.5.1</b> Background da análise</a></li>
+<li class="chapter" data-level="2.5.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>2.5.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análises-de-variância-anova"><i class="fa fa-check"></i><b>2.6</b> Análises de Variância (ANOVA)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise-5"><i class="fa fa-check"></i><b>2.6.1</b> Background da análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-um-fator"><i class="fa fa-check"></i><b>2.7</b> ANOVA de um fator</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>2.7.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-de-dois-fatores-ou-anova-fatorial"><i class="fa fa-check"></i><b>2.8</b> ANOVA de dois fatores ou Anova fatorial</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-7"><i class="fa fa-check"></i><b>2.8.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="estatística-básica.html"><a href="estatística-básica.html#anova-em-blocos-aleatorizados"><i class="fa fa-check"></i><b>2.9</b> ANOVA em blocos aleatorizados</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-8"><i class="fa fa-check"></i><b>2.9.1</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-de-covariância-ancova"><i class="fa fa-check"></i><b>2.10</b> Análise de covariância (ANCOVA)</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-9"><i class="fa fa-check"></i><b>2.10.1</b> Análise</a></li>
+<li class="chapter" data-level="2.10.2" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>2.10.2</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html"><i class="fa fa-check"></i><b>3</b> Introdução à Análises Multidimensionais</a><ul>
+<li class="chapter" data-level="3.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>3.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.2" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1"><i class="fa fa-check"></i><b>3.2</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise"><i class="fa fa-check"></i><b>3.2.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="3.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>3.2.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-2"><i class="fa fa-check"></i><b>3.3</b> Exemplo 2:</a></li>
+<li class="chapter" data-level="3.4" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise-1"><i class="fa fa-check"></i><b>3.4</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.5" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1-1"><i class="fa fa-check"></i><b>3.5</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise-1"><i class="fa fa-check"></i><b>3.5.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="3.5.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>3.5.2</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise-2"><i class="fa fa-check"></i><b>3.6</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="3.7" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#exemplo-1-2"><i class="fa fa-check"></i><b>3.7</b> Exemplo 1:</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#explicação-da-análise-2"><i class="fa fa-check"></i><b>3.7.1</b> Explicação da análise</a></li>
+<li class="chapter" data-level="3.7.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>3.7.2</b> Análise</a></li>
+<li class="chapter" data-level="3.7.3" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>3.7.3</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rarefação.html"><a href="rarefação.html"><i class="fa fa-check"></i><b>4</b> Rarefação</a><ul>
+<li class="chapter" data-level="4.1" data-path="estatística-básica.html"><a href="estatística-básica.html#background-da-análise"><i class="fa fa-check"></i><b>4.1</b> Background da análise</a></li>
+<li class="chapter" data-level="4.2" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-1---morcegos"><i class="fa fa-check"></i><b>4.2</b> Exemplo prático 1 - Morcegos</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="rarefação.html"><a href="rarefação.html#explicação"><i class="fa fa-check"></i><b>4.2.1</b> Explicação</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>4.2.2</b> Análise</a></li>
+<li class="chapter" data-level="4.2.3" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#interpretação-dos-resultados"><i class="fa fa-check"></i><b>4.2.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="rarefação.html"><a href="rarefação.html#exemplo-prático-2---rarefação"><i class="fa fa-check"></i><b>4.3</b> Exemplo prático 2 - Rarefação</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="rarefação.html"><a href="rarefação.html#explicação-1"><i class="fa fa-check"></i><b>4.3.1</b> Explicação</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>4.3.2</b> Análise</a></li>
+<li class="chapter" data-level="4.3.3" data-path="rarefação.html"><a href="rarefação.html#interpretação-dos-resultados-1"><i class="fa fa-check"></i><b>4.3.3</b> Interpretação dos resultados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>4.4</b> Para se aprofundar</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html"><i class="fa fa-check"></i><b>5</b> Estimadores de Riqueza</a><ul>
+<li class="chapter" data-level="5.1" data-path="introdução-à-análises-multidimensionais.html"><a href="introdução-à-análises-multidimensionais.html#backgorund-da-análise"><i class="fa fa-check"></i><b>5.1</b> Backgorund da análise</a></li>
+<li class="chapter" data-level="5.2" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-abundância-das-espécies"><i class="fa fa-check"></i><b>5.2</b> Estimadores baseados na abundância das espécies</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-1---chao-1984-1987"><i class="fa fa-check"></i><b>5.2.1</b> CHAO 1 - (Chao 1984, 1987):</a></li>
+<li class="chapter" data-level="5.2.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>5.2.2</b> Análise</a></li>
+<li class="chapter" data-level="5.2.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#ace---abundance-based-coverage-estimador-chao-lee-1992-chao-et-al.-2000"><i class="fa fa-check"></i><b>5.2.3</b> ACE - <em>Abundance-based Coverage Estimador</em> (Chao &amp; Lee 1992, Chao et al. 2000):</a></li>
+<li class="chapter" data-level="5.2.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>5.2.4</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#estimadores-baseados-na-incidência-das-espécies"><i class="fa fa-check"></i><b>5.3</b> Estimadores baseados na incidência das espécies</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#chao-2---chao-1987"><i class="fa fa-check"></i><b>5.3.1</b> CHAO 2 - (Chao 1987):</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-2"><i class="fa fa-check"></i><b>5.3.2</b> Análise</a></li>
+<li class="chapter" data-level="5.3.3" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-1-burnham-overton-1978-1979"><i class="fa fa-check"></i><b>5.3.3</b> JACKKNIFE 1 (Burnham &amp; Overton 1978, 1979):</a></li>
+<li class="chapter" data-level="5.3.4" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-3"><i class="fa fa-check"></i><b>5.3.4</b> Análise</a></li>
+<li class="chapter" data-level="5.3.5" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#jackknife-2-burnham-overton-1978-1979-palmer-1991"><i class="fa fa-check"></i><b>5.3.5</b> JACKKNIFE 2 (Burnham &amp; Overton 1978, 1979, Palmer 1991):</a></li>
+<li class="chapter" data-level="5.3.6" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-4"><i class="fa fa-check"></i><b>5.3.6</b> Análise</a></li>
+<li class="chapter" data-level="5.3.7" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#bootstrap-smith-van-belle-1984"><i class="fa fa-check"></i><b>5.3.7</b> BOOTSTRAP (Smith &amp; van Belle 1984):</a></li>
+<li class="chapter" data-level="5.3.8" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-5"><i class="fa fa-check"></i><b>5.3.8</b> Análise</a></li>
+<li class="chapter" data-level="5.3.9" data-path="estimadores-de-riqueza.html"><a href="estimadores-de-riqueza.html#interpolação-e-extrapolação-baseadas-em-rarefação-usando-amostragens-de-incidência-ou-abundância-chao-jost-2012-colwell-et-al.-2012"><i class="fa fa-check"></i><b>5.3.9</b> Interpolação e Extrapolação baseadas em rarefação usando amostragens de incidência ou abundância (Chao &amp; Jost 2012, Colwell et al. 2012):</a></li>
+<li class="chapter" data-level="5.3.10" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-6"><i class="fa fa-check"></i><b>5.3.10</b> Análise</a></li>
+<li class="chapter" data-level="5.3.11" data-path="estatística-básica.html"><a href="estatística-básica.html#para-se-aprofundar"><i class="fa fa-check"></i><b>5.3.11</b> Para se aprofundar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html"><i class="fa fa-check"></i><b>6</b> Diversidade Funcional</a><ul>
+<li class="chapter" data-level="6.1" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#aspectos-teóricos"><i class="fa fa-check"></i><b>6.1</b> 2.1 Aspectos teóricos</a></li>
+<li class="chapter" data-level="6.2" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#definindo-a-dissimilaridade-entre-espécies"><i class="fa fa-check"></i><b>6.2</b> 2.2. Definindo a dis(similaridade) entre espécies</a></li>
+<li class="chapter" data-level="6.3" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#métricas-de-diversidade-funcional-alpha"><i class="fa fa-check"></i><b>6.3</b> 2.3 Métricas de diversidade funcional (alpha)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#riqueza-funcional"><i class="fa fa-check"></i><b>6.3.1</b> 2.2.1 Riqueza funcional</a></li>
+<li class="chapter" data-level="6.3.2" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#divergência-funcional"><i class="fa fa-check"></i><b>6.3.2</b> 2.2.2. Divergência funcional</a></li>
+<li class="chapter" data-level="6.3.3" data-path="estatística-básica.html"><a href="estatística-básica.html#análise"><i class="fa fa-check"></i><b>6.3.3</b> Análise</a></li>
+<li class="chapter" data-level="6.3.4" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#regularidade-funcional"><i class="fa fa-check"></i><b>6.3.4</b> 2.2.3. Regularidade funcional</a></li>
+<li class="chapter" data-level="6.3.5" data-path="estatística-básica.html"><a href="estatística-básica.html#análise-1"><i class="fa fa-check"></i><b>6.3.5</b> Análise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="diversidade-funcional.html"><a href="diversidade-funcional.html#métricas-de-diversidade-funcional-beta"><i class="fa fa-check"></i><b>6.4</b> 2.3 Métricas de diversidade funcional (beta)</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="histórico-deste-livro.html"><a href="histórico-deste-livro.html"><i class="fa fa-check"></i><b>7</b> Histórico deste livro</a></li>
+<li class="chapter" data-level="8" data-path="objetivo-deste-livro.html"><a href="objetivo-deste-livro.html"><i class="fa fa-check"></i><b>8</b> Objetivo deste livro</a></li>
+<li class="chapter" data-level="9" data-path="o-que-você-não-encontrará-neste-livro.html"><a href="o-que-você-não-encontrará-neste-livro.html"><i class="fa fa-check"></i><b>9</b> O que você não encontrará neste livro</a></li>
+<li class="chapter" data-level="10" data-path="por-que-usar-o-r.html"><a href="por-que-usar-o-r.html"><i class="fa fa-check"></i><b>10</b> Por que usar o R?</a></li>
+<li class="chapter" data-level="11" data-path="como-usar-este-livro.html"><a href="como-usar-este-livro.html"><i class="fa fa-check"></i><b>11</b> Como usar este livro</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução ao R com aplicações em biodiversidade e conservação</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="como-usar-este-livro" class="section level1">
+<h1><span class="header-section-number">Capítulo 11</span> Como usar este livro</h1>
+<p>Os conteúdo apresentado em cada capítulo são independentes entre si. Portanto, você pode utilizar este livro de duas formas. A primeira é seguir uma ordem sequencial (capítulos 1, 2, 3, …) que recomendamos, principalmente, para as pessoas que não possuem familiaridade com a programação em R. A segunda é selecionar o capítulo que contém a análise de seu interesse e mudar de um capítulo para outro sem seguir a sequencia apresentada no livro.</p>
+<p>Com exceção dos capítulos 2 e 3, os outros capítulos foram elaborados seguindo a mesma estrutura contendo uma descrição da análise estatística (<em>background</em>) e exemplos relacionados com questões ecólogicas que podem ser respondidas por está análise. Todos os exemplos são compostos por: i) uma descrição dos dados utilizados, ii) pergunta e predição do trabalho, iii) descrição das variáveis resposta(s) e preditora(s), e iv) descrição e explicação das linhas de comando do R necessárias para realização da análises. Os exemplos utilizados são baseados em dados reais que já foram publicados em artigos científicos ou são dados coletados por um dos autores deste livro. Nós recomendamos que primeiro você utilize estes exemplos para se familiarizar com análises e a formatação das linhas e colunas das planilhas. Em seguida, utilize os seus dados para realizar as análises. Esta é a melhor maneira para se familiarizar com as linhas de comando do R. Realçamos que não estamos abordando todas as possibilidades dispníveis e existem outros pacotes e funções no R que realizam as mesmas análises. Contudo, esperamos que o conteúdo apresentado permita que os leitores adquiram indepedência e possam caminhar sozinhos na exploração de novos pacotes e funções para responderem suas perguntas biológicas.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="por-que-usar-o-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/paternogbc/livro_r_ecologia/edit/master/Introducao.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["livro_r_ecologia.pdf", "livro_r_ecologia.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
