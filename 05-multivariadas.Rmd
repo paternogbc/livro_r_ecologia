@@ -1,67 +1,117 @@
 # Introdução à Análises Multidimensionais
 
-Neste módulo iremos aprender como implementar no R as análises multivariadas mais comumente utilizadas em ecologia de comunidades. Para isso precisaremos dos pacotes `vegan`,`labdsv` e `ade4`. Procuraremos explicar brevemente a lógica por trás de cada teste, a sua aplicação em problemas comumente encontrados em estudos ecológicos, mas não destrinchar detalhadamente como cada método funciona e o seu componente matemático.
+Em geral, análises multivariadas têm três principais utilidades: reduzir a dimensionalidade dos dados e encontrar a principal direção de variação dos dados, testar relações entre matrizes, ou ainda encontrar diferenças entre grupos. Apesar dessas análises também serem utilizadas como análises exploratórias e para descrever padrões em estudos ecológicos, a necessidade de se ter hipóteses, ou ao menos expectativas a priori, não pode ser ignorada. Antes de entrar de cabeça nas análises multivariadas também, sugerimos fortemente o estudo de métodos de amostragem e como fazer boas perguntas.
 
-Em geral, análises multivariadas têm três principais utilidades: reduzir a dimensionalidade dos dados e encontrar a principal direção de variação dos dados, testar relações entre matrizes, ou ainda encontrar diferenças entre grupos. Apesar dessas análises também serem utilizadas como análises exploratórias e para descrever padrões em estudos ecológicos, a necessidade de se ter hipóteses, ou ao menos expectativas a priori, não pode ser ignorada. Se quiser saber mais sobre aspectos teóricos e filosóficos das análises, sugerimos consultar James & McCulloch (1990). Antes de entrar de cabeça nas análises multivariadas também, sugerimos fortemente o estudo de métodos de amostragem e como fazer boas perguntas. Não vamos nos extender muito nesses tópicos porque eles foram abordados nas aulas disponíveis no [YouTube](https://www.youtube.com/playlist?list=PLy2rjqiD2VP5G6pqMo_QlWo7I3yu-uFTk).
+Análises multivariadas podem ser divididas, grosseiramente, em dois tipos: agrupamento e ordenação. Análises de agrupamento em geral tentam agrupar objetos (observações) ou descritores em grupos de maneira que objetos do mesmo grupo sejam mais semelhantes entre si do que objetos de outros grupos (Legendre & Legendre, 2012). Por outro lado, a análise de ordenação é uma operação pela qual os objetos (ou descritores) são posicionados num espaço que contém menos dimensões que o conjunto de dados original; a posição dos objetos ou descritores em relação aos outros também podem ser usadas para agrupá-los.
 
-Análises multivariadas podem ser divididas, grosseiramente, em dois tipos: agrupamento e ordenação. Análises de agrupamento em geral tentam agrupar objetos (observações) em grupos de maneira que objetos do mesmo grupo sejam mais semelhantes entre si do que objetos de outros grupos. Mais formalmente, o agrupamento de objetos (ou descritores) é uma operação pela qual um conjunto de objetos (ou descritores) é particionado em dois ou mais subconjuntos, usando regras pré-estabelecidas de aglomeração ou divisão (Legendre & Legendre, 2012). Por outro lado, a análise de ordenação é uma operação pela qual os objetos (ou descritores) são posicionados num espaço que contém menos dimensões que o conjunto de dados original; a posição dos objetos ou descritores em relação aos outros também podem ser usadas para agrupá-los.
+Vamos começar com análises de agrupamento. Aqui vamos exemplificar dois métodos: uma técnica de agrupamento hierarquica (dendrograma) e outra não-hierarquica (k-means).
 
-Vamos começar com análises de agrupamento. Aqui vamos exemplificar dois métodos: uma técnica de agrupamento hierarquica (dendrograma) e outra não-hierarquica (k-means.
+## Coeficientes de associação
+
+Assim chamados genericamente, os coeficientes de associação medem o quão parecidos objetos ou descritores são entre si. Quando analisamos a relação entre objetos fazemos uma análise no modo Q, ao passo que o modo R é quando analisamos a relação entre descritores. Coeficientes de associação do modo Q são medidas de (dis)similaridade ou distância, enquanto para o modo R utilizamos covariância ou correlação. Como já tratamos neste livro sobre covariância e correlação, neste tópico vamos falar sobre índices de distância e similaridade. Mas qual a definição destas duas quantitades?
+
+> Similaridade são máximas (*S=1*) quando dois objetos são idênticos
+>
+> Distâncias são o contrário da similaridade (*D=1-S*) e não têm limites superiores (dependem da unidade de medida)
+
+Existem ao menos 26 índices de similaridade que podem ser agrupados de acordo com o tipo de dado (qualitativos ou quantitativos), a maneira com que lidam com duplos zeros (simétricos ou assimétricos). Do seu lado, as distâncias só se aplicam a dados quantitativos e têm como características serem métricas, semi-métricas ou não-métricas. Vejamos agora os principais índices de similaridade e distância de cada tipo.
+
+### Distâncias métricas
+
+O principal coeficiente de distância usado em ecologia é a distância euclidiana. Além disso temos ainda Canberra, Mahalanobis (calcula a distância entre dois pontos num espaço não ortogonal, levando em consideração a covariância entre descritores), Manhattan, Chord (elimina diferenças entre abundância total de espécies), 𝜒2 (dá peso maior para espécies raras), Hellinger (não dá peso para espécies raras). Essas distâncias são recomendada nos casos em que as variáveis de estudo forem contínuas, como por exemplo **variáveis morfométricas ou descritores ambientais**.
+
+Uma característica comum de conjuntos de dados ecológicos são os vários zeros encontrados em matrizes de composição. Eles surgem porque não encontramos nenhum indivíduo de uma determinada espécie num local, seja porque aquele local não tem as condições ambientais adequadas a ela, falha na detectabilidade, ou dinâmicas demográficas estocásticas de colonização-extinção. Logo, quando dois locais compartilham ausência de espécies, não é possível atribuir uma única razão da dupla ausência. Como essas medidas de distância apresentadas acima assumem que os dados são quantitativos e não de contagem, elas não são adequadas para lidar com dados de abundância ou incidência de espécies, porque atribuem um grau de parecênça a pares de locais que compartilham zeros [@numerica2012]. Por esse motivo precisamos de coeficientes que desconsiderem os duplos zeros. Eles são chamados de *assimétricos.*
+
+### Coeficientes assimétricos binários para objetos
+
+Esses coeficientes (ou índices) são apropriados para dados de incidência de espécies (presença-ausência) e desconsideram as duplas ausências. Os índices deste tipo mais comuns utilizados em ecologia são Sørensen, Jaccard, e Ochiai.
+
+$$
+\beta j= a/a+b+c
+$$
+
+, onde *a* = número de espécies compartilhadas, *b* = número de espécies exclusivas da comunidade 1, *c* = número de espécies exclusivas da comunidade 2. A diferença entre Jaccard e Sørensen é o Sørensen dá peso dobrado para duplas presenças. Por conta dessas características estes índices são adequados para quantificar diversidade beta [@legendre2013] [@anderson2010]. Esses índices variam entre 0 (nenhuma espécie é compartilhada entre o par de locais) a 1 (todas as espécies são compartilhadas entre o par de locais).
+
+### Coeficientes binários para descritores (R mode)
+
+Se o objetivo for calcular a similaridade entre descritores binários (e.g., presença ou ausência de características ambientais) de pares de locais, geralmente o coeficiente recomendado é o de Sokal & Michener. Este índice está implementado em `ade4::dist.binary`.
+
+### Coeficientes quantitativos para objetos 
+
+Estes são os coeficientes utilizados para dados de contagem (e.g., abundância), quantitativos (e.g., frequência, biomassa, porcentagem cobertura). Diferentemente das distâncias, estes coeficientes são assimétricos, ou seja, não consideram duplas ausências, e portanto são adequados para analisar dados de composição de espécies. Além disso, uma outra característica deles é serem semi-métricos. Os índices mais comuns deste tipo são Bray-Curtis (percentage difference), Chord, log-Chord, Hellinger, chi-quadrado, e Morisita-Horn.
+
+Todos os índices discutidos até aqui estão implementados nas funções `ade4::dist.ktab`, `adespatial::dist.ldc`, e `vegan::vegdist`.
+
+### Coeficientes para descritores (R mode) que que inclui mistura de tipos de dados
+
+É comum em análises de diversidade funcional que tenhamos um conjunto de atributos (traits) de espécies que são formados por vários tipos de dados: quantitativos (e.g., tamanho de corpo), binários (presença ausência de uma dada característica), fuzzy (um atributo multiestado descrito codificado em várias colunas com porcentagem), ordinais, e circulares (e.g., distribuição de uma fenofase ao longo de um ano). O índice que lida com todos esses dados é o Gower. A versão extendida do índice de Gower pode ser encontrada na função `ade4::dist.ktab.`
+
+O capítulo 7 de [@numerica2012] fornece uma chave dicotômica para escolha do índice mais adequado.
+
+## Padronizações e transformações
+
+É comum coletarmos múltiplas variáveis ambientais cujas unidades sejam diferentes. Por exemplo, temperatura (ºC), distância da margem (m), área (m^2^). Para diminuir a taxa de Erro Tipo I das análises é recomendado que ***padronizemos*** os dados utilizando distribuição *Z*, assim todas as variáveis passam a ter média 0 e desvio padrão 1. Essa padronização pode ser implementada na função `vegan::decostand`.
+
+Um outro problema comum de matrizes de dados de composição de espécies é o alto número de zeros, enquanto outras espécies podem ter altas abundâncias. Isso gera problemas em ordenações. Para diminuir esta discrepância podemos ***transformar*** os dados, por exemplo, utilizando a distância de Hellinger ou Chord. Isso pode ser feito na função `vegan::decostand`.
+
+# Análise de agrupamento hierarquico
 
 ## Backgorund da análise
 
-O objetivo da análise de agrupamento é agrupar objetos admitindo que haja um grau de similaridade entre eles. Esta análise pode ser utilizada ainda para classificar uma população em grupos homogêneos de acordo com uma característica de interesse. A grosso modo, uma análise de agrupamento tenta resumir uma grande quantidade de dados e apresentála de maneira fácil de visualizar e entender (em geral, na forma de um dendrograma). No entanto, os resultados da análise podem não refletir necessariamente toda a informação originalmente contida na matriz de dados. Para avaliar o quão bem uma análise de agrupamento representa os dados originais existe uma métrica — o coeficiente de correlação cofenético — o qual discutiremos em detalhes mais adiante.
+O objetivo da análise de agrupamento é agrupar objetos admitindo que haja um grau de similaridade entre eles. Esta análise pode ser utilizada ainda para classificar uma população em grupos homogêneos de acordo com uma característica de interesse. A grosso modo, uma análise de agrupamento tenta resumir uma grande quantidade de dados e apresentála de maneira fácil de visualizar e entender (em geral, na forma de um dendrograma). No entanto, os resultados da análise podem não refletir necessariamente toda a informação originalmente contida na matriz de dados. Para avaliar o quão bem uma análise de agrupamento representa os dados originais existe uma métrica --- o coeficiente de correlação cofenético --- o qual discutiremos em detalhes mais adiante.
 
-Antes de considerar algum método de agrupamento, pense porque você esperaria que houvesse uma descontinuidade nos dados; ou ainda, considere se existe algum ganho prático em dividir uma nuvem de objetos contínuos em grupos. O padrão apresentado pelo dendograma depende do protocolo utilizado (método de agrupamento e índice de dissimilaridade); os grupos formados dependem do nível de corte escolhido. O leitor interessado é remetido à duas referências: Legendre & Legendre (2012) e Borcard et al. (2018).
+Antes de considerar algum método de agrupamento, pense porque você esperaria que houvesse uma descontinuidade nos dados; ou ainda, considere se existe algum ganho prático em dividir uma nuvem de objetos contínuos em grupos. O padrão apresentado pelo dendograma depende do protocolo utilizado (método de agrupamento e índice de dissimilaridade); os grupos formados dependem do nível de corte escolhido.
 
-## Exemplo 1: 
+### Explicação da análise
 
-**Pergunta:** 
+A matriz deve conter os objetos a serem agrupados (e.g., espécies) nas linhas e as variáveis (e.g., locais de coleta ou medidas morfológicas) nas colunas. A escolha do método de agrupamento é crítico para a escolha de um coeficiente de associação. É importante compreender as propriedades dos métodos de agrupamento para interpretar corretamente a estrutura ecológica que eles evidenciam [@numerica2012]. De acordo com a classificação de Sneath & Sokal (1973) existem cinco tipos de métodos: 1) seqüenciais ou simultâneos; 2) aglomerativo ou divisivo ;3) monotéticos ou politéticos; 4) hierárquico ou não hierárquicos e 5) probabilístico.
+
+Métodos hierárquicos podem ser divididos naqueles que consideram o centróide ou a média aritmética entre os grupos. O principal método hierárquico que utiliza a média aritmética é o UPGMA (Agrupamento pelas médias aritméticas não ponderadas), e o principal método que utiliza centróides é a Distância mínima de Ward.
+
+O UPGMA funciona da seguinte forma: a maior similaridade (ou menor distância) identifica os próximos agrupamentos a serem formados. Após esse evento, o método calcula a média aritmética das similaridades ou distâncias entre um objeto e cada um dos membros do grupo ou, no caso de um grupo previamente formado, entre todos os membros dos dois grupos. Todos os objetos recebem pesos iguais no cálculo.
+
+O método de Ward é baseado no critério de quadrados mínimos (OLS), o mesmo utilizado para ajustar um modelo linear. O objetivo é definir os grupos de maneira que a soma de quadrados (i.e. similar ao erro quadrado da ANOVA) dentro dos grupos seja minimizada [@borcard2018].
+
+No entanto, para interpretar os resultados precisamos antes definir um nível de corte, que vai nos dizer quantos grupos existem. Há vários métodos para definir grupos, desde os heurísticos aos que utilizam bootstrap. Se quisermos interpretar este dendrograma, podemos por exemplo estabelecer um nível de corte de 50% de distância (ou seja, grupos cujos objetos tenham ao menos 50% de similaridade entre si).
+
+**Checklist**
+
+-   Verifique se não há espaço nos nomes das colunas e linhas
+-   Se os dados forem de abundância, recomenda-se realizar a transformação de Hellinger [@legendre2001].
+-   Se a matriz original contiver muitos valores discrepantes (e.g., uma espécie muito mais ou muito menos abundante que outras) é necessário transformar os dados usando `log1p`.
+-   Se as variáveis forem medidas tomadas em diferentes escalas (metros, graus celcius etc), é necessário padronizar cada variável para ter a média 0 e desvio padrão 1. Isso pode ser feito utulizando a função `decostand` do pacote `vegan`.
+
+## Exemplo 1:
+
+Neste exemplo vamos utilizar um conjunto de dados que contém larvas de espécies de anfíbios anuros coletados em 14 poças que diferiam em termos de cobertura de dossel.
+
+**Pergunta:**
 
 > Existem grupos de espécies de anfíbios anuros com padrões de ocorrência similar ao longo de poças?
 
 **Predições**
 
-> * 1: Iremos encontrar ao menos dois grupos de espécies: aquelas que ocorrem em poças dentro de floresta vs. aquelas que ocorrem em poças de áreas abertas.  
+> Iremos encontrar ao menos dois grupos de espécies: aquelas que ocorrem em poças dentro de floresta vs. aquelas que ocorrem em poças de áreas abertas.
 
 **Variáveis**
 
-* Variáveis preditoras
-  * 1.  A nossa matriz de dados contém a abundância das espécies nas linhas e locais (poças) nas colunas.
+-   Variáveis preditoras
 
-### Explicação da análise
-
-A matriz deve conter os objetos a serem agrupados (e.g., espécies) nas linhas e as variáveis (e.g., locais de coleta ou medidas morfológicas) nas colunas. 
-A escolha do método de agrupamento é crítico para a escolha de um coeficiente de associação. É importante compreender as propriedades dos métodos de agrupamento para interpretar corretamente a estrutura ecológica que eles evidenciam (Legendre & Legendre, 2012). De acordo com a classificação de Sneath & Sokal (1973) existem cinco tipos de métodos: 1) seqüenciais ou simultâneos; 2) aglomerativo ou divisivo ;3) monotéticos ou politéticos; 4) hierárquico ou não hierárquicos e 5) probabilístico.
-
-Métodos hierárquicos podem ser divididos naqueles que consideram o centróide ou amédia aritmética entre os grupos. O principal método hierárquico que utiliza a média aritmética é o UPGMA (Agrupamento pelas médias aritméticas não ponderadas), e o principal método que utiliza centróides é a Distância mínima de Ward.
-
-O UPGMA funciona da seguinte forma: a maior similaridade (ou menor distância) identifica os próximos agrupamentos a serem formados. Após esse evento, o método calcula a média aritmética das similaridades ou distâncias entre um objeto e cada um dos membros do grupo ou, no caso de um grupo previamente formado, entre todos os membros dos dois grupos. Todos os objetos recebem pesos iguais no cálculo.
-
-O método de Ward é baseado no critério de quadrados mínimos (OLS), o mesmo utilizado para ajustar um modelo linear. O objetivo é definir os grupos de maneira que a soma de quadrados (i.e. similar ao erro quadrado da ANOVA) dentro dos grupos seja minimizada (Borcard et al. 2018).
-
-**Checklist**
-
-* Verifique se não há espaço nos nomes das colunas e linhas
-* Se os dados forem de abundância, recomenda-se realizar a transformação de Hellinger (Legendre & Gallagher, 2001).
-* Se a matriz original contiver muitos valores discrepantes (e.g., uma espécie muito mais ou muito menos abundante que outras) é necessário transformar os dados usando `log1p`.
-* Se as variáveis forem medidas tomadas em diferentes escalas (metros, graus celcius etc), é necessário padronizar cada variável para ter a média 0 e desvio padrão 1. Isso pode ser feito utulizando a função `decostand` do pacote `vegan`.   
+    -   A nossa matriz de dados contém a abundância das espécies nas linhas e locais (poças) nas colunas.
 
 ### Análise
 
 Para começar, vamos primeiro importar os dados e depois calcular a matriz de distância que seja adequada para o tipo de dado que temos (abundância de espécies - dados de contagem)
 
 ```{r message=FALSE, warning=FALSE}
-library(ecodados) # Carrega o arquivo multivar_bocaina
-library(vegan)
+library(vegan) 
 
-
-#sp_compos <- read.table("bocaina.txt", h=TRUE)
-sp_compos  <- multivar_bocaina
+sp_compos <- ecodados::multivar_bocaina
 head(sp_compos)
-bocaina <- t(sp_compos)#transpondo a matriz para obter a classificação por linhas
-distBocaina <- vegdist(bocaina, method="horn")#produz uma matriz de similaridade com o coeficiente de Morisita-Horn
-dendro <- hclust(distBocaina, method="average")#produz um agrupamento com a função hclust e o método UPGMA
+#produz uma matriz de similaridade com o coeficiente de Morisita-Horn
+distBocaina <- vegdist(sp_compos, method="horn")
+#produz um agrupamento com a função hclust e o método UPGMA
+dendro <- hclust(distBocaina, method="average")
 ```
 
 Visualizar os resultados
@@ -70,32 +120,34 @@ Visualizar os resultados
 plot(dendro)
 ```
 
-#### Interpretação dos resultados
+#### Assessando a qualidade do dendrograma
 
-Antes de começarmos a interpretar os resultados precisamos verificar que o agrupamento reduziu a dimensionalidade da matiz de forma eficiente, de maneira a não distorcer a informação. Fazemos isso calculando o **Coeficiente de correlação cofenética (CCC)**
+Precisamos verificar que o agrupamento reduziu a dimensionalidade da matiz de forma eficiente, de maneira a não distorcer a informação. Fazemos isso calculando o **Coeficiente de correlação cofenética (CCC)**
 
 ```{r}
 cofresult <- cophenetic(dendro)
 cor(cofresult, distBocaina)
 ```
 
-Um CCC > .7 indica uma boa representação. Portanto, o nosso resultado de `r cor(cofresult, distBocaina)` é bastante alto, garantindo que o dendrograma é adequado.
-
-No entanto, para interpretar os resultados precisamos antes definir um nível de corte, que vai nos dizer quantos grupos existem. Há vários métodos para definir grupos, desde os heurísticos aos que utilizam bootstrap. Se quisermos interpretar este dendrograma, podemos por exemplo estabelecer um nível de corte de 50% de distância (ou seja, grupos cujos objetos tenham ao menos 50% de similaridade entre si).
+Um CCC \> .7 indica uma boa representação. Portanto, o nosso resultado de `r cor(cofresult, distBocaina)` é bastante alto, garantindo que o dendrograma é adequado.
 
 ```{r}
 plot(dendro)
 k = 4
-n = nrow(bocaina)
+n = ncol(sp_compos)
 MidPoint = (dendro$height[n-k] + dendro$height[n-k+1]) / 2
 abline(h = MidPoint, lty=2)
 ```
 
-Nesse caso teremos a formação de cinco grupos, representados pelos nós que estão abaixo da linha de corte.
+Nesse caso teremos a formação de cinco grupos, representados pelos nós que estão abaixo da linha de corte. Portanto, o resultado não suporta a nossa hipótese *a priori* que predizia a formação de apenas dois grupos de espécies.
 
-## Exemplo 2: 
+## Exemplo 2:
 
-A seguir, vamos utilizar o pacote `pvclust` que calcula automaticamente o nível de corte de similaridade baseado no Bootstrap de cada nó. Uma desvantagem deste método é que ele somente aceita índices de similaridade da função `dist` que possui apenas a distância Euclidiana, Manhattan e Canberra. Uma maneira de contornarmos essa limitação é utilizar transformações dos dados disponíveis na função `disttransform` no pacote `BiodiversityR` ou o `decostand` do pacote `vegan`. Também é possível utilizar a transformação de Box-Cox para dados multivariados, disponível no material suplementar de Legendre & Borcard (2018) [aqui](http://www.ecography.org/appendix/ecog-03498)
+No exemplo anterior vimos que é difícil interpretar os grupos baseado num nível de corte. A seguir, vamos utilizar o pacote `pvclust` que calcula automaticamente o nível de corte de similaridade baseado no Bootstrap de cada nó. Uma desvantagem deste método é que ele somente aceita índices de similaridade da função `dist` que possui apenas a distância Euclidiana, Manhattan e Canberra. Uma maneira de contornarmos essa limitação é utilizar transformações dos dados disponíveis na função `disttransform` no pacote `BiodiversityR` ou o `decostand` do pacote `vegan`. Também é possível utilizar a transformação de Box-Cox para dados multivariados, disponível no material suplementar de [@legendre2018] [aqui](http://www.ecography.org/appendix/ecog-03498)
+
+### Análise
+
+Vamos utilizar o mesmo conjunto de dados acima pra responder à mesma pergunta.
 
 ```{r message=FALSE, warning=FALSE}
 library(pvclust)
@@ -111,7 +163,7 @@ plot(analise, hang=-1)
 pvrect(analise)
 ```
 
-É possível notar que existe um único grupo com BS > 95%. Agora vamos tentar usar a distância de Hellinger:
+É possível notar que existe um único grupo com BS \> 95%. Agora vamos tentar usar a distância de Hellinger:
 
 ```{r}
 bocaina_transf2 <- disttransform(bocaina, "hellinger")
@@ -120,28 +172,33 @@ plot(analise2, hang=-1)
 pvrect(analise2)
 ```
 
-Notem que se mudarmos o coeficiente de associação, o resultado também muda. Agora temos 1 grupo a mais, composto por _Dendropsophus minutus_ e _Scinax duartei_ que não apareciam antes. Isso se deve ao fato de que a distância de Hellinger dá menos peso para espécies raras do que a Chord.
+### Interpretação dos resultados
+
+Notem que se mudarmos o coeficiente de associação, o resultado também muda. Agora temos 1 grupo a mais, composto por *Dendropsophus minutus* e *Scinax duartei* que não apareciam antes. Isso se deve ao fato de que a distância de Hellinger dá menos peso para espécies raras do que a Chord.
+
+Neste sentido, os dados não suportam a nossa hipótese inicial da formação de dois grupos, independentemente do coeficiente de associação utilizado.
 
 # K-means e agrupamentos não-hierarquicos
 
 ## Backgorund da análise
 
-K-means é um tipo de agrupamento não hierarquico porque não busca obter grupos menores que por sua vez pertencem a grupos maiores. Resumidamente, podemos calcular o K-means apartir de uma matriz quadrada ou de distância. Essa técnica procura particionar os objetos em _k_ grupos de maneira a minimizar a soma de quadrados entre grupos e maximizá-la dentro dos grupos. Um critério similar ao de uma ANOVA. 
+K-means é um tipo de agrupamento não hierarquico porque não busca obter grupos menores que por sua vez pertencem a grupos maiores. Resumidamente, podemos calcular o K-means apartir de uma matriz quadrada ou de distância. Essa técnica procura particionar os objetos em *k* grupos de maneira a minimizar a soma de quadrados entre grupos e maximizá-la dentro dos grupos. Um critério similar ao de uma ANOVA.
 
-## Exemplo 1: 
+## Exemplo 1
 
-**Pergunta:** 
+Para este exemplo iremos utilizar um conjunto de dados disponível no pacote `ade4` que contém dados de 27 espécies de peixes coletados em 30 pontos ao longo do Rio Doubs, na fronteira entre a França e Suiça.
+
+**Pergunta:**
 
 > Qual é o número de grupos que melhor sumariza o padrão de ocorrência de espécies de peixes ao longo de um riacho?
 
 **Predições**
 
-> * 1: O agrupamento ideal para explicar a variância no padrão de ocorrência de espécies é 4.  
+> -   O agrupamento ideal para explicar a variância no padrão de ocorrência de espécies é 4.
 
 **Variáveis**
 
-* Variáveis resposta
-  * 1.  Para este exemplo iremos utilizar um conjunto de dados disponível no pacote `ade4` que contém dados de 27 espécies de peixes coletados em 30 pontos ao longo do Rio Doubs, na fronteira entre a França e Suiça.
+-   Variáveis resposta
 
 ### Explicação da análise
 
@@ -149,7 +206,7 @@ Um diferencial do K-means em relação aos agrupamentos hierarquicos (=clusters)
 
 **Checklist**
 
-* Vamos normalizar os dados de abundância antes de entrar na análise propriamente, já que existem muitos zeros na matriz.
+-   Vamos normalizar os dados de abundância antes de entrar na análise propriamente, já que existem muitos zeros na matriz.
 
 ### Análise
 
@@ -170,7 +227,7 @@ spe.kmeans
 
 O objeto que fornece o resultado contém: 1) o tamanho (número de objetos) em cada um dos 4 grupos; 2) o centroid de cada grupo e o pertencimento de cada espécie a cada grupo; e 3) o quando da Soma de Quadrados dos dados é explicada por esta conformação de grupos.
 
-No entanto, não é possível saber a priori qual o número _ideal_ de grupos. Para descobrir isso repetimos o k-means com uma série de valores de **K**. Isso pode ser feito na função `cascadeKM`. 
+No entanto, não é possível saber a priori qual o número *ideal* de grupos. Para descobrir isso repetimos o k-means com uma série de valores de **K**. Isso pode ser feito na função `cascadeKM`.
 
 ```{r}
 spe.KM.cascade <- cascadeKM(spe.norm, inf.gr=2, sup.gr=10, iter=100, criterion="ssi") 
@@ -189,49 +246,53 @@ SSE: critério utilizado pelo algorítimo para achar o agrupamento ótimo dos ob
 plot(spe.KM.cascade, sortg=TRUE)
 ```
 
-Este resultado nos mostra que o número ideal de grupos é 3, vejam que o SSI máximo é alcançado neste número de grupos `r spe.KM.cascade$results[2,2]` (também indicado pela bola vermelha no plot).
+### Interpretação dos resultados
 
-#Espécies indicadoras
+Diferentemente da nossa predição inicial, o resultado da análise mostra que o número ideal de grupos para explicar a variância no padrão de ocorrência de espécies é 3. Notem que o SSI máximo é alcançado neste número de grupos `r spe.KM.cascade$results[2,2]` (também indicado pela bola vermelha no plot).
+
+# Espécies indicadoras
 
 ## Backgorund da análise
 
 Uma pergunta normalmente feita por ecólogos é: qual espécie pode ser indicadora de uma determinada condição ambiental?
 
-O índice IndVal mede dois aspectos das espécies: Especificidade e fidelidade. Uma alta fidelidade significa que espécies ocorrem em todos os locais do grupo e uma alta especificidade significa que as espécies ocorrem somente naquele grupo. Uma boa espécie indicadora é aquela na qual todos os indivíduos ocorrem em todas a amostras referentes a um grupo específico.
-A Especificidade é dada pela divisão da abundancia média da espécie no grupo pela somatória das abundancias médias dos grupos. Fidelidade é igual ao número de lugares no grupo onde a espécie está presente dividido pelo número total de lugares do grupo (Dufrêne & Legendre, 1997).
+O índice IndVal mede dois aspectos das espécies: Especificidade e fidelidade. Uma alta fidelidade significa que espécies ocorrem em todos os locais do grupo e uma alta especificidade significa que as espécies ocorrem somente naquele grupo. Uma boa espécie indicadora é aquela na qual todos os indivíduos ocorrem em todas a amostras referentes a um grupo específico. A Especificidade é dada pela divisão da abundancia média da espécie no grupo pela somatória das abundancias médias dos grupos. Fidelidade é igual ao número de lugares no grupo onde a espécie está presente dividido pelo número total de lugares do grupo (Dufrêne & Legendre, 1997).
 
 Espécies raras podem receber o mesmo valor de IndVal das espécies indicadoras e são chamadas de indicadoras assimétricas, i.e., contribuem com a especificidade do habitat mas não servem para predizer grupos. Ao contrário, as espécies indicadoras são verdadeiros indicadores simétricos e podem ser usadas para predizer grupos.
 
-## Exemplo 1: 
+## Exemplo 1:
 
-**Pergunta:** 
+**Pergunta:**
 
 > Qual espécie de anfíbio anuro na fase larval pode ser indicadora da fitofisionomia onde é encontrada?
 
 **Predições**
 
-> * 1: Espécies terrestres serão indicadoras de área aberta, enquanto espécies arborícolas serão indicadoras de áreas florestais.  
+> -   1: Espécies terrestres serão indicadoras de área aberta, enquanto espécies arborícolas serão indicadoras de áreas florestais.
 
 **Variáveis**
 
-* Variáveis resposta
-  * 1. Mesma matriz já utilizada contendo a abundância de girinos ao longo de poças na Serra da Bocaina.
+-   Variáveis resposta
+
+    -   Mesma matriz já utilizada contendo a abundância de girinos ao longo de poças na Serra da Bocaina.
 
 ### Explicação da análise
 
 A análise procede da seguinte forma:
 
- * 1. Uma matriz de distância é construída e as unidades amostrais são classificadas com alguma análise de agrupamento, hierárquico ou não;
+-   Uma matriz de distância é construída e as unidades amostrais são classificadas com alguma análise de agrupamento, hierárquico ou não;
 
- * 2. A variável ambiental para a qual se deseja classificar os grupos é inserida;
+-   A variável ambiental para a qual se deseja classificar os grupos é inserida;
 
- * 3. As espécies indicadoreas de cada grupo são formadas através do cálculo da especificidade e fidelidade, obtendo-se o valor de IndVal para cada espécie;
+-   As espécies indicadoreas de cada grupo são formadas através do cálculo da especificidade e fidelidade, obtendo-se o valor de IndVal para cada espécie;
 
- * 4. Por fim, o conjunto de dados originais é comparado para ver se análise faz sentido.
+-   Por fim, o conjunto de dados originais é comparado para ver se análise faz sentido.
 
-O cálculo da significância do índice de IndVal é feito por aleatorização de Monte Carlo. Assim, o valor do índice é aleatorizado 999 vezes (ou o número de vezes que você optar) dentro dos tratamentos e o valor de _P_ é dado pelo número de vezes em que o índice observado foi igual ou maior que os valores aleatorizados.
+O cálculo da significância do índice de IndVal é feito por aleatorização de Monte Carlo. Assim, o valor do índice é aleatorizado 999 vezes (ou o número de vezes que você optar) dentro dos tratamentos e o valor de *P* é dado pelo número de vezes em que o índice observado foi igual ou maior que os valores aleatorizados.
 
 ### Análise
+
+Para este exemplo vamos utilizado o mesmo conjunto de dados utilizado acima com abundância de 16 espécies de girinos coletados em 14 poças com diferentes graus de cobertura de dossel na Serra da Bocaina.
 
 O IndVal está disponível tanto no pacote `indicspecies` quando no `labdsv`. Para este exemplo iremos usar o labdsv.
 
@@ -261,9 +322,16 @@ colnames(tab.resultado)<-c("maxgrp", "ind. value","P")
 tab.resultado
 ```
 
-No resultado podemos ver que temos duas espécies indicadoras da fitofisionimia 1: _Rhinella icterica_ (Rict) e _Scinax duartei_ (Sduar). Nenhuma espécie foi indicadora dos outros grupos neste exemplo.
+### Interpretação dos resultados
+
+No resultado podemos ver que temos duas espécies indicadoras da fitofisionimia 1: *Rhinella icterica* (Rict) e *Scinax duartei* (Sduar). Nenhuma espécie foi indicadora dos outros grupos neste exemplo.
 
 ### Para se aprofundar
 
-* [Agrupamento de espécies e locais baseado em modelos ](https://www.sciencedirect.com/science/article/pii/S0304380010006393?casa_token=0YLFbVbGj1IAAAAA:RFcrLHBDdt-NY5gpxCEAqlc8LMG0ayzChpMvaOFQkE10ftg2Us6PafgMQCSmCZZ21eb430e_lWo)
-* [Numerical Ecology with R](http://adn.biol.umontreal.ca/~numericalecology/numecolR/)
+-   [Agrupamento de espécies e locais baseado em modelos](https://www.sciencedirect.com/science/article/pii/S0304380010006393?casa_token=0YLFbVbGj1IAAAAA:RFcrLHBDdt-NY5gpxCEAqlc8LMG0ayzChpMvaOFQkE10ftg2Us6PafgMQCSmCZZ21eb430e_lWo)
+
+-   [Numerical Ecology with R](http://adn.biol.umontreal.ca/~numericalecology/numecolR/)
+
+-   [James & McCulloch (1990)](https://www.annualreviews.org/doi/pdf/10.1146/annurev.es.21.110190.001021)
+
+-   [Legendre & Legendre (2012)](https://www.sciencedirect.com/bookseries/developments-in-environmental-modelling/vol/24)
