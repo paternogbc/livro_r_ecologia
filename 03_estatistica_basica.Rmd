@@ -46,12 +46,12 @@ Neste exemplo avaliaremos o comprimento rostro-cloacal (CRC em milímetros) de m
 
 **Checklist**
 
-* Verificar se o seu dataframe está com as unidades amostrais nas linhas e variáveis preditores nas colunas
+* Verificar se o seu dataframe está com as amostrais nas linhas e variáveis preditores nas colunas
 
 
 ### Análise
 
-Calculo do Teste T para duas amostras independentes com variâncias iguais
+Calculo do Teste T duas amostras independentes com variâncias iguais
 
 ```{r}
 
